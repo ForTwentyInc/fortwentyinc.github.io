@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html><head>
 <meta charset="UTF-8">
+<title>Calcolabilità</title>
+<link rel="stylesheet" href="style/style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha2/katex.min.css" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha2/katex.min.js" crossorigin="anonymous"></script>
@@ -324,7 +326,7 @@ kbd {
 figure figcaption {
   text-align: center;
   font-size: 12px;
-}
+}.8 -0.146 -�
 table.eq_table {
 	border-collapse: collapse;
  	border: 0;
@@ -507,60 +509,103 @@ img {
 *:not(span){
   unicode-bidi: plaintext;
 }
-�
+
 </style>
 </head>
 <body>
 <div class="document">
-<div class="header"></div><div class="inner">
-<h2 id="toc_1">Calcolabilità</h2>
-<div class="toc_container">
+<div class="header"><h1 class="title">Calcolabilità</h1>
+</div><div class="inner"><div class="toc_container">
 <h2 class="toc_header">Table of Contents</h2>
 <ul class="toc_list">
-<li><a href="#toc_1">Calcolabilità</a></li>
+<li><a href="#toc_1">Enumerazioni di Gödel</a></li>
 <ul>
-<li><a href="#toc_1.1">Enumerazioni di Gödel</a></li>
-<ul>
-<li><a href="#toc_1.1.1">Numerazione delle funzioni calcolabili</a></li>
-<li><a href="#toc_1.1.2">Il predicato T di Kleene</a></li>
-</ul>
-<li><a href="#toc_1.2">Funzioni non calcolabili</a></li>
+<li><a href="#toc_1.1">Numerazione delle funzioni calcolabili</a></li>
 <ul>
 </ul>
-<li><a href="#toc_1.3">Insiemi ricorsivi</a></li>
+<li><a href="#toc_1.2">Il predicato T di Kleene</a></li>
 <ul>
-<li><a href="#toc_1.3.1">Unione ed intersezione finita di insiemi ricorsivi</a></li>
 </ul>
-<li><a href="#toc_1.4">Insiemi ricorsivamente enumerabili</a></li>
-<ul>
-<li><a href="#toc_1.4.1">Teorema di complementazione</a></li>
-<li><a href="#toc_1.4.2">Caratterizzazioni equivalenti degli insiemi r.e.</a></li>
-<li><a href="#toc_1.4.3">Semidecidibilità</a></li>
-<li><a href="#toc_1.4.4">Enumerazione degli insiemi indipendenti</a></li>
-<li><a href="#toc_1.4.5">Teorema della proiezione</a></li>
-<li><a href="#toc_1.4.6">Unione ed intersezione finita di insiemi r.e.</a></li>
-<li><a href="#toc_1.4.7">Proprietà di chiusura rispetto a funzioni</a></li>
-<li><a href="#toc_1.4.8">Unione e intersezione infinite</a></li>
 </ul>
-<li><a href="#toc_1.5">I Teoremi di Rice e Rice-Shapiro</a></li>
+<li><a href="#toc_2">Funzioni non calcolabili</a></li>
 <ul>
-<li><a href="#toc_1.5.1">Insiemi estensionali</a></li>
+</ul>
+<li><a href="#toc_3">Insiemi ricorsivi</a></li>
+<ul>
+<li><a href="#toc_3.0.1">Esempi</a></li>
+<li><a href="#toc_3.1">Proprietà di chiusura di insiemi ricorsivi</a></li>
+<ul>
+</ul>
+</ul>
+<li><a href="#toc_4">Insiemi ricorsivamente enumerabili</a></li>
+<ul>
+<li><a href="#toc_4.1">Teorema di complementazione</a></li>
+<ul>
+</ul>
+<li><a href="#toc_4.2">Caratterizzazioni equivalenti degli insiemi r.e.</a></li>
+<ul>
+</ul>
+<li><a href="#toc_4.3">Semidecidibilità</a></li>
+<ul>
+</ul>
+<li><a href="#toc_4.4">Enumerazione degli insiemi indipendenti</a></li>
+<ul>
+<li><a href="#toc_4.4.1">L'insieme $K$ e il suo complementare</a></li>
+</ul>
+<li><a href="#toc_4.5">Teorema della proiezione</a></li>
+<ul>
+</ul>
+<li><a href="#toc_4.6">Unione ed intersezione finita di insiemi r.e.</a></li>
+<ul>
+</ul>
+<li><a href="#toc_4.7">Proprietà di chiusura rispetto a funzioni</a></li>
+<ul>
+<li><a href="#toc_4.7.1">Dimostrazione</a></li>
+</ul>
+<li><a href="#toc_4.8">Unione e intersezione infinite</a></li>
+<ul>
+</ul>
+</ul>
+<li><a href="#toc_5">I Teoremi di Rice e Rice-Shapiro</a></li>
+<ul>
+<li><a href="#toc_5.1">Insiemi estensionali</a></li>
+<ul>
+</ul>
+<li><a href="#toc_5.2">Teorema di Rice</a></li>
+<ul>
+<li><a href="#toc_5.2.1">Uso del teorema di Rice</a></li>
+</ul>
+<li><a href="#toc_5.3">Monotonia e compattezza</a></li>
+<ul>
+</ul>
+<li><a href="#toc_5.4">Rice-Shapiro (monotonia)</a></li>
+<ul>
+</ul>
+<li><a href="#toc_5.5">Rice-Shapiro (compattezza)</a></li>
+<ul>
+<li><a href="#toc_5.5.1">Applicazioni</a></li>
+</ul>
+</ul>
+<li><a href="#toc_6">I Teoremi di ricorsione</a></li>
+<ul>
+<li><a href="#toc_6.1">Il Teorema del punto fisso di Kleene (primo teorema di ricorsione)</a></li>
+<ul>
 </ul></div>
 
-<h3 id="toc_1.1">Enumerazioni di Gödel</h3>
+<h2 id="toc_1">Enumerazioni di Gödel</h2>
 
-<h4 id="toc_1.1.1">Numerazione delle funzioni calcolabili</h4>
+<h3 id="toc_1.1">Numerazione delle funzioni calcolabili</h3>
 
 <p>Dato un formalismo <strong>Turing completo</strong>, possiamo enumerare i programmi \(P_i\) definibili nel formalismo dato. Detta \(\varphi_i\) la funzione calcolata da \(P_i\), la numerazione dei programmi induce dunque una <strong>enumerazione</strong> di tutte le funzioni calcolabili.</p>
 
 <p>Cercheremo nel seguito di caratterizzare alcune alcune delle proprietà salienti della enumerazione \(\varphi_i\), in modo da lavorare ad un livello sufficiente di astrazione rispetto al modello di calcolo sottostante.</p>
 
-<h4 id="toc_1.1.2">Il predicato T di Kleene</h4>
+<h3 id="toc_1.2">Il predicato T di Kleene</h3>
 
 <blockquote>
-<p>Esiste un predicato \(T (i, n, k, t) tale che
-1. \)\varphi_i(n) = k \iff \exists t \ge k, T (i, n, k, t) = 1\(
-2. la funzione *caratteristica* di \)T$ è calcolabile</p>
+<p>Esiste un predicato \(T (i, n, k, t)\) tale che
+1. \(\varphi_i(n) = k \iff \exists t \ge k, T (i, n, k, t) = 1\)
+2. la funzione <em>caratteristica</em> di \(T\) è <strong>calcolabile</strong></p>
 </blockquote>
 
 <p>\(T\) è il predicato (intuitivamente calcolabile) che afferma che la computazione del programma di indice \(i\) su input \(n\) termina con risorse fissate (e.g. tempo o spazio) \(t\) e fornisce come risultato \(k\).</p>
@@ -575,7 +620,7 @@ img {
 
 <p><strong>È possibile decidere se una computazione si arresta in un tempo dato.</strong></p>
 
-<h3 id="toc_1.2">Funzioni non calcolabili</h3>
+<h2 id="toc_2">Funzioni non calcolabili</h2>
 
 <p>Sia \(\varphi_i\) una <em>enumerazione accettabile</em> delle funzioni <strong>parziali</strong> calcolabili.</p>
 
@@ -593,13 +638,13 @@ img {
 
 <p>\[\varphi_i \subseteq \varphi_j \iff \forall n \in dom(\varphi_i), \varphi_i (n) = \varphi_j (n)\]</p>
 
-<h3 id="toc_1.3">Insiemi ricorsivi</h3>
+<h2 id="toc_3">Insiemi ricorsivi</h2>
 
 <blockquote>
 <p>Un insieme si dice <strong>ricorsivo</strong> (o decidibile) se la sua funzione caratteristica è calcolabile.</p>
 </blockquote>
 
-<h5 id="toc_1.3.0.4">Esempi</h5>
+<h4 id="toc_3.0.1">Esempi</h4>
 
 <ol dir="auto">
 <li>l’insieme <strong>vuoto</strong> e l’insieme \(N\) di tutti i numeri naturali</li>
@@ -609,7 +654,7 @@ img {
 <li>tutti gli insiemi definiti da predicati <strong>primitivi ricorsivi</strong></li>
 </ol>
 
-<h4 id="toc_1.3.1">Unione ed intersezione finita di insiemi ricorsivi</h4>
+<h3 id="toc_3.1">Proprietà di chiusura di insiemi ricorsivi</h3>
 
 <blockquote>
 <p>Gli insiemi ricorsivi sono <strong>chiusi</strong> rispetto alle operazioni di unione, intersezione e complementazione.</p>
@@ -625,7 +670,7 @@ img {
 <li>\(c_{A \lor B}(n) = max\{c_A(n), c_B(n)\}\)</li>
 </ul>
 
-<h3 id="toc_1.4">Insiemi ricorsivamente enumerabili</h3>
+<h2 id="toc_4">Insiemi ricorsivamente enumerabili</h2>
 
 <blockquote>
 <p>Un insieme si dice <strong>ricorsivamente enumerabile</strong> (r.e.) se è <strong>vuoto</strong> oppure è il <strong>codominio</strong> di una funzione <em>totale calcolabile</em> (detta funzione di enumerazione).</p>
@@ -644,7 +689,7 @@ img {
     \end{cases}
    \]</p>
 
-<h4 id="toc_1.4.1">Teorema di complementazione</h4>
+<h3 id="toc_4.1">Teorema di complementazione</h3>
 
 <blockquote>
 <p>Un insieme \(A\) è <strong>ricorsivo</strong> se e solo se sia \(A\) che \(\overline{A}\) sono r.e.</p>
@@ -670,7 +715,7 @@ numeri pari.</p>
 
 <p>\(c_A\) è <strong>calcolabile</strong> e <strong>totale</strong>.</p>
 
-<h4 id="toc_1.4.2">Caratterizzazioni equivalenti degli insiemi r.e.</h4>
+<h3 id="toc_4.2">Caratterizzazioni equivalenti degli insiemi r.e.</h3>
 
 <blockquote>
 <p>Sia \(A\) un insieme di <strong>numeri naturali</strong>. Le seguenti affermazioni sono equivalenti:
@@ -700,7 +745,7 @@ numeri pari.</p>
 <p>dove \(T\) è il <strong>predicato</strong> di Kleene. \(f\) è <strong>totale</strong> e <strong>calcolabile</strong> e \(cod(f) = A\).</p></li>
 </ul>
 
-<h4 id="toc_1.4.3">Semidecidibilità</h4>
+<h3 id="toc_4.3">Semidecidibilità</h3>
 
 <ul dir="auto">
 <li>\(A\) è <strong>decidibile</strong> se esiste una \(f\) calcolabile: \(f(x) = \begin{cases} 1 &amp;\text{se } x \in A \\ 0 &amp;\text{se } x \not \in A \end{cases}\)</li>
@@ -709,17 +754,19 @@ numeri pari.</p>
 
 <p><strong>N.B.</strong> \(\rightarrow\) L’insieme \(K = \{ x | \varphi_x (x) \downarrow \}\) è r.e. \(\rightarrow\) La funzione \(k(x) = \varphi_x (x)\) è calcolabile e \(K = dom(k)\).</p>
 
-<h4 id="toc_1.4.4">Enumerazione degli insiemi indipendenti</h4>
+<h3 id="toc_4.4">Enumerazione degli insiemi indipendenti</h3>
 
 <p>Possiamo definire una <strong>enumerazione</strong> \(W \colon N \rightarrow RE\) dell’insieme \(RE\) di tutti gli insiemi r.e. ponendo</p>
 
 <p>\[W_i = dom(\varphi_i)\]</p>
 
-<h5 id="toc_1.4.4.4">L&#39;insieme \(K\)</h5>
+<h4 id="toc_4.4.1">L&#39;insieme \(K\) e il suo complementare</h4>
 
 <p>\[K = \{ x | \varphi_x (x) \downarrow \} = \{ x | x \in dom(\varphi_x)\} = \{ x |x \in W_x \}\]</p>
 
-<h4 id="toc_1.4.5">Teorema della proiezione</h4>
+<p>\[\overline{K} = \{ x | \varphi_x (x) \uparrow \} = \{ x | x \not \in dom(\varphi_x)\} = \{ x |x \not \in W_x \}\]</p>
+
+<h3 id="toc_4.5">Teorema della proiezione</h3>
 
 <blockquote>
 <p>Un insieme \(A\) è <strong>r.e.</strong> se e solo se esiste un insieme \(B\) <strong>ricorsivo</strong> tale che</p>
@@ -736,7 +783,7 @@ numeri pari.</p>
 <p>Basta dunque porre \(B = \{ \langle n, m \rangle |T (i, n, m)\}\).</p></li>
 </ul>
 
-<h4 id="toc_1.4.6">Unione ed intersezione finita di insiemi r.e.</h4>
+<h3 id="toc_4.6">Unione ed intersezione finita di insiemi r.e.</h3>
 
 <blockquote>
 <p>La classe degli insiemi ricorsivamente enumerabili è <strong>chiusa</strong> per unione.</p>
@@ -771,7 +818,7 @@ numeri pari.</p>
 
 <p><strong>N.B.</strong> Esistono insiemi che non sono nè ricorsivi nè ricorsivamente enumerabili.</p>
 
-<h4 id="toc_1.4.7">Proprietà di chiusura rispetto a funzioni</h4>
+<h3 id="toc_4.7">Proprietà di chiusura rispetto a funzioni</h3>
 
 <blockquote>
 <p>Siano \(A, B \subseteq N\) e \(f \colon N \rightarrow N\)
@@ -780,7 +827,7 @@ numeri pari.</p>
 3. se \(A\) è <strong>r.e.</strong> e \(f\) è <strong>calcolabile</strong>, allora \(f(A)\) è <strong>r.e</strong></p>
 </blockquote>
 
-<h5 id="toc_1.4.7.4">Dimostrazione</h5>
+<h4 id="toc_4.7.1">Dimostrazione</h4>
 
 <ol dir="auto">
 <li>\(c_{f^{-1}}(A) = c_A \circ f\)</li>
@@ -788,7 +835,7 @@ numeri pari.</p>
 <li>se \(A = cod(g)\), allora \(f(A) = cod(f \circ g)\)</li>
 </ol>
 
-<h4 id="toc_1.4.8">Unione e intersezione infinite</h4>
+<h3 id="toc_4.8">Unione e intersezione infinite</h3>
 
 <blockquote>
 <ol dir="auto">
@@ -797,9 +844,9 @@ numeri pari.</p>
 </ol>
 </blockquote>
 
-<h3 id="toc_1.5">I Teoremi di Rice e Rice-Shapiro</h3>
+<h2 id="toc_5">I Teoremi di Rice e Rice-Shapiro</h2>
 
-<h4 id="toc_1.5.1">Insiemi estensionali</h4>
+<h3 id="toc_5.1">Insiemi estensionali</h3>
 
 <blockquote>
 <p>Un insieme (proprietá) \(A \subseteq N\) si dice <strong>estensionale</strong> se per ogni \(i\), \(j\)</p>
@@ -847,6 +894,184 @@ Ovvero: \(\varphi_i \equiv \varphi_j \implies c_A(i) = c_A(j)\)</p>
 </table>
 
 <p><strong>Remark</strong>: Il <em>complementare</em> di un insieme estensionale è estensionale.</p>
+
+<h3 id="toc_5.2">Teorema di Rice</h3>
+
+<blockquote>
+<p>Una proprietà <strong>estensionale</strong> di programmi è <strong>decidibile</strong> se e solo se è <strong>banale</strong>.</p>
+</blockquote>
+
+<p>Sia \(c\) la funzione <em>caratteristica</em> della proprietà. Sia \(m\) un <em>indice</em> per la funzione <strong>ovunque divergente</strong>, e sia \(a\) tale \(c(a) \not = c(m)\).</p>
+
+<p>Cerco \(h\) <strong>calcolabile</strong> tale che \(\varphi_{h(x)} = \begin{cases} \varphi_a &amp;\text{se } x \in K \\ \varphi_m &amp;\text{se } x \not \in K \end{cases}\)</p>
+
+<p><img src="img/Rice.png" alt="Funzione h" title="Rice"></p>
+
+<p>Consideriamo la funzione </p>
+
+<p>\[\varphi_{h(x)}(y) = \varphi_x(x); \varphi_a(y)\]</p>
+
+<p>dove <q>\(;\)</q> denota la <strong>composizione sequenziale</strong>.</p>
+
+<p>Per la proprietà <em>smn</em> \(h\) è <strong>totale</strong> e <strong>calcolabile</strong>.</p>
+
+<p>È banale verificare che</p>
+
+<p>\[\varphi_{h(x)} = \begin{cases} \varphi_a &amp;\text{se } x \in K \\ \varphi_m &amp;\text{se } x \not \in K \end{cases}\]</p>
+
+<p>Dunque, utilizzando l&#39;**ipotesi di estensionalitá**, avremmo</p>
+
+<p>\[c(h(x)) = \begin{cases} c(a) &amp;\text{se } x \in K \\ c(m) &amp;\text{se } x \not \in K \end{cases}\]</p>
+
+<p>che permetterebbe di decidere l’appartenenza a \(K\) (e quindi di risolvere l&#39;**halting problem**).</p>
+
+<h4 id="toc_5.2.1">Uso del teorema di Rice</h4>
+
+<ul dir="auto">
+<li>Uso <strong>diretto</strong>, per dimostrare che determinate proprietà (essendo
+estensionali) <strong>non sono decidibiUnione ed intersezione finitali</strong>.</li>
+<li>Uso <strong>indiretto</strong>, per dimostrare che determinate proprietà estensionali <strong>non sono neppure semidecidibili</strong> (basta dimostrare che il <strong>complementare è r.e.</strong>)</li>
+</ul>
+
+<h5 id="toc_5.2.1.4">Esempio</h5>
+
+<p>\[A = \{i | \varphi_i(0) \downarrow \}\]</p>
+
+<p>\(A\) <strong>non è banale</strong>, e dunque, per Rice, <strong>non può</strong> essere ricorsivo (uso <strong>diretto</strong>); d’altra parte \(A\) è <em>r.e.</em>, dunque</p>
+
+<p>\[\overline{A} = \{ i | \varphi_i (0) \uparrow \}\]</p>
+
+<p><strong>non è neppure r.e.</strong> altrimenti sia \(A\) che \(\overline{A}\) <strong>sarebbero ricorsivi</strong>, contraddicendo il risultato di Rice (uso <strong>indiretto</strong>).</p>
+
+<h3 id="toc_5.3">Monotonia e compattezza</h3>
+
+<p>Sia \(A\) un insieme <em>estensionale</em> (rispetto a \(\varphi\)) di numeri naturali:</p>
+
+<ul dir="auto">
+<li><p>\(A\) è detto <strong>monotono</strong> se per ogni \(i\) e \(j\)</p>
+
+<p>\[i \in A \land \varphi_i \subseteq \varphi_j \implies j \in A\]</p>
+
+<p>ovvero se <strong>ogni estensione</strong> della funzione \(\varphi_i\) appartiene ad \(A\).</p></li>
+<li><p>\(A\) è detto <strong>compatto</strong> se per ogni \(i \in A\) esiste \(j \in A\) tale che</p>
+
+<ol dir="auto">
+<li>il grafo di \(\varphi_j\) è finito</li>
+<li>\(\varphi_j \subseteq \varphi_i\)</li>
+</ol>
+
+<p>ovvero se <strong>ogni restrizione</strong> di \(\varphi_i\) a <strong>grafo finito</strong> appartiene ad \(A\).</p></li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left">insieme</th>
+<th style="text-align: left">monotonia</th>
+<th style="text-align: left">compattezza</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td style="text-align: left">\(\{ i \vert \varphi_i(0)\downarrow\}\)</td>
+<td style="text-align: left">si</td>
+<td style="text-align: left">si</td>
+</tr>
+<tr>
+<td style="text-align: left">\(\{i \vert \varphi_i \text{ è totale}\}\)</td>
+<td style="text-align: left">si</td>
+<td style="text-align: left">no</td>
+</tr>
+<tr>
+<td style="text-align: left">\(\{i \vert cod(\varphi_i) \text{ è finito}\}\)</td>
+<td style="text-align: left">no</td>
+<td style="text-align: left">si</td>
+</tr>
+<tr>
+<td style="text-align: left">\(\{i \vert dom(\varphi_i) \land \overline{dom(\varphi_i)} \text{ sono infiniti} \}\)</td>
+<td style="text-align: left">no</td>
+<td style="text-align: left">no</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Remark</strong>: se \(A\) e \(\overline{A}\) sono <strong>entrambi monotoni</strong> allora sono <strong>banali</strong>.</p>
+
+<h3 id="toc_5.4">Rice-Shapiro (monotonia)</h3>
+
+<blockquote>
+<p>Ogni insieme estensionale A ricorsivamente enumerabile é monotono.</p>
+</blockquote>
+
+<p>Supponiamo che esistano due indici \(i\) e \(j\) tali che \(i \in A\), \(j \not \in A\) and \(\varphi_i \le \varphi_j\).</p>
+
+<p>Consideriamo la funzione \(\varphi_{f(x)}(y ) = \varphi_i(y)|(\varphi_x(x); \varphi_j(y))\)
+dove <q>|</q> denota la <strong>composizione parallela</strong> (l’output è quello del primo thread terminante). È facile vedere che</p>
+
+<p>\[\varphi_{f(x)} = \begin{cases}\varphi_j &amp;\text{ se } x \in K\\ \varphi_i &amp;\text{ se } x \not \in K \end{cases}\]</p>
+
+<p>nel caso \(x \in K\) uso l’ipotesi \(\varphi_i \le \varphi_j\). Dunque</p>
+
+<p>\[f(x) \in A \iff x \in \overline{K}\]</p>
+
+<p>e \(\overline{K}\) sarebbe r.e., che è assurdo.</p>
+
+<h3 id="toc_5.5">Rice-Shapiro (compattezza)</h3>
+
+<blockquote>
+<p>Ogni insieme <em>estensionale</em> \(A\) ricorsivamente enumerabile é <strong>compatto</strong>.</p>
+</blockquote>
+
+<p>Sia \(A\) un insieme estensionale ricorsivamente enumerabile.</p>
+
+<p>Supponiamo che \(i \in A\) e che per ogni \(j\) tale che \(\varphi_j \subseteq \varphi_i\) e \(\varphi_j\) è <strong>finito</strong> si abbia \(j \not \in A\).</p>
+
+<p>Consideriamo la funzione \(f\) <em>totale calcolabile</em> definita come segue (per smn)</p>
+
+<p>\[\varphi_{f(x)}(\begin{cases}\end{cases}\]</p>
+
+<p>Se \(x \in \overline{K}\) allora \(\varphi_{f(x)} \approx \varphi_i\) e dunque \(f(x) \in A\).</p>
+
+<p>Se \(x \in K\) allora la computazione di \(\varphi_x(x)\) terminerà in un numero finito \(t\) di passi, e la funzione \(\varphi_{f(x)}\) convergerà <strong>solo</strong> per valori di input \(y \le t\).</p>
+
+<p>Dunque \(f(x)\) è un indice per una <strong>sottofunzione finita</strong> di \(\varphi_i\), e per ipotesi \(f(x) \not \in A\).</p>
+
+<p>In conclusione</p>
+
+<p>\[f(x) \in A \iff x \in \overline{K}\]</p>
+
+<p>e \(K\) sarebbe r.e., il che é assurdo.</p>
+
+<h4 id="toc_5.5.1">Applicazioni</h4>
+
+<p>I teoremi di Rice-Shapiro permettono di dimostrare facilmente che determinati insiemi estensionali <strong>non sono r.e.</strong></p>
+
+<p>Ad esempio:
+- \(\{ i \vert \varphi_i\text{ è totale}\}\) non è r.e. in quanto <strong>non è compatto</strong>
+- \(\{ i \vert cod(\varphi_i)\text{ è finito}\}\) non è r.e. in quanto <strong>non è monotono</strong></p>
+
+<p><strong>Warning</strong>: Esistono insiemi estensionali <em>monotoni e compatti</em> ma <strong>non r.e.</strong>, ad esempio</p>
+
+<p>\[\{ i \vert dom(\varphi_i) \cap \overline{K} \not = \emptyset\}\]</p>
+
+<h2 id="toc_6">I Teoremi di ricorsione</h2>
+
+<h3 id="toc_6.1">Il Teorema del punto fisso di Kleene (primo teorema di ricorsione)</h3>
+
+<blockquote>
+<p>Per ogni funzione <em>totale calcolabile</em> \(f\) esiste \(m\) tale che \(\varphi_{f(m)} \approx \varphi_m\)
+Per smn esiste h totale e calcolabile tale che
+φ h(x) (y ) = g (x, y ) = φ f (φ x (x)) (y )
+Sia p un indice per h e poniamo m = φ p (p) = h(p) (che è sicuramente definito
+in quanto h è totale). Allora, per ogni y
+φ m (y ) = φ h(p) (y ) = g (p, y ) = φ f (φ p (p)) (y ) = φ f (m) (y )
+L’interprete permette di simulare la ricorsione!
+Supponiamo di voler definire una funzione ricorsiva f tale che
+f x = M[f , x]
+Per smn esiste g totale calcolabile tale che φ g (i) (x) = M[φ i , x].
+Allora f = φ m dove m é il punto fisso di g .</p>
+</blockquote>
 </div>
 </div>
 <script>renderMathInElement(document.body);</script>

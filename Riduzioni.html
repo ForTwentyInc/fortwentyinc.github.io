@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html><head>
 <meta charset="UTF-8">
+<title>Riduzioni - NPcompletezza</title>
+<link rel="stylesheet" href="style/style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha2/katex.min.css" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha2/katex.min.js" crossorigin="anonymous"></script>
@@ -507,32 +509,29 @@ img {
 *:not(span){
   unicode-bidi: plaintext;
 }
-
+
 </style>
 </head>
 <body>
 <div class="document">
-<div class="header"></div><div class="inner">
-<h2 id="toc_1">Riduzioni - NPcompletezza</h2>
-<div class="toc_container">
+<div class="header"><h1 class="title">Riduzioni - NPcompletezza</h1>
+</div><div class="inner"><div class="toc_container">
 <h2 class="toc_header">Table of Contents</h2>
 <ul class="toc_list">
-<li><a href="#toc_1">Riduzioni - NPcompletezza</a></li>
-<ul>
-<li><a href="#toc_1.1">Dimostrare la NP-completezza</a></li>
+<li><a href="#toc_1">Dimostrare la NP-completezza</a></li>
 <ul>
 </ul>
-<li><a href="#toc_1.2">CLIQUE $\le_P$ HALF-CLIQUE</a></li>
+<li><a href="#toc_2">CLIQUE $\le_P$ HALF-CLIQUE</a></li>
 <ul>
 </ul>
-<li><a href="#toc_1.3">SAT $\le_P$ DOUBLE-SAT</a></li>
+<li><a href="#toc_3">SAT $\le_P$ DOUBLE-SAT</a></li>
 <ul>
 </ul>
-<li><a href="#toc_1.4">CLIQUE $\le_P$ INDIPENDENT SET</a></li>
+<li><a href="#toc_4">CLIQUE $\le_P$ INDIPENDENT SET</a></li>
 <ul>
 </ul></div>
 
-<h3 id="toc_1.1">Dimostrare la NP-completezza</h3>
+<h2 id="toc_1">Dimostrare la NP-completezza</h2>
 
 <blockquote>
 <p>Un problema è <strong>\(NP\)-completo</strong> \(\iff\) è in \(NP\) e è <strong>\(NP\)-arduo</strong>.</p>
@@ -549,7 +548,7 @@ img {
 
 <p>Per la seconda parte, bisogna <strong>dimostrare</strong> che il problema è <strong>\(NP\)-arduo</strong>. Questo, nella maggior parte dei casi, è fatto dimostrando che il problema in questione è <strong>almeno arduo</strong> quanto un altro problema <strong>\(NP\)-arduo</strong>.</p>
 
-<h3 id="toc_1.2">CLIQUE \(\le_P\) HALF-CLIQUE</h3>
+<h2 id="toc_2">CLIQUE \(\le_P\) HALF-CLIQUE</h2>
 
 <p>Sia dato un grafo \(G = (V, E)\), con \(|V| = 2n\). Il problema \(HALF-CLIQUE\) consiste nel decidere se esiste una cricca di dimensione \(n\).</p>
 
@@ -573,7 +572,7 @@ img {
 
 <p>In ogni caso in \(H\) c&#39;è una mezza cricca \(\iff\) in \(G\) c&#39;è una cricca.</p>
 
-<h3 id="toc_1.3">SAT \(\le_P\) DOUBLE-SAT</h3>
+<h2 id="toc_3">SAT \(\le_P\) DOUBLE-SAT</h2>
 
 <p>\(DOUBLE-SAT\) è l’insieme delle formule logiche che ammettono almeno due interpretazioni distinte che soddisfano la formula.</p>
 
@@ -592,7 +591,7 @@ img {
 
 <p>In ogni caso \(\phi&#39; \in DOUBLE-SAT \iff \phi \in SAT\).</p>
 
-<h3 id="toc_1.4">CLIQUE \(\le_P\) INDIPENDENT SET</h3>
+<h2 id="toc_4">CLIQUE \(\le_P\) INDIPENDENT SET</h2>
 
 <p>Il punto è realizzare che se un grafo ha una cricca di dimensione \(k\), il <strong>grafo inverso</strong> ha un \(IS\) di dimensione \(k\).</p>
 
