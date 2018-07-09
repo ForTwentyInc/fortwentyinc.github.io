@@ -326,7 +326,7 @@ kbd {
 figure figcaption {
   text-align: center;
   font-size: 12px;
-}.8 -0.146 -�
+}
 table.eq_table {
 	border-collapse: collapse;
  	border: 0;
@@ -589,6 +589,36 @@ img {
 <li><a href="#toc_6">I Teoremi di ricorsione</a></li>
 <ul>
 <li><a href="#toc_6.1">Il Teorema del punto fisso di Kleene (primo teorema di ricorsione)</a></li>
+<ul>
+</ul>
+<li><a href="#toc_6.2">Il secondo teorema di ricorsione</a></li>
+<ul>
+</ul>
+<li><a href="#toc_6.3">Applicazioni del teorema del punto fisso</a></li>
+<ul>
+</ul>
+<li><a href="#toc_6.4">Dimostrazione alternativa del teorema di Rice</a></li>
+<ul>
+</ul>
+</ul>
+<li><a href="#toc_7">Riducibilità</a></li>
+<ul>
+<li><a href="#toc_7.1">La nozione di *m*-riducibilità</a></li>
+<ul>
+</ul>
+<li><a href="#toc_7.2">$K_0 =_m K$</a></li>
+<ul>
+</ul>
+<li><a href="#toc_7.3">**m**-completezza</a></li>
+<ul>
+</ul>
+<li><a href="#toc_7.4">Insiemi produttivi e creativi</a></li>
+<ul>
+</ul>
+<li><a href="#toc_7.5">Caratterizzazione della produttività</a></li>
+<ul>
+</ul>
+<li><a href="#toc_7.6">Caratterizzazione della creatività</a></li>
 <ul>
 </ul></div>
 
@@ -1060,17 +1090,176 @@ dove <q>|</q> denota la <strong>composizione parallela</strong> (l’output è q
 <h3 id="toc_6.1">Il Teorema del punto fisso di Kleene (primo teorema di ricorsione)</h3>
 
 <blockquote>
-<p>Per ogni funzione <em>totale calcolabile</em> \(f\) esiste \(m\) tale che \(\varphi_{f(m)} \approx \varphi_m\)
-Per smn esiste h totale e calcolabile tale che
-φ h(x) (y ) = g (x, y ) = φ f (φ x (x)) (y )
-Sia p un indice per h e poniamo m = φ p (p) = h(p) (che è sicuramente definito
-in quanto h è totale). Allora, per ogni y
-φ m (y ) = φ h(p) (y ) = g (p, y ) = φ f (φ p (p)) (y ) = φ f (m) (y )
-L’interprete permette di simulare la ricorsione!
-Supponiamo di voler definire una funzione ricorsiva f tale che
-f x = M[f , x]
-Per smn esiste g totale calcolabile tale che φ g (i) (x) = M[φ i , x].
-Allora f = φ m dove m é il punto fisso di g .</p>
+<p>Per ogni funzione <em>totale calcolabile</em> \(f\) esiste \(m\) tale che \(\varphi_{f(m)} \approx \varphi_m\)</p>
+</blockquote>
+
+<p>Per <strong>smn</strong> esiste \(h\) <em>totale e calcolabile</em> tale che</p>
+
+<p>\(\varphi_{h(x)}(y) = g(x, y) = \varphi_{f(\varphi_x(x))}(y)\)</p>
+
+<p>Sia \(p\) un <em>indice</em> per \(h\) e poniamo \(m = \varphi_p(p) = h(p)\) (che è <em>sicuramente definito</em> in quanto \(h\) è <strong>totale</strong>). Allora, per ogni \(y\)</p>
+
+<p>\[\varphi_m(y) = \varphi_{h(p)}(y) = g(p, y) = \varphi_{f(\varphi_p (p))}(y) = \varphi_{f(m)}(y)\]</p>
+
+<blockquote>
+<p><strong><u>L’interprete permette di simulare la ricorsione!</u></strong></p>
+</blockquote>
+
+<p>Supponiamo di voler definire una funzione <em>ricorsiva</em> \(f\) tale che
+\(f(x) = M[f, x]\).</p>
+
+<p>Per smn esiste \(g\) **totale calcolabile* tale che \(\varphi_{g(i)}(x) = M[\varphi_i , x]\).</p>
+
+<p>Allora \(f = \varphi_m\) dove \(m\) é il <strong>punto fisso</strong> di \(g\).</p>
+
+<h3 id="toc_6.2">Il secondo teorema di ricorsione</h3>
+
+<blockquote>
+<p>Per ogni funzione <strong>binaria totale calcolabile</strong> \(f\) esiste una funzione <strong>calcolabile</strong> \(s\) tale che, per ogni \(y\) </p>
+
+<p>\[\varphi_{f(s(y),y)} \approx \varphi_{s(y )}\]</p>
+</blockquote>
+
+<p>Per <em>smn</em> esistono \(r\), \(h\) <strong>totali e calcolabili</strong> tale che</p>
+
+<p>\[\varphi_{\varphi_{r(y)}(x)}(z) = \varphi_{h(x,y)}(z) = g(x, y, z) = \varphi_{f(\varphi_x(x),y)}(z)\]</p>
+
+<p>Posto \(s(y) = \varphi_{r(y)}(r(y))\) abbiamo, per ogni \(z\)</p>
+
+<p>\[\varphi_{s(y)}(z) = \varphi_{\varphi_{r(y)}(r(y))}(z) = \varphi_{h(r(y),y)}(z) = \varphi_{f(\varphi_{r(y)}(r(y)),y)}(z) = \varphi_{f(s(y),y)}(z)\]</p>
+
+<h3 id="toc_6.3">Applicazioni del teorema del punto fisso</h3>
+
+<p>L’uso del teorema del punto fisso per simulare ricorsione è  particolarmente pulito, in quanto la funzione \(g\) è <strong>estensionale</strong>, nel senso che</p>
+
+<p>\[\varphi_i \equiv \varphi_j \implies \varphi_{g(i)} \equiv \varphi_{g(j)}\]</p>
+
+<p>Tuttavia il teorema è vero per qualunque trasformazione effettiva.</p>
+
+<p><strong>Ad esempio:</strong>
+- in ogni enumerazione accettabile di programmi esistono sicuramente due programmi consecutivi con <strong>comportamenti identici</strong>, ovvero esiste \(i\) tale che</p>
+
+<p>\[\varphi_{i+1} \equiv \varphi_i\]</p>
+
+<p><strong>Dimostrazione:</strong> si prenda il punto fisso del <strong>successore</strong>.</p>
+
+<ul dir="auto">
+<li><p>Esiste un programma che <q>stampa se stesso</q>, cioè esiste \(i\) tale che</p>
+
+<p>\[\varphi_i(0) = i\]</p>
+
+<p><strong>Dimostrazione:</strong> Per <em>smn</em> esiste \(h\) tale che \(\varphi_{h(x)}(y) = x\); se ne prenda un punto fisso.</p></li>
+</ul>
+
+<h3 id="toc_6.4">Dimostrazione alternativa del teorema di Rice</h3>
+
+<p>Supponiamo per assurdo che \(A\) sia ricorsivo, ma non banale. Esistono dunque \(i\) e \(j\) tali che \(i \in A\) e \(j \in \overline{A}\).</p>
+
+<p>Considero la seguente funzione:</p>
+
+<p>\[h(x) = \begin{cases}i &amp;\text{ se } x \in \overline{A}\\ j &amp;\text{ se }x \in A\end{cases}\]</p>
+
+<p>Per definizione</p>
+
+<p>\[h(x) \in A \iff x \in \overline{A}\]</p>
+
+<p>Inoltre, se \(A\) è <strong>ricorsivo</strong> \(h\) è <strong>totale calcolabile</strong> e per il teorema del punto fisso di Kleene, esiste un indice \(b\) tale che \(\varphi_b = \varphi_{h(b)}\). Avremmo quindi</p>
+
+<p>\[b \in A \iff h(b) \in A \iff b \in \overline{A}\]</p>
+
+<p>che è una <strong>contraddizione</strong>.</p>
+
+<h2 id="toc_7">Riducibilità</h2>
+
+<h3 id="toc_7.1">La nozione di <em>m</em>-riducibilità</h3>
+
+<p>Siano \(A, B \subseteq N\); \(A\) si dice <strong>riducibile</strong> (<em>m-riducibile</em>) a \(B\) (in simboli \(A \le_m B\)), se esiste una funzione <strong>totale e calcolabile</strong> \(f\) tale che</p>
+
+<p>\[x \in A \iff f(x) \in B\]</p>
+
+<p>Due insiemi si dicono <strong>equivalenti</strong> (m-equivalenti) (in simboli \(A =_m B\)), se \(A \le_m B\) e \(B \le_m A\);</p>
+
+<p><strong>Osservazioni:</strong>
+- la relazione \(\le_m\) é un <strong>preordine</strong> (i.e. é riflessiva e transitiva)
+- la relazione \(=_m\) é una relazione di <strong>equivalenza</strong>
+- \(A \le_m B\) se e solo se \(\overline{A} \le_m \overline{B}\)
+- se \(A \le_m B\) e \(B\) è <strong>ricorsivo</strong> (o r.e.) allora \(A\) è <strong>ricorsivo</strong> (o r.e.)</p>
+
+<h3 id="toc_7.2">\(K_0 =_m K\)</h3>
+
+<p>Sia \(K_0 = \{\langle i, n \rangle \vert n \in W_i\}\)</p>
+
+<ul dir="auto">
+<li><p>\(K \le_m K_0\). Siccome</p>
+
+<p>\[i \in K \implies i \in W_i \implies \langle i, i \rangle \in K_0\]</p>
+
+<p>la funzione \(f(x) = \langle x, x \rangle\) permette di <strong>ridurre</strong> \(K\) a \(K_0\).</p></li>
+<li><p>\(K_0 \le_m K\). Per <em>smn</em> consideriamo la funzione <strong>totale calcolabile</strong> \(h\) per cui </p></li>
+</ul>
+
+<p>\[\varphi_{h(i,x)}(y) = g(i, x, y) = \varphi_i(x)\]</p>
+
+<p>Abbiamo</p>
+
+<p>\[\langle i, n \rangle \in K_0 \iff n \in W_i \iff \forall y, \varphi_{h(i,n)}(y) \downarrow \iff \varphi_{h(i,n)}(h(i, n)) \downarrow \iff h(i, n) \in K\]</p>
+
+<p>Quindi la funzione \(h\) <strong>riduce</strong> \(K_0\) a \(K\).</p>
+
+<h3 id="toc_7.3"><strong>m</strong>-completezza</h3>
+
+<p>Un insieme si dice <em>m-completo</em>* se è r.e. ed <strong>ogni</strong> insieme r.e. è riducibile ad esso.</p>
+
+<blockquote>
+<p>\(K_0\) e \(K\) sono insiemi <strong>completi</strong>.</p>
+</blockquote>
+
+<p>Dato che \(K_0 =_m K\) è sufficiente dimostrare la proprietà per \(K_0\).</p>
+
+<p>Abbiamo già dimostrato che se \(A \le_m K_0\) allora \(A\) è <strong>r.e.</strong> e dunque esiste \(i\) tale che \(A = W_i\). Allora, per ogni \(n\) </p>
+
+<p>\[n \in A \iff n \in W_i \iff \langle i, n \rangle \in K_0\]</p>
+
+<blockquote>
+<p>\(A\) é <strong>completo</strong> se e solo se \(A =_m K\).</p>
+</blockquote>
+
+<p>Se \(A =_m K\) allora \(A\) é <strong>r.e.</strong> e <strong>m-completo</strong> perché lo é \(K\).</p>
+
+<p>Viceversa se \(A\) é <strong>m-completo</strong>, allora é <strong>r.e.</strong> e per la completezza di \(K\), \(A \le_m K\); inoltre, siccome \(K\) é r.e., \(K \le_m A\) per la <strong>m-completezza</strong> di \(A\).</p>
+
+<h3 id="toc_7.4">Insiemi produttivi e creativi</h3>
+
+<p>Sia \(A \subseteq N\).</p>
+
+<ol dir="auto">
+<li>\(A\) si dice <strong>produttivo</strong> se esiste \(f\) <strong>totale e calcolabile</strong> tale che per ogni \(i\)</li>
+</ol>
+
+<p>\[W_i \subseteq A \implies f(i) \in A \setminus W_i\]</p>
+
+<ol dir="auto">
+<li>\(A\) si dice <strong>creativo</strong> se è <strong>r.e.</strong> ed il suo complemento \(\overline{A}\) è <strong>produttivo</strong>.</li>
+</ol>
+
+<p>Si osservi che un insieme produttivo <strong>non puó essere</strong> r.e.</p>
+
+<p>Infatti, se \(A = W_i\) allora preso \(W_i \subseteq A\) avremmo che \(A \setminus W_i = \emptyset\) e quindi \(f(i) \not \in A \setminus W_i\).</p>
+
+<blockquote>
+<p>\(K\) é <strong>creativo</strong> (e la funzione di produzione è l&#39;**identità**).</p>
+</blockquote>
+
+<h3 id="toc_7.5">Caratterizzazione della produttività</h3>
+
+<blockquote>
+<p>Sia \(A \in N\). \(A\) é produttivo se e solo se \(K \le_m A\).</p>
+</blockquote>
+
+<h3 id="toc_7.6">Caratterizzazione della creatività</h3>
+
+<blockquote>
+<p>Sia \(A \in N\). \(A\) é creativo se e solo se \(A =_m K\).</p>
 </blockquote>
 </div>
 </div>
