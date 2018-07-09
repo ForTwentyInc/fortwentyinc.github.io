@@ -1,0 +1,2288 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha2/katex.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha2/katex.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha2/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js"></script>
+<style>
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb
+}
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+}
+
+figure figcaption {
+  text-align: center;
+  font-size: 12px;
+}
+table.eq_table {
+	border-collapse: collapse;
+ 	border: 0;
+	width: 100%;
+}
+table.eq_table td, table.eq_table th {
+	border: 0;
+}
+table.eq_table tfoot td {
+ 	border: 0;
+}
+table.eq_table tfoot .links {
+ 	text-align: right;
+ 	border: 0;
+}
+
+td.counter {
+	text-align: right;
+	border: 0;
+}
+
+td.eq_code {
+	width: 100%;
+	border: 0;
+	text-align: center;
+}
+
+.eq_table > tr, td, th, {
+	border: 0;
+}
+
+figure {
+	width: 100%;
+	text-align: center;
+}
+
+figure figcaption {
+	text-align: center;
+	font-size: 11pt;
+}
+
+figure img {
+	max-width: 100%;
+}
+
+code {
+    font-family: monospace;
+}
+
+img {
+	max-width: 100%;
+}
+
+.authors
+{
+	text-align: center;
+	font-size: 14pt;
+	font-weight: bold;
+}
+
+.authors:empty
+{
+	display: none;
+}
+
+
+.affiliation
+{
+	text-align: center;
+}
+
+.affiliation:empty
+{
+	display: none;
+}
+
+.title
+{
+	text-align: center;
+	margin-bottom: 5pt;
+}
+
+.title:empty
+{
+	display: none;
+}
+
+.header{
+  margin-bottom: 20pt;
+}
+
+.header:empty {
+   display: none;
+}
+
+.slide {
+  display: flex;
+  width: 221mm;
+  height: 166mm;
+  margin: 0 auto 20px auto;
+  padding: 0;
+  align-items: center;
+  border: 1px solid #000;
+}
+
+.slide_169 {
+  width: 294mm;
+  height: 166mm;
+}
+
+
+.slide_body {
+  display: block;
+  width: 191mm;
+  height: 136mm;
+  margin: auto;
+  overflow: hidden;
+}
+
+
+.slide_169 > .slide_body {
+  width: 264mm;
+}
+
+.slide figure {
+  width: auto;
+}
+
+.slide figcaption {
+  font-size: 14pt;
+}
+
+
+.slide_body .charter {
+ font-size: 12pt;
+ max-width: 180mm;
+}
+
+.header > .slide_body {
+    height: auto;
+}
+
+.figure > .charter {
+  margin: auto;
+}
+
+.slide_body:empty {
+  display: none;
+}
+
+.slide:empty{
+  display: none;
+}
+
+
+@media print {
+  body  {
+    margin: 0;
+    padding: 0;
+  }
+
+  .slide {
+    page-break-after: always;
+    margin: 0;
+    padding: 0;
+    width: 221mm;
+    min-height: 165.5mm;
+    height: 165.5mm;
+    max-height: 165.5mm;
+    border: none;
+    overflow: hidden;
+    border: 0;
+  }
+
+  .slide_169 {
+    width: 294mm;
+  }
+}
+
+*:not(span){
+  unicode-bidi: plaintext;
+}
+
+</style>
+</head>
+<body>
+<div class="document">
+<div class="header"></div><div class="inner">
+<h2 id="toc_1">Teoria della Complessità</h2>
+<div class="toc_container">
+<h2 class="toc_header">Table of Contents</h2>
+<ul class="toc_list">
+<li><a href="#toc_1">Teoria della Complessità</a></li>
+<ul>
+<li><a href="#toc_1.1">Introduzione</a></li>
+<ul>
+<li><a href="#toc_1.1.1">Notazioni Utilizzate</a></li>
+<li><a href="#toc_1.1.2">Grafi - Definizioni</a></li>
+<li><a href="#toc_1.1.3">Flusso massimo</a></li>
+<li><a href="#toc_1.1.4">Problemi decisionali</a></li>
+<li><a href="#toc_1.1.5">Matching bipartito</a></li>
+<li><a href="#toc_1.1.6">Insieme indipendente, ricoprimento e cricca</a></li>
+<li><a href="#toc_1.1.7">Ricerca vs. Verifica</a></li>
+<li><a href="#toc_1.1.8">Riassumendo</a></li>
+</ul>
+<li><a href="#toc_1.2">Classi deterministiche di complessità</a></li>
+<ul>
+<li><a href="#toc_1.2.1">La Macchina di Turing</a></li>
+<li><a href="#toc_1.2.2">Definizione formale</a></li>
+<li><a href="#toc_1.2.3">Convenzioni di input/output</a></li>
+<li><a href="#toc_1.2.4">Configurazioni istantanee</a></li>
+<li><a href="#toc_1.2.5">Computazioni</a></li>
+<li><a href="#toc_1.2.6">Classi deterministiche di Complessità</a></li>
+<li><a href="#toc_1.2.7">DTIME e DSPACE</a></li>
+<li><a href="#toc_1.2.8">Tempo e Spazio</a></li>
+<li><a href="#toc_1.2.9">Riduzione ad un nastro</a></li>
+<li><a href="#toc_1.2.10">Riduzione da k nastri a 2</a></li>
+<li><a href="#toc_1.2.11">Sequenza di attraversamento</a></li>
+<li><a href="#toc_1.2.12">Lemma di attraversamento</a></li>
+<li><a href="#toc_1.2.13">Un limite inferiore per la riduzione dei nastri</a></li>
+<li><a href="#toc_1.2.14">Macchine ad accesso casuale - Random Access Machine</a></li>
+<li><a href="#toc_1.2.15">Simulazione di una RAM mediante MdT a 7 nastri</a></li>
+<li><a href="#toc_1.2.16">Lemma crescita del contenuto dei registri</a></li>
+<li><a href="#toc_1.2.17">Costo della simulazione</a></li>
+<li><a href="#toc_1.2.18">Conclusioni</a></li>
+</ul>
+<li><a href="#toc_1.3">Gerarchie in tempo e spazio</a></li>
+<ul>
+<li><a href="#toc_1.3.1">Macchine di Turing normalizzate</a></li>
+<li><a href="#toc_1.3.2">Macchina di Turing universale</a></li>
+<li><a href="#toc_1.3.3">Funzioni costruibili</a></li>
+<li><a href="#toc_1.3.4">Il Teorema della Gerarchia (spazio)</a></li>
+<li><a href="#toc_1.3.5">Alcune Classi di Complessità deterministica</a></li>
+<li><a href="#toc_1.3.6">Il Gap Theorem</a></li>
+<li><a href="#toc_1.3.7">Padding</a></li>
+</ul>
+<li><a href="#toc_1.4">Complessità non deterministica</a></li>
+<ul>
+<li><a href="#toc_1.4.1">Macchina di Turing non deterministica</a></li>
+<li><a href="#toc_1.4.2">Classi di Complessità Non Deterministica</a></li>
+<li><a href="#toc_1.4.3">Riduzione nastri per MdTN</a></li>
+<li><a href="#toc_1.4.4">Simulazione del nondeterminismo (spazio)</a></li>
+<li><a href="#toc_1.4.5">Simulazione del nondeterminismo (tempo)</a></li>
+<li><a href="#toc_1.4.6">Simulazione nondeterminismo</a></li>
+<li><a href="#toc_1.4.7">Raggiungibilità</a></li>
+<li><a href="#toc_1.4.8">Teorema di Savitch</a></li>
+<li><a href="#toc_1.4.9">PSPACE e NPSPACE</a></li>
+<li><a href="#toc_1.4.10">Il Teorema di Immerman e Szelepscènyi</a></li>
+</ul>
+<li><a href="#toc_1.5">Nondeterminismo e Verifica</a></li>
+<ul>
+<li><a href="#toc_1.5.1">Il Teorema della Proiezione</a></li>
+<li><a href="#toc_1.5.2">Programmazione per tentativi e verifica</a></li>
+</ul>
+<li><a href="#toc_1.6">Riducibilità e Completezza</a></li>
+<ul>
+<li><a href="#toc_1.6.1">Classi di Complessità per funzioni</a></li>
+<li><a href="#toc_1.6.2">Chiusura per composizione</a></li>
+<li><a href="#toc_1.6.3">Riducibilità</a></li>
+<li><a href="#toc_1.6.4">Chiusura per riducibilità</a></li>
+<li><a href="#toc_1.6.5">Problemi ardui e completi</a></li>
+<li><a href="#toc_1.6.6">MdTN Universale</a></li>
+<li><a href="#toc_1.6.7">Problema limitato della fermata</a></li>
+<li><a href="#toc_1.6.8">P vs. NP</a></li>
+</ul>
+<li><a href="#toc_1.7">Il Problema della Soddisfacibilità</a></li>
+<ul>
+<li><a href="#toc_1.7.1">Teorema di Cook</a></li>
+<li><a href="#toc_1.7.2">Analogie tra Calcolabilità e Complessità</a></li>
+<li><a href="#toc_1.7.3">$NP$-completezza di 3SAT</a></li>
+<li><a href="#toc_1.7.4">Il Problema del Ricoprimento - Vertex Cover</a></li>
+<li><a href="#toc_1.7.5">Il Problema dell'insieme indipendente</a></li>
+<li><a href="#toc_1.7.6">Il problema della Cricca</a></li>
+<li><a href="#toc_1.7.7">Riduzione da SAT a cammino Hamiltoniano diretto</a></li>
+<li><a href="#toc_1.7.8">Altri esempi di problemi NP-completi</a></li>
+</ul>
+<li><a href="#toc_1.8">Complessità relativizzata</a></li>
+<ul>
+<li><a href="#toc_1.8.1">Macchine ad oracolo</a></li>
+<li><a href="#toc_1.8.2">Semantica delle MdTN ad oracolo</a></li>
+<li><a href="#toc_1.8.3">Tempo e Spazio per MdTN ad oracolo</a></li>
+<li><a href="#toc_1.8.4">Classi di complessità con oracolo</a></li>
+<li><a href="#toc_1.8.5">Alcune Classi di Complessità con oracolo</a></li>
+<li><a href="#toc_1.8.6">$NP$ e **co$NP$**</a></li>
+</ul>
+<li><a href="#toc_1.9">La gerarchia polinomiale</a></li>
+<ul>
+<li><a href="#toc_1.9.1">Teorema della gerarchia polinomiale</a></li>
+</ul>
+<li><a href="#toc_1.10">Dimostrare che un problema è NP-completo</a></li>
+<ul>
+</ul></div>
+
+<h3 id="toc_1.1">Introduzione</h3>
+
+<p>Ramo dell’Informatica Teorica focalizzato sulla <strong>classificazione</strong> dei problemi computazionali in funzione della loro inerente difficoltà, ovvero delle <em>risorse necessarie alla loro risoluzione</em>.</p>
+
+<p>Richiede una definizione precisa di un modello di calcolo che permetta la quantificazione delle risorse (ad esempio tempo e spazio) necessarie alla computazione.</p>
+
+<h4 id="toc_1.1.1">Notazioni Utilizzate</h4>
+
+<ul dir="auto">
+<li>\(bin(n)\) per la rappresentazione binaria del naturale \(n\)</li>
+<li><p>\(log(n) \coloneqq |bin(n)| - 1 = \log_2({max(1,n)})\)</p></li>
+<li><p>Sia \(f \colon N \rightarrow N\):</p>
+
+<ul dir="auto">
+<li>\(O(f)\) è la classe delle funzioni che crescono <strong>al più</strong> come \(f\),</li>
+<li>\(o(f)\) è la classe delle funzioni che crescono <strong>meno rapidamente</strong> di \(f\),</li>
+<li>\(\Omega(f)\) è la classe delle funzioni che crescono <strong>almeno quanto</strong> \(f\),</li>
+<li>\(\Theta(f)\) è la classe delle funzioni che crescono <strong>esattamente come</strong> \(f\).</li>
+</ul></li>
+</ul>
+
+<h4 id="toc_1.1.2">Grafi - Definizioni</h4>
+
+<p>Un grafo finito è una coppia \((V, E)\) dove:</p>
+
+<ul dir="auto">
+<li>\(V\) è un insieme finito di vertici,</li>
+<li>\(E \subseteq (V \times V)\) è una relazione che definisce l’insieme degli archi.</li>
+</ul>
+
+<p>Un grafo si dice non orientato quando la relazione \(E\) è <strong>simmetrica</strong> e <strong>irriflessiva</strong>.</p>
+
+<p>Sia \(G = (V, E)\) un grafo:</p>
+
+<ul dir="auto">
+<li>due vertici \(u, v \in V\) sono <strong>adiacenti</strong> se esiste un arco \((u, v) \in E\).</li>
+<li>un cammino è una <strong>sequenza di vertici</strong> dove tutte le coppie di vertici consecutivi sono adiacenti.</li>
+<li>un cammino è <strong>semplice</strong> se tutti i vertici sono <em>distinti</em>.</li>
+<li>un <strong>ciclo</strong> è un cammino semplice il cui <em>ultimo vertice è adiacente al primo</em>.</li>
+<li><p>un cammino (o un ciclo) <strong>Hamiltoniano</strong> in \(G\) è un cammino (o un ciclo) che comprende <strong>tutti</strong> i vertici del grafo.</p>
+
+<p><img src="img/Hamiltoniano.png" alt="Esempio di cammino Hamiltoniano" title="Cammino Hamiltoniano"></p></li>
+<li><p>un <strong>ricoprimento di vertici</strong> per \(G\) è un sottoinsieme \(V_0 \subseteq V\) tale che ogni arco \(e \in E\) ha almeno una estremità in \(V_0\).</p>
+
+<p><img src="img/Ricoprimento.png" alt="Esempio di ricoprimento di vertici" title="Ricoprimento"></p>
+
+<p>Si noti che \(V\) è un <em>caso degenere</em> di ricoprimento. Inoltre se \(R\) è un ricoprimento, ogni suo <strong>soprainsieme</strong> lo è. Siamo interessati a trovare <strong>ricoprimenti minimi</strong>.</p></li>
+<li><p>\(G\) è <strong>\(n\)-colorabile</strong>, se esiste una funzione di colorazione
+\(col \colon V \rightarrow c_1 , \dots , c_n\)
+tale che vertici <em>adiacenti</em> hanno <strong>colori diversi</strong>, ovvero:
+\[(u, v) \in E \rightarrow col(u) \not = col(v )\]</p></li>
+<li><p>\(G\) è <strong>completo</strong> se ogni coppia di nodi distinti è <strong>connessa da un arco</strong>.</p></li>
+<li><p>una <strong>cricca</strong> (clique) di \(G\) è un suo sottografo <em>completo</em> \(G&#39; = (V&#39;, E&#39;)\), ovvero \(V&#39; \subseteq V\) ed \(E&#39; = V&#39; \times V&#39; \subseteq E\).</p>
+
+<p><img src="img/Cricca.png" alt="Esempio di cricca di un grafo" title="Cricca"></p>
+
+<p>Per ogni \(v \in V\), \(\{v\}\) è un <em>caso degenere</em> di cricca (come anche l’insieme vuoto). Ogni <strong>coppia di nodi \(\{u, v\}\) connessi da un arco</strong> forma una cricca.Ogni sottoinsieme di una cricca è ancora una cricca. Siamo interessati a trovare cricche massime.</p></li>
+<li><p>un <strong>insieme indipendente</strong> in \(G\) è un sottoinsieme di vertici \(V&#39; \subseteq V\) tale che per ogni coppia di vertici \(u, v \in V&#39; \rightarrow (u, v) \not \in E\).</p>
+
+<p><img src="img/Indipendente.png" alt="Esempio di insieme indipendente" title="Insieme indipendente"></p>
+
+<p>Per ogni \(v \in V\), \(\{v\}\) è un <em>caso degenere</em> di insieme indipendente (come anche l’insieme vuoto). Ogni <strong>sottoinsieme</strong> di un insieme indipendente è ancora indipendente. Siamo interessati a trovare <strong>insiemi indipendenti massimi</strong>.</p></li>
+</ul>
+
+<h4 id="toc_1.1.3">Flusso massimo</h4>
+
+<p>Una rete \(N\) è un grafo <em>orientato</em> con una sorgente \(s\), un pozzo \(t\), e una capacità \(c(u, v)\) associata ad ogni arco.</p>
+
+<p><img src="img/Rete.png" alt="Esempio di problema di flusso" title="Rete di flusso"></p>
+
+<p>Un flusso in \(N\) è una funzione \(f(u, v)\) che ad ogni arco \((u, v)\) associa un intero positivo tale che:</p>
+
+<ul dir="auto">
+<li>\(f(u, v) \le c(u, v)\)</li>
+<li>la somma dei flussi entranti in ogni nodo (a parte \(s\) e \(t\)) deve essere uguale alla somma dei flussi uscenti.</li>
+</ul>
+
+<p>Il problema consiste nel determinare il <strong>flusso massimo</strong> dalla sorgente al pozzo.</p>
+
+<h5 id="toc_1.1.3.4">Algoritmo:</h5>
+
+<ol dir="auto">
+<li>Si parte con un flusso <strong>maxf</strong> inizialmente nullo.</li>
+<li>Si cerca un cammino da \(s\) a \(t\) nella rete \(N\) e si considera il flusso \(f\) lungo tale cammino determinato dalla <strong>capacità massima</strong> dei sui archi; se tale cammino non esiste si restituisce <strong>maxf</strong>.</li>
+<li>Si pone <strong>maxf</strong> \(\coloneqq\) <strong>maxf</strong> \( + f; N \coloneqq N \setminus f\) e si ripete dal passo 2.</li>
+</ol>
+
+<h5 id="toc_1.1.3.4">Complessità</h5>
+
+<p>Osserviamo innanzitutto che se \(C\) è la <em>massima capacità</em> degli archi, il flusso massimo è <strong>sicuramente inferiore</strong> a \(nC\) in quanto ci sono meno di \(n\) archi che partono dalla sorgente.</p>
+
+<ul dir="auto">
+<li>la ricerca del cammino costa \(O(n^2)\)</li>
+<li>il flusso aumenta ad ogni iterazione del ciclo; dunque viene ripetuto al più
+\(nC\) volte.</li>
+</ul>
+
+<p>In conclusione, la complessità è <strong>\(O(n^3C)\)</strong>.</p>
+
+<p>L’algoritmo del <em>flusso massimo</em> dipende in modo lineare da \(C\), e dunque potrebbe dipendere in modo <em>esponenziale</em> dalla descrizione della capacità degli archi della rete.</p>
+
+<p><img src="img/Pessimo.png" alt="Esempio di caso pessimo per il problema di flusso" title="Caso pessimo"></p>
+
+<p>È possibile ovviare al problema selezionando ad ogni iterazione il cammino più corto da \(s\) a \(t\). Questo fa si che un arco risulterà essere un <strong>collo di bottiglia</strong> (arco su di un cammino da \(s\) a \(t\) con capacità <strong>minima</strong>) in un numero limitato di casi, permettendo di maggiorare il numero di iterazioni con \(n^3\). Dunque la complessità dell’algoritmo è \(O(n^5)\).</p>
+
+<p><strong>NB 1:</strong> La distanza di un nodo \(u\) da \(s\) non può decrementare passando da \(N\) a \(N \setminus f\): \(d_{N \setminus f}(u) \ge d_{N}(u)\).</p>
+
+<p><strong>NB 2:</strong> Se l’arco \((u, v)\) è il <em>collo di bottiglia</em> del flusso \(f\) allora se \((u, v)\) verrà mai attraversato nuovamente da un flusso successivo \(f&#39;\) (<strong>necessariamente</strong> nella direzione opposta) la distanza \(d_{N&#39;}(u)\) di \(u\) da \(s\) sarà aumentata.</p>
+
+<p>Infatti, \(d_{N&#39;}(u) \gt d_{N&#39;}(v ) \ge d_N(v)\); se \(d_{N&#39;}(u) = d_{N}(u)\) avremmo \(d_{N}(u) \gt d_{N}(v)\) contraddicendo la minimalità di \(f\).</p>
+
+<p><img src="img/Collodb.png" alt="Esempio di collo di bottiglia per il problema di flusso" title="Collo di bottiglia"></p>
+
+<p>Le distanze sono maggiorate dal numero dei nodi, dunque ogni ogni arco può essere un collo di bottiglia <strong>al più \(n\) volte</strong>, e il numero dei flussi è al più \(O(n \cdot |E|) \le O(n^3)\).</p>
+
+<h4 id="toc_1.1.4">Problemi decisionali</h4>
+
+<p>La <em>2-colorazione</em> e la <em>raggiungibilità</em> sono esempi di problemi di <strong>decisione</strong>, cioè problemi che richiedono una risposta <strong>booleana</strong> (definiscono dunque un <strong>linguaggio</strong>).</p>
+
+<p>Il problema del <em>flusso massimo</em> è un tipico esempio di problema di
+<strong>ottimizzazione</strong>, cioè un problema che richiede la scelta della <em>migliore</em> soluzione tra un insieme di risposte ammissibili rispetto ad una data funzione di costo.</p>
+
+<p>È possibile fornire una versione <strong>decisionale</strong> di un problema di <strong>ottimizzazione</strong>, semplicemente chiedendo se esiste una soluzione <strong>non peggiore</strong> di un valore prefissato. Spesso i due problemi hanno complessità comparabili (è possibile determinare la complessità dell’uno in funzione dell’altro).</p>
+
+<h4 id="toc_1.1.5">Matching bipartito</h4>
+
+<p>Un <strong>grafo bipartito</strong> è una tripla \(B = (U, V , E)\) dove \(U\) e \(V\) sono due insiemi di nodi di <em>uguale cardinalità</em> e \(E \subseteq U \times V\) è un insieme di archi.</p>
+
+<p>Un <strong>matching</strong> è un insieme \(M \subseteq E\) che associa ad ogni elemento in \(U\) uno e un solo elemento in \(V\).</p>
+
+<p><img src="img/Matching.png" alt="Esempio di matching bipartito" title="Matching bipartito"></p>
+
+<p>Il problema consiste nel determinare l’esistenza o meno di un matching.</p>
+
+<h5 id="toc_1.1.5.4">Riduzione ad un problema noto</h5>
+
+<p><strong>Riduciamo</strong> il problema ad un problema di flusso, orientando gli archi da \(U\) a \(V\), aggiungendo una sorgente \(s\), un pozzo \(t\), un arco \((s, u)\), \(\forall u \in U\) e un arco \((v, t)\), \(\forall v \in V\). Tutti gli archi hanno capacità <strong>unitaria</strong>.</p>
+
+<p>È facile vedere che il grafo bipartito <strong>ammette un matching</strong> se e solo se la rete così ottenuta ammette un <strong>flusso di entità \(n\)</strong>, dove \(n = |U| = |V|\).</p>
+
+<p><img src="img/Riduzione.png" alt="Esempio di un matching bipartito ad un problema di flusso" title="Riduzione"></p>
+
+<p>Poichè la rete può essere costruita in tempo <em><strong>lineare</strong> nella dimensione del grafo</em>, il problema del matching in un grafo bipartito è \(O(n^3)\) (si conoscono soluzioni migliori).</p>
+
+<h4 id="toc_1.1.6">Insieme indipendente, ricoprimento e cricca</h4>
+
+<p>Dato un grafo \(G = (V , E)\) e un intero \(k\) determinare se:</p>
+
+<ol dir="auto">
+<li>esiste un insieme <em>indipendente</em> \(V&#39; \subseteq V\) tale che \(k \le |V&#39;|\);</li>
+<li>esiste un <em>ricoprimento</em> \(V&#39; \subseteq V\) tale che \(|V&#39;| \le k\);</li>
+<li>esiste una <em>cricca</em> \(V&#39; \subseteq V\) tale che \(k \le |V&#39;|\);</li>
+</ol>
+
+<p>Questi tre problemi sono riducibili l’uno all’altro. Ricordiamo le definizioni:</p>
+
+<ul dir="auto">
+<li>un insieme \(V&#39; \subseteq V\) è detto <strong>indipendente</strong> se
+\[\forall u, v \in V&#39; \rightarrow (u, v ) \not \in E\]</li>
+<li>un sottoinsieme \(V&#39; \subseteq V\) è detto <strong>ricoprimento</strong> se
+\[\forall (u, v) \in E, u \in V&#39; \lor  v \in V&#39;\]</li>
+<li>una <strong>cricca</strong> di \(G\) è un sottoinsieme completo \(V&#39; \subseteq V\), tale cioè che
+\[\forall u, v \in V&#39; \rightarrow (u, v) \in E\]</li>
+</ul>
+
+<p>È facile vedere che:</p>
+
+<ul dir="auto">
+<li>\(V&#39; \subseteq V\) è <strong>indipendente</strong> se e solo se \(V \setminus V&#39;\) è un <strong>ricoprimento</strong>;</li>
+<li>\(V&#39; \subseteq V\) è <strong>indipendente</strong> se e solo se \(V&#39;\) è una <strong>cricca</strong> nel grafo \(G&#39; = (V, \overline{E})\)</li>
+</ul>
+
+<h4 id="toc_1.1.7">Ricerca vs. Verifica</h4>
+
+<p><strong>Cercare</strong> in modo esaustivo un insieme indipendente (un ricoprimento, o una
+cricca) di cardinalità \(k\) richiede l’esame di un numero di casi pari a
+\[\frac{n!}{k!(n - k)!}\]</p>
+
+<p>Per valori di \(k \approx \frac{n}{2}\) questa quantità cresce in modo <strong>esponenziale</strong> in \(k\).</p>
+
+<p>Non è noto se sia possibile avere algoritmi <strong>polinomiali</strong> per risolvere questi
+problemi (di ricerca).</p>
+
+<p>Al contrario, <strong>verificare</strong> se un sottoinsieme dato di vertici è indipendente (un ricoprimento, o una cricca) richiede un tempo <strong>polinomiale</strong> nel numero dei
+vertici.</p>
+
+<p>I problemi che ammettono soluzioni polinomiali nella dimensione dell’input e
+algoritmi polinomiali di <strong>verifica della correttezza</strong> di tali soluzioni sono detti problemi <strong>NP</strong>.</p>
+
+<h5 id="toc_1.1.7.4">Soddisfacibilità</h5>
+
+<p>Data una formula proposizionale, <strong>determinare</strong> (cercare) se è soddisfacibile, cioè se esiste
+una attribuzione di valori di verità alle variabili proposizionali (funzione di
+valutazione) che rende vera la formula.</p>
+
+<p>Esempio:</p>
+
+<ul dir="auto">
+<li>\((P \rightarrow Q) \land \lnot P \land Q\) è <em>soddisfacibile</em> \((P = 0, Q = 1)\)</li>
+<li>\((Q \rightarrow P) \land \lnot P \land Q\) è <em>insoddisfacibile</em></li>
+</ul>
+
+<p>Il numero totale di funzioni di valutazione è \(2^n\) (e quindi <strong>esponenziale</strong>) dove \(n\) è il numero di variabili proposizionali nella formula.</p>
+
+<p>Esistono procedimenti migliori (e.g. risoluzione), ma <strong>non</strong> si conoscono algoritmi <em>polinomiali</em>.</p>
+
+<p><strong>Verificare</strong> che una data funzione di valutazione rende vera la formula ha un
+costo <em>lineare</em> nella dimensione della formula.</p>
+
+<h5 id="toc_1.1.7.4">Commesso viaggiatore</h5>
+
+<p>Sono date \(n\) città e una distanza intera \(d_{ij} = d_{ji} \gt 0\) tra ciascuna esse. Il problema consiste nel determinare il ciclo di <strong>lunghezza minima</strong>, ovvero una permutazione \(\pi\) tale che la quantità</p>
+
+<p>\[d_{\pi} = \sum\limits_{i=1}^n d_{\pi(i),\pi(i+1)}\]</p>
+
+<p>sia <strong>minima</strong>.</p>
+
+<p>La versione <strong>decisionale</strong> consite nel determinare se esiste un ciclo di lunghezza inferiore o uguale ad una distanza data \(d\).</p>
+
+<p>Il numero complessivo delle permutazioni è \(\frac{(n-1)!}{2}\). È possibile migliorare il bound (ad un <q>semplice</q> esponenziale) con tecniche di <em>programmazione dinamica</em>, ma non si conoscono algoritmi <strong>polinomiali</strong>.</p>
+
+<p>D’altra parte, <strong>verificare</strong> che un dato cammino \(\pi\) ha una lunghezza \(d_{\pi} \le d\) richiede un tempo <strong>lineare</strong> in \(n\).</p>
+
+<h5 id="toc_1.1.7.4">Knapsak</h5>
+
+<p>Dato uno zaino di volume \(V\) e \(n\) oggetti \(O = \{1,\dots, n\}\) ciascuno con un volume \(v(i)\) (con \(V\) , \(v_i\) interi positivi), determinare se esiste un sottoinsieme \(I \subseteq O\) tale che</p>
+
+<p>\[V = \sum\limits_{i \in I} v(i)\]</p>
+
+<p>Ad esempio, dati 7 oggetti di volume \(\{6, 7, 8, 9, 10, 11, 13\}\) è possibile riempire uno zaino di dimensione \(V = 52\)?</p>
+
+<p>Una <strong>ricerca</strong> esaustiva impone di considerare tutti i sottoinsiemi, ovvero \(2^n\) (e.g. <strong>esponenziale</strong>) casi.</p>
+
+<p>Anche in questo caso, <strong>verificare</strong> che un dato sottoinsieme rispetta la condizione voluta richiede un costo <strong>al più lineare</strong> nel numero degli oggetti.</p>
+
+<h4 id="toc_1.1.8">Riassumendo</h4>
+
+<ul dir="auto">
+<li><p>La classe \(P\) è la classe dei problemi che ammettono un algoritmo rapido di <strong>ricerca</strong> della soluzione</p></li>
+<li><p>La classe \(NP\) è la classe dei problemi che ammettono un algoritmo rapido di <strong>verifica</strong> della correttezza soluzione</p></li>
+</ul>
+
+<h3 id="toc_1.2">Classi deterministiche di complessità</h3>
+
+<h4 id="toc_1.2.1">La Macchina di Turing</h4>
+
+<h5 id="toc_1.2.1.4">Hardware</h5>
+
+<ul dir="auto">
+<li>nastri di memoria <strong>illimitati</strong>, divisi in celle di dimensione <strong>fissata</strong>. Ogni cella può contenere un <strong>carattere</strong> di un <em>alfabeto</em> dato, compreso un carattere \(b\) (bianco) di inizializzazione.</li>
+<li>una <em>testina</em> di lettura mobile per ogni nastro.</li>
+<li>un <em>automa</em> di controllo a stati <strong>finiti</strong>.</li>
+</ul>
+
+<p><img src="img/Turing.png" alt="Esempio di macchina di Turing" title="Macchina di Turing"></p>
+
+<h5 id="toc_1.2.1.4">Operazioni elementari</h5>
+
+<ul dir="auto">
+<li><strong>leggere</strong> e <strong>scrivere</strong> il carattere individuato dalla testina (il nastro di input è di <em>sola lettura</em>, quello di output di <em>sola scrittura</em>)</li>
+<li><strong>spostare</strong> la testina di una posizione verso destra o verso sinistra sul <em>nastro di lavoro</em> (sui nastri di input/output la testina può solo muoversi verso destra)</li>
+<li><strong>modificare</strong> lo stato interno dell&#39;automa</li>
+</ul>
+
+<h4 id="toc_1.2.2">Definizione formale</h4>
+
+<p>Una <strong>Macchina di Turing</strong> (multi-tape, deterministica) è una tupla \(\langle Q, \Gamma, b, \Sigma, k, \delta, q_{0}, F\rangle\) dove:</p>
+
+<ul dir="auto">
+<li>\(Q\) è un insieme finito di <strong>stati</strong></li>
+<li>\(\Gamma\) è l&#39; <strong>alfabeto finito</strong> del nastro</li>
+<li>\(b \in \Gamma\) è il <strong>carattere bianco</strong></li>
+<li>\(\Sigma \subseteq \Gamma \setminus \{b\}\) è l&#39;insieme dei <strong>caratteri di input/output</strong></li>
+<li>\(k \ge 1\) è il <strong>numero</strong> degi nastri</li>
+<li>\(q_0 \in Q\) è lo <strong>stato iniziale</strong></li>
+<li>\(F \subseteq Q\) è l&#39;insieme degli <strong>stati finali</strong></li>
+<li>\(\delta : (Q \setminus F) \times \Gamma^k \rightarrow Q \times \Gamma^k \times \{L, R\}^k\) è la <strong>funzione di transizione</strong></li>
+</ul>
+
+<p>\(L\) e \(R\) denotano le possibili mosse della testina.</p>
+
+<h4 id="toc_1.2.3">Convenzioni di input/output</h4>
+
+<ul dir="auto">
+<li><p><strong>Input</strong>: si suppone che il nastro di input sia inizializzato con la stringa di input (un carattere per ogni cella); la testina è posizionata sul primo
+carattere dell’input; tutte le altre celle del nastro sono inizializzate col
+carattere speciale \(b\).</p></li>
+<li><p><strong>Output</strong>: nel momento in cui la macchina si arresta l’output è la più <em>lunga stringa di caratteri</em> in \(\Sigma\) (in particolare, senza \(b\)) alla sinistra della testina sul nastro di output.</p></li>
+<li><p><strong>Nastri</strong>: se \(k \gt 1\) il nastro \(1\) è un nastro di sola lettura (input); se \(k \gt 2\) il nastro \(k\) è un nastro di sola scrittura (output)</p></li>
+<li><p><strong>Spostamenti</strong>: le sole mosse consentite sui nastri di input/output sono spostamenti verso destra.</p></li>
+</ul>
+
+<h4 id="toc_1.2.4">Configurazioni istantanee</h4>
+
+<p>Una <strong>configurazione</strong> è una descrizione dello <strong>stato</strong> della computazione ad un dato <strong>istante</strong> della computazione. Questa è definita come una tupla</p>
+
+<p>\[(q, (\sigma_1,\tau_1),\dots,(\sigma_k,\tau_k))\]</p>
+
+<p>dove \(q\) è lo <strong>stato</strong> dell’automa e \(\sigma_i, \tau_i\) sono due stringhe di caratteri che descrivono <strong>la porzione non bianca</strong> del nastro \(i\) alla sinistra e alla destra della relativa testina. Il carattere in lettura è il primo carattere di \(\tau_i\).</p>
+
+<p>La computazione avviene per <strong>passi discreti</strong>: una transizione tra due
+configurazioni è una relazione \(\vdash\) governata dalla funzione di transizione:</p>
+
+<p>\[(q,(\sigma_{1}b_{1},a_{1}\tau_{1}),\dots,(\sigma_{k}b_{k},a_{k}\tau_{k})) \vdash ((\sigma_{1}\beta_{1},\alpha_{1}\tau_{1}),\dots,(\sigma_{k}\beta_{k},\alpha_{k}\tau_{k}))\]</p>
+
+<p>se \(\delta(q,a_1,\dots,a_k) = (q&#39;,a&#39;_1,\dots,a&#39;_k,D_1,\dots,D_k)\), ovvero se il risultato della <em>funzione di transizione</em> chiamata sulla tupla contenente lo <strong>stato attuale</strong> (\(q\)) e la <strong>stringa contenuta</strong> nell&#39;\(i\)-esimo nastro (\(a_1,\dots,a_k\)) è pari alla tupla contenente il <strong>nuovo stato</strong> (\(q&#39;\)), la <strong>stringa da scrivere</strong> sull&#39;\(i\)-esimo nastro (\(a&#39;_1,\dots,a&#39;_k)\).</p>
+
+<ul dir="auto">
+<li>se \(D_i = R\) allora \(\beta_i = b_{i}a&#39;_i\) e \(\alpha_i = \epsilon\), ovvero se la direzione è \(R\) allora la testina si muove verso <strong>destra</strong> scrivendo \(b_{i}a&#39;_i\) sull&#39;\(i\)-esimo nastro.</li>
+<li>se \(D_i = L\) allora \(\beta_i = \epsilon\) e \(\gamma_i = b_{i}a&#39;_i\), ovvero se la direzione è \(L\) allora la testina si muove verso <strong>sinistra</strong> scrivendo \(b_{i}a&#39;_i\) sull&#39;\(i\)-esimo nastro.</li>
+</ul>
+
+<p>Il nastro può essere esteso <q>on demand</q> con caratteri bianchi se necessario.</p>
+
+<h4 id="toc_1.2.5">Computazioni</h4>
+
+<p>La relazione \(\vdash^*\) denota la <strong>chiusura transitiva e riflessiva</strong> della relazione \(\vdash\).</p>
+
+<p>Una funzione \(f: \Sigma^* \rightarrow \Sigma^*\) è calcolata da una macchina di Turing \(M\) se per ogni \(\alpha\) esiste \(q_f \in F\) tale che</p>
+
+<p>\[( q_0, (\epsilon, \alpha), \dots, (\epsilon, \epsilon)) \vdash^* (q_f,(\gamma_1,\tau_1), \dots,(\gamma_k, \tau_k))\]</p>
+
+<p>e \(f(\alpha)\) è il <strong>più lungo suffisso</strong> di \(\gamma_k\) appartenente a \(\Sigma^*\).</p>
+
+<h4 id="toc_1.2.6">Classi deterministiche di Complessità</h4>
+
+<p>Una <em>classe di complessità</em> è un insieme di funzioni che possono essere calcolate con delle date risorse. Presteremo speciale attenzione alle funzioni Booleane, in particolare quelle che hanno <strong>un solo bit</strong> come output. Queste funzioni definiscono <strong>problemi di decisione</strong> o <strong>linguaggi</strong>. Diciamo che una macchina <em>decide</em> un linguaggio \(L \subseteq \{0, 1\}^*\) se calcola la funzione \(f_L : \{0, 1\}^*  \rightarrow \{0, 1\}\), dove \(f_{L}(x) = 1 \iff x \in L\).</p>
+
+<h4 id="toc_1.2.7">DTIME e DSPACE</h4>
+
+<p>Sia data una macchina di Turing \(M\):</p>
+
+<ul dir="auto">
+<li>\(time_M(x)\) è il <strong>tempo di esecuzione</strong> di \(M\) su input \(x\), ovvero il numero di passi richiesti per la computazione,</li>
+<li>\(space_M(x)\) è il <strong>numero massimo</strong> di celle visitate da una qualche testina durante la computazione (considerando solo i nastri di <em>lavoro</em>),</li>
+<li>\(t_M(n) \coloneqq max \{time_{M}(x): |x| = n\}\), ovvero il <strong>massimo tempo</strong> (numero di passi) necessario alla macchina \(M\) per una computazione sull&#39;input \(x\),</li>
+<li>\(s_M(n) \coloneqq max \{space_{M}(x): |x| = n\}\), ovvero il <strong>massimo numero di celle</strong> visitate dalla macchina \(M\) durante una computazione sull&#39;input \(x\).</li>
+</ul>
+
+<p>Data una funzione \(f: N \rightarrow N\) introduciamo le seguenti classi di complessità:</p>
+
+<ul dir="auto">
+<li><p>\(DTIME(f) \coloneqq \{ L \subseteq \Sigma^* : \exists M, L = L_M \land t_M \in O(f) \}\), ovvero:</p>
+
+<p>Un linguaggio \(L\) è in \(DTIME(f)\) se e solo se esiste una macchina di Turing che in tempo \(O(f)\) decide \(L\).</p></li>
+<li><p>\(DSPACE(f) \coloneqq \{ L \subseteq \Sigma^* : \exists M, L = L_M \land s_M \in O(f) \}\), ovvero:</p>
+
+<p>Un linguaggio \(L\) è in \(DSPACE(f)\) se e solo se esiste una macchina di Turing che in spazio \(O(f)\) decide \(L\).</p></li>
+</ul>
+
+<p>La D in \(DTIME\) e \(DSPACE\) significa <q>deterministico</q>. Infatti le macchine di Turing definite finora sono più precisamente definibili come macchine di Turing <em>deterministiche</em> in quanto per ogni dato input \(x\) esiste <strong>un solo modo</strong>  in cui la macchina possa terminare la sua computazione.</p>
+
+<h4 id="toc_1.2.8">Tempo e Spazio</h4>
+
+<p>Per ogni \(f: N \rightarrow N\) si ha:</p>
+
+<p>\[ DTIME(f) \subseteq DSPACE(f) \subseteq \sum\limits_{c \in N} DTIME( 2^{c(log + f)} )\]</p>
+
+<p>La prima inclusione vale in quanto la Macchina di Turing ha bisogno di almeno un passo per visitare una nuova cella.</p>
+
+<p>La seconda inclusione vale in quanto il <strong>numero di configurazioni</strong> della macchina con spazio fissato è <strong>finito</strong>, e la computazione deve arrestarsi entro un numero di passi <strong>pari al più</strong> a queste configurazioni (altrimenti si avrebbe un ciclo).</p>
+
+<p>Calcoliamo il numero di configurazioni. Sia \(M = \langle Q, \Gamma, b, \Sigma, k, \delta, q_{0}, F\rangle\) e \(L_M \subseteq DSPACE(f)\). Ricordiamo che una <em>configurazione</em> è una tupla</p>
+
+<p>\[( q, (\sigma_1, \tau_1), \dots , (\sigma_k, \tau_k))\]</p>
+
+<p>Abbiamo allora</p>
+
+<p>\[t_M \le |Q| \cdot k \cdot |\Gamma|^{s_{M}(n)} \le 2^{c(log(n) + f(n)) + c}\]</p>
+
+<p>per un \(c \in N\) opportuno.</p>
+
+<h4 id="toc_1.2.9">Riduzione ad un nastro</h4>
+
+<p>Per ogni \(f: N \rightarrow N\) si ha:</p>
+
+<p>\[DSPACE(f) \subseteq DSPACE_{1}(f) \land DTIME(f) \subseteq DTIME_{1}(f^2)\]</p>
+
+<p>L’idea è di simulare \(k\) nastri in uno solo <strong>arricchendo l’alfabeto</strong>. Utilizzare altre \(k\) <q>tracce</q> per rappresentare la posizione della testina sul nastro corrispondente:</p>
+
+<p><img src="img/RidNastri.png" alt="Esempio di k nastri rappresentati con uno solo" title="Riduzione dei nastri"></p>
+
+<p>Se \(\Sigma\) è l&#39;alfabeto originale, il nuovo alfabeto è \(\Sigma&#39; \coloneqq (\Sigma \times \{ *, B\})^k\). La crescita <em>quadratica</em> è dovuta al fatto che ogni passo simulato richiede la <strong>ricerca della posizione</strong> della testina per ogni nastro: questa ricerca è limitata dalla <strong>dimensione</strong> del nastro, che a sua volta, per un solo nastro, è limitata dal <strong>tempo</strong>.</p>
+
+<h4 id="toc_1.2.10">Riduzione da k nastri a 2</h4>
+
+<p>Per ogni \(f: N \rightarrow N\) si ha:</p>
+
+<p>\[ DTIME(f) \subseteq DTIME_2(f \cdot log(f))\]</p>
+
+<p>Vogliamo mostrare una MdT universale \(\mathcal{U}\) che dati un input \(x\) e la descrizione di una MdT \(M\) che si arresta su \(x\) in \(n\) passi, restituisca in output \(M(x)\) in tempo \(O(n log(n))\). \(\mathcal{U}\) utilizzerà il suo nastro di input/output come farebbe \(M\) e possiederà un ulteriore nastro utilizzato per immagazzinare la <em>tabella di transizione</em> e lo stato corrente di \(M\).</p>
+
+<p>Sia \(k\) il numero di nastri che \(M\) usa (oltre a quelli di input/output) e \(\Gamma\) il suo alfabeto. Possiamo assumere che \(\mathcal{U}\) usi l&#39;alfabeto \(\Gamma^k\).</p>
+
+<p>Possiamo quindi codificare in ogni cella del nastro <em>principale</em> \(k\) simboli di \(\Gamma\), ognuno corrispondente a un simbolo da uno dei nastri di \(\mathcal{U}\). Questo significa che possiamo pensare al nastro principale di \(\mathcal{U}\) non come ad un solo nastro come a \(k\) <em>nastri paralleli</em>.</p>
+
+<p>Mentre possiamo facilmente codificare il contenuto dei \(k\) nastri di \(M\) nei \(k\) nastri paralleli di \(\mathcal{U}\), dobbiamo comunque fare i conti con il fatto che le \(k\) testine di \(M\) possono muoversi <strong>indipendentemente</strong> a sinistra o a destra, mentre i \(k\) nastri paralleli di \(\mathcal{U}\) sono costretti a muoversi insieme.</p>
+
+<p>L&#39;idea principale è che invece di muovere la testina, si ricopiano i caratteri non bianchi sotto la testina, effettivamente <strong>spostando</strong> i nastri paralleli.</p>
+
+<p><img src="img/Ridk2.png" alt="Esempio di riduzione di k nastri a 2" title="Riduzione da k a 2"></p>
+
+<h5 id="toc_1.2.10.4">Codifica dei nastri di M sul nastro di U</h5>
+
+<p>Piuttusto che far corrispondere ogni nastro parallelo di \(\mathcal{U}\) esattamente ad un nastro di \(M\), aggiungiamo un simbolo bianco speciale \(\square\) all&#39;alfabeto dei nastri paralleli di \(\mathcal{U}\) che viene <strong>ignorato</strong> durante la simulazione ( \(101 = 1 \square 0 1 = \square \square 1 0 \square 1 \), etc.).</p>
+
+<p>Per semplicità possiamo pensare ai nastri di \(\mathcal{U}\) come <em>infiniti</em> in entrambe le direzioni. Possiamo quindi indicizzarne le locazioni con \(0, \pm 1, \pm 2, \dots\). Di solito la testina sta nella locazione \(0\) dei nastri paralleli. La muoveremo solo temporaneamente quando simuliamo un movimento a sinistra <strong>shift</strong>ando il nastro verso destra. Alla fine dello shift la testina ritorna alla posizione \(0\).</p>
+
+<h5 id="toc_1.2.10.4">Invarianti</h5>
+
+<p>Dividiamo ognuno dei nastri paralleli di \(\mathcal{U}\) in <strong>slot</strong> che indichiamo con \(R_0,L_0,R_1,L_1, \dots\). Indichiamo la cella corrente con \(C\), inoltre la cella con locazione \(0\) non sta in nessuno <em>slot</em>.</p>
+
+<p>In generale, per ogni \(i \ge 1\), lo Slot \(R_i\) contiene le \(2^{i+1}\) celle collocate a destra dello Slot \(R_{i-1}\)(viceversa per \(L_i\)).</p>
+
+<p>Durante l&#39;esecuzione, vengono preservati i seguenti invarianti:</p>
+
+<ul dir="auto">
+<li><p>Ognuno degli slots è <strong>completamente vuoto</strong> o <strong>completamente pieno</strong> oppure pieno <strong>esattamente a metà</strong>, ovvero il numero di simboli nello slot \(R_i\) che non sono \(\square\) può essere o \(0\) (vuoto) o \(2^i\) (metà) o \(2^{i+1}\) (pieno) e lo stesso vale per \(L_i\). Assumiamo che ognuno degli slots sia inizialmente <strong>pieno a metà</strong>. Possiamo assicurarcene riempiendo, la prima volta che lo si incontra, metà di ogni con \(\square\).</p></li>
+<li><p>\(R_i\) e \(L_i\) sono l’uno <strong>pieno</strong> e l’altro <strong>vuoto</strong> ( o viceversa), oppure entrambi <strong>pieni a metà</strong>; il numero totale dei simboli significativi (diversi da \(\square\)) in \(R_i \cup L_i\) è dunque \(2^{i+1}\);</p></li>
+<li><p>il simbolo in \(C\) (locazione \(0\)) <strong>contiene sempre</strong> un simbolo <strong>diverso</strong> da \(\square\).</p></li>
+</ul>
+
+<h5 id="toc_1.2.10.4">Effettuare lo shift</h5>
+
+<p>Il vantaggio di aver impostato gli slot è che ora effettuando gli shift, non dobbiamo più spostare <em>l&#39;intero nastro</em>, ma possiamo limitarci ad utilizzare solo <em>alcuni slot</em>.</p>
+
+<p><img src="img/Shift.png" alt="Esempio di operazione di shift dei 3 nastri paralleli di U" title="Shift"></p>
+
+<p>L&#39;operazione di <em>shift</em> verso sinistra opera nel modo seguente (simmetricamente verso destra):</p>
+
+<ol dir="auto">
+<li><p>\(\mathcal{U}\) trova il più piccolo \(i_0\) tale per cui \(R_{i_{0}}\) non sia vuoto. Notiamo che per il secondo invariante tutti gli \(L_i\) per \(i &lt; i_0\) saranno <strong>pieni</strong>, mentre \(L_{i_{0}}\) sarà esattamente <strong>pieno a metà</strong>. Definiamo \(i_0\) l&#39; <strong>indice</strong> di questo particolare shift.</p></li>
+<li><p>\(\mathcal{U}\) mette il simbolo più significativo diverso da \(\square\) di \(R_{i_{0}}\) in \(C\) (locazione \(0\)) e shifta i rimanenti \(2^{i_0}\) simboli da \(R_{i_{0}}\) negli slot \(R_0, \dots , R_{i_{0} - 1}\) riempiendo <strong>esattamente metà</strong> dei simboli di ogni slot.</p></li>
+<li><p>\(\mathcal{U}\) effettua <strong>l&#39;operazione simmetrica</strong> a sinistra di \(C\). svuotando a metà ciascuno degli slot pieni \(L_0, L_1, \dots, L_{i_{0} - 1}\), e mettendo tali caratteri in \(L_i\) (che per <strong>l&#39;invariante</strong> \(2\) è sicuramente almeno <strong>vuoto a metà</strong>).</p></li>
+<li><p>Infine \(\mathcal{U}\) sposta il vecchio simbolo in lettura, opportunamente modificato, e lo mette nello slot \(L_0\).</p></li>
+</ol>
+
+<p>Alla fine dello shift, tutti gli slot \(R_0, L_0, \dots, R_{i_{0} - 1}, L_{i_{0} - 1}\) sono mezze piene, \(R_0\) ha \(2^{i_{0}}\) simboli non \(\square\) <strong>in meno</strong>, e \(L_i\) ha \(2^i\) simboli non \(\square\) <strong>in più</strong>. Dunque <strong>gli invarianti vengono mantenuti</strong>.</p>
+
+<h5 id="toc_1.2.10.4">Complessità</h5>
+
+<p>Il <strong>costo</strong> totale di una singola operazione di shift è proporzionale alla dimensione degli slot \(R_0, L_0, \dots, R_{i_{0} - 1}, L_{i_{0} - 1}\) coinvolti e dunque di \(O(2^{i_{0}})\).</p>
+
+<p>Dopo aver eseguito un operazione di shift relativa ad uno slot in posizione \(i\), tutti gli slot con <strong>indice inferiore a i</strong> (\(L_0, R_0, \dots, L_{i - 1}, R_{i - 1}\)) sono <strong>mezzo pieni</strong>.</p>
+
+<p>Questo significa  che una volta effettuato uno shift con <em>indice</em> \(i\), i successivi \(2^i - 1\) shift su quel particolare nastro parallelo avranno tutti indice <strong>inferiore</strong> a \(i\). Questo significa che per ognuno dei nastri paralleli, al più \(\frac{1}{2^{i}}\) del numero totale degli shift avrà indice \(i\).</p>
+
+<p>Se \(n\) è il numero di passi (shift) richiesto dalla computazione e il massimo indice per gli slots è \(log (n)\), allora il tempo complessivo speso shiftando i \(k\) nastri paralleli di \(\mathcal{U}\) è:</p>
+
+<p>\[O(\sum\limits_{i=1}^{log(n)} \frac{n}{2^{i - 1}} 2^i ) = O(n log(n))\]</p>
+
+<h4 id="toc_1.2.11">Sequenza di attraversamento</h4>
+
+<p>Sia \(M = \langle Q, \Gamma, b, \Sigma, k, \delta, q_{0}, F\rangle\) ad <em>un nastro</em> e sia \(x\) un input di lunghezza \(|x| = n\). Numeriamo un modo progressivo \(0, 1, \dots, n - 1\) le celle che contengono l&#39;input. La sequenza di attraversamento \(CS(x, i)\) di \(x\) a \(i\) è la <strong>sequenza di stati necessari</strong> (<em>eventualmente infinita</em>) \(q_1, q_2, \dots \in Q\), durante la computazione di \(M\) su input \(x\), al <strong>passaggio della testina</strong> alla cella \(i - 1\) alla cella \(i\) o viceversa.</p>
+
+<p><img src="img/SequenzaAttr.png" alt="Esempio di sequenza di attraversamento" title="Sequenza"></p>
+
+<h4 id="toc_1.2.12">Lemma di attraversamento</h4>
+
+<p>Sia \(M\) una macchina di Turing a <em>un nastro</em> e siano \(u, v , x, y \in \Sigma^*\) tali che \(uv \in L_M \iff xy \in L_M\) . Supposto </p>
+
+<p>\[ CS(uv, |u|) = CS(xy, |x|)\]</p>
+
+<p>allora \(uv \in L_M \iff uy \in L_M\).</p>
+
+<p><img src="img/CrossLemma.png" alt="Esempio del Crossing Lemma" title="Crossing Lemma"></p>
+
+<p><strong>Dimostrazione</strong>. Per simmetria basta dimostrare che \(uv \in L_M \rightarrow uy \in L_M\). Consideriamo la computazione di \(uv\) e \(xy\) e <strong>dividiamo entrambe</strong> in corrisponenza della rispettiva <strong>posizione di crossing</strong> (i.e. \(|u|\) e \(|x|\)). A questo punto <strong>accoppiamo</strong> la computazione <em>di sinistra</em> di \(uv\) con quella <em>di destra</em> di \(xy\). Questo porta ad una computazione che accetta \(uy\).</p>
+
+<h4 id="toc_1.2.13">Un limite inferiore per la riduzione dei nastri</h4>
+
+<p>Sia \(L \coloneqq \{ w x^{|w|} w | w \in \{ 0, 1 \} ^{*} \}\). Allora:</p>
+
+<ol dir="auto">
+<li>\(L \in DTIME_{2}(n) \subseteq DTIME_{1}(n^2)\), semplice verifica;</li>
+<li><p>\(L \not \in DTIME_{1}(t)\) per nessun \(t \in o(n^2)\), sia \(M\) una MdT ad <em>un nastro</em> per cui \(L_M = L\); notiamo le cose seguenti:</p>
+
+<ul dir="auto">
+<li><p>\(time_M(w x^{ |m| } w) \ge m \cdot l(w)\) dove \(l(w) \coloneqq min_{ m \le i \lt 2m} \{ CS(w x^{ |m| } w, i) \}\), in quanto <strong>ogni</strong> attraversamento richiede <strong>almeno un</strong> passo;</p></li>
+<li><p>ogni <em>crossing sequence</em> descrive in modo univoco una stringa \(w \in L\). Supponiamo infatti che \(CS(w x^{ |w| } w, i) = CS(w&#39; x^{ |w&#39;| } w&#39; , j)\) per \(|w| \le i \lt 2 |w|\) e \(| w&#39; | \le i \lt 2 | w&#39; |\). Allora per il <em>lemma di attraversamento</em> la stringa \(w x^{ |w| } w&#39; \in L\) (per \(m\) opportuno), che implica \(w = w&#39;\).</p></li>
+<li><p>è possibile descrivere una qualunque stringa \(w\) come <strong>quell&#39;unica stringa</strong> di lunghezza <strong>minore o uguale</strong> a \(m\) riconosciuta \(M\) con una <strong>crossing sequence data</strong>.</p></li>
+</ul></li>
+</ol>
+
+<h4 id="toc_1.2.14">Macchine ad accesso casuale - Random Access Machine</h4>
+
+<p>Una macchina ad <strong>accesso casuale</strong> (RAM) dispone di un insieme <strong>numerabile</strong> di locazioni di memoria in grado di contenere interi di <strong>dimensione arbitraria</strong>. Il comportamento della macchina è descritto da una <strong>sequenza di istruzioni</strong> (programma):</p>
+
+<p><img src="img/RAM.png" alt="Esempio di set di istruzioni di una Random Access Machine" title="RAM"></p>
+
+<ul dir="auto">
+<li>\(r_i\) è il contenuto della locazione \(i\) (la locazione \(0\) è utilizzata come <strong>accumulatore</strong>)</li>
+<li>\(i_j\) è l&#39; \(i\)-esimo input</li>
+<li>\(k\) è il <strong>Program Counter</strong> (inizializzato alla prima istruzione)</li>
+</ul>
+
+<p>Ogni istruzione ha costo <strong>unitario</strong>, indipendentemente dal fatto che opera su interi di dimensione arbitraria!</p>
+
+<p><strong>Warning</strong>: Se l&#39;input è \(l = (i_1, \dots, i_k)\) la dimensione non è \(k\), ma </p>
+
+<p>\[l(I) = \sum\limits_{j=1}^n |bin(i_j)|\]</p>
+
+<h4 id="toc_1.2.15">Simulazione di una RAM mediante MdT a 7 nastri</h4>
+
+<ul dir="auto">
+<li>il <strong>primo</strong> nastro contiene l&#39; <strong>input</strong></li>
+<li>il <strong>secondo</strong> nastro descrive il <strong>contenuto dei registri</strong> sotto forma di una <strong>lista di coppie</strong> \(i: r_i\) separate da caratteri bianchi e concluse con \(\vartriangleleft\). Quando un registro è aggiornato, viene <em>cancellato</em> e <em>riappeso</em> in coda.</li>
+<li>il <strong>terzo</strong> nastro contiene il <strong>Program Counter</strong></li>
+<li>i <strong>tre nastri</strong> rimanenti sono utilizzati per le istruzioni aritmetiche (due per gli <strong>operandi</strong> e il terzo per il <strong>risultato</strong>)</li>
+</ul>
+
+<p>Gli stati della MdT sono suddivisi in \(m\) gruppi, <strong>uno per ogni singola istruzione</strong> del programma da simulare.</p>
+
+<h4 id="toc_1.2.16">Lemma crescita del contenuto dei registri</h4>
+
+<blockquote>
+<p>Al passo \(t\) di una computazione su input \(I\), il contenuto di ogni registro ha una dimensione <strong>minore o uguale</strong> a \(t + l(I) + c\), dove \(c\) è la dimensione della <strong>massima costante</strong> che appare nel programma.</p>
+</blockquote>
+
+<p>La dimostrazione si effettua per induzione su \(t\). Al passo \(0\) il lemma è <strong>evidente</strong>. Al passo <strong>induttivo</strong>  si procede per casi sull’ultima istruzione eseguita. Le istruzioni che possono <strong>aumentare sensibilmente</strong> il contenuto dei registri sono quelle <strong>aritmetiche</strong>, ma anche <em>somma e sottrazione</em> <strong>al più</strong> richiedono <strong>un solo carattere extra</strong> per il riporto finale, incrementando la dimensione dei risultati di una sola unità.</p>
+
+<p>Si noti che il lemma <strong>non varrebbe</strong> se ad esempio tra le istruzioni aritmetiche si
+comprendesse anche la <strong>moltiplicazione</strong>.</p>
+
+<h4 id="toc_1.2.17">Costo della simulazione</h4>
+
+<blockquote>
+<p>Ogni programma RAM \(P\) con complessità in tempo \(t_P(n)\) <strong>può essere simulato</strong> da una MdT in tempo \(O(t_P(n)^3)\).</p>
+</blockquote>
+
+<p>Il costo di esecuzione di ogni singola istruzione è dovuto principalmente al costo
+di <strong>reperimento</strong> degli operandi sul nastro \(2\) di simulazone della memoria.</p>
+
+<p>Per ogni operando sono necessarie <strong>al più due</strong> scansioni del nastro (nel caso di riferimenti indiretti).</p>
+
+<p>Il nastro ha dimensione \(O(t_P (n)^2 )\), in quanto contiene <strong>al più</strong> \(O(t_P (n))\) coppie, ciascuna di dimensione \(O(t_P (n))\).</p>
+
+<h4 id="toc_1.2.18">Conclusioni</h4>
+
+<p>La complessità computazionale <strong>dipende</strong> dal modello di calcolo e dalla definizione delle funzioni di costo.</p>
+
+<p>Definizioni <q>ragionevoli</q> delle funzioni di costo permettono comunque la mutua simulazione di modelli differenti in tempi polinomiali.</p>
+
+<h3 id="toc_1.3">Gerarchie in tempo e spazio</h3>
+
+<h4 id="toc_1.3.1">Macchine di Turing normalizzate</h4>
+
+<p>Diremo che una macchina di Turing è <strong>normalizzata</strong> se è della forma</p>
+
+<p>\[\langle Q = \{ 0,1, \dots , n \}, \Gamma = \{ 0, 1, 2 \}, b = 2, \Sigma = \{ 0, 1 \}, k, \delta, q_{0} = 0, F = \{ n \} \rangle\]</p>
+
+<blockquote>
+<p>Per ogni MdT ad <strong>un nastro</strong> sull&#39;alfabeto \(\Sigma = \{ 0, 1 \}\) ne esiste una <em>normalizzata</em> \(M&#39;\) tale che \(L_M = L_{M&#39;}, t_{M&#39;} \in O(t_{M})\) e \(s_{M&#39;} \in O( s_{M})\).</p>
+</blockquote>
+
+<p>Sia \(M = \langle Q_M, \Gamma_M, b_M, \Sigma, 1, \delta_m,q_{M_0}, F_M \rangle\). Ogni simbolo in \(\Gamma_M\) può essere codificato da una sequenza di lunghezza \(l\) opportuna di simboli in \(\Gamma_{M?} = \{ 0, 1, 2 \}\) (riservando \(2^l\) come codifica di \(b\)). \(\delta_{M&#39;}\) si ottiene da \(\delta_{M}\) <em>rimpiazzando</em> ogni operazione su di un simbolo mediante una piccola sequenza di operazioni sui rispettivi blocchi. Possiamo <strong>numerare</strong> gli stati in modo crescente, ed assumere senza perdita di generalità di avere <strong>un solo stato finale</strong>. Il tempo e lo spazio <em>addizionali</em> richiesti dalla macchina normalizzata <strong>sono approssimativamente</strong> \(l\) volte quelli della macchina orginaria.</p>
+
+<h4 id="toc_1.3.2">Macchina di Turing universale</h4>
+
+<p>Esiste un encoding <strong>totale e suriettivo</strong> \(M_x\) delle MdT normalizzate in strighe \(x \in \{ 0, 1 \}^{*}\), tale che esiste \(u \in \{ 0, 1 \}^{*}\) e \(c \in N\) per cui:</p>
+
+<ol dir="auto">
+<li>\(L(M_{u}) = \{ \langle x, y \rangle | y \in L( M_x ) \}\)</li>
+<li>\(\forall x,y,time_{M_u} \langle x, y \rangle \le c \cdot (|x|^2 + |x| \cdot time_{M_x}(y))^2 + c\)</li>
+</ol>
+
+<p>Ogni transizione \(\delta (i, j) = (k, l, m)\) può essere codificata da una stringa della forma:</p>
+
+<p>\[w = 0^{i + 1} 10^{j + 1} 10^{k + 1} 10^{l + 1} 10^{m + 1}\]</p>
+
+<p>dove \(m = 0\) per \(L\) e \(m = 1\) per \(R\). Siccome \(Q\) è finito, la funzione di transizione è codificata da un&#39;unica stringa \(x = 1 w_0 11 w_1 11 \dots 11 w_h\) che identifica in modo univoco una MdT \(M_x\). Alle stringhe \(x \in \{ 0,1 \} ^ {*}\) che non sono della forma predecente associamo arbitrariamente una MdT \(M_x\) che riconosce il linguaggio vuoto.</p>
+
+<p>La MdT universale opera nel modo seguente:</p>
+
+<ol dir="auto">
+<li><p>Utilizziamo per semplicità una macchina di Turing \(M\) a \(5\) nastri. Dato l’input \(\langle x, y \rangle\) la macchina <strong>ricopia</strong> innanzitutto \(x\) e \(y\) su nastri di lavoro (nastro del <strong>programma</strong> e nastro della <strong>computazione</strong>).</p>
+
+<p><strong>Costo:</strong> \(O(|x|) + O(|y|)\)</p></li>
+<li><p>Quindi si verifica che \(x\) sia un codice <strong>valido</strong> rispetto alla <strong>codifica</strong> precedente (<strong>parsing</strong>).</p>
+
+<p><strong>Costo:</strong> \(O( |x|^2 )\)</p></li>
+<li><p>In caso negativo, l’input viene rifiutato; altrimenti \(M\) comincia a simulare \(M_x\) su input \(y\) , utilizzando un <strong>ulteriore nastro</strong> per <strong>memorizzare</strong> lo stato interno di \(M_x\) (nastro dello <strong>stato</strong>).</p>
+
+<p><strong>Costo:</strong> La simulazione di ogni passo di \(M_x\) richiede un tempo \(O(|x|)\), e dunque l&#39;intera computazione costa \(O(|x| \cdots time_{M_x}(y))\)</p></li>
+<li><p>La simulazione richiede ad ogni passo la <strong>scansione</strong> della funzione di transizione per ricercare la <strong>mossa</strong> corretta da effettuare sul nastro della <strong>computazione</strong>. Infine il risultato della computazione viene ricopiato sul nastro di <strong>output</strong>.</p>
+
+<p><strong>Costo:</strong> \(O( time_{M_x}(y) )\)</p></li>
+</ol>
+
+<p>Per il teorema della riduzione dei nastri, la precedente MdT può essere simulata
+da una MdT ad un nastro con la complessità richiesta.</p>
+
+<h4 id="toc_1.3.3">Funzioni costruibili</h4>
+
+<p>Una funzione \(f: N \rightarrow N\) è detta <strong>costruibile in tempo</strong> se esiste una MdT \(M\) sull&#39;alfabeto \(\Sigma = \{ 0 \}\) che calcola una funzione \(f_M\) per cui:</p>
+
+<ul dir="auto">
+<li>per ogni \(n, f_M( 0^n ) = 0^{f(n)}\),</li>
+<li>\(t_M \in O(f)\)</li>
+</ul>
+
+<p>Analogamente, \(f\) è costruibile in spazio se valgono le stesse condizioni con \(s_M\)
+al posto di \(t_M\).</p>
+
+<blockquote>
+<p>Ogni funzione costruibile in tempo è costruibile in spazio.</p>
+</blockquote>
+
+<p><strong>Esempio</strong> Le seguenti funzioni sono costruibili in tempo:</p>
+
+<p>\[n, n \cdot log(n), n^c, c^n, n \cdot \sqrt{n}\]</p>
+
+<p>La funzione \(f(n) = log(n)^c\) è costruibile in spazio ma non in <strong>tempo</strong>.</p>
+
+<h4 id="toc_1.3.4">Il Teorema della Gerarchia (spazio)</h4>
+
+<p>I teoremi della gerarchia riflettono l’idea intuitiva che disponendo di una maggiore quantità di risorse è effettivamente possibile affrontare problemi più complessi (ad esempio, che esistono funzioni calcolabili in tempo quadratico, ma non in tempo linerare).</p>
+
+<p>Questi risultati forniscono <strong>una delle poche</strong> tecniche di separabilità tra classi di complessità attualmente conosciute.</p>
+
+<blockquote>
+<p>Sia \(s\) una funzione costruibile in spazio e \(log \in O(s)\). Allora: \(O(s) \subseteq O(s&#39;) \iff DSPACE(s) \subseteq DSPACE(s&#39;)\).</p>
+</blockquote>
+
+<p>\(\implies\) vale banalmente poichè aumentando le risorse disponibili sicuramente non diminuiscono le funzioni calcolabili.</p>
+
+<p>\(\impliedby\) dobbiamo dimostrare che \(O(s) \subseteq O(s&#39;) \impliedby DSPACE(s) \subseteq DSPACE(s&#39;)\).</p>
+
+<p>Per semplicità si passa alla negazione: </p>
+
+<p>\[O(s) \not \subseteq O(s&#39;) \implies DSPACE(s) \not \subseteq DSPACE(s&#39;)\]</p>
+
+<p>ovvero esiste almeno un linguaggio \(L \in DSPACE(s)\) tale che \(L \not \in DSPACE(s&#39;)\) e quindi \(s&#39; \in o(s)\).</p>
+
+<p>Definiamo \(L\) per <em>diagonalizzazione</em>, nel modo seguente:</p>
+
+<p>\[L \coloneqq \{ 0^k1x | 0^k1x \not \in L_{M_{bin(k)}} \land space_{M_{bin(k)}}( 0^k1x ) \le s(|0^k1x|) \} \]</p>
+
+<p>ovvero il linguaggio delle stringhe <strong>rifiutate da</strong> \(M_{bin(k)}\) usando \(\le s(|0^k1x|)\) spazio.</p>
+
+<p>Supponiamo che \(L \in DSPACE(s&#39;)\). Allora <strong>decidere</strong> \(L\) si riduce alla <strong>simulazione</strong> di una macchina normalizzata \(M\) (a due nastri) che usa \(\le s(|0^k1x|)\) spazio (quindi in spazio \(O(s)\)).
+In particolare, esiste un qualche intero \(k\) tale che \(M_{bin(k)} = M\).</p>
+
+<p>Siccome \(s \not \in O(s&#39;)\) esistono <strong>infiniti</strong> \(n\) tali per cui \(s_{M_{bin(k)}}(n) \le s(n)\), ovvero lo spazio <strong>massimo</strong> utilizzato da \(M_{bin(k)}\) per decidere \(n\) è minore o uguale a quello usato da \(s(n)\), e dunque ne esiste uno <strong>maggiore</strong> di \(k\).</p>
+
+<p>Presa una qualunque stringa \(x\) di lunghezza \(|x| = n - k - 1\) otteniamo la seguente contraddizione:</p>
+
+<p>\[0^k1x \in L \iff 0^k1x \not \in L_{M_{bin(k)}} \land space_{M_{bin(k)}}( 0^k1x ) \le s(|0^k1x|) \iff 0^k1x \not \in L_{M_{bin(k)}}\]</p>
+
+<p>poichè \(space_{M_{bin(k)}}(0^k1x) \le s_{M_{bin(k)}}(0^k1x)\), per definizione e \(s_{M_{bin(k)}}(n) \le s(n) = s(|0^k1x|)\). Quindi \(L \not \in DSPACE(s&#39;)\).</p>
+
+<p>Dobbiamo ancora dimostrar che \(L \in DSPACE(s)\). Consideriamo una macchina multi-tape \(M\) che opera nel modo seguente su input \(y\):</p>
+
+<ol dir="auto">
+<li><p>se \(y\) è della forma \(0^k1x\) allora calcola \(0^{s(n)}\) per \(n = | 0^k1x |\), e fallisce altrimenti</p></li>
+<li><p>calcola \(bin(t)\) per \(t \coloneqq |Q| \cdot 2 \cdot 3^{s(n)} \cdot |y|\) dove \(Q\) è l&#39;insieme degli stati della macchina a due nastri normalizzata \(M_{bin(k)}\).</p></li>
+<li><p>simula passo passo il comportamento di \(M_{bin(k)}\) su input \(y\) fino a <strong>terminazione</strong> oppure finchè ha utilizzato <strong>più di</strong> \(s(n)\) spazio o un tempo <strong>superiore</strong> a \(t\).</p></li>
+<li><p>\(M\) accetta l&#39;input \(y\) se la simulazione di \(M_{bin(k)}\) termina <strong>rifiutandolo</strong>, oppure se si <strong>è esaurito</strong> il tempo, ma non lo spazio.</p></li>
+</ol>
+
+<p>Osserviamo che se \(M_{bin(k)}\) richiede \(t\) passi su input \(y\) allora è in un <strong>ciclo infinito</strong>. Siccome \(s\) è costruibile in spazio, allora il punto \(1\) richiede spazio \(O(s)\).</p>
+
+<p>Il calcolo di \(t\) al punto \(2\) richiede spazio \(O(log|y| + s(n))\).</p>
+
+<p>La simulazione di \(M_{bin(k)}\) al punto \(3\) richiede spazio aggiuntivo rispetto a \(s(n)\) solo per memorizzare il codice (costante) di \(M_{bin(k)}\).</p>
+
+<p>Poichè \(log(n) \in O(s)\), e \(|y| + k \le n\) tutti i passi richiedono spazio \(O(s)\), il che dimostra che \(L \in DSPACE(s)\).</p>
+
+<h4 id="toc_1.3.5">Alcune Classi di Complessità deterministica</h4>
+
+<ul dir="auto">
+<li>\(P \coloneqq \bigcup_{c \in N} DTIME(n^c)\)</li>
+<li>\(EXP \coloneqq \bigcup_{c \in N} DTIME(2^{cn})\)</li>
+<li>\(LOGSPACE \coloneqq DSPACE(log)\)</li>
+<li>\(PSPACE \coloneqq \bigcup_{c \in N}(n^c)\)</li>
+<li>\(EXPSPACE \coloneqq \bigcup_{c \in N}(2^{cn})\)</li>
+</ul>
+
+<p>Come corollario dei risultati precedenti abbiamo in particolare:</p>
+
+<ul dir="auto">
+<li>\(LOGSPACE \subseteq P \subseteq PSPACE \subset EXPSPACE\)</li>
+<li>\(LOGSPACE \subset PSPACE\)</li>
+<li>\(P \subset EXP \subseteq EXPSPACE\)</li>
+</ul>
+
+<p>Per nessuna inclusione \(\subseteq\) si conosce se sia stretta.</p>
+
+<h4 id="toc_1.3.6">Il Gap Theorem</h4>
+
+<blockquote>
+<p>Per ogni funzione calcolabile \(g\) tale che \(g(x) \ge x\) per ogni \(x\), esiste una funzione \(t(n)\) tale che non esiste \(i\) per cui \(t(n) \le t_{M_i}(n) \le g(t(n))\) per un numero infinito di input.</p>
+</blockquote>
+
+<p>Fissiamo una enumerazione delle MdT e definiamo \(t\) nel modo seguente:
+\(t(0) = 1\) e \(t(n) = t(n-1) + k_n\), dove \(k_n = \mu\)</p>
+
+<h4 id="toc_1.3.7">Padding</h4>
+
+<blockquote>
+<p>\(EXP \not = PSPACE\).</p>
+</blockquote>
+
+<p>Per il teorema della gerarchia in tempo:</p>
+
+<p>\[ EXP \subseteq DTIME(2^{n^{1.5}}) \subset DTIME(2^{n^c})\]</p>
+
+<p>Supponiamo \(EXP = PSPACE\) e sia \(L \in DTIME(2^{n^c})\). Allora \(L&#39; \coloneqq \{ x\#^t | x \in L \land |x| + t = |x^2|\} \in DTIME(2^n) \subseteq EXP\).</p>
+
+<p>Per ipotesi \(L&#39; \in PSPACE\), ovvero esiste \(k \gt 0\) tale che \(L&#39; \in DSPACE(n^k)\).</p>
+
+<p>Sia \(M\) la MdT corrispondente e consideriamo un&#39;altra MdT \(M&#39;\) che su input \(x\) opera nel modo seguente:</p>
+
+<ol dir="auto">
+<li><p><strong>copia</strong> \(x\) su un nastro di lavoro;</p></li>
+<li><p><strong>estende</strong> \(x\) con \(|x|^2 - |x|\) caratteri <q>\(\#\)</q>;</p></li>
+<li><p>lancia una <strong>simulazione</strong> di \(M\) sull&#39;input \(x \#^{|x|^2 - |x|}\).</p></li>
+</ol>
+
+<p>Chiaramente, \(L_{M&#39;} = L\) e \(M&#39;\) opera in spazio \(O(n^{2k})\). Dunque, \(L \in PSPACE\) e</p>
+
+<p>\[DTIME(2^{n^2}) \subseteq PSPACE = EXP\]</p>
+
+<p>che porta ad una contraddizione.</p>
+
+<p><img src="img/Inclusione.png" alt="Diagramma dell&#39;inclusione tra classi di complessità" title="Inclusione tra le classi di complessità"></p>
+
+<h3 id="toc_1.4">Complessità non deterministica</h3>
+
+<h4 id="toc_1.4.1">Macchina di Turing non deterministica</h4>
+
+<p>Una MdT <strong>non deterministica</strong> (MdTN) è definita in modo analogo alla versione deterministica, con la sola eccezione che la funzione di transizione \(\delta\) è <strong>multi-valore</strong>, ovvero è una relazione:</p>
+
+<p>\[\delta \subseteq Q \times \Sigma^k \times Q \times (\Sigma \times \{ L,R\})^k\]</p>
+
+<ul dir="auto">
+<li><p>la nozione di <strong>configurazione</strong> resta invariata;</p></li>
+<li><p>la nozione di <strong>passo</strong> tra configurazioni è adattata nel modo ovvio: ogni <em>configurazione</em> ammette ora <strong>più continuazioni possibili</strong>, e le computazioni non sono più sequenze lineari ma <strong>alberi</strong>;</p></li>
+<li><p>la macchina si <strong>arresta</strong> su input \(x\) se esiste almeno una computazione (un <em>cammino</em> nell&#39;albero) che <strong>conduce</strong> a terminazione;</p></li>
+<li><p>la macchina <strong>riconosce</strong> l&#39;input se esiste almeno una computazione <em>terminante</em> che si arresta in uno stato di <strong>riconoscimento</strong>.</p></li>
+</ul>
+
+<h4 id="toc_1.4.2">Classi di Complessità Non Deterministica</h4>
+
+<p>Sia data una macchina di Turing non deterministica \(M\):</p>
+
+<ul dir="auto">
+<li><p>\(time_M(x)\) è il <strong>minimo</strong> numero di passi richiesti da una qualche computazione di \(M\) relativa ad \(x\)</p></li>
+<li><p>\(space_M(x)\) è il <strong>minimo</strong> spazio richiesto da una qualche computazione di \(M\) relativa ad \(x\)</p></li>
+<li><p>\(t_M(n) \coloneqq max(\{ n \} \cup \{time_M(x) \colon |x| = n\})\)</p></li>
+<li><p>\(s_M(n) \coloneqq max(\{ 1 \} \cup \{space_M(x) \colon |x| = n\})\)</p></li>
+</ul>
+
+<p>Data una funzione \(f: N \rightarrow N\) introduciamo le seguenti classi di complessità:</p>
+
+<ul dir="auto">
+<li><p>\(NTIME(f) \coloneqq \{ L \subseteq \Sigma^* \colon \exists M, L = L_M \land t_M \in O(f)\}\)</p></li>
+<li><p>\(NSPACE(f) \coloneqq \{ L \subseteq \Sigma^* \colon \exists M, L = L_M \land s_M \in O(f)\}\)</p></li>
+</ul>
+
+<p>Aggiungeremo un pedice \(k\) per esplicitare che \(M\) ha \(k\) nastri.</p>
+
+<ul dir="auto">
+<li>\(NP \coloneqq \bigcup_{c \in N} NTIME(n^c)\)</li>
+<li>\(NEXP \coloneqq \bigcup_{c \in N} NTIME(2^{cn})\)</li>
+<li>\(NLOGSPACE \coloneqq NSPACE(log)\)</li>
+<li>\(NPSPACE \coloneqq \bigcup_{c \in N} NSPACE(n^c)\)</li>
+</ul>
+
+<p>Per ogni \(f: N \rightarrow N\):</p>
+
+<p>\[DTIME(f) \subseteq NTIME(f) \land DSPACE(f) \subseteq NSPACE(f)\]</p>
+
+<p>Ovvio in quanto le macchine deterministiche sono un <strong>caso particolare</strong> di quelle non deterministiche.</p>
+
+<p>Come corollario:</p>
+
+<ul dir="auto">
+<li>\(P \subseteq NP\)</li>
+<li>\(LOGSPACE \subseteq NLOGSPACE\)</li>
+<li>\(EXP \subseteq NEXP\)</li>
+<li>\(PSPACE \subseteq NPSPACE\)</li>
+</ul>
+
+<h4 id="toc_1.4.3">Riduzione nastri per MdTN</h4>
+
+<p>Per ogni \(f: N \rightarrow N\):</p>
+
+<p>\[NSPACE(f) \subseteq NSPACE_1(f) \land NTIME(f) \subseteq NTIME_1(f^2)\]</p>
+
+<p>La dimostrazione è identica a quella per il caso deterministico: i \(k\) nastri sono simulati su di uno solo utilizzando un <strong>alfabeto esteso</strong> che codifica le differenti <q>tracce</q>.</p>
+
+<p>Nel caso di MdTN, facendo un pesante uso del nondeterminismo, è anche possibile dimostrare che:</p>
+
+<p>\[NTIME(f) \subseteq NTIME_1(f)\]</p>
+
+<h4 id="toc_1.4.4">Simulazione del nondeterminismo (spazio)</h4>
+
+<p>Per ogni \(f: N \rightarrow N\):</p>
+
+<p>\[NTIME(f) \subseteq DSPACE(id + f)\]</p>
+
+<p>Sia \(M\) una MdTN che riconosce \(L\) in tempo \(t_M \le cf + c\). L’idea è quella di <strong>simulare</strong> le varie computazioni una alla volta, <strong>ricordando</strong> su un nastro ausiliario le scelte effettuate.</p>
+
+<p>A questo scopo viene utilizzato un nuovo alfabeto \(\Sigma_b = \{b_1 , \dots, b_m \}\) dove il numero dei caratteri dipende dal <strong>fattore massimo di branching</strong> della funzione \(\delta\) (ed è dunque finito).</p>
+
+<p>In maggiore dettaglio, la macchina \(M&#39;\) che simula deterministicamente \(M\) opera nel modo seguente:</p>
+
+<ol dir="auto">
+<li><p><strong>ricopia</strong> l&#39;input \(x\) in un nastro di lavoro,</p></li>
+<li><p><strong>scrive</strong> \(0^{cf(n) + c}\) su di un altro nastro,</p></li>
+<li><p><strong>generano</strong> progressivamente tutte le stringhe \(w \in \{ b_1, \dots, b_m \}^*\) (<strong>opzioni</strong>) di lunghezza \(|w| \le 0^{cf(n) + c}\),</p></li>
+<li><p>Per ogni opzione \(w\)  <strong>simula</strong> la MdTN \(M\) su altri nastri di lavoro per un numero di passi pari <strong>al più a</strong> \(cf(n) + c\); al passo \(i\) si usa il carattere \(w(i) = b_j\) per selezionare l&#39;alternativa \(j\) tra le possibili transizioni,</p></li>
+<li><p>Se \(M\) <strong>termina</strong> in uno stato di <em>accettazione</em>, allora si <strong>accetta</strong> \(x\), altrimenti si <strong>seleziona</strong> la parola \(w\) successiva, fino ad esaurimento.</p></li>
+<li><p>Se si arriva ad <strong>esaurimento</strong> delle opzioni, a   llora \(x\) <strong>non è</strong> riconosciuta.</p></li>
+</ol>
+
+<p>Si noti che l&#39;arresto delle computazioni dopo al più \(cf(n) + c\) passi è giustificato dal fatto che, se \(x\) è riconosciuta da \(M\), <strong>esiste almeno una computazione</strong> che la riconosce entro tale tempo.</p>
+
+<h5 id="toc_1.4.4.4">Complessità</h5>
+
+<p>Il punto \(1\) richiede spazio \(O(n)\); poichè \(f\) è costruibile in spazio, il secondo passo richiede spazio \(O(f)\), così come i punti successivi.</p>
+
+<h4 id="toc_1.4.5">Simulazione del nondeterminismo (tempo)</h4>
+
+<p>Per ogni \(f: N \rightarrow N\):</p>
+
+<p>\[NSPACE(f) \subseteq DTIME(2^{c(log+f)})\]</p>
+
+<p>Sia \(M\) una MdTN che accetta \(L\) in spazio \(s_M \le cf + c\).</p>
+
+<p>Il massimo numero di configurazioni differenti <strong>attraversate</strong> durante il riconoscimento dell’input \(x\) (con <strong>minimo</strong> spazio) è limitato da \(2^{c&#39;(log(n) + f(n)) + c&#39;}\) per un qualche \(c&#39;\) opportuno (come nel caso delle macchine deterministiche).</p>
+
+<p>Costruiamo una macchina \(M&#39;\) che simula <strong>deterministicamente</strong> \(M\) eseguendo una <strong>visita in larghezza</strong> (BFS) dell’albero delle computazioni relative ad un input \(x\), mantenendo gli insiemi delle configurazioni <strong>da visitare</strong> e di quelle <strong>già visitate</strong>.</p>
+
+<p>In particolare \(M&#39;\) esegue i passi seguenti:</p>
+
+<ol dir="auto">
+<li><p><strong>ricopia</strong> la configurazione iniziale su di un nastro di lavoro (frontiera),</p></li>
+<li><p><strong>calcola</strong> \(0^{cf(n)+c}\) su di un altro nastro,</p></li>
+<li><p><strong>seleziona</strong> una configurazione \(\xi\) dalla frontiera; se \(\xi\) è in un uno stato di <strong>riconoscimento</strong> \(m&#39;\) si arresta con successo; altrimenti, <strong>verifica</strong> che \(\xi\) non sia già stata presa in considerazione <strong>confrontandola</strong> con una lista di configurazioni <strong>già visitate</strong> memorizzate in un nastro opportuno (nodi interni),</p></li>
+<li><p><strong>aggiunge</strong> le configurazioni <strong>raggiungibili</strong> da \(\xi\) alla frontiera e sposta \(\xi\) sui nodi interni (le nuove configurazioni più lunghe di \(cf(n) + c\) vengono <strong>ignorate</strong>),</p></li>
+<li><p>se la frontiera è <strong>vuota</strong> si termina con <strong>fallimento</strong>, altrimenti torna a \(3\).</p></li>
+</ol>
+
+<p>Il <strong>primo</strong> passo richiede tempo \(O(n) = O(2^{log(n)})\).</p>
+
+<p>Poichè \(f\) è <strong>costruibile</strong> in spazio, il <strong>secondo</strong> passo richiede un tempo \(O(2^{c&#39;&#39;(log+f)})\) per qualche \(c&#39;&#39; \in N\).</p>
+
+<p>Come già osservato, il numero massimo \(maxc\) di configurazioni differenti di lunghezza <strong>minore o uguale</strong> a \(cf(n) + c\) da analizzare è \(2^{c&#39;(log(n)+f(n))+c&#39;}\) e l’intera simulazione richiede <strong>al più</strong> tempo \(O(maxc^2) = O(2^{c&#39;&#39;&#39; (log (n)+f (n))})\) per un opportuno \(c&#39;&#39;&#39; \in N\).</p>
+
+<h4 id="toc_1.4.6">Simulazione nondeterminismo</h4>
+
+<p>Come corollari dei risultati precedenti abbiamo le inclusioni seguenti, per ogni funzione \(f\) <strong>costruibile in spazio</strong>:</p>
+
+<p>\[NTIME(f) \subseteq \bigcup_{c \in N} DTIME(2^{c(id+f)})\]</p>
+
+<p>\[NSPACE(f) \subseteq \bigcup_{c \in N} DSPACE(2^{c(log+f)})\]</p>
+
+<h4 id="toc_1.4.7">Raggiungibilità</h4>
+
+<p>Sia \((V , E)\) un grafo di dimensione \(n\). È possibile determinare se due nodi \(u, v\) sono connessi da un cammino di lunghezza inferiore a \(2^i\) con un consumo di spazio dell’ordine di \(i \cdot log(n)\).</p>
+
+<pre><code>let rec reachable(i,u,v) = 
+    if i == 0 then u = v or [u,v] ∈ E
+    else ∃z.(reachable(i - 1, u, z) and reachable(i - 1, z, v))
+</code></pre>
+
+<p>Se esiste un cammino tra due nodi deve avere lunghezza <strong>inferiore</strong> a \(n\) e dunque si può determinare la <strong>raggiungibilità</strong> tra due nodi con complessità in <strong>spazio</strong> pari a \(log(n)^2\).</p>
+
+<p>Si noti che la complessità in <strong>tempo</strong> dell’algoritmo precedente è dell’ordine di \((2n)^i\) (ovvero \(n \cdot n^{log(n)}\) per \(i = log(n)\)).</p>
+
+<h4 id="toc_1.4.8">Teorema di Savitch</h4>
+
+<p>Sia \(s: N \rightarrow N\) una funzione <strong>costruibile in spazio</strong> e tale che \(log \in O(s)\). Allora</p>
+
+<p>\[NSPACE(s) \subseteq DSPACE(s^2)\]</p>
+
+<p>Sia \(L \in NSPACE(s)\). Poichè \(NSPACE(s) \subseteq NSPACE_1(s)\), possiamo assumere che esista una MdTN \(M\) ad un nastro che riconosce \(L\) in spazio \(s_M \le c s(n) + c\) per qualche \(c \in N\).</p>
+
+<p>Costruiamo una macchina deterministica \(M&#39;\) che riconosce \(L\) in spazio \(s_{M&#39;} \in O(s^2)\). Supponiamo per semplicità che \(M\) abbia un unica configurazione di <strong>arresto</strong> \(\Xi_h\).</p>
+
+<p>Come osservato in precedenza, la lunghezza delle computazioni di \(M\) su input \(x \in L\) con \(|x| = n\) è limitata da \(maxc = 2^{cs(n)+c}\) per \(c\) opportuno (in quanto \(log \in O(s)\)). Inoltre, ognuna di queste configurazioni ha una dimensione <strong>limitata</strong> da \(cs(n) + c\).</p>
+
+<p>Il nostro scopo è dimostrare l&#39;esistenza di <strong>almeno una</strong> computazione dalla configurazione <strong>iniziale</strong> \(\Xi_0\) a quella di <strong>arresto</strong> \(\Xi_h\) che utilizza uno spazio \(O(s^2)\) e fare in modo che \(M&#39;\) segua questo cammino.</p>
+
+<p>Definiamo il seguente predicato di <strong>raggiungibilità</strong> in al più \(k\) passi tra due configurazioni \(\beta\) e \(\gamma\):</p>
+
+<p>\[reach(\beta, \gamma, k) \iff \exists \beta_0 , \dots, \beta_j \colon j \le k \land \beta_0 = \beta \land \beta_j = \gamma \land \forall i = 0, \dots, j - 1, \beta_i \vdash_M \beta_{i+1}\]</p>
+
+<p>che permette una implementazione ricorsiva dell&#39;algoritmo di ricerca.
+Quindi una MdT \(M&#39;\), dato l&#39;input \(x\) con \(|x| \le n\) è in grado di determinare</p>
+
+<p>\[reach(\Xi_0, \Xi_f, 2^{cs(n) + c})\]</p>
+
+<p>con al più \(s(n)\) chiamate attive innestate: l&#39;intero stack dei record di attivazione richiede al più spazio \(O(s^2)\).</p>
+
+<h4 id="toc_1.4.9">PSPACE e NPSPACE</h4>
+
+<p>Come ovvio corollario otteniamo:</p>
+
+<p>\[PSPACE = NPSPACE\]</p>
+
+<p>Poichè inoltre le classi deterministiche sono chiuse rispetto alla <strong>complementazione</strong> abbiamo anche:</p>
+
+<p>\[NPSPACE = coNPSPACE\]</p>
+
+<h4 id="toc_1.4.10">Il Teorema di Immerman e Szelepscènyi</h4>
+
+<blockquote>
+<p>Dato un grafo \(G\) con \(n\) nodi e un nodo \(x\), il numero dei nodi <em>raggiungibili</em> da \(x\) in \(G\) può essere calcolato in \(NSPACE(log(n))\).</p>
+</blockquote>
+
+<p>Costruiremo una macchina non deterministica che calcola la funzione data nel senso che <strong>tutte</strong> le computazioni che terminano con successo <strong>concordano</strong> sul risultato, ed <strong>almeno</strong> una computazione è <strong>garantita</strong> terminare (alcune computazioni possono però fallire).</p>
+
+<p>Sia \(n_k\) il <strong>numero di nodi raggiungibili</strong> da \(x\) in al più \(k\) passi. La macchina opera con <strong>quattro</strong> cicli annidati.</p>
+
+<p>Il ciclo <strong>esterno</strong> calcola \(n_k\) per ogni \(k\). Il calcolo di \(n_{k+1}\) richiede di conoscere \(n_k\) (il cui valore è tenuto in una variabile \(Nk\)) ma <strong>non i valori precedenti</strong>. Inizialmente \(Nk = n_0 = 1\).</p>
+
+<blockquote>
+<p>\(Nk \coloneqq 1\); for \(k = 0\) to \(n - 1\) do \(Nk \coloneqq next\_num\)</p>
+</blockquote>
+
+<p>Il calcolo di \(next\_num\) richiede di esaminare <strong>ogni nodo</strong> \(v\) del grafo.</p>
+
+<p>Si inizializza un <em>contatore</em> \(c\) a \(0\) e lo si incrementa tutte le volte che <strong>si trova un cammino</strong> dal nodo iniziale \(x\) a \(v\). La funzione termina restituendo \(c\):</p>
+
+<pre><code>next_num() = 
+    c := 0
+    for v ∈ V do
+        if reach(x,v) then
+            c := c + 1
+    return c
+</code></pre>
+
+<p>Il calcolo di <code>reach(x, v)</code> avviene in modo <strong>non deterministico</strong>. Nuovamente si opera su ogni nodo \(v&#39;\) del grafo.</p>
+
+<p>Si inizializza un nuovo <em>contatore</em> \(c&#39;\) a \(0\) e una variabile <em>booleana</em> \(b\) a <code>false</code>.</p>
+
+<p>Si <strong>tenta non determisticamente</strong> un cammino da \(x\) a \(v&#39;\); se questo <strong>esiste</strong> e se \((v , v&#39;) \in E\) , allora si <strong>incrementa</strong> \(c&#39;\) e si pone \(b \coloneqq true\).</p>
+
+<p>Alla fine del loop si <strong>verifica</strong> che \(c&#39; = Nk\); se questo <strong>non succede</strong>, abbiamo perso qualche cammino per via della <strong>scelta non deterministica</strong>; il valore di \(b\) non è affidabile e dunque si <strong>abortisce</strong> la computazione. Altrimenti si <strong>restituisce</strong> \(b\).</p>
+
+<pre><code>reach(x,v) =
+    c&#39; := 0; b := false
+    for v&#39; ∈ V do
+        if try_a_path(x, v&#39;, k) then
+            c&#39; := c&#39; + 1
+            if (v, v&#39;) ∈ E then b := true
+    if b = false and c&#39; &lt; Nk then
+        abort
+    else
+        return b
+</code></pre>
+
+<p>Il calcolo di <code>try_a_path(x,y,k)</code> è il ciclo più <strong>interno</strong>. Semplicemente richiede di <strong>indovinare il cammino</strong>, tentando non deterministicamente i nodi <em>intermedi</em>:</p>
+
+<pre><code>try_a_path(x, y, k) =
+    s := x; b&#39; = true
+    for i:= 1 to k do
+        if b&#39; then
+            t := guess_a_node()
+            if s = t or (s, t) ∈ E then
+                s := t
+            else
+                b&#39; := false
+    b&#39; := (b&#39;)
+</code></pre>
+
+<p>L’intero algoritmo richiede di <strong>memorizzare</strong> \(k\), \(Nk\), \(c\), \(c&#39;\), \(v\), \(v&#39;\), \(b\), \(b&#39;\), \(s\), \(t\) e \(i\). Su queste variabili operiamo con <strong>confronti</strong> e <strong>incrementi unitari</strong>; numericamente sono tutte limitate da \(n\), dunque richiedono una dimensione \(log(n)\).</p>
+
+<blockquote>
+<p>Sia \(s \colon N \rightarrow N\) una funzione <em>costruibile in spazio</em> e tale che \(log \in O(s)\). Allora </p>
+
+<p>\[NSPACE(s) = coNSPACE(s)\]</p>
+</blockquote>
+
+<p>Sia \(L \in NSPACE(s)\). Poichè \(NSPACE(s) \subseteq NSPACE_1(s)\), possiamo assumere che <strong>esista</strong> una MdTN \(M\) ad un nastro che <strong>riconosce</strong> \(L\) in spazio \(s_M \le cs + c\) per qualche \(c \in N\).</p>
+
+<p>Dato un input \(x\) di lunghezza \(|x| = n\) consideriamo l’insieme \(C_x\) delle <strong>configurazioni</strong> di \(M\) relative ad \(x\) e di dimensione \(\le cs(n) + c\).</p>
+
+<p>Siccome \(log \in O(s)\) possiamo supporre che la dimensione di \(C_x\) (e dunque del suo <strong>più lungo cammino</strong>) sia \(m \le 2^{c&#39; s(n) + c&#39;}\) per una opportuna costante \(c&#39;\).</p>
+
+<p>Dobbiamo dimostrare che \(\Sigma^* \setminus L\) può essere <strong>accettato</strong> da un MdTN \(M&#39;\) in spazio \(O(s)\).</p>
+
+<p>Data la macchina \(M\) per \(L\), la macchina \(M&#39;\) calcola innanzitutto il numero \(n = n_m(\alpha_0)\) delle <strong>configurazioni raggiungibili</strong> dalla configurazione <em>iniziale</em> \(\alpha_0\) di \(M\) nel <em>tempo</em> \(m\).</p>
+
+<p>Consideriamo quindi tutte le <strong>possibili configurazioni</strong> in \(C_x\) e per ognuna di queste <strong>verifichiamo</strong> (non deterministicamente) che sia effettivamente <strong>raggiungibile</strong> da \(\alpha_0\) e che <strong>non sia</strong> uno stato di accettazione.</p>
+
+<p>Se abbiamo trovato \(n\) configurazioni raggiungibili, <strong>nessuna delle quali</strong> di accettazione, allora \(M&#39;\) <strong>accetta</strong> e altrimenti <strong>fallisce</strong> (relativamente a quella particolare computazione). Chiaramente, anche \(M&#39;\) opera in spazio \(O(s)\).</p>
+
+<p><img src="img/Incl2.png" alt="Diagramma dell&#39;inclusione tra classi di complessità - 2" title="Inclusione tra le classi di complessità"></p>
+
+<h3 id="toc_1.5">Nondeterminismo e Verifica</h3>
+
+<h4 id="toc_1.5.1">Il Teorema della Proiezione</h4>
+
+<blockquote>
+<p>Dato un linguaggio \(A \subseteq \Sigma^*\), \(A \in NP\) se e solo se esiste un linguaggio \(B \in P\) e un polinomio \(p\) tale che per ogni \(x \in \Sigma^*\),</p>
+
+<p>\[x \in A \iff \exists y \colon |y| \le p(|x|) \land \langle x, y \rangle \in B\]</p>
+</blockquote>
+
+<p>Sia \(A \in NP\). Per il teorema della riduzione dei nastri possiamo assumere che esista una MdTN ad un nastro che <strong>riconosce</strong> \(A\) in tempo \(t_M \le p\) per un qualche polinomio \(p\).</p>
+
+<p><strong>Eliminiamo</strong> il nondeterminismo utilizzando una tecnica simile a quella adottata nella prova di \(NTIME(f) \subseteq DSPACE(id +f)\). Sia \(\delta\) la <em>funzione di transizione</em> nondeterministica di \(M\) e sia \(m\) il <strong>branching massimo</strong>. </p>
+
+<p>Costruiamo la macchina deterministica \(M&#39;\) che <strong>accetta</strong> \(B\) in tempo \(t_M \in O(p)\). \(M&#39;\) lavora con un alfabeto arricchito \(\Sigma&#39;\) con simboli \(b_1, \dots, b_m\) utilizzati per decidere ad ogni passo il ramo della computazione da seguire.</p>
+
+<p>In particolare, \(M&#39;\) su input \(\langle x, y \rangle\) <strong>simula</strong> la macchina \(M\) per al più \(|y|\) passi, utilizzando ad ogni passo \(i\) il carattere \(y_i\) della stringa \(y\) per decidere la mossa da seguire. È evidente che:</p>
+
+<p>\[x \in A = L_M \iff \exists y \colon |y| \le p(|x|) \land \langle x, y \rangle \in B = L_{M&#39;}\]</p>
+
+<p>Viceversa, sia dato \(B \in P\), un polinomio \(p\) che soddisfa le ipotesi, e una MdT \(M\) tale che \(B = L_M\) e \(t_M \in O(q)\) per un qualche polinomio \(q\).</p>
+
+<p>La MdTN \(M&#39;\) che <strong>riconosce</strong> \(A\) opera nel modo seguente: <strong>estende</strong> in modo non deterministico l’input \(x\) con le \(p(|x|)\) stringhe \(y\) e quindi <strong>simula</strong> il comportamento di \(M\) sull’input \(\langle x, y \rangle\). Chiaramente, \(M&#39;\) opera in tempo \(t_M \in O(p +q)\).</p>
+
+<h4 id="toc_1.5.2">Programmazione per tentativi e verifica</h4>
+
+<ul dir="auto">
+<li><p>Il teorema della proiezione permette di pensare alle computazioni <strong>nondeterministiche</strong> in modo <strong>deterministico</strong>.</p></li>
+<li><p>L’input \(\langle x, y \rangle\) consiste di due componenti: <strong>l’istanza</strong> del problema \(x\) e un <strong>testimone</strong> (traccia, certificato, prova) che permette di verificare rapidamente l’appartenenza di \(x\) al linguaggio.</p></li>
+</ul>
+
+<h3 id="toc_1.6">Riducibilità e Completezza</h3>
+
+<h4 id="toc_1.6.1">Classi di Complessità per funzioni</h4>
+
+<p>Fino ad ora abbiamo parlato di complessità relativamente al <strong>riconoscimento di linguaggi</strong>. Per ragioni di composizionalità è bene estendere la teoria per poter trattare <strong>funzioni</strong>.</p>
+
+<p>Data una funzione \(t \colon N \rightarrow N\) introduciamo le seguenti classi di complessità:</p>
+
+<ul dir="auto">
+<li><p>\(FTIME(t) \coloneqq \{ f \colon \Sigma^* \rightarrow \Sigma^* | \exists M, f = f_M \land t_M \in O(t)\}\)</p></li>
+<li><p>\(FSPACE(t) \coloneqq \{ f \colon \Sigma^* \rightarrow \Sigma^* | \exists M, f = f_M \land s_M \in O(t)\}\)</p></li>
+</ul>
+
+<p>Utilizzeremo in particolare le seguenti classi di funzioni:</p>
+
+<ul dir="auto">
+<li><p>\(FP \coloneqq \bigcup_{c \in N} FTIME(n^c)\)</p></li>
+<li><p>\(FLOGSPACE \coloneqq FSPACE(log)\)</p></li>
+</ul>
+
+<p>\[\implies FLOGSPACE \subseteq FP\]</p>
+
+<h4 id="toc_1.6.2">Chiusura per composizione</h4>
+
+<blockquote>
+<p>Le classi \(FP\) e \(FLOGSPACE\) sono chiuse per composizione.</p>
+</blockquote>
+
+<p>Supponiamo che \(f\) sia calcolata da un MdT \(M\) in tempo \(t_M \le p\) per un qualche polinomio \(p\).</p>
+
+<p>Allora, per ogni input \(x\) di lunghezza \(|x| = n\) anche l’output deve avere <strong>lunghezza polinomiale</strong>, ovvero \(|f(x)| \le p(n)\).</p>
+
+<p>Supponiamo inoltre che \(g\) sia calcolata da una MdT \(M&#39;\) in tempo \(t_{M&#39;} \le q\) per un altro polinomio \(q\).</p>
+
+<p>Sia \(M&#39;&#39;\) la MdT ottenuta <strong>componendo sequenzialmente</strong> \(M\) e \(M&#39;\). Abbiamo allora:</p>
+
+<p>\[time_{M&#39;&#39;}(x) \le time_M(x) + time_{M&#39;}(f(x))\]
+e dunque</p>
+
+<p>\[t_{M&#39;&#39;}(n) \le t_M(n) + t_{M&#39;}(p(n)) \in O(qp)\]
+Dunque \(g \circ f \in FP\).</p>
+
+<p>Supponiamo ora che \(f, g \in FLOGSPACE\) siano rispettivamente calcolate dalle MdT \(M\) e \(M&#39;\). Non possiamo operare come in precedenza poichè l’output di una funzione \(f \in FLOGSPACE\) <strong>non ha necessariamente</strong> lunghezza <strong>logaritmica</strong> (si contano solo i nastri di lavoro!).</p>
+
+<p>Tuttavia, poichè \(FLOGSPACE \subseteq F\) l’output \(f(x)\) relativo a un input \(x\) di lunghezza \(n = |x|\) ha <strong>al più</strong> lunghezza <strong>polinomiale</strong> \(|f(x)| \le p(n)\). </p>
+
+<p>Si noti che la memorizzazione di questo output potrebbe richiedere uno spazio <strong>più che logaritmico</strong>.</p>
+
+<p>La soluzione è quella di cominciare l’esecuzione di \(M&#39;\) e solo allorchè questa computazione richieda un <strong>nuovo carattere di input</strong> si procede nella <strong>simulazione</strong> di \(M\) finché non produce un nuovo carattere di <strong>output</strong> che viene <strong>sovrascritto</strong> al precedente.</p>
+
+<p>Questa strategia funziona poichè i nastri di input e output sono nastri su cui la testina può <strong>solo avanzare</strong>!</p>
+
+<p>La nuova macchina richiede il seguente spazio:</p>
+
+<p>\[space_{M&#39;&#39;}(x) \le space_M(x) + space_{M&#39;}(f(x))\]</p>
+
+<p>e dunque</p>
+
+<p>\[s_{M&#39;&#39;}(n) \le s_M(n) + s_{M&#39;}(p(n)) \in O(log + log \circ p) \subseteq O(log)\]</p>
+
+<p>Dunque \(g \circ f \in LOGSPACE\).</p>
+
+<h4 id="toc_1.6.3">Riducibilità</h4>
+
+<p>Siano \(A, B \in \Sigma^*\) due linguaggi.</p>
+
+<ul dir="auto">
+<li><p>Diremo che \(A\) è <strong>riducibile in tempo polinomiale</strong> a \(B\), e scriveremo \(A \le_{P} B\), se esiste \(f \in FP\) tale che per ogni \(x \in \Sigma^*\),</p>
+
+<p>\[x \in A \iff f(x) \in B\]</p></li>
+<li><p>analogamente, diremo che \(A\) è <strong>riducibile in spazio logaritmico</strong> a \(B\), e scriveremo \(A \le_{L} B\) se esiste \(f \in FLOGSPACE\) che realizza l&#39;equazione precedente.</p></li>
+</ul>
+
+<blockquote>
+<p>Le relazioni \(\le_{P}\) e \(\le_{L}\) sono <em>preordini</em>.</p>
+</blockquote>
+
+<p>La relazione deriva dalla definizione e la transitività dalla chiusura rispetto alla composizione di \(FP\) e \(FLOGSPACE\).</p>
+
+<p>Indicheremo con \(\equiv_{P}\) e \(\equiv_{L}\) le equivalenze indotte.</p>
+
+<h4 id="toc_1.6.4">Chiusura per riducibilità</h4>
+
+<p>Sia \(C\) una classe di linguaggi e \(\le\) un qualche <em>preordine</em>. Diremo che che \(C\) è chiusa rispetto a \(\le\), se</p>
+
+<p>\[A \le B \land B \in C \rightarrow A \in C\]</p>
+
+<ul dir="auto">
+<li><p>Le classi \(P, NP, PSPACE\) sono chiuse rispetto alla riducibilità in <strong>tempo polinomiale</strong> \(\le_{P}\).</p></li>
+<li><p>Le classi \(LOGSPACE, NLOGSPACE, P, NP, PSPACE\) sono chiuse rispetto alla riducibilità in <strong>spazio logaritmico</strong> \(\le_{L}\)</p></li>
+</ul>
+
+<h4 id="toc_1.6.5">Problemi ardui e completi</h4>
+
+<p>Sia \(C\) una <em>classe</em> di linguaggi e \(\le\) un <em>preordine</em> tra di essi. Sia \(B\) un linguaggio:</p>
+
+<ul dir="auto">
+<li><p>\(B\) è <strong>\(C\)-arduo</strong> rispetto a \(\le\), se ogni \(A \in C\) è <strong>riducibile</strong> a B, ovvero \(A \le B\).</p></li>
+<li><p>\(B\) è <strong>\(C\)-completo</strong> rispetto a \(\le\), se \(B \in C\) e \(B\) è <strong>\(C\)-arduo</strong>.</p></li>
+</ul>
+
+<p>Nel caso in cui non sia esplicitato altrimenti, si assume che il preordine sia la <strong>riducibilità polinomiale</strong> \(\le_{P}\).</p>
+
+<h4 id="toc_1.6.6">MdTN Universale</h4>
+
+<blockquote>
+<p>Esiste un <em>encoding</em> totale e suriettivo \(M_x\) delle MdTN normalizzate (ad un solo nastro) mediante stringhe \(x \in \{0,1\}^*\) tale che \(\exists u \in \{0,1\}^*\) con le seguenti proprietà:</p>
+</blockquote>
+
+<ul dir="auto">
+<li>\(L_{M_u} = \{ \langle x, y\rangle \colon y \in L_{M_x} \}\)</li>
+<li>\(\forall x, y, \exists c, time_{M_u} \langle x, y \rangle \le c \cdot (time_{M_x}(y))^2 + c\)</li>
+</ul>
+
+<p>Il non determinismo dell’interprete permette di simulare il non determinismo descritto dalla funzione di transizione delle singole macchine.</p>
+
+<h4 id="toc_1.6.7">Problema limitato della fermata</h4>
+
+<blockquote>
+<p>\(BHP \coloneqq \{\langle x, y, 0^t \rangle |\)MdTN \(M_x\) accetta \(y\) in tempo \(time_{M_x}(y) \le t\}\) è <strong>\(NP\)-completo</strong>.</p>
+</blockquote>
+
+<p>La macchina universale \(M_u\) può <strong>simulare</strong> \(M_x\) su input \(y\) per \(t\) passi e <strong>verificare</strong> se arriva in uno stato di <strong>accettazione</strong> in un tempo inferiore a \(p(t)\) per un qualche polinomio \(p\).</p>
+
+<p>Viceversa se \(A \in NP\) allora esiste una MdTN \(M_x\) che <strong>riconosce</strong> \(A\) in tempo \(t_{M_x} \le p\) per un qualche polinomio \(p\). La funzione \(f\) di <strong>riduzione</strong> che mostra che \(A \le_{P} BHP\) è semplicemente</p>
+
+<p>\[f(y) \coloneqq \langle x, y, 0^{p(|y|)} \rangle\]</p>
+
+<p>e \(f \in FP\) poichè i polinomi sono <strong>costruibili in tempo</strong>.</p>
+
+<h4 id="toc_1.6.8">P vs. NP</h4>
+
+<blockquote>
+<p>Se per qualche problema <strong>\(NP\)-completo</strong> \(A\) si ha \(A \in P\), allora \(P = NP\).</p>
+</blockquote>
+
+<ul dir="auto">
+<li><p>\(P \subseteq NP\), quindi dobbiamo dimostrare <strong>l’inclusione opposta</strong>.</p></li>
+<li><p>Se \(B \in NP\), per la <strong>\(NP\)-completezza</strong> di \(A\) si ha \(B \le_{P} A\).</p></li>
+<li><p>Siccome \(P\) è <strong>chiusa</strong> per la riducibilità in <strong>tempo polinomiale</strong> e per ipotesi \(A \in P\), anche \(B \in P\).</p></li>
+</ul>
+
+<blockquote>
+<p>Se \(P = NP\) allora ogni problema non banale \(A \in NP\) è <strong>\(NP\)-completo</strong>.</p>
+</blockquote>
+
+<p>Basta osservare che per ogni <strong>coppia</strong> di problemi <strong>non banali</strong> \(B, A \in P\) si ha \(B \le_{P} A\) (supposto \(a_0 \in A\) e \(a_1 \not \in A\) basta modificare l’algoritmo di decisione per \(B\) in un algoritmo che restituisca \(a_0\) al posto di \(1\) e \(a_1\) al posto di \(0\)).</p>
+
+<h3 id="toc_1.7">Il Problema della Soddisfacibilità</h3>
+
+<p>Sia \(\Sigma \coloneqq \{0, 1, \lnot, \land, \lor, \implies, (, ), [, ]\}\).</p>
+
+<p>\(SAT \subseteq \Sigma^*\) è l&#39;insieme delle <strong>formule booleane <u>soddisfacibili</u></strong>, cioè l&#39;insieme delle formule che sono <strong>vere</strong> rispetto ad un qualche <strong>assegnamento</strong> di valori di verità ai simboli proposizionali.</p>
+
+<p>Il simbolo proposizionale \(P_k\) è codificato da una stringa della forma \([bin(k)]\) , mentre gli altri simboli di \(\Sigma\) hanno la loro interpretazione logica usuale.</p>
+
+<p>Ad esempio, \([0] \rightarrow [1] \in SAT\) ma \([0] \land \lnot [0] \not \in SAT\).</p>
+
+<p>\(3SAT \subseteq SAT\) è l’insieme delle formule <strong>soddisfacibili</strong> in <em>forma normale congiuntiva</em> (ovvero le formule composte dalla <strong>congiunzione</strong> di clausole contenenti solo \(\lor\) e \(\lnot\), i.e \((P \lor Q \lor R)\land(S \lor \lnot T \lor V)\)) e tali per cui ogni clausola contiene <strong>esattamente tre</strong> variabili
+distinte.</p>
+
+<h4 id="toc_1.7.1">Teorema di Cook</h4>
+
+<blockquote>
+<p>\(SAT\) è <strong>\(NP\)-completo</strong></p>
+</blockquote>
+
+<p>È facile vedere che \(SAT \in NP\) perchè un assegnamento <strong>soddisfacibile</strong> può servire da <strong>certificato</strong> che una formula sia <strong>soddisfacibile</strong>. Dobbiamo dimostrare la <strong>completezza</strong>.</p>
+
+<p>Sia \(L \in NP\) e consideriamo una MdTN con un nastro \(M = (Q, q_0 , F, \Sigma, \Gamma, B, 1, \delta)\)
+tale che \(L_M = L\) (senza perdita di generalità, supporremo che \(M\) operi sul seminastro destro). Supponiamo inoltre che \(t_M \le p\) per un qualche polinomio \(p\).</p>
+
+<p>Il nostro obiettivo è definire una formula \(\Psi_x\) per ogni \(x\) tale che
+\(x \in L \iff \Psi_x \in SAT\).</p>
+
+<p>Supposto \(|x| = n\), <strong>deve esistere</strong> una computazione che porta al <strong>riconoscimento</strong> di \(x\) attraversando <strong>al più</strong> \(p(n)\) configurazioni. Inoltre, ogni configurazione ha una <em>dimensione</em> che <strong>non eccede</strong> \(p(n)\).</p>
+
+<p>In particolare, codificheremo le
+configurazioni con stringhe sull’alfabeto \(\Gamma&#39; = \Gamma \cup (Q \times \Gamma )\) dove ogni simbolo \(a\) in una configurazione corrisponde o a un simbolo in \(\Gamma\) o un simbolo in \(Q \times \Gamma\) (in questo caso il simbolo \(a = \langle q, s \rangle\) indica che la <strong>testina</strong> è sul simbolo \(s\) e lo <strong>stato corrente</strong> è \(q\)).</p>
+
+<p>Abbiamo quindi una matrice spazio-tempo di <strong>dimensione</strong> \(p(n)^2\) il cui contenuto può essere descritto mediante variabili proposizionali \(y_{i,j,a}\):</p>
+
+<blockquote>
+<p>\(y_{i,j,a} = true \iff\) il carattere \(j\) della \(i\)-esima configurazione contiene il carattere \(a\)</p>
+</blockquote>
+
+<p>Costruiremo una formula <em>booleana</em> \(\Psi_x\) con le variabili \(y_{i,j,a}\) tali per cui \(\Psi_x\) è soddisfacibile se e solo se le seguenti condizioni valgono:</p>
+
+<ol dir="auto">
+<li><p>I bordi non possono essere oltrepassati:</p>
+
+<p>\(\Psi_0 \coloneqq \bigwedge \limits_{i=0}^{p(n)}(y_{i, 0, B} \land y_{i, p(n) + 1, B})\)</p></li>
+<li><p>Per ogni coppia \((i, j)\), con \(0 \le i \le p(n)\) e \(1 \le j \le p(n)\), c&#39;è esattamente un simbolo \(a \in \Gamma&#39;\) tale che \(y_{i,j,a} = 1\). Basandoci sull&#39;interpretazione precedente delle variabili \(y_{i,j,a}\) significa che ad ogni istante <strong>ogni cella</strong> dell&#39;\(i\)-esima configurazione contiene <em>esattamente</em> un simbolo.</p>
+
+<p>\(\Psi_1 \coloneqq \bigwedge \limits_{i=0}^{p(n)} \bigwedge \limits_{j=0}^{p(n)} (\bigvee \limits_{a \in \Gamma&#39;} y_{i, j, a}) \land \bigwedge \limits_{a, b, \in \Gamma&#39;, a \not = b} (\lnot y_{i, j, a} \lor \lnot y_{i, j, b})\)</p></li>
+<li><p>Per ogni coppia \((j, a)\), con \(1 \le j \le p(n)\) e \(a \in \Gamma&#39;\), \(y_{0, j, a} = 1\) se e solo se il \(j\)-esimo simbolo nella configurazione iniziale di \(M(x)\) è \(a\). Ovvero la configurazione \(0\) è quella <strong>iniziale</strong>:</p>
+
+<p>\(\Psi_2 \coloneqq y_{0, 1, \langle q_0, x_1 \rangle} \land \bigwedge \limits_{j=2}^{n} y_{0, j, x_j} \land \bigwedge \limits_{j=n+1}^{p(n)} y_{0, j, B}\)</p></li>
+<li><p>\(y_{p(n), j, a} = 1\) per qualche \(j\), \(1 \le j \le p(n)\), e qualche \(a \in F \times \Gamma\). (Questo significa che la \(p(n)\)-esima configurazione di \(M(x)\) contiene uno <strong>stato finale</strong>)</p>
+
+<p>\(\Psi_3 \coloneqq \bigvee \limits_{j=1}^{p(n)} \bigvee \limits_{a \in F \times \Gamma} y_{p(n), j, a}\)</p>
+
+<p>Infine, deve essere possibile <strong>transire</strong> da una configurazione alla successiva. Questo significa che:</p></li>
+<li><p>le celle non adiacenti alla testina di lettura devono essere ricopiate</p>
+
+<p>\(\Psi_4 \coloneqq \bigwedge \limits_{i=0}^{p(n) - 1} \bigwedge \limits_{j=1}^{p(n)} \bigwedge \limits_{a, b, c \in \Gamma} (y_{i, j-1, a} \land y_{i, j, b} \land y_{i, j+1, c} \rightarrow y_{i+1, j, b})\)</p></li>
+<li><p>le celle adiacenti alla testina devono essere <strong>modificate</strong> in accordo alla <em>funzione di transizione</em> \(\delta\)</p>
+
+<p>\(\Psi_5 \coloneqq \bigwedge \limits_{i=0}^{p(n) - 1} \bigwedge \limits_{j=1}^{p(n)} \bigwedge \limits_{(q, a) \in Q \times \Gamma} \Delta_{q, a, i, j}\)</p></li>
+</ol>
+
+<p>per un \(\Delta_{q, a, i, j}\) opportuno che andiamo a precisare.</p>
+
+<p>La formula \(\Delta_{q, a, i, j}\) descrive le possibili evoluzioni della configurazione al passo \(i\), <strong>conseguenti</strong> all’esecuzione di una <em>mossa non determinsitica</em> della macchina.</p>
+
+<p>Supponiamo ad esempio che \(\delta(q, a) = \{(q&#39;, a&#39;, R), (q&#39;&#39;, a&#39;&#39;, L)\}\). Allora:</p>
+
+<p>\[\Delta_{q, a, i, j} \coloneqq ( y_{i, j-1, b} \land y_{i, j, \langle q, a \rangle} \land y_{i, j+1, c} \rightarrow (y_{i+1, j-1, b} \land y_{i+1, j, a&#39;} \land y_{i+1, j+1, \langle q&#39;, c \rangle})\lor(y_{i+1, j-1, \langle q&#39;&#39;, b \rangle} \land y_{i+1, j, a&#39;&#39;} \land y_{i+1, j+1, c}))\]</p>
+
+<p>Per <strong>altri</strong> valori della funzione di transizione, \(\Delta_{q, a, i ,j}\) è definita in modo analogo.</p>
+
+<p>La <strong>congiunzione</strong> \(\Psi_x \coloneqq \Psi_0 \land \Psi_1 \land \Psi_2 \land \Psi_3 \land \Psi_4 \land \Psi_5\) verifica la proprietà cercata:</p>
+
+<p>\[x \in L \iff \Psi_x \in SAT\]</p>
+
+<p>Resta da appurare la <strong>complessità</strong> computazionale della funzione \(f \colon x \mapsto \Psi_x\).</p>
+
+<p>È evidente che tutte la formule \(\Psi_i\) possono essere <strong>costruite</strong> in tempo \(O(p)\) e dunque</p>
+
+<p>\[f \in FP\]</p>
+
+<p><strong>Remark:</strong> È in effetti possibile dimostrare che \(f \in LOGSPACE\)</p>
+
+<h4 id="toc_1.7.2">Analogie tra Calcolabilità e Complessità</h4>
+
+<p>\[RE \implies NP\]
+\[Ricorsivo \implies P\]
+\[\le_m \implies \le_{P}\]
+\[K \implies SAT\]</p>
+
+<h4 id="toc_1.7.3">\(NP\)-completezza di 3SAT</h4>
+
+<blockquote>
+<p>\(3SAT\) è <strong>\(NP\)-completo</strong>.</p>
+</blockquote>
+
+<p>Ricodiamo che le formule in \(3SAT\) sono <strong>congiunzioni</strong> di clausole <strong>disgiuntive</strong> composte da <strong>esattamente tre</strong> letterali.</p>
+
+<p>È facile trasformare una clausola arbitraria in un insieme di clausole a
+<strong>tre-letterali</strong>, aggiungendo nuove variabili, preservando la soddisfacibilitá.</p>
+
+<p>Ad esempio:</p>
+
+<p>\[\{A, \lnot B\} \leadsto \{ A, \lnot B, C\} \land \{ A, \lnot B, \lnot C \}\]</p>
+
+<p>\[\{A, B, C, \lnot D\} \leadsto \{A, B, E\} \land \{\lnot E, C, \lnot D\}\]</p>
+
+<p>Bisogna però prestare attenzione alla trasformazione della formula di partenza in forma a clausole (Forma Normale Congiuntiva), in quanto potrebbe portare ad una <strong>esplosione esponenziale</strong>.</p>
+
+<p>Ad esempio, la formula</p>
+
+<ul dir="auto">
+<li>\((*)\) \((x_1 \land y_1) \lor \dots \lor (x_n \land y_n)\)</li>
+</ul>
+
+<p>genera le \(2^n\) clausole</p>
+
+<p>\[\{x_1, \dots, x_{n-1}, x_n\}, \{x_1, \dots, x_{n-1}, y_n\}, \dots, \{y_1, \dots, y_{n-1}, y_n\}\]</p>
+
+<p>Tuttavia questa costruzione mira a <strong>preservare</strong> l’equivalenza logica, mentre siamo solo interessati alla <strong>soddisfaciblità</strong>.</p>
+
+<p>In questo caso, possiamo trasformare \((*)\) nel modo seguente:</p>
+
+<p>\[\{z_1, \dots, z_n\},\{\lnot z_1, x_1\},\{\lnot z_1, y_1\}, \dots, \{\lnot z_n, x_n\}, \{\lnot z_n, y_n\}\]</p>
+
+<p>Adottando la tecnica precedente è possibile dimostrare che <strong>ogni formula</strong> logica può essere trasformata in forma normale congiuntiva (\(3\)-letterale) <em>preservando la soddisfacibilità</em> con una crescita al più <strong>polinomiale</strong>.</p>
+
+<h4 id="toc_1.7.4">Il Problema del Ricoprimento - Vertex Cover</h4>
+
+<p>Ricordiamo che, dato un grafo \(G = (V , E )\), un ricoprimento è un sottoinsieme \(V&#39; \subseteq V\) tale che</p>
+
+<p>\[\forall (u, v) \in E, u \in V&#39; \lor v \in V&#39;\]</p>
+
+<blockquote>
+<p>Il problema \(VC\) di decidere se un grafo ha un <strong>ricoprimento</strong> \(V&#39;\) di dimensione \(|V&#39;| \le k\) è <strong>\(NP\)-completo</strong>.</p>
+</blockquote>
+
+<p>Abbiamo già dimostrato che il problema del ricoprimento è di facile <strong>verifica</strong> e dunque appartiene a \(NP\). Per dimostrarne la <strong>completezza</strong> facciamo vedere che \(3SAT \le_P VC\).</p>
+
+<h5 id="toc_1.7.4.4">3SAT vs. Ricoprimento</h5>
+
+<p>Sia data una formula \(F\) in \(3SAT\), siano \(C_1, C_2, \dots, C_m\) le sue <strong>clausole</strong>, con
+<strong>variabili proposizionali</strong> in \(X_1, \dots, X_n\) (possiamo supporre che \(n \le 3m\)).</p>
+
+<p>Costruiamo un grafo \(GF\) con \(2n + 3m\) <strong>nodi</strong> nel modo seguente.</p>
+
+<p>Abbiamo \(2n\) vertici \(x_i\) e \(\overline{x}_i\), e \(3m\) vertici \(c_{j,k}\) per \(k = 1, 2, 3\) <strong>connessi tra di loro</strong> nel modo seguente:</p>
+
+<ul dir="auto">
+<li><p>\(x_i\) <strong>è connesso</strong> a \(\overline{x_i}\) per ogni \(i = 1, \dots, n\)</p></li>
+<li><p>\(c_{j, 1}, c_{j, 2}, c_{j, 3}\) <strong>sono connessi in circolo</strong> per ogni \(j = 1, \dots, m\)</p></li>
+<li><p>per ogni \(C_j = (Y_1 \lor Y_2 \lor Y_3)\), per \(k = 1, 2, 3\) il vertice \(c_{j, k}\) <strong>è connesso a</strong> \(x_i\) se \(Y_k = X_i\), ed <strong>è connesso a</strong> \(\overline{x_i}\) se \(Y_k = \lnot X_i\)</p></li>
+</ul>
+
+<p>Ad esempio, la formula</p>
+
+<p>\[F = (X_1 \lor \lnot X_2 \lor X_3) \land (\lnot X_1 \lor X_3 \lor \lnot X_4) \land (\lnot X_4) \land (\lnot X_2 \lor \lnot X_3 \lor X_4)\]</p>
+
+<p>genera il grafo:</p>
+
+<p><img src="img/3SAT_VC.png" alt="Riduzione di 3SAT a VC" title="3SAT vs. VC"></p>
+
+<p>Vogliamo dimostrare che la formula \(F\) è <strong>soddisfacibile</strong> se e solo se esiste un <strong>ricoprimento</strong> \(S\) di \(GF\) di cardinalità \(|S| \le n + 2m\) (si osservi che il grafo può essere <strong>costruito in tempo polinomiale</strong>).</p>
+
+<p>Supponiamo che \(F\) sia <strong>soddisfacibile</strong> e sia \(v\) un <strong>assegnamento</strong> di valori di verità alle variabili che rende vera \(F\). </p>
+
+<p>Sia \(S_1 = \{x_i |v (X_i) = true\} \cup \{\overline{x_i} |v (X_i) = false\}\). </p>
+
+<p>Se inoltre \(v\) soddisfa \(F\) deve soddisfare <strong>ognuna</strong> delle sue clausole, e dunque per ogni \(j = 1, \dots, m\) esiste \(k_j \in \{1, 2, 3\}\) tale che \(c_{j,k_ j}\) è <strong>adiacente</strong> a qualche vertice in \(S_1\).</p>
+
+<p>Sia \(S_2 = \{c_{j,k} |j = 1, \dots, m \land k \lnot = k_j \}\). Allora \(S \coloneqq S_1 \cup S_2\) è un <strong>ricoprimento</strong> e la sua cardinalità è \(n + 2m\).</p>
+
+<p>Viceversa, supponiamo che esista un <strong>ricoprimento</strong> \(S\) di dimensione minore o uguale a \(n + 2m\). Allora ogni triangolo \(c_{j,1} , c_{j,2}, c_{j,3}\) ha <strong>almeno due</strong> vertici in \(S\) e ogni arco \((x_i , \overline{x_i})\) ha <strong>almeno un</strong> vertice in \(S\). </p>
+
+<p>Dunque \(S\) ha esattamente \(n + 2m\) elementi, con <strong>esattamente due</strong> vertici per ogni triangolo e <strong>un vertice</strong> per ogni arco \((x_i, \overline{x_i})\). Posto allora</p>
+
+<p>\[v(X_i) = true \iff x_i \in S\]</p>
+
+<p>\(v\) verifica ogni clausola \(C_j\), in quanto <strong>rende vero</strong> il letterale adiacente al vertice \(c_{j,k} \not \in S\).</p>
+
+<p>Dunque, \(F \in 3SAT\).</p>
+
+<h5 id="toc_1.7.4.4">Esempi di interpretazioni/ricoprimenti</h5>
+
+<p>\[F = (X_1 \lor \lnot X_2 \lor X_3) \land (\lnot X_1 \lor X_3 \lor \lnot X_4) \land (\lnot X_4) \land (\lnot X_2 \lor \lnot X_3 \lor X_4)\]</p>
+
+<ul dir="auto">
+<li>\(v(X_1) = 1, v(X_2) = 1, v(X_3) = 1, v(X_4) = 1\)</li>
+</ul>
+
+<p><img src="img/3SAT_VC_es1.png" alt="Riduzione della formula ad un ricoprimento" title="3SAT vs. VC"></p>
+
+<ul dir="auto">
+<li>\(v(X_1) = 1, v(X_2) = 0, v(X_3) = 1, v(X_4) = 0\)</li>
+</ul>
+
+<p><img src="img/3SAT_VC_es2.png" alt="Riduzione della formula ad un ricoprimento" title="3SAT vs. VC"></p>
+
+<h4 id="toc_1.7.5">Il Problema dell&#39;insieme indipendente</h4>
+
+<p>Ricordiamo che, dato un grafo \(G = (V , E)\), un insieme \(I \subseteq V\) si dice <strong>indipendente</strong> se</p>
+
+<p>\[∀u, v ∈ I \implies (u, v) \not \in E\]</p>
+
+<blockquote>
+<p>Il problema \(IS\) di determinare se un grafo ammette un <strong>insieme indipendente</strong> \(I\) di cardinalità \(|I| \ge k\) è <strong>\(NP\)-completo</strong>.</p>
+</blockquote>
+
+<p>Basta ricordare che \(I\) è <strong>indipendente</strong> se e solo se \(V \setminus I\) è un <strong>ricoprimento</strong>; poichè \(|I| \ge k\) se e solo se \(|V \setminus I| \le |V| - k\), questo permette di ridurre \(IS\) a \(VC\).</p>
+
+<h4 id="toc_1.7.6">Il problema della Cricca</h4>
+
+<p>Ricordiamo che, dato un grafo \(G = (V , E)\), una cricca di \(G\) è un sottoinsieme <strong>completo</strong> \(C \subseteq V\), tale cioè che</p>
+
+<p>\[\forall u, v \in C \implies (u, v) \in E\]</p>
+
+<blockquote>
+<p>Il problema <em>Clique</em> di determinare se un grafo <strong>ammette una cricca</strong> \(C\) di cardinalità \(|C| \ge k\) è <strong>\(NP\)-completo</strong>.</p>
+</blockquote>
+
+<p>Ricordiamo che \(C\) è una <strong>cricca</strong> in \(G\) se e solo se \(C\) è un <strong>insieme indipendente</strong> nel grafo \(G&#39; = (V , \overline{E})\).</p>
+
+<p>Poichè \(G&#39;\) può essere <strong>costruito in tempo</strong> lineare nella dimensione di \(G\), questo dimostra che <strong>Clique</strong> \(\le_{P} IS\).</p>
+
+<h4 id="toc_1.7.7">Riduzione da SAT a cammino Hamiltoniano diretto</h4>
+
+<p>Supponiamo che il problema sia in <strong>forma di clausole</strong> \(C_1, \dots, C_m\).</p>
+
+<p>Dobbiamo costruire un grafo <strong>diretto</strong> che ammette un cammino Hamiltoniano se e solo se l’insieme delle clausole è <strong>soddisfacibile</strong>.</p>
+
+<p>Ad ogni variabile \(X\) associamo una catena di <strong>lunghezza</strong> \(2m + 2\) fatta nel modo seguente:</p>
+
+<p><img src="img/Catena_Ham_SAT.png" alt="Riduzione di SAT a HAM" title="SAT vs. HAM"></p>
+
+<p>L’attraversamento della catena da <strong>sinistra verso destra</strong> o viceversa corrisponde ai possibili valori di verità di \(X\).</p>
+
+<p>Le catene sono <strong>connesse</strong> tra di loro nel modo seguente:</p>
+
+<p><img src="img/Catene_Ham.png" alt="Riduzione di SAT a HAM" title="Catene Hamiltoniane"></p>
+
+<p>I nodi corrispondenti alle <strong>clausole</strong> sono connessi alle catene nel modo seguente:</p>
+
+<p><img src="img/Catene_Ham_Nodi.png" alt="Riduzione di SAT a HAM" title="Nodi corrispondenti alle clausole"></p>
+
+<p>In questo modo il vertice <strong>può essere attraversato</strong> solo se:</p>
+
+<ul dir="auto">
+<li>la catena \(A\) è attraversata in <strong>senso positivo</strong>,</li>
+<li>oppure se la catena \(B\) è attraversata in <strong>senso negativo</strong>,</li>
+<li>oppure se la catena \(C\) è attraversata in <strong>senso negativo</strong>.</li>
+</ul>
+
+<p>E’ facile convincersi che se una clausola è <strong>soddisfacibile</strong> allora il grafo <strong>ammette</strong> un cammino Hamiltoniano.</p>
+
+<p>Il viceversa è <strong>meno ovvio</strong> e dipende dalla seguente osservazione:</p>
+
+<p>se un cammino hamiltoniano esce da una catena sul nodo \(u\) per andare verso una clausola \(c\), deve <strong>necessariamente rientrare subito</strong> nella stessa catena e sul nodo immediatamente <strong>adiacente</strong> \(u&#39;\).</p>
+
+<p>In caso contrario il cammino sarebbe <strong>ostruito</strong> quando \(u&#39;\) sarà visitato, in quanto gli <strong>unici nodi adiacenti</strong> sarebbero già stati <strong>tutti visitati</strong>.</p>
+
+<h4 id="toc_1.7.8">Altri esempi di problemi NP-completi</h4>
+
+<ul dir="auto">
+<li><p><code>Problema del ciclo Hamiltoniano</code>: dato un grafo G, determinare se ammette un cammino Hamiltoniano.</p></li>
+<li><p><code>Programmazione Intera</code>: data una <strong>matrice</strong> \(A \in Z^{n \times m}\) e un <strong>vettore</strong> \(b \in Z^n\), determinare <strong>se esiste</strong> \(x \in Z^m\) tale che \(Ax \ge b\).</p></li>
+<li><p><code>Knapsack</code>: data una <strong>lista di interi</strong> \(a \in N^n\) e un numero \(S \in N\), determinare se esiste \(I \subseteq \{ 1, 2, \dots, n \}\) tale che \(\sum\limits_{i \in I}^n a_i = S\).</p></li>
+<li><p><code>Equazioni Diofantee:</code> Il problema di decidere se un un polinomio di <strong>secondo grado</strong> a coefficienti <strong>interi</strong> ammette soluzioni <strong>intere</strong> è <strong>\(NP\)-completo</strong>.</p>
+
+<ul dir="auto">
+<li><code>lineare</code> \(\implies\) <strong>polinomiale</strong> (Algoritmo di Euclide)</li>
+<li><code>quadratica</code> \(\implies\) <strong>\(NP\)-completo</strong> (Manders e Adleman)</li>
+<li><code>arbitraria</code> \(\implies\) <strong>indecidibile</strong> (Davis, Robinson, Matiyasevich)</li>
+</ul></li>
+</ul>
+
+<h3 id="toc_1.8">Complessità relativizzata</h3>
+
+<h4 id="toc_1.8.1">Macchine ad oracolo</h4>
+
+<p>Una Macchina di Turing non deterministica <strong>con oracolo</strong> è definita da un ennupla</p>
+
+<p>\[M = (Q, q_0, q?, q+, q-, F, \Sigma, \Gamma, B, k, \delta)\]</p>
+
+<p>con il significato inteso per le
+MdTN, <em>a parte le seguenti caratterisitche</em>:</p>
+
+<ul dir="auto">
+<li><p>\(M\) è equipaggiata con un nastro particolare, detto <strong>nastro di
+interrogazione</strong>.</p></li>
+<li><p>\(M\) ha tre stati <strong>speciali</strong> \(q?, q+, q- \in Q \setminus F\) , dove \(q?\) è lo stato di <strong>interrogazione</strong>, e \(q+\), \(q-\) sono gli stati di <strong>risposta</strong>.</p></li>
+<li><p>la funzione di <em>transizione</em> \(\delta\) <strong>non è definita</strong> sullo stato di <strong>interrogazione</strong>.</p></li>
+</ul>
+
+<h4 id="toc_1.8.2">Semantica delle MdTN ad oracolo</h4>
+
+<p>La nozione di <strong>computazione</strong> è definita nel modo abituale, ad eccezione delle regole seguenti:</p>
+
+<ul dir="auto">
+<li><p>la macchina può <strong>scrivere</strong> sul nastro di <em>interrogazione</em> come su di un nastro <strong>abituale</strong>,</p></li>
+<li><p>nel momento in cui la macchina <strong>entra</strong> nello stato di <em>interrograzione</em> \(q?\) lo stato successivo non è determinato dalla funzione \(\delta\) ma da un <strong>oracolo
+esterno \(O\)</strong>. In particolare se nello stato \(q?\) il nastro di <strong>interrogazione</strong> contiene la parola \(y \in \Sigma^*\) <strong>alla sinistra</strong> della testina, allora lo stato
+successivo della macchina è \(q+\) se \(y \in O\) e \(q-\) se \(y \not \in O\),</p></li>
+<li><p>Il <strong>contenuto</strong> del nastro di interrogazione è <strong>cancellato</strong> automaticamente non appena la macchina <strong>rientra</strong> nello stato \(q+\) o \(q-\).</p></li>
+</ul>
+
+<p>Denotiamo con \(L_O(f_M)\) il linguaggio <strong>accettato</strong> (<em>la funzione calcolata</em>) dalla macchina \(M\) con oracolo \(O\).</p>
+
+<h4 id="toc_1.8.3">Tempo e Spazio per MdTN ad oracolo</h4>
+
+<p>Sia \(M\) una MdTN con oracolo \(A\):</p>
+
+<ul dir="auto">
+<li><p>\(time_M^A(x)\) è definito come nel caso deterministico, dove la transizione dallo stato di <em>interrogazione</em> a quello di <em>risposta</em> ha costo <strong>unitario</strong>,</p></li>
+<li><p>\(t_M^A(n)\) è il <strong>massimo</strong> \(time_M^A(x)\) al variare di \(x\) su tutti le stringhe di lunghezza \(|x| = n\),</p></li>
+<li><p>\(t_M(n)\) è massimo \(t_M^A(n)\) per \(A \subseteq \Sigma^*\).</p></li>
+</ul>
+
+<p>\(space_M^A(n)\), \(s_M^A(n)\) e \(s_M(n)\) sono definite in modo <strong>analogo</strong> (lo spazio richiesto per la scrittura sul nastro di interrogazione è <strong>rilevante</strong>).</p>
+
+<h4 id="toc_1.8.4">Classi di complessità con oracolo</h4>
+
+<p>Sia \(C\) una <strong>classe</strong> di complessità e sia \(O \subset \Sigma^*\) un <strong>oracolo</strong>.</p>
+
+<p>La classe \(C^O\) è definita in modo analogo a \(C\) con la differenza che si considerano macchine con oracolo \(O\) invece delle macchine abituali.</p>
+
+<p>Ad esempio \(P^{SAT}\) è l’insieme dei <strong>linguaggi</strong> che ammettono un algoritmo di <strong>decisione polinomiale</strong>, <strong>ammesso</strong> di avere un oracolo per \(SAT\).</p>
+
+<p>Se inoltre \(C&#39;\) è una classe di complessità, allora</p>
+
+<p>\[C^{C&#39;} \coloneqq \bigcup_{O \in C&#39;} C^O\]</p>
+
+<p>ovvero è la classe dei problemi che hanno <strong>complessità</strong> \(C\) ammesso di avere un <strong>opportuno oracolo</strong> di complessità \(C&#39;\).</p>
+
+<p>Ad esempio \(NP^{PSPACE}\) è l’insieme dei linguaggi <strong>riconoscibili</strong> in tempo <strong>polinomiale non deterministico</strong> mediante una qualche macchina che utilizza un
+<strong>oracolo</strong> relativo ad un problema in \(PSPACE\).</p>
+
+<p>Per tutti i linguaggi \(A, B, C \in \Sigma^*\)</p>
+
+<ul dir="auto">
+<li><p>\(A \in P^A\), ovvio perchè \(P^A\) è la classe dei problemi che hanno complessità \(P\) ammesso di avere un oppurtuno oracolo di complessità \(A\).</p></li>
+<li><p>\(A \in P^B \implies A \in NP^B\), perchè le <em>MdT</em> sono un caso particolare di <em>MdTN</em>.</p></li>
+<li><p>\(A \in NP^B \implies A \in NP^{\Sigma^* \setminus B}\), \(\Sigma^* \setminus B\) è uguale a \(\overline{B}\), avere un oracolo per \(\overline{B}\) è come avere l&#39;oracolo \(B\).</p></li>
+<li><p>\(A \in P^B, B \in P^C \implies A \in P^C\), grazie alla chiusura per <strong>composizione</strong>.</p></li>
+<li><p>\(A \in NP^B, B \in P^C \implies A \in NP^C\), sempre per composizione perchè una macchina \(ND\) può <q>inglobarne</q> una \(D\), ma non sappiamo fare il <strong>viceversa</strong></p></li>
+</ul>
+
+<blockquote>
+<p><strong>N.B</strong> \(A \in NP^B, B \in NP^C \nRightarrow A \in NP^C\)</p>
+</blockquote>
+
+<h4 id="toc_1.8.5">Alcune Classi di Complessità con oracolo</h4>
+
+<ol dir="auto">
+<li><p>\(P^P = P\)</p>
+
+<p>\(P \subseteq P^P\) poichè \(A \in P^P\); \(P^P \subseteq P\) segue da </p>
+
+<p>\(A \in P^B, B \in P^C \implies A \in P^C\) con \(C = \emptyset\)</p></li>
+<li><p>\(NP^P = NP\)</p>
+
+<p>Analoga alla precedente</p></li>
+<li><p>\(NP^{PSPACE} = PSPACE\)</p>
+
+<p>\(PSPACE \subseteq NP^{PSPACE}\) poichè \(A \in NP^A\).</p></li>
+</ol>
+
+<p>\(NP^{PSPACE} \subseteq PSPACE\) si ottiene modificando al caso <strong>con oracolo</strong> la dimostrazione che \(NTIME(f) \subseteq DSPACE(f)\). </p>
+
+<h5 id="toc_1.8.5.4">\(NP^{PSPACE} \subseteq PSPACE\)</h5>
+
+<p>Supponiamo che \(M\) sia un MdTN con <strong>oracolo</strong> \(A \in PSPACE\) e che \(t_M \le p\) per qualche <strong>polinomio</strong> \(p\).</p>
+
+<p>Otteniamo una macchina deterministica \(M&#39;\) <strong>eliminando il nondeterminismo</strong> con la tecnica utilizzata nella dimostrazione che \(NTIME (f) \le DSPACE (f)\) (ovvero <strong>esplorando esaustivamente</strong> l’albero delle computazioni di \(M\)). </p>
+
+<p>Abbiamo che \(L_{M&#39;}^A = L_M^A\) e \(s_{M&#39;}^A \in O(p)\).</p>
+
+<p>Poichè <strong>ogni interrogazione</strong> \(y \in A\) posta dalla macchina \(M(M&#39;)\) su input \(x\) ha lunghezza \(|y| \le p(|x|)\) e \(A \in PSPACE\), possiamo <strong>rimpiazzare</strong> l’oracolo con un <em>sottoprogramma</em> per \(A\) utilizzando una qualche MdT \(M&#39;&#39;\) tale che \(L_{M&#39;&#39;} = A\) e \(s_{M&#39;&#39;} \le q\) per un qualche polinomio \(q\).</p>
+
+<p>La macchina risultante \(M&#39;&#39;&#39;\) è <strong>deterministica</strong>, \(L_{M&#39;&#39;&#39;} = L_{M&#39;}^A = L_{M}^A\) e \(s_{M&#39;&#39;&#39;} \in O(pq)\).</p>
+
+<p>Dunque, \(L_{M}^A \in PSPACE\).</p>
+
+<h5 id="toc_1.8.5.4">Lemma: \(NP \subseteq P^{NP} \subseteq NP^{NP}\)</h5>
+
+<blockquote>
+<p>\[NP^P = NP \subseteq P^{NP} \subseteq NP^{NP}\]</p>
+</blockquote>
+
+<p>Abbiamo già dimostrato la prima uguaglianza.</p>
+
+<ul dir="auto">
+<li>\(NP \subseteq P^{NP}\) segue dal fatto che \(A \in P^{A}\).</li>
+<li>\(P^{NP} \subseteq NP^{NP}\) segue dal fatto che \(A \in P^B \implies A \in NP^B\).</li>
+</ul>
+
+<h4 id="toc_1.8.6">\(NP\) e <strong>co\(NP\)</strong></h4>
+
+<blockquote>
+<p>\[NP^{NP} = NP \iff NP = coNP\]</p>
+</blockquote>
+
+<p><strong>Dimostriamo che \(NP = coNP \implies NP^{NP} = NP\).</strong></p>
+
+<p>Sappiamo che \(NP \subseteq NP^{NP}\); dobbiamo quindi dimostrare che \(NP^{NP} \subseteq NP\).</p>
+
+<p>Sia data una MdTN \(M\) che opera in tempo \(t_M \in O(q)\) per qualche polinomio \(q\) e un qualche oracolo \(A \in NP\).</p>
+
+<p>Siccome \(A \in NP = coNP\), esistono due MdTN \(M+\) e \(M-\) tali che \(M+\) <strong>accetta</strong> \(A\) e \(M-\) <strong>accetta</strong> \(A\), entrambe in <strong>tempo</strong> polinomiale \(p\).</p>
+
+<p>Possiamo allora costruire una <strong>nuova</strong> <em>MdTN</em> \(M&#39;\) che opera nel modo seguente: <strong>ogni interrogazione</strong> \(y \in A\) di \(M\) è rimpiazzata da una <strong>chiamata simultanea</strong> a \(M+\) e \(M-\) su input \(y\).</p>
+
+<p>Se una delle due macchine \(M+\) o \(M-\)
+termina con <strong>accettazione</strong>, allora si <em>entra</em> rispettivamente nello stato \(q+\) o \(q-\) e si riprende la simulazione di \(M\).</p>
+
+<p>La macchina \(M&#39;\) riconosce \(L_M\) in tempo \(O(qp)\).</p>
+
+<p><strong>Mostriamo ora che \(NP^{NP} = NP \implies NP = coNP\).</strong></p>
+
+<p>Ricordiamo innanzitutto che per ogni \(A\)</p>
+
+<p>\[NP^A = NP^{\overline{A}}\]</p>
+
+<p>Abbiamo allora le seguenti proprietà:</p>
+
+<ul dir="auto">
+<li><p>se \(A \in coNP\), allora \(\overline{A} \in NP\) e dunque </p>
+
+<p>\[A \in NP^A\]
+\[NP^A = NP^{\overline{A}}\]
+\[NP^{\overline{A}} \subseteq NP^{NP} = NP\]</p>
+
+<p>che dimostra che \(coNP \subseteq NP\)</p></li>
+<li><p>se \(A \in NP\), allora</p>
+
+<p>\[A \in NP^{\overline{A}}\]
+\[NP^{\overline{A}} = NP^A\]
+\[NP^A \subseteq NP^{NP} = NP\]</p>
+
+<p>e dunque \(A \in coNP\), che dimostra che \(NP \subseteq coNP\).</p></li>
+</ul>
+
+<h3 id="toc_1.9">La gerarchia polinomiale</h3>
+
+<p>Per \(n \in N\) si definiscono le seguenti classi:</p>
+
+<ul dir="auto">
+<li>\(\Sigma_0^P \coloneqq \Pi_0^P \coloneqq \Delta_0^P \coloneqq P\)</li>
+<li>\(\Sigma_{n+1}^P \coloneqq NP^{\Sigma_n^P}\)</li>
+<li>\(\Pi_{n+1}^P \coloneqq co\Sigma_{n+1}^P\)</li>
+<li>\(\Delta_{n+1}^P \coloneqq P^{\Sigma_n^P}\)</li>
+</ul>
+
+<p>La classe</p>
+
+<p>\[PH \coloneqq \bigcup_{n \in N} \Sigma_n^P\]</p>
+
+<p>è detta <strong>gerarchia polinomiale</strong>.</p>
+
+<p>Osservazioni:</p>
+
+<ul dir="auto">
+<li>\(\Sigma_1^P = NP^P = NP\), \(\Sigma_2^P = NP^{NP}\), \(\Sigma_3^P = NP^{NP^{NP}}\), \(\dots\)</li>
+<li>\(\Delta_1^P = P^P = P\), \(\Delta_2^P = P^{NP}\), \(\Delta_3^P = P^{NP^{NP}}\), \(\dots\)</li>
+<li>se \(P = NP\), allora \(PH = P\),</li>
+<li>se \(coNP = NP\), allora \(PH = NP\).</li>
+</ul>
+
+<h4 id="toc_1.9.1">Teorema della gerarchia polinomiale</h4>
+
+<blockquote>
+<p>Per ogni \(n \in N\) valgono le seguenti inclusioni:</p>
+
+<p>\[\Sigma_n^P \cup \Pi_n^P \subseteq \Delta_{n+1}^P \subseteq \Sigma_{n+1}^P \cap \Pi_{n+1}^P \subseteq PSPACE\]</p>
+</blockquote>
+
+<p>La dimostrazione è una conseguenza delle seguenti osservazioni:</p>
+
+<ul dir="auto">
+<li><p>\(A \in P^A \implies \Sigma_n^P \subseteq P^{\Sigma_n^P} = \Delta_{n+1}^P\)</p></li>
+<li><p>\(A \in P^A = P^{\overline{P}} \implies \Pi_n^P \subseteq P^{\Pi_n^P} = P^{\Sigma_n^P} = \Delta_{n+1}^P\)</p></li>
+<li><p>\(P^A \subseteq NP^A \implies \Delta_{n+1}^P = P^{\Sigma_n^P} \subseteq NP^{\Sigma_n^P} = \Sigma_{n+1}^P\)</p></li>
+<li><p>\(\Delta_{n+1}^P = P^{\Sigma_n^P} = coP^{\Sigma_n^P} \subseteq coNP^{\Sigma_n^P} = \Pi_{n+1}^P\)</p></li>
+<li><p>\(\Sigma_0^P = P \subseteq PSPACE\)</p></li>
+<li><p>\(NP^{PSPACE} = PSPACE \implies \Sigma_{n+1}^P = NP^{\Sigma_n^P} \subseteq PSPACE\)</p></li>
+</ul>
+
+<h3 id="toc_1.10">Dimostrare che un problema è NP-completo</h3>
+</div>
+</div>
+<script>renderMathInElement(document.body);</script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script>mermaid.initialize({startOnLoad:true});</script>
+</body>
+</html>

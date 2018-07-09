@@ -1,0 +1,14 @@
+graph {
+    label=I;
+    subgraph cluster_0 {
+        label="Insieme Indipendente";
+        e; b; c
+    }
+
+    a -- { d, c, e, b};
+    d -- {e, b};
+    f -- { d, c, e, b};
+    c [color=red,penwidth=3.0];
+    e [color=red,penwidth=3.0];
+    b [color=red,penwidth=3.0];
+}

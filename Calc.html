@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha2/katex.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha2/katex.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha2/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js"></script>
+<style>
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb
+}
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+}
+
+figure figcaption {
+  text-align: center;
+  font-size: 12px;
+}
+table.eq_table {
+	border-collapse: collapse;
+ 	border: 0;
+	width: 100%;
+}
+table.eq_table td, table.eq_table th {
+	border: 0;
+}
+table.eq_table tfoot td {
+ 	border: 0;
+}
+table.eq_table tfoot .links {
+ 	text-align: right;
+ 	border: 0;
+}
+
+td.counter {
+	text-align: right;
+	border: 0;
+}
+
+td.eq_code {
+	width: 100%;
+	border: 0;
+	text-align: center;
+}
+
+.eq_table > tr, td, th, {
+	border: 0;
+}
+
+figure {
+	width: 100%;
+	text-align: center;
+}
+
+figure figcaption {
+	text-align: center;
+	font-size: 11pt;
+}
+
+figure img {
+	max-width: 100%;
+}
+
+code {
+    font-family: monospace;
+}
+
+img {
+	max-width: 100%;
+}
+
+.authors
+{
+	text-align: center;
+	font-size: 14pt;
+	font-weight: bold;
+}
+
+.authors:empty
+{
+	display: none;
+}
+
+
+.affiliation
+{
+	text-align: center;
+}
+
+.affiliation:empty
+{
+	display: none;
+}
+
+.title
+{
+	text-align: center;
+	margin-bottom: 5pt;
+}
+
+.title:empty
+{
+	display: none;
+}
+
+.header{
+  margin-bottom: 20pt;
+}
+
+.header:empty {
+   display: none;
+}
+
+.slide {
+  display: flex;
+  width: 221mm;
+  height: 166mm;
+  margin: 0 auto 20px auto;
+  padding: 0;
+  align-items: center;
+  border: 1px solid #000;
+}
+
+.slide_169 {
+  width: 294mm;
+  height: 166mm;
+}
+
+
+.slide_body {
+  display: block;
+  width: 191mm;
+  height: 136mm;
+  margin: auto;
+  overflow: hidden;
+}
+
+
+.slide_169 > .slide_body {
+  width: 264mm;
+}
+
+.slide figure {
+  width: auto;
+}
+
+.slide figcaption {
+  font-size: 14pt;
+}
+
+
+.slide_body .charter {
+ font-size: 12pt;
+ max-width: 180mm;
+}
+
+.header > .slide_body {
+    height: auto;
+}
+
+.figure > .charter {
+  margin: auto;
+}
+
+.slide_body:empty {
+  display: none;
+}
+
+.slide:empty{
+  display: none;
+}
+
+
+@media print {
+  body  {
+    margin: 0;
+    padding: 0;
+  }
+
+  .slide {
+    page-break-after: always;
+    margin: 0;
+    padding: 0;
+    width: 221mm;
+    min-height: 165.5mm;
+    height: 165.5mm;
+    max-height: 165.5mm;
+    border: none;
+    overflow: hidden;
+    border: 0;
+  }
+
+  .slide_169 {
+    width: 294mm;
+  }
+}
+
+*:not(span){
+  unicode-bidi: plaintext;
+}
+�
+</style>
+</head>
+<body>
+<div class="document">
+<div class="header"></div><div class="inner">
+<h2 id="toc_1">Calcolabilità</h2>
+<div class="toc_container">
+<h2 class="toc_header">Table of Contents</h2>
+<ul class="toc_list">
+<li><a href="#toc_1">Calcolabilità</a></li>
+<ul>
+<li><a href="#toc_1.1">Enumerazioni di Gödel</a></li>
+<ul>
+<li><a href="#toc_1.1.1">Numerazione delle funzioni calcolabili</a></li>
+<li><a href="#toc_1.1.2">Il predicato T di Kleene</a></li>
+</ul>
+<li><a href="#toc_1.2">Funzioni non calcolabili</a></li>
+<ul>
+</ul>
+<li><a href="#toc_1.3">Insiemi ricorsivi</a></li>
+<ul>
+<li><a href="#toc_1.3.1">Unione ed intersezione finita di insiemi ricorsivi</a></li>
+</ul>
+<li><a href="#toc_1.4">Insiemi ricorsivamente enumerabili</a></li>
+<ul>
+<li><a href="#toc_1.4.1">Teorema di complementazione</a></li>
+<li><a href="#toc_1.4.2">Caratterizzazioni equivalenti degli insiemi r.e.</a></li>
+<li><a href="#toc_1.4.3">Semidecidibilità</a></li>
+<li><a href="#toc_1.4.4">Enumerazione degli insiemi indipendenti</a></li>
+<li><a href="#toc_1.4.5">Teorema della proiezione</a></li>
+<li><a href="#toc_1.4.6">Unione ed intersezione finita di insiemi r.e.</a></li>
+<li><a href="#toc_1.4.7">Proprietà di chiusura rispetto a funzioni</a></li>
+<li><a href="#toc_1.4.8">Unione e intersezione infinite</a></li>
+</ul>
+<li><a href="#toc_1.5">I Teoremi di Rice e Rice-Shapiro</a></li>
+<ul>
+<li><a href="#toc_1.5.1">Insiemi estensionali</a></li>
+</ul></div>
+
+<h3 id="toc_1.1">Enumerazioni di Gödel</h3>
+
+<h4 id="toc_1.1.1">Numerazione delle funzioni calcolabili</h4>
+
+<p>Dato un formalismo <strong>Turing completo</strong>, possiamo enumerare i programmi \(P_i\) definibili nel formalismo dato. Detta \(\varphi_i\) la funzione calcolata da \(P_i\), la numerazione dei programmi induce dunque una <strong>enumerazione</strong> di tutte le funzioni calcolabili.</p>
+
+<p>Cercheremo nel seguito di caratterizzare alcune alcune delle proprietà salienti della enumerazione \(\varphi_i\), in modo da lavorare ad un livello sufficiente di astrazione rispetto al modello di calcolo sottostante.</p>
+
+<h4 id="toc_1.1.2">Il predicato T di Kleene</h4>
+
+<blockquote>
+<p>Esiste un predicato \(T (i, n, k, t) tale che
+1. \)\varphi_i(n) = k \iff \exists t \ge k, T (i, n, k, t) = 1\(
+2. la funzione *caratteristica* di \)T$ è calcolabile</p>
+</blockquote>
+
+<p>\(T\) è il predicato (intuitivamente calcolabile) che afferma che la computazione del programma di indice \(i\) su input \(n\) termina con risorse fissate (e.g. tempo o spazio) \(t\) e fornisce come risultato \(k\).</p>
+
+<p>Si suppone che le risorse necessarie a produrre \(k\) siano almeno pari a \(k\) (fissando opportunamente l’unita di misura).</p>
+
+<p>Si osservi che anche la funzione caratteristica del predicato</p>
+
+<p>\[T^3 (i, n, t) = \exists k, T (i, n, k, t) \equiv \exists k \le t, T (i, n, k, t)\]</p>
+
+<p>è ancora calcolabile, ovvero:</p>
+
+<p><strong>È possibile decidere se una computazione si arresta in un tempo dato.</strong></p>
+
+<h3 id="toc_1.2">Funzioni non calcolabili</h3>
+
+<p>Sia \(\varphi_i\) una <em>enumerazione accettabile</em> delle funzioni <strong>parziali</strong> calcolabili.</p>
+
+<p>Useremo la notazione \(\varphi_i (n) \downarrow\) per indicare che la funzione è definita (<strong>converge</strong>) per input \(n\), e \(\varphi_i (n) \uparrow\) quando è indefinita (o <strong>diverge</strong>) per tale input.</p>
+
+<p>Definiamo <strong>dominio</strong> (dom) di \(\varphi_i\) il suo <strong>insieme di convergenza</strong>, ossia </p>
+
+<p>\[dom(\varphi_i) = \{n| \varphi_i (n) \downarrow\}\]</p>
+
+<p>Il <strong>codominio</strong> (cod) di φ i è l’insieme dei <strong>possibili output</strong>:</p>
+
+<p>\[cod(\varphi_i) = \{m| \exists n, \varphi_i (n) = m\}\]</p>
+
+<p>Le funzioni parziali sono ordinate <strong>parzialmente</strong> rispetto all’**inclusione insiemistica** dei loro grafi:</p>
+
+<p>\[\varphi_i \subseteq \varphi_j \iff \forall n \in dom(\varphi_i), \varphi_i (n) = \varphi_j (n)\]</p>
+
+<h3 id="toc_1.3">Insiemi ricorsivi</h3>
+
+<blockquote>
+<p>Un insieme si dice <strong>ricorsivo</strong> (o decidibile) se la sua funzione caratteristica è calcolabile.</p>
+</blockquote>
+
+<h5 id="toc_1.3.0.4">Esempi</h5>
+
+<ol dir="auto">
+<li>l’insieme <strong>vuoto</strong> e l’insieme \(N\) di tutti i numeri naturali</li>
+<li>ogni insieme <strong>finito</strong></li>
+<li>l’insieme dei numeri <strong>pari</strong></li>
+<li>l’insieme dei numeri <strong>primi</strong></li>
+<li>tutti gli insiemi definiti da predicati <strong>primitivi ricorsivi</strong></li>
+</ol>
+
+<h4 id="toc_1.3.1">Unione ed intersezione finita di insiemi ricorsivi</h4>
+
+<blockquote>
+<p>Gli insiemi ricorsivi sono <strong>chiusi</strong> rispetto alle operazioni di unione, intersezione e complementazione.</p>
+</blockquote>
+
+<p>Siano \(A\) e \(B\) insiemi ricorsivi, e siano \(c_A\) e \(c_B\) le loro funzioni caratteristiche.</p>
+
+<p>Allora:</p>
+
+<ul dir="auto">
+<li>\(c_{\overline{A}}(n) = 1 - c_A(n)\)</li>
+<li>\(c_{A \land B}(n) = min\{c_A(n), c_B(n)\}\)</li>
+<li>\(c_{A \lor B}(n) = max\{c_A(n), c_B(n)\}\)</li>
+</ul>
+
+<h3 id="toc_1.4">Insiemi ricorsivamente enumerabili</h3>
+
+<blockquote>
+<p>Un insieme si dice <strong>ricorsivamente enumerabile</strong> (r.e.) se è <strong>vuoto</strong> oppure è il <strong>codominio</strong> di una funzione <em>totale calcolabile</em> (detta funzione di enumerazione).</p>
+</blockquote>
+
+<p>Ogni insieme ricorsivo è anche r.e.</p>
+
+<p>Sia \(A\) ricorsivo e sia \(c_A\) la sua funzione caratteristica.
+- Il caso in cui \(A\) è <strong>finito</strong> è banale.
+- Supponiamo \(A\) <strong>infinito</strong>:</p>
+
+<p>\[
+    \begin{cases}
+        f(0) = \mu y, c_A(y) = 1\\
+        f(x + 1) = \mu y, c_A(y) = 1 \land y \gt f(x)
+    \end{cases}
+   \]</p>
+
+<h4 id="toc_1.4.1">Teorema di complementazione</h4>
+
+<blockquote>
+<p>Un insieme \(A\) è <strong>ricorsivo</strong> se e solo se sia \(A\) che \(\overline{A}\) sono r.e.</p>
+</blockquote>
+
+<p>\(\implies\) ovvio.</p>
+
+<p>\(\impliedby\): Supponiamo che \(A\) e \(\overline{A}\) siano rispettivamente <strong>enumerati</strong> da \(f\) e \(g\). Poniamo </p>
+
+<p>\[
+    \begin{cases}
+        h(2x) = f(x)\\
+        f(2x + 1) = g(x)
+    \end{cases}
+\]</p>
+
+<p>\(h\) è <strong>suriettiva</strong> su \(N\).</p>
+
+<p>Sia \(pari(n)\) la funzione <strong>caratteristica</strong> dell’insieme dei
+numeri pari.</p>
+
+<p>\[c_A (n) = pari( \mu y (h(y) = n)\]</p>
+
+<p>\(c_A\) è <strong>calcolabile</strong> e <strong>totale</strong>.</p>
+
+<h4 id="toc_1.4.2">Caratterizzazioni equivalenti degli insiemi r.e.</h4>
+
+<blockquote>
+<p>Sia \(A\) un insieme di <strong>numeri naturali</strong>. Le seguenti affermazioni sono equivalenti:
+1. \(A = \emptyset \lor \exists f \colon A = cod(f)\), \(f\) <strong>totale calcolabile</strong>,
+2. \(\exists g \colon A = dom(g)\), \(g\) <strong>parziale</strong> calcolabile
+3. \(\exists h \colon A = cod(h)\), \(h\) <strong>parziale</strong> calcolabile</p>
+</blockquote>
+
+<ul dir="auto">
+<li><p>\(1 \implies 2\): Il caso \(A = \emptyset\) è ovvio. Sia \(A = cod(f )\) per \(f\) <strong>tot. calc.</strong>, poniamo</p>
+
+<p>\[g (x) = μy (f (y ) = x)\]</p>
+
+<p>Chiaramente \(g\) è <strong>calcolabile</strong> e \(g(x) \downarrow\) se e solo se \(x \in cod(f)\).</p></li>
+<li><p>\(2 \implies 3\): Sia \(A = dom(g )\); basta considerare </p>
+
+<p>\[h(x) = x + 0 \cdot g (x)\]</p></li>
+<li><p>\(3 \implies 1\) Sia \(A = cod(h)\), per \(h\) <strong>parziale</strong> calcolabile. Il caso \(A = \emptyset\) è triviale. Posto \(a \in A\) e \(h = \varphi_i\) consideriamo</p>
+
+<p>\[f(\langle x, k, s \rangle) = 
+   \begin{cases}
+       k &amp;\text{se } T(i, x, k, s) = 1\\
+       a &amp;\text{altrimenti}
+   \end{cases}
+\]</p>
+
+<p>dove \(T\) è il <strong>predicato</strong> di Kleene. \(f\) è <strong>totale</strong> e <strong>calcolabile</strong> e \(cod(f) = A\).</p></li>
+</ul>
+
+<h4 id="toc_1.4.3">Semidecidibilità</h4>
+
+<ul dir="auto">
+<li>\(A\) è <strong>decidibile</strong> se esiste una \(f\) calcolabile: \(f(x) = \begin{cases} 1 &amp;\text{se } x \in A \\ 0 &amp;\text{se } x \not \in A \end{cases}\)</li>
+<li>\(A\) è <strong>semidecidibile</strong> se esiste una \(f\) calcolabile: \(f(x) = \begin{cases} \downarrow &amp;\text{se } x \in A \\ \uparrow &amp;\text{se } x \not \in A \end{cases}\)</li>
+</ul>
+
+<p><strong>N.B.</strong> \(\rightarrow\) L’insieme \(K = \{ x | \varphi_x (x) \downarrow \}\) è r.e. \(\rightarrow\) La funzione \(k(x) = \varphi_x (x)\) è calcolabile e \(K = dom(k)\).</p>
+
+<h4 id="toc_1.4.4">Enumerazione degli insiemi indipendenti</h4>
+
+<p>Possiamo definire una <strong>enumerazione</strong> \(W \colon N \rightarrow RE\) dell’insieme \(RE\) di tutti gli insiemi r.e. ponendo</p>
+
+<p>\[W_i = dom(\varphi_i)\]</p>
+
+<h5 id="toc_1.4.4.4">L&#39;insieme \(K\)</h5>
+
+<p>\[K = \{ x | \varphi_x (x) \downarrow \} = \{ x | x \in dom(\varphi_x)\} = \{ x |x \in W_x \}\]</p>
+
+<h4 id="toc_1.4.5">Teorema della proiezione</h4>
+
+<blockquote>
+<p>Un insieme \(A\) è <strong>r.e.</strong> se e solo se esiste un insieme \(B\) <strong>ricorsivo</strong> tale che</p>
+
+<p>\[A = \{ m | \exists n, \langle n, m \rangle \in B \}\]</p>
+</blockquote>
+
+<ul dir="auto">
+<li><p>\(\impliedby\) Sia \(c_B\) la funzione <em>caratteristica</em> di \(B\). Allora \(A = dom(f)\) dove</p>
+
+<p>\[f(m) = \mu n, c_B(\langle n, m \rangle) = 1\]</p></li>
+<li><p>\(\implies\) Sia \(A = dom(\varphi_i)\). Dunque \(m \in A \iff \varphi_i(m) \downarrow \iff \exists n, T (i, n, m) = 1\), dove \(T\) è il predicato ternario di Kleene.</p>
+
+<p>Basta dunque porre \(B = \{ \langle n, m \rangle |T (i, n, m)\}\).</p></li>
+</ul>
+
+<h4 id="toc_1.4.6">Unione ed intersezione finita di insiemi r.e.</h4>
+
+<blockquote>
+<p>La classe degli insiemi ricorsivamente enumerabili è <strong>chiusa</strong> per unione.</p>
+</blockquote>
+
+<p>Ossia se \(A\) e \(B\) sono insiemi r.e. anche \(A \cup B\) è r.e.</p>
+
+<p>Infatti sia \(A = cod(f&#39;)\) e \(B = cod(g&#39;)\) con \(f&#39;\) e \(g&#39;\) funzioni <strong>parziali</strong> calcolabili, allora \(A \cup B = cod(h&#39;)\) dove</p>
+
+<p>\[
+    \begin{cases}
+        h&#39;(2x) = f&#39;(x)\\
+        h&#39;(2x + 1) = g&#39;(x)
+    \end{cases}
+\]</p>
+
+<blockquote>
+<p>La classe degli insiemi ricorsivamente enumerabili è <strong>chiusa</strong> per intersezione.</p>
+</blockquote>
+
+<p>Ossia se \(A\) e \(B\) sono insiemi r.e. anche \(A \cap B\) è r.e.</p>
+
+<p>Infatti sia \(A = dom(f)\) e \(B = dom(g)\) per \(f\), \(g\) <strong>parziali</strong> calcolabili, allora \(A \cap B = dom(h)\) dove \(h(x) = f(x) \cdot g(x)\).</p>
+
+<p><strong>Attenzione!</strong></p>
+
+<p>La classe degli insiemi ricorsivamente enumerabili è chiusa per <strong>complementazione</strong>?</p>
+
+<p>Ossia se \(A\) è r.e. anche \(N \setminus A\) è r.e.? \(\rightarrow\) Decisamente no! </p>
+
+<p>Si pensi all’insieme \(K = \{ i | \varphi(i) \downarrow \}\) che è r.e. ma il suo complementare \(N \setminus K = K = \{ i | \varphi_i(i) \uparrow \}\) <strong>non è nemmeno</strong> r.e.</p>
+
+<p><strong>N.B.</strong> Esistono insiemi che non sono nè ricorsivi nè ricorsivamente enumerabili.</p>
+
+<h4 id="toc_1.4.7">Proprietà di chiusura rispetto a funzioni</h4>
+
+<blockquote>
+<p>Siano \(A, B \subseteq N\) e \(f \colon N \rightarrow N\)
+1. se \(A\) è <strong>ricorsivo</strong> e \(f\) è <strong>totale calcolabile</strong>, allora \(f^{-1}(A)\) è <strong>ricorsivo</strong>
+2. se \(A\) è <strong>r.e.</strong> e \(f\) è <strong>calcolabile</strong>, allora \(f^{-1}(A)\) è <strong>r.e</strong>
+3. se \(A\) è <strong>r.e.</strong> e \(f\) è <strong>calcolabile</strong>, allora \(f(A)\) è <strong>r.e</strong></p>
+</blockquote>
+
+<h5 id="toc_1.4.7.4">Dimostrazione</h5>
+
+<ol dir="auto">
+<li>\(c_{f^{-1}}(A) = c_A \circ f\)</li>
+<li>se \(A = dom(g)\), allora \(f^{-1}(A) = dom(g \circ f)\)</li>
+<li>se \(A = cod(g)\), allora \(f(A) = cod(f \circ g)\)</li>
+</ol>
+
+<h4 id="toc_1.4.8">Unione e intersezione infinite</h4>
+
+<blockquote>
+<ol dir="auto">
+<li>una <strong>unione r.e.</strong> di insiemi r.e. è ancora r.e.: \(\forall x, \bigcup_{i \in W_x} W_i\) è r. e.</li>
+<li>una <strong>interesezione r.e.</strong> di insiemi r.e. <strong>non è necessarimente</strong> r.e.: \(\exists x, \bigcap_{i \in W_x} W_i\) non è r.e.</li>
+</ol>
+</blockquote>
+
+<h3 id="toc_1.5">I Teoremi di Rice e Rice-Shapiro</h3>
+
+<h4 id="toc_1.5.1">Insiemi estensionali</h4>
+
+<blockquote>
+<p>Un insieme (proprietá) \(A \subseteq N\) si dice <strong>estensionale</strong> se per ogni \(i\), \(j\)</p>
+
+<p>\[i \in A \land \varphi_i \equiv \varphi_j \implies j \in A\]
+Ovvero: \(\varphi_i \equiv \varphi_j \implies c_A(i) = c_A(j)\)</p>
+</blockquote>
+
+<p>Una <strong>proprietà estensionale</strong> di (indici di) programmi è una proprietà relativa alla <em>funzione calcolata</em> (estensione) e non alla <em>forma</em> o al <em>modo</em> (intensione) in cui questa viene calcolata.</p>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left">\(P(i)\) <strong>estensionale</strong></th>
+<th style="text-align: left">\(P(i)\) <strong>intensionale</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td style="text-align: left">\(\varphi_i\) è <em>totale</em></td>
+<td style="text-align: left">\(\forall n \exists k, T(i, n, k, i^2) = 1\)</td>
+</tr>
+<tr>
+<td style="text-align: left">\(\varphi_i \equiv f\)</td>
+<td style="text-align: left">\(\varphi_i \equiv f \land i \le 100\)</td>
+</tr>
+<tr>
+<td style="text-align: left">\(5 \in cod(\varphi_i)\)</td>
+<td style="text-align: left">\(i \in cod(\varphi_i)\)</td>
+</tr>
+<tr>
+<td style="text-align: left">\(dom(\varphi_i)\) è finito</td>
+<td style="text-align: left">\(\| dom(\varphi_i)\| \gt i\)</td>
+</tr>
+<tr>
+<td style="text-align: left">\(\varphi_i(0) \uparrow\)</td>
+<td style="text-align: left">\(\varphi_i(i) \uparrow\)</td>
+</tr>
+<tr>
+<td style="text-align: left">\(\exists n, \varphi_i(n) \downarrow \land \varphi_i(n + 1) \downarrow\)</td>
+<td style="text-align: left">\(\varphi_i \equiv \varphi_{i + 1}\)</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Remark</strong>: Il <em>complementare</em> di un insieme estensionale è estensionale.</p>
+</div>
+</div>
+<script>renderMathInElement(document.body);</script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script>mermaid.initialize({startOnLoad:true});</script>
+</body>
+</html>

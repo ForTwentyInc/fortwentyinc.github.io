@@ -1,0 +1,11 @@
+graph {
+    label=G;
+    a -- b;
+    c -- d;
+    c -- b[color=red,penwidth=3.0];
+    e -- {c, b}[color=red,penwidth=3.0];
+    d -- {f, h, g};
+    c [color=red,penwidth=3.0];
+    e [color=red,penwidth=3.0];
+    b [color=red,penwidth=3.0];
+}

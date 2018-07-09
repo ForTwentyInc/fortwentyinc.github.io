@@ -1,0 +1,7 @@
+graph {
+    label=G;
+    a -- {b, c};
+    c -- {d, b};
+    e -- {c, a, b};
+    d -- f
+}
