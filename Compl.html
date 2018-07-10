@@ -509,7 +509,7 @@ img {
 *:not(span){
   unicode-bidi: plaintext;
 }
-��SV
+
 </style>
 </head>
 <body>
@@ -528,8 +528,8 @@ img {
 </ul>
 <li><a href="#toc_1.3">Flusso massimo</a></li>
 <ul>
-<li><a href="#toc_1.3.1">Algoritmo:</a></li>
-<li><a href="#toc_1.3.2">Complessità</a></li>
+<li><a href="#toc_1.3.1">Algoritmo</a></li>
+<li><a href="#toc_1.3.2">Complessità MF</a></li>
 </ul>
 <li><a href="#toc_1.4">Problemi decisionali</a></li>
 <ul>
@@ -587,7 +587,7 @@ img {
 <li><a href="#toc_2.10.1">Codifica dei nastri di M sul nastro di U</a></li>
 <li><a href="#toc_2.10.2">Invarianti</a></li>
 <li><a href="#toc_2.10.3">Effettuare lo shift</a></li>
-<li><a href="#toc_2.10.4">Complessità</a></li>
+<li><a href="#toc_2.10.4">Complessità riduzione nastri</a></li>
 </ul>
 <li><a href="#toc_2.11">Sequenza di attraversamento</a></li>
 <ul>
@@ -651,7 +651,6 @@ img {
 </ul>
 <li><a href="#toc_4.4">Simulazione del nondeterminismo (spazio)</a></li>
 <ul>
-<li><a href="#toc_4.4.1">Complessità</a></li>
 </ul>
 <li><a href="#toc_4.5">Simulazione del nondeterminismo (tempo)</a></li>
 <ul>
@@ -813,10 +812,9 @@ img {
 <p><img src="img/Ricoprimento.png" alt="Esempio di ricoprimento di vertici" title="Ricoprimento"></p>
 
 <p>Si noti che \(V\) è un <em>caso degenere</em> di ricoprimento. Inoltre se \(R\) è un ricoprimento, ogni suo <strong>soprainsieme</strong> lo è. Siamo interessati a trovare <strong>ricoprimenti minimi</strong>.</p></li>
-<li><p>\(G\) è <strong>\(n\)-colorabile</strong>, se esiste una funzione di colorazione
-\(col \colon V \rightarrow c_1 , \dots , c_n\)
-tale che vertici <em>adiacenti</em> hanno <strong>colori diversi</strong>, ovvero:
-\[(u, v) \in E \rightarrow col(u) \not = col(v )\]</p></li>
+<li><p>\(G\) è <strong>\(n\)-colorabile</strong>, se esiste una funzione di colorazione \(col \colon V \rightarrow c_1 , \dots , c_n\) tale che vertici <em>adiacenti</em> hanno <strong>colori diversi</strong>, ovvero:</p>
+
+<p>\[(u, v) \in E \rightarrow col(u) \not = col(v )\]</p></li>
 <li><p>\(G\) è <strong>completo</strong> se ogni coppia di nodi distinti è <strong>connessa da un arco</strong>.</p></li>
 <li><p>una <strong>cricca</strong> (clique) di \(G\) è un suo sottografo <em>completo</em> \(G&#39; = (V&#39;, E&#39;)\), ovvero \(V&#39; \subseteq V\) ed \(E&#39; = V&#39; \times V&#39; \subseteq E\).</p>
 
@@ -845,7 +843,7 @@ tale che vertici <em>adiacenti</em> hanno <strong>colori diversi</strong>, ovver
 
 <p>Il problema consiste nel determinare il <strong>flusso massimo</strong> dalla sorgente al pozzo.</p>
 
-<h4 id="toc_1.3.1">Algoritmo:</h4>
+<h4 id="toc_1.3.1">Algoritmo</h4>
 
 <ol dir="auto">
 <li>Si parte con un flusso <strong>maxf</strong> inizialmente nullo.</li>
@@ -853,14 +851,12 @@ tale che vertici <em>adiacenti</em> hanno <strong>colori diversi</strong>, ovver
 <li>Si pone <strong>maxf</strong> \(\coloneqq\) <strong>maxf</strong> \( + f; N \coloneqq N \setminus f\) e si ripete dal passo 2.</li>
 </ol>
 
-<h4 id="toc_1.3.2">Complessità</h4>
+<h4 id="toc_1.3.2">Complessità MF</h4>
 
 <p>Osserviamo innanzitutto che se \(C\) è la <em>massima capacità</em> degli archi, il flusso massimo è <strong>sicuramente inferiore</strong> a \(nC\) in quanto ci sono meno di \(n\) archi che partono dalla sorgente.</p>
 
 <ul dir="auto">
-<li>la ricerca del cammino costa \(O(n^2)\)</li>
-<li>il flusso aumenta ad ogni iterazione del ciclo; dunque viene ripetuto al più
-\(nC\) volte.</li>
+<li>la ricerca del cammino costa \(O(n^2)\) il flusso aumenta ad ogni iterazione del ciclo; dunque viene ripetuto al più \(nC\) volte.</li>
 </ul>
 
 <p>In conclusione, la complessità è <strong>\(O(n^3C)\)</strong>.</p>
@@ -923,12 +919,15 @@ tale che vertici <em>adiacenti</em> hanno <strong>colori diversi</strong>, ovver
 <p>Questi tre problemi sono riducibili l’uno all’altro. Ricordiamo le definizioni:</p>
 
 <ul dir="auto">
-<li>un insieme \(V&#39; \subseteq V\) è detto <strong>indipendente</strong> se
-\[\forall u, v \in V&#39; \rightarrow (u, v ) \not \in E\]</li>
-<li>un sottoinsieme \(V&#39; \subseteq V\) è detto <strong>ricoprimento</strong> se
-\[\forall (u, v) \in E, u \in V&#39; \lor  v \in V&#39;\]</li>
-<li>una <strong>cricca</strong> di \(G\) è un sottoinsieme completo \(V&#39; \subseteq V\), tale cioè che
-\[\forall u, v \in V&#39; \rightarrow (u, v) \in E\]</li>
+<li><p>un insieme \(V&#39; \subseteq V\) è detto <strong>indipendente</strong> se</p>
+
+<p>\[\forall u, v \in V&#39; \rightarrow (u, v ) \not \in E\]</p></li>
+<li><p>un sottoinsieme \(V&#39; \subseteq V\) è detto <strong>ricoprimento</strong> se</p>
+
+<p>\[\forall (u, v) \in E, u \in V&#39; \lor  v \in V&#39;\]</p></li>
+<li><p>una <strong>cricca</strong> di \(G\) è un sottoinsieme completo \(V&#39; \subseteq V\), tale cioè che</p>
+
+<p>\[\forall u, v \in V&#39; \rightarrow (u, v) \in E\]</p></li>
 </ul>
 
 <p>È facile vedere che:</p>
@@ -1050,9 +1049,7 @@ costo <em>lineare</em> nella dimensione della formula.</p>
 <h3 id="toc_2.3">Convenzioni di input/output</h3>
 
 <ul dir="auto">
-<li><p><strong>Input</strong>: si suppone che il nastro di input sia inizializzato con la stringa di input (un carattere per ogni cella); la testina è posizionata sul primo
-carattere dell’input; tutte le altre celle del nastro sono inizializzate col
-carattere speciale \(b\).</p></li>
+<li><p><strong>Input</strong>: si suppone che il nastro di input sia inizializzato con la stringa di input (un carattere per ogni cella); la testina è posizionata sul primo carattere dell’input; tutte le altre celle del nastro sono inizializzate col carattere speciale \(b\).</p></li>
 <li><p><strong>Output</strong>: nel momento in cui la macchina si arresta l’output è la più <em>lunga stringa di caratteri</em> in \(\Sigma\) (in particolare, senza \(b\)) alla sinistra della testina sul nastro di output.</p></li>
 <li><p><strong>Nastri</strong>: se \(k \gt 1\) il nastro \(1\) è un nastro di sola lettura (input); se \(k \gt 2\) il nastro \(k\) è un nastro di sola scrittura (output)</p></li>
 <li><p><strong>Spostamenti</strong>: le sole mosse consentite sui nastri di input/output sono spostamenti verso destra.</p></li>
@@ -1205,7 +1202,7 @@ configurazioni è una relazione \(\vdash\) governata dalla funzione di transizio
 
 <p>Alla fine dello shift, tutti gli slot \(R_0, L_0, \dots, R_{i_{0} - 1}, L_{i_{0} - 1}\) sono mezze piene, \(R_0\) ha \(2^{i_{0}}\) simboli non \(\square\) <strong>in meno</strong>, e \(L_i\) ha \(2^i\) simboli non \(\square\) <strong>in più</strong>. Dunque <strong>gli invarianti vengono mantenuti</strong>.</p>
 
-<h4 id="toc_2.10.4">Complessità</h4>
+<h4 id="toc_2.10.4">Complessità riduzione nastri</h4>
 
 <p>Il <strong>costo</strong> totale di una singola operazione di shift è proporzionale alla dimensione degli slot \(R_0, L_0, \dots, R_{i_{0} - 1}, L_{i_{0} - 1}\) coinvolti e dunque di \(O(2^{i_{0}})\).</p>
 
@@ -1225,7 +1222,7 @@ configurazioni è una relazione \(\vdash\) governata dalla funzione di transizio
 
 <h3 id="toc_2.12">Lemma di attraversamento</h3>
 
-<p>Sia \(M\) una macchina di Turing a <em>un nastro</em> e siano \(u, v , x, y \in \Sigma^*\) tali che \(uv \in L_M \iff xy \in L_M\) . Supposto </p>
+<p>Sia \(M\) una macchina di Turing a <em>un nastro</em> e siano \(u, v , x, y \in \Sigma^*\) tali che \(uv \in L_M \iff xy \in L_M\) . Supposto</p>
 
 <p>\[ CS(uv, |u|) = CS(xy, |x|)\]</p>
 
@@ -1264,7 +1261,7 @@ configurazioni è una relazione \(\vdash\) governata dalla funzione di transizio
 
 <p>Ogni istruzione ha costo <strong>unitario</strong>, indipendentemente dal fatto che opera su interi di dimensione arbitraria!</p>
 
-<p><strong>Warning</strong>: Se l&#39;input è \(l = (i_1, \dots, i_k)\) la dimensione non è \(k\), ma </p>
+<p><strong>Warning</strong>: Se l&#39;input è \(l = (i_1, \dots, i_k)\) la dimensione non è \(k\), ma</p>
 
 <p>\[l(I) = \sum\limits_{j=1}^n |bin(i_j)|\]</p>
 
@@ -1394,7 +1391,7 @@ al posto di \(t_M\).</p>
 
 <p>\(\impliedby\) dobbiamo dimostrare che \(O(s) \subseteq O(s&#39;) \impliedby DSPACE(s) \subseteq DSPACE(s&#39;)\).</p>
 
-<p>Per semplicità si passa alla negazione: </p>
+<p>Per semplicità si passa alla negazione:</p>
 
 <p>\[O(s) \not \subseteq O(s&#39;) \implies DSPACE(s) \not \subseteq DSPACE(s&#39;)\]</p>
 
@@ -1585,9 +1582,7 @@ In particolare, esiste un qualche intero \(k\) tale che \(M_{bin(k)} = M\).</p>
 
 <p>Si noti che l&#39;arresto delle computazioni dopo al più \(cf(n) + c\) passi è giustificato dal fatto che, se \(x\) è riconosciuta da \(M\), <strong>esiste almeno una computazione</strong> che la riconosce entro tale tempo.</p>
 
-<h4 id="toc_4.4.1">Complessità</h4>
-
-<p>Il punto \(1\) richiede spazio \(O(n)\); poichè \(f\) è costruibile in spazio, il secondo passo richiede spazio \(O(f)\), così come i punti successivi.</p>
+<p><strong>Complessità:</strong> Il punto \(1\) richiede spazio \(O(n)\); poichè \(f\) è costruibile in spazio, il secondo passo richiede spazio \(O(f)\), così come i punti successivi.</p>
 
 <h3 id="toc_4.5">Simulazione del nondeterminismo (tempo)</h3>
 
@@ -1629,7 +1624,7 @@ In particolare, esiste un qualche intero \(k\) tale che \(M_{bin(k)} = M\).</p>
 
 <p>Sia \((V , E)\) un grafo di dimensione \(n\). È possibile determinare se due nodi \(u, v\) sono connessi da un cammino di lunghezza inferiore a \(2^i\) con un consumo di spazio dell’ordine di \(i \cdot log(n)\).</p>
 
-<pre><code>let rec reachable(i,u,v) = 
+<pre><code>let rec reachable(i,u,v) =
     if i == 0 then u = v or [u,v] ∈ E
     else ∃z.(reachable(i - 1, u, z) and reachable(i - 1, z, v))
 </code></pre>
@@ -1693,7 +1688,7 @@ Quindi una MdT \(M&#39;\), dato l&#39;input \(x\) con \(|x| \le n\) è in grado 
 
 <p>Si inizializza un <em>contatore</em> \(c\) a \(0\) e lo si incrementa tutte le volte che <strong>si trova un cammino</strong> dal nodo iniziale \(x\) a \(v\). La funzione termina restituendo \(c\):</p>
 
-<pre><code>next_num() = 
+<pre><code>next_num() =
     c := 0
     for v ∈ V do
         if reach(x,v) then
@@ -1738,7 +1733,7 @@ Quindi una MdT \(M&#39;\), dato l&#39;input \(x\) con \(|x| \le n\) è in grado 
 <p>L’intero algoritmo richiede di <strong>memorizzare</strong> \(k\), \(Nk\), \(c\), \(c&#39;\), \(v\), \(v&#39;\), \(b\), \(b&#39;\), \(s\), \(t\) e \(i\). Su queste variabili operiamo con <strong>confronti</strong> e <strong>incrementi unitari</strong>; numericamente sono tutte limitate da \(n\), dunque richiedono una dimensione \(log(n)\).</p>
 
 <blockquote>
-<p>Sia \(s \colon N \rightarrow N\) una funzione <em>costruibile in spazio</em> e tale che \(log \in O(s)\). Allora </p>
+<p>Sia \(s \colon N \rightarrow N\) una funzione <em>costruibile in spazio</em> e tale che \(log \in O(s)\). Allora</p>
 
 <p>\[NSPACE(s) = coNSPACE(s)\]</p>
 </blockquote>
@@ -1771,9 +1766,8 @@ Quindi una MdT \(M&#39;\), dato l&#39;input \(x\) con \(|x| \le n\) è in grado 
 
 <p>Sia \(A \in NP\). Per il teorema della riduzione dei nastri possiamo assumere che esista una MdTN ad un nastro che <strong>riconosce</strong> \(A\) in tempo \(t_M \le p\) per un qualche polinomio \(p\).</p>
 
-<p><strong>Eliminiamo</strong> il nondeterminismo utilizzando una tecnica simile a quella adottata nella prova di \(NTIME(f) \subseteq DSPACE(id +f)\). Sia \(\delta\) la <em>funzione di transizione</em> nondeterministica di \(M\) e sia \(m\) il <strong>branching massimo</strong>. </p>
-
-<p>Costruiamo la macchina deterministica \(M&#39;\) che <strong>accetta</strong> \(B\) in tempo \(t_M \in O(p)\). \(M&#39;\) lavora con un alfabeto arricchito \(\Sigma&#39;\) con simboli \(b_1, \dots, b_m\) utilizzati per decidere ad ogni passo il ramo della computazione da seguire.</p>
+<p><strong>Eliminiamo</strong> il nondeterminismo utilizzando una tecnica simile a quella adottata nella prova di \(NTIME(f) \subseteq DSPACE(id +f)\). Sia \(\delta\) la <em>funzione di transizione</em> nondeterministica di \(M\) e sia \(m\) il <strong>branching massimo</strong>.
+Costruiamo la macchina deterministica \(M&#39;\) che <strong>accetta</strong> \(B\) in tempo \(t_M \in O(p)\). \(M&#39;\) lavora con un alfabeto arricchito \(\Sigma&#39;\) con simboli \(b_1, \dots, b_m\) utilizzati per decidere ad ogni passo il ramo della computazione da seguire.</p>
 
 <p>In particolare, \(M&#39;\) su input \(\langle x, y \rangle\) <strong>simula</strong> la macchina \(M\) per al più \(|y|\) passi, utilizzando ad ogni passo \(i\) il carattere \(y_i\) della stringa \(y\) per decidere la mossa da seguire. È evidente che:</p>
 
@@ -1834,7 +1828,7 @@ Dunque \(g \circ f \in FP\).</p>
 
 <p>Supponiamo ora che \(f, g \in FLOGSPACE\) siano rispettivamente calcolate dalle MdT \(M\) e \(M&#39;\). Non possiamo operare come in precedenza poichè l’output di una funzione \(f \in FLOGSPACE\) <strong>non ha necessariamente</strong> lunghezza <strong>logaritmica</strong> (si contano solo i nastri di lavoro!).</p>
 
-<p>Tuttavia, poichè \(FLOGSPACE \subseteq F\) l’output \(f(x)\) relativo a un input \(x\) di lunghezza \(n = |x|\) ha <strong>al più</strong> lunghezza <strong>polinomiale</strong> \(|f(x)| \le p(n)\). </p>
+<p>Tuttavia, poichè \(FLOGSPACE \subseteq F\) l’output \(f(x)\) relativo a un input \(x\) di lunghezza \(n = |x|\) ha <strong>al più</strong> lunghezza <strong>polinomiale</strong> \(|f(x)| \le p(n)\).</p>
 
 <p>Si noti che la memorizzazione di questo output potrebbe richiedere uno spazio <strong>più che logaritmico</strong>.</p>
 
@@ -2104,15 +2098,15 @@ configurazioni con stringhe sull’alfabeto \(\Gamma&#39; = \Gamma \cup (Q \time
 
 <p>Vogliamo dimostrare che la formula \(F\) è <strong>soddisfacibile</strong> se e solo se esiste un <strong>ricoprimento</strong> \(S\) di \(GF\) di cardinalità \(|S| \le n + 2m\) (si osservi che il grafo può essere <strong>costruito in tempo polinomiale</strong>).</p>
 
-<p>Supponiamo che \(F\) sia <strong>soddisfacibile</strong> e sia \(v\) un <strong>assegnamento</strong> di valori di verità alle variabili che rende vera \(F\). </p>
+<p>Supponiamo che \(F\) sia <strong>soddisfacibile</strong> e sia \(v\) un <strong>assegnamento</strong> di valori di verità alle variabili che rende vera \(F\).</p>
 
-<p>Sia \(S_1 = \{x_i |v (X_i) = true\} \cup \{\overline{x_i} |v (X_i) = false\}\). </p>
+<p>Sia \(S_1 = \{x_i |v (X_i) = true\} \cup \{\overline{x_i} |v (X_i) = false\}\).</p>
 
 <p>Se inoltre \(v\) soddisfa \(F\) deve soddisfare <strong>ognuna</strong> delle sue clausole, e dunque per ogni \(j = 1, \dots, m\) esiste \(k_j \in \{1, 2, 3\}\) tale che \(c_{j,k_ j}\) è <strong>adiacente</strong> a qualche vertice in \(S_1\).</p>
 
 <p>Sia \(S_2 = \{c_{j,k} |j = 1, \dots, m \land k \lnot = k_j \}\). Allora \(S \coloneqq S_1 \cup S_2\) è un <strong>ricoprimento</strong> e la sua cardinalità è \(n + 2m\).</p>
 
-<p>Viceversa, supponiamo che esista un <strong>ricoprimento</strong> \(S\) di dimensione minore o uguale a \(n + 2m\). Allora ogni triangolo \(c_{j,1} , c_{j,2}, c_{j,3}\) ha <strong>almeno due</strong> vertici in \(S\) e ogni arco \((x_i , \overline{x_i})\) ha <strong>almeno un</strong> vertice in \(S\). </p>
+<p>Viceversa, supponiamo che esista un <strong>ricoprimento</strong> \(S\) di dimensione minore o uguale a \(n + 2m\). Allora ogni triangolo \(c_{j,1} , c_{j,2}, c_{j,3}\) ha <strong>almeno due</strong> vertici in \(S\) e ogni arco \((x_i , \overline{x_i})\) ha <strong>almeno un</strong> vertice in \(S\).</p>
 
 <p>Dunque \(S\) ha esattamente \(n + 2m\) elementi, con <strong>esattamente due</strong> vertici per ogni triangolo e <strong>un vertice</strong> per ogni arco \((x_i, \overline{x_i})\). Posto allora</p>
 
@@ -2206,13 +2200,10 @@ configurazioni con stringhe sull’alfabeto \(\Gamma&#39; = \Gamma \cup (Q \time
 <li><p><code>Problema del ciclo Hamiltoniano</code>: dato un grafo G, determinare se ammette un cammino Hamiltoniano.</p></li>
 <li><p><code>Programmazione Intera</code>: data una <strong>matrice</strong> \(A \in Z^{n \times m}\) e un <strong>vettore</strong> \(b \in Z^n\), determinare <strong>se esiste</strong> \(x \in Z^m\) tale che \(Ax \ge b\).</p></li>
 <li><p><code>Knapsack</code>: data una <strong>lista di interi</strong> \(a \in N^n\) e un numero \(S \in N\), determinare se esiste \(I \subseteq \{ 1, 2, \dots, n \}\) tale che \(\sum\limits_{i \in I}^n a_i = S\).</p></li>
-<li><p><code>Equazioni Diofantee:</code> Il problema di decidere se un un polinomio di <strong>secondo grado</strong> a coefficienti <strong>interi</strong> ammette soluzioni <strong>intere</strong> è <strong>\(NP\)-completo</strong>.</p>
-
-<ul dir="auto">
-<li><code>lineare</code> \(\implies\) <strong>polinomiale</strong> (Algoritmo di Euclide)</li>
-<li><code>quadratica</code> \(\implies\) <strong>\(NP\)-completo</strong> (Manders e Adleman)</li>
-<li><code>arbitraria</code> \(\implies\) <strong>indecidibile</strong> (Davis, Robinson, Matiyasevich)</li>
-</ul></li>
+<li><p><code>Equazioni Diofantee:</code> Il problema di decidere se un un polinomio di <strong>secondo grado</strong> a coefficienti <strong>interi</strong> ammette soluzioni <strong>intere</strong> è <strong>\(NP\)-completo</strong>.</p></li>
+<li><p><code>lineare</code> \(\implies\) <strong>polinomiale</strong> (Algoritmo di Euclide)</p></li>
+<li><p><code>quadratica</code> \(\implies\) <strong>\(NP\)-completo</strong> (Manders e Adleman)</p></li>
+<li><p><code>arbitraria</code> \(\implies\) <strong>indecidibile</strong> (Davis, Robinson, Matiyasevich)</p></li>
 </ul>
 
 <h2 id="toc_8">Complessità relativizzata</h2>
@@ -2227,8 +2218,7 @@ configurazioni con stringhe sull’alfabeto \(\Gamma&#39; = \Gamma \cup (Q \time
 MdTN, <em>a parte le seguenti caratterisitche</em>:</p>
 
 <ul dir="auto">
-<li><p>\(M\) è equipaggiata con un nastro particolare, detto <strong>nastro di
-interrogazione</strong>.</p></li>
+<li><p>\(M\) è equipaggiata con un nastro particolare, detto <strong>nastro di interrogazione</strong>.</p></li>
 <li><p>\(M\) ha tre stati <strong>speciali</strong> \(q?, q+, q- \in Q \setminus F\) , dove \(q?\) è lo stato di <strong>interrogazione</strong>, e \(q+\), \(q-\) sono gli stati di <strong>risposta</strong>.</p></li>
 <li><p>la funzione di <em>transizione</em> \(\delta\) <strong>non è definita</strong> sullo stato di <strong>interrogazione</strong>.</p></li>
 </ul>
@@ -2239,9 +2229,7 @@ interrogazione</strong>.</p></li>
 
 <ul dir="auto">
 <li><p>la macchina può <strong>scrivere</strong> sul nastro di <em>interrogazione</em> come su di un nastro <strong>abituale</strong>,</p></li>
-<li><p>nel momento in cui la macchina <strong>entra</strong> nello stato di <em>interrograzione</em> \(q?\) lo stato successivo non è determinato dalla funzione \(\delta\) ma da un <strong>oracolo
-esterno \(O\)</strong>. In particolare se nello stato \(q?\) il nastro di <strong>interrogazione</strong> contiene la parola \(y \in \Sigma^*\) <strong>alla sinistra</strong> della testina, allora lo stato
-successivo della macchina è \(q+\) se \(y \in O\) e \(q-\) se \(y \not \in O\),</p></li>
+<li><p>nel momento in cui la macchina <strong>entra</strong> nello stato di <em>interrograzione</em> \(q?\) lo stato successivo non è determinato dalla funzione \(\delta\) ma da un <strong>oracolo esterno \(O\)</strong>. In particolare se nello stato \(q?\) il nastro di <strong>interrogazione</strong> contiene la parola \(y \in \Sigma^*\) <strong>alla sinistra</strong> della testina, allora lo stato successivo della macchina è \(q+\) se \(y \in O\) e \(q-\) se \(y \not \in O\),</p></li>
 <li><p>Il <strong>contenuto</strong> del nastro di interrogazione è <strong>cancellato</strong> automaticamente non appena la macchina <strong>rientra</strong> nello stato \(q+\) o \(q-\).</p></li>
 </ul>
 
@@ -2295,7 +2283,7 @@ successivo della macchina è \(q+\) se \(y \in O\) e \(q-\) se \(y \not \in O\),
 <ol dir="auto">
 <li><p>\(P^P = P\)</p>
 
-<p>\(P \subseteq P^P\) poichè \(A \in P^P\); \(P^P \subseteq P\) segue da </p>
+<p>\(P \subseteq P^P\) poichè \(A \in P^P\); \(P^P \subseteq P\) segue da</p>
 
 <p>\(A \in P^B, B \in P^C \implies A \in P^C\) con \(C = \emptyset\)</p></li>
 <li><p>\(NP^P = NP\)</p>
@@ -2306,13 +2294,13 @@ successivo della macchina è \(q+\) se \(y \in O\) e \(q-\) se \(y \not \in O\),
 <p>\(PSPACE \subseteq NP^{PSPACE}\) poichè \(A \in NP^A\).</p></li>
 </ol>
 
-<p>\(NP^{PSPACE} \subseteq PSPACE\) si ottiene modificando al caso <strong>con oracolo</strong> la dimostrazione che \(NTIME(f) \subseteq DSPACE(f)\). </p>
+<p>\(NP^{PSPACE} \subseteq PSPACE\) si ottiene modificando al caso <strong>con oracolo</strong> la dimostrazione che \(NTIME(f) \subseteq DSPACE(f)\).</p>
 
 <h4 id="toc_8.5.1">\(NP^{PSPACE} \subseteq PSPACE\)</h4>
 
 <p>Supponiamo che \(M\) sia un MdTN con <strong>oracolo</strong> \(A \in PSPACE\) e che \(t_M \le p\) per qualche <strong>polinomio</strong> \(p\).</p>
 
-<p>Otteniamo una macchina deterministica \(M&#39;\) <strong>eliminando il nondeterminismo</strong> con la tecnica utilizzata nella dimostrazione che \(NTIME (f) \le DSPACE (f)\) (ovvero <strong>esplorando esaustivamente</strong> l’albero delle computazioni di \(M\)). </p>
+<p>Otteniamo una macchina deterministica \(M&#39;\) <strong>eliminando il nondeterminismo</strong> con la tecnica utilizzata nella dimostrazione che \(NTIME (f) \le DSPACE (f)\) (ovvero <strong>esplorando esaustivamente</strong> l’albero delle computazioni di \(M\)).</p>
 
 <p>Abbiamo che \(L_{M&#39;}^A = L_M^A\) e \(s_{M&#39;}^A \in O(p)\).</p>
 
@@ -2365,7 +2353,7 @@ termina con <strong>accettazione</strong>, allora si <em>entra</em> rispettivame
 <p>Abbiamo allora le seguenti proprietà:</p>
 
 <ul dir="auto">
-<li><p>se \(A \in coNP\), allora \(\overline{A} \in NP\) e dunque </p>
+<li><p>se \(A \in coNP\), allora \(\overline{A} \in NP\) e dunque</p>
 
 <p>\[A \in NP^A\]
 \[NP^A = NP^{\overline{A}}\]

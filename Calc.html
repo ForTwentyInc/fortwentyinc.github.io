@@ -532,7 +532,6 @@ img {
 </ul>
 <li><a href="#toc_3">Insiemi ricorsivi</a></li>
 <ul>
-<li><a href="#toc_3.0.1">Esempi</a></li>
 <li><a href="#toc_3.1">Proprietà di chiusura di insiemi ricorsivi</a></li>
 <ul>
 </ul>
@@ -542,7 +541,7 @@ img {
 <li><a href="#toc_4.1">Teorema di complementazione</a></li>
 <ul>
 </ul>
-<li><a href="#toc_4.2">Caratterizzazioni equivalenti degli insiemi r.e.</a></li>
+<li><a href="#toc_4.2">Caratterizzazioni equivalenti degli insiemi ricorsivamente enumerabili</a></li>
 <ul>
 </ul>
 <li><a href="#toc_4.3">Semidecidibilità</a></li>
@@ -555,7 +554,7 @@ img {
 <li><a href="#toc_4.5">Teorema della proiezione</a></li>
 <ul>
 </ul>
-<li><a href="#toc_4.6">Unione ed intersezione finita di insiemi r.e.</a></li>
+<li><a href="#toc_4.6">Unione ed intersezione finita di insiemi ricorsivamente enumerabili</a></li>
 <ul>
 </ul>
 <li><a href="#toc_4.7">Proprietà di chiusura rispetto a funzioni</a></li>
@@ -633,9 +632,12 @@ img {
 <h3 id="toc_1.2">Il predicato T di Kleene</h3>
 
 <blockquote>
-<p>Esiste un predicato \(T (i, n, k, t)\) tale che
-1. \(\varphi_i(n) = k \iff \exists t \ge k, T (i, n, k, t) = 1\)
-2. la funzione <em>caratteristica</em> di \(T\) è <strong>calcolabile</strong></p>
+<p>Esiste un predicato \(T (i, n, k, t)\) tale che</p>
+
+<ol dir="auto">
+<li>\(\varphi_i(n) = k \iff \exists t \ge k, T (i, n, k, t) = 1\)</li>
+<li>la funzione <em>caratteristica</em> di \(T\) è <strong>calcolabile</strong></li>
+</ol>
 </blockquote>
 
 <p>\(T\) è il predicato (intuitivamente calcolabile) che afferma che la computazione del programma di indice \(i\) su input \(n\) termina con risorse fissate (e.g. tempo o spazio) \(t\) e fornisce come risultato \(k\).</p>
@@ -656,15 +658,15 @@ img {
 
 <p>Useremo la notazione \(\varphi_i (n) \downarrow\) per indicare che la funzione è definita (<strong>converge</strong>) per input \(n\), e \(\varphi_i (n) \uparrow\) quando è indefinita (o <strong>diverge</strong>) per tale input.</p>
 
-<p>Definiamo <strong>dominio</strong> (dom) di \(\varphi_i\) il suo <strong>insieme di convergenza</strong>, ossia </p>
+<p>Definiamo <strong>dominio</strong> (dom) di \(\varphi_i\) il suo <strong>insieme di convergenza</strong>, ossia</p>
 
 <p>\[dom(\varphi_i) = \{n| \varphi_i (n) \downarrow\}\]</p>
 
-<p>Il <strong>codominio</strong> (cod) di φ i è l’insieme dei <strong>possibili output</strong>:</p>
+<p>Il <strong>codominio</strong> (cod) di \(\varphi_i\) è l’insieme dei <strong>possibili output</strong>:</p>
 
 <p>\[cod(\varphi_i) = \{m| \exists n, \varphi_i (n) = m\}\]</p>
 
-<p>Le funzioni parziali sono ordinate <strong>parzialmente</strong> rispetto all’**inclusione insiemistica** dei loro grafi:</p>
+<p>Le funzioni parziali sono ordinate <strong>parzialmente</strong> rispetto all&#39; <strong>inclusione insiemistica</strong> dei loro grafi:</p>
 
 <p>\[\varphi_i \subseteq \varphi_j \iff \forall n \in dom(\varphi_i), \varphi_i (n) = \varphi_j (n)\]</p>
 
@@ -674,7 +676,7 @@ img {
 <p>Un insieme si dice <strong>ricorsivo</strong> (o decidibile) se la sua funzione caratteristica è calcolabile.</p>
 </blockquote>
 
-<h4 id="toc_3.0.1">Esempi</h4>
+<p><strong>Esempi:</strong></p>
 
 <ol dir="auto">
 <li>l’insieme <strong>vuoto</strong> e l’insieme \(N\) di tutti i numeri naturali</li>
@@ -708,16 +710,19 @@ img {
 
 <p>Ogni insieme ricorsivo è anche r.e.</p>
 
-<p>Sia \(A\) ricorsivo e sia \(c_A\) la sua funzione caratteristica.
-- Il caso in cui \(A\) è <strong>finito</strong> è banale.
-- Supponiamo \(A\) <strong>infinito</strong>:</p>
+<p>Sia \(A\) ricorsivo e sia \(c_A\) la sua funzione caratteristica.</p>
+
+<ul dir="auto">
+<li>Il caso in cui \(A\) è <strong>finito</strong> è banale.</li>
+<li><p>Supponiamo \(A\) <strong>infinito</strong>:</p>
 
 <p>\[
-    \begin{cases}
-        f(0) = \mu y, c_A(y) = 1\\
-        f(x + 1) = \mu y, c_A(y) = 1 \land y \gt f(x)
-    \end{cases}
-   \]</p>
+\begin{cases}
+    f(0) = \mu y, c_A(y) = 1\\
+    f(x + 1) = \mu y, c_A(y) = 1 \land y \gt f(x)
+\end{cases}
+\]</p></li>
+</ul>
 
 <h3 id="toc_4.1">Teorema di complementazione</h3>
 
@@ -727,7 +732,7 @@ img {
 
 <p>\(\implies\) ovvio.</p>
 
-<p>\(\impliedby\): Supponiamo che \(A\) e \(\overline{A}\) siano rispettivamente <strong>enumerati</strong> da \(f\) e \(g\). Poniamo </p>
+<p>\(\impliedby\): Supponiamo che \(A\) e \(\overline{A}\) siano rispettivamente <strong>enumerati</strong> da \(f\) e \(g\). Poniamo</p>
 
 <p>\[
     \begin{cases}
@@ -745,7 +750,7 @@ numeri pari.</p>
 
 <p>\(c_A\) è <strong>calcolabile</strong> e <strong>totale</strong>.</p>
 
-<h3 id="toc_4.2">Caratterizzazioni equivalenti degli insiemi r.e.</h3>
+<h3 id="toc_4.2">Caratterizzazioni equivalenti degli insiemi ricorsivamente enumerabili</h3>
 
 <blockquote>
 <p>Sia \(A\) un insieme di <strong>numeri naturali</strong>. Le seguenti affermazioni sono equivalenti:
@@ -760,12 +765,12 @@ numeri pari.</p>
 <p>\[g (x) = μy (f (y ) = x)\]</p>
 
 <p>Chiaramente \(g\) è <strong>calcolabile</strong> e \(g(x) \downarrow\) se e solo se \(x \in cod(f)\).</p></li>
-<li><p>\(2 \implies 3\): Sia \(A = dom(g )\); basta considerare </p>
+<li><p>\(2 \implies 3\): Sia \(A = dom(g )\); basta considerare</p>
 
 <p>\[h(x) = x + 0 \cdot g (x)\]</p></li>
 <li><p>\(3 \implies 1\) Sia \(A = cod(h)\), per \(h\) <strong>parziale</strong> calcolabile. Il caso \(A = \emptyset\) è triviale. Posto \(a \in A\) e \(h = \varphi_i\) consideriamo</p>
 
-<p>\[f(\langle x, k, s \rangle) = 
+<p>\[f(\langle x, k, s \rangle) =
    \begin{cases}
        k &amp;\text{se } T(i, x, k, s) = 1\\
        a &amp;\text{altrimenti}
@@ -813,7 +818,7 @@ numeri pari.</p>
 <p>Basta dunque porre \(B = \{ \langle n, m \rangle |T (i, n, m)\}\).</p></li>
 </ul>
 
-<h3 id="toc_4.6">Unione ed intersezione finita di insiemi r.e.</h3>
+<h3 id="toc_4.6">Unione ed intersezione finita di insiemi ricorsivamente enumerabili</h3>
 
 <blockquote>
 <p>La classe degli insiemi ricorsivamente enumerabili è <strong>chiusa</strong> per unione.</p>
@@ -842,7 +847,7 @@ numeri pari.</p>
 
 <p>La classe degli insiemi ricorsivamente enumerabili è chiusa per <strong>complementazione</strong>?</p>
 
-<p>Ossia se \(A\) è r.e. anche \(N \setminus A\) è r.e.? \(\rightarrow\) Decisamente no! </p>
+<p>Ossia se \(A\) è r.e. anche \(N \setminus A\) è r.e.? \(\rightarrow\) Decisamente no!</p>
 
 <p>Si pensi all’insieme \(K = \{ i | \varphi(i) \downarrow \}\) che è r.e. ma il suo complementare \(N \setminus K = K = \{ i | \varphi_i(i) \uparrow \}\) <strong>non è nemmeno</strong> r.e.</p>
 
@@ -937,7 +942,7 @@ Ovvero: \(\varphi_i \equiv \varphi_j \implies c_A(i) = c_A(j)\)</p>
 
 <p><img src="img/Rice.png" alt="Funzione h" title="Rice"></p>
 
-<p>Consideriamo la funzione </p>
+<p>Consideriamo la funzione</p>
 
 <p>\[\varphi_{h(x)}(y) = \varphi_x(x); \varphi_a(y)\]</p>
 
@@ -958,8 +963,7 @@ Ovvero: \(\varphi_i \equiv \varphi_j \implies c_A(i) = c_A(j)\)</p>
 <h4 id="toc_5.2.1">Uso del teorema di Rice</h4>
 
 <ul dir="auto">
-<li>Uso <strong>diretto</strong>, per dimostrare che determinate proprietà (essendo
-estensionali) <strong>non sono decidibiUnione ed intersezione finitali</strong>.</li>
+<li>Uso <strong>diretto</strong>, per dimostrare che determinate proprietà (essendo estensionali) <strong>non sono decidibiUnione ed intersezione finitali</strong>.</li>
 <li>Uso <strong>indiretto</strong>, per dimostrare che determinate proprietà estensionali <strong>non sono neppure semidecidibili</strong> (basta dimostrare che il <strong>complementare è r.e.</strong>)</li>
 </ul>
 
@@ -1077,9 +1081,12 @@ dove <q>|</q> denota la <strong>composizione parallela</strong> (l’output è q
 
 <p>I teoremi di Rice-Shapiro permettono di dimostrare facilmente che determinati insiemi estensionali <strong>non sono r.e.</strong></p>
 
-<p>Ad esempio:
-- \(\{ i \vert \varphi_i\text{ è totale}\}\) non è r.e. in quanto <strong>non è compatto</strong>
-- \(\{ i \vert cod(\varphi_i)\text{ è finito}\}\) non è r.e. in quanto <strong>non è monotono</strong></p>
+<p>Ad esempio:</p>
+
+<ul dir="auto">
+<li>\(\{ i \vert \varphi_i\text{ è totale}\}\) non è r.e. in quanto <strong>non è compatto</strong></li>
+<li>\(\{ i \vert cod(\varphi_i)\text{ è finito}\}\) non è r.e. in quanto <strong>non è monotono</strong></li>
+</ul>
 
 <p><strong>Warning</strong>: Esistono insiemi estensionali <em>monotoni e compatti</em> ma <strong>non r.e.</strong>, ad esempio</p>
 
@@ -1115,7 +1122,7 @@ dove <q>|</q> denota la <strong>composizione parallela</strong> (l’output è q
 <h3 id="toc_6.2">Il secondo teorema di ricorsione</h3>
 
 <blockquote>
-<p>Per ogni funzione <strong>binaria totale calcolabile</strong> \(f\) esiste una funzione <strong>calcolabile</strong> \(s\) tale che, per ogni \(y\) </p>
+<p>Per ogni funzione <strong>binaria totale calcolabile</strong> \(f\) esiste una funzione <strong>calcolabile</strong> \(s\) tale che, per ogni \(y\)</p>
 
 <p>\[\varphi_{f(s(y),y)} \approx \varphi_{s(y )}\]</p>
 </blockquote>
@@ -1136,14 +1143,14 @@ dove <q>|</q> denota la <strong>composizione parallela</strong> (l’output è q
 
 <p>Tuttavia il teorema è vero per qualunque trasformazione effettiva.</p>
 
-<p><strong>Ad esempio:</strong>
-- in ogni enumerazione accettabile di programmi esistono sicuramente due programmi consecutivi con <strong>comportamenti identici</strong>, ovvero esiste \(i\) tale che</p>
+<p><strong>Ad esempio:</strong></p>
+
+<ul dir="auto">
+<li><p>in ogni enumerazione accettabile di programmi esistono sicuramente due programmi consecutivi con <strong>comportamenti identici</strong>, ovvero esiste \(i\) tale che</p>
 
 <p>\[\varphi_{i+1} \equiv \varphi_i\]</p>
 
-<p><strong>Dimostrazione:</strong> si prenda il punto fisso del <strong>successore</strong>.</p>
-
-<ul dir="auto">
+<p><strong>Dimostrazione:</strong> si prenda il punto fisso del <strong>successore</strong>.</p></li>
 <li><p>Esiste un programma che <q>stampa se stesso</q>, cioè esiste \(i\) tale che</p>
 
 <p>\[\varphi_i(0) = i\]</p>
@@ -1179,11 +1186,14 @@ dove <q>|</q> denota la <strong>composizione parallela</strong> (l’output è q
 
 <p>Due insiemi si dicono <strong>equivalenti</strong> (m-equivalenti) (in simboli \(A =_m B\)), se \(A \le_m B\) e \(B \le_m A\);</p>
 
-<p><strong>Osservazioni:</strong>
-- la relazione \(\le_m\) é un <strong>preordine</strong> (i.e. é riflessiva e transitiva)
-- la relazione \(=_m\) é una relazione di <strong>equivalenza</strong>
-- \(A \le_m B\) se e solo se \(\overline{A} \le_m \overline{B}\)
-- se \(A \le_m B\) e \(B\) è <strong>ricorsivo</strong> (o r.e.) allora \(A\) è <strong>ricorsivo</strong> (o r.e.)</p>
+<p><strong>Osservazioni:</strong></p>
+
+<ul dir="auto">
+<li>la relazione \(\le_m\) é un <strong>preordine</strong> (i.e. é riflessiva e transitiva)</li>
+<li>la relazione \(=_m\) é una relazione di <strong>equivalenza</strong></li>
+<li>\(A \le_m B\) se e solo se \(\overline{A} \le_m \overline{B}\)</li>
+<li>se \(A \le_m B\) e \(B\) è <strong>ricorsivo</strong> (o r.e.) allora \(A\) è <strong>ricorsivo</strong> (o r.e.)</li>
+</ul>
 
 <h3 id="toc_7.2">\(K_0 =_m K\)</h3>
 
@@ -1195,7 +1205,7 @@ dove <q>|</q> denota la <strong>composizione parallela</strong> (l’output è q
 <p>\[i \in K \implies i \in W_i \implies \langle i, i \rangle \in K_0\]</p>
 
 <p>la funzione \(f(x) = \langle x, x \rangle\) permette di <strong>ridurre</strong> \(K\) a \(K_0\).</p></li>
-<li><p>\(K_0 \le_m K\). Per <em>smn</em> consideriamo la funzione <strong>totale calcolabile</strong> \(h\) per cui </p></li>
+<li><p>\(K_0 \le_m K\). Per <em>smn</em> consideriamo la funzione <strong>totale calcolabile</strong> \(h\) per cui</p></li>
 </ul>
 
 <p>\[\varphi_{h(i,x)}(y) = g(i, x, y) = \varphi_i(x)\]</p>
@@ -1216,7 +1226,7 @@ dove <q>|</q> denota la <strong>composizione parallela</strong> (l’output è q
 
 <p>Dato che \(K_0 =_m K\) è sufficiente dimostrare la proprietà per \(K_0\).</p>
 
-<p>Abbiamo già dimostrato che se \(A \le_m K_0\) allora \(A\) è <strong>r.e.</strong> e dunque esiste \(i\) tale che \(A = W_i\). Allora, per ogni \(n\) </p>
+<p>Abbiamo già dimostrato che se \(A \le_m K_0\) allora \(A\) è <strong>r.e.</strong> e dunque esiste \(i\) tale che \(A = W_i\). Allora, per ogni \(n\)</p>
 
 <p>\[n \in A \iff n \in W_i \iff \langle i, n \rangle \in K_0\]</p>
 
@@ -1233,13 +1243,10 @@ dove <q>|</q> denota la <strong>composizione parallela</strong> (l’output è q
 <p>Sia \(A \subseteq N\).</p>
 
 <ol dir="auto">
-<li>\(A\) si dice <strong>produttivo</strong> se esiste \(f\) <strong>totale e calcolabile</strong> tale che per ogni \(i\)</li>
-</ol>
+<li><p>\(A\) si dice <strong>produttivo</strong> se esiste \(f\) <strong>totale e calcolabile</strong> tale che per ogni \(i\)</p>
 
-<p>\[W_i \subseteq A \implies f(i) \in A \setminus W_i\]</p>
-
-<ol dir="auto">
-<li>\(A\) si dice <strong>creativo</strong> se è <strong>r.e.</strong> ed il suo complemento \(\overline{A}\) è <strong>produttivo</strong>.</li>
+<p>\[W_i \subseteq A \implies f(i) \in A \setminus W_i\]</p></li>
+<li><p>\(A\) si dice <strong>creativo</strong> se è <strong>r.e.</strong> ed il suo complemento \(\overline{A}\) è <strong>produttivo</strong>.</p></li>
 </ol>
 
 <p>Si osservi che un insieme produttivo <strong>non puó essere</strong> r.e.</p>
