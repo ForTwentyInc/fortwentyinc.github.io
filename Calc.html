@@ -746,17 +746,20 @@ img {
 <p>Sia \(pari(n)\) la funzione <strong>caratteristica</strong> dell’insieme dei
 numeri pari.</p>
 
-<p>\[c_A (n) = pari( \mu y (h(y) = n)\]</p>
+<p>\[c_A (n) = pari( \mu y (h(y) = n))\]</p>
 
 <p>\(c_A\) è <strong>calcolabile</strong> e <strong>totale</strong>.</p>
 
 <h3 id="toc_4.2">Caratterizzazioni equivalenti degli insiemi ricorsivamente enumerabili</h3>
 
 <blockquote>
-<p>Sia \(A\) un insieme di <strong>numeri naturali</strong>. Le seguenti affermazioni sono equivalenti:
-1. \(A = \emptyset \lor \exists f \colon A = cod(f)\), \(f\) <strong>totale calcolabile</strong>,
-2. \(\exists g \colon A = dom(g)\), \(g\) <strong>parziale</strong> calcolabile
-3. \(\exists h \colon A = cod(h)\), \(h\) <strong>parziale</strong> calcolabile</p>
+<p>Sia \(A\) un insieme di <strong>numeri naturali</strong>. Le seguenti affermazioni sono equivalenti:</p>
+
+<ol dir="auto">
+<li>\(A = \emptyset \lor \exists f \colon A = cod(f)\), \(f\) <strong>totale calcolabile</strong>,</li>
+<li>\(\exists g \colon A = dom(g)\), \(g\) <strong>parziale</strong> calcolabile</li>
+<li>\(\exists h \colon A = cod(h)\), \(h\) <strong>parziale</strong> calcolabile</li>
+</ol>
 </blockquote>
 
 <ul dir="auto">
@@ -958,12 +961,12 @@ Ovvero: \(\varphi_i \equiv \varphi_j \implies c_A(i) = c_A(j)\)</p>
 
 <p>\[c(h(x)) = \begin{cases} c(a) &amp;\text{se } x \in K \\ c(m) &amp;\text{se } x \not \in K \end{cases}\]</p>
 
-<p>che permetterebbe di decidere l’appartenenza a \(K\) (e quindi di risolvere l&#39;**halting problem**).</p>
+<p>che permetterebbe di decidere l’appartenenza a \(K\) (e quindi di risolvere <strong>l&#39;halting problem</strong>).</p>
 
 <h4 id="toc_5.2.1">Uso del teorema di Rice</h4>
 
 <ul dir="auto">
-<li>Uso <strong>diretto</strong>, per dimostrare che determinate proprietà (essendo estensionali) <strong>non sono decidibiUnione ed intersezione finitali</strong>.</li>
+<li>Uso <strong>diretto</strong>, per dimostrare che determinate proprietà (essendo estensionali) <strong>non sono decidibili</strong>.</li>
 <li>Uso <strong>indiretto</strong>, per dimostrare che determinate proprietà estensionali <strong>non sono neppure semidecidibili</strong> (basta dimostrare che il <strong>complementare è r.e.</strong>)</li>
 </ul>
 
@@ -1254,13 +1257,13 @@ dove <q>|</q> denota la <strong>composizione parallela</strong> (l’output è q
 <p>Infatti, se \(A = W_i\) allora preso \(W_i \subseteq A\) avremmo che \(A \setminus W_i = \emptyset\) e quindi \(f(i) \not \in A \setminus W_i\).</p>
 
 <blockquote>
-<p>\(K\) é <strong>creativo</strong> (e la funzione di produzione è l&#39;**identità**).</p>
+<p>\(K\) é <strong>creativo</strong> (e la funzione di produzione è <strong>l&#39;identità</strong>).</p>
 </blockquote>
 
 <h3 id="toc_7.5">Caratterizzazione della produttività</h3>
 
 <blockquote>
-<p>Sia \(A \in N\). \(A\) é produttivo se e solo se \(K \le_m A\).</p>
+<p>Sia \(A \in N\). \(A\) é produttivo se e solo se \(\overline{K} \le_m A\).</p>
 </blockquote>
 
 <h3 id="toc_7.6">Caratterizzazione della creatività</h3>
