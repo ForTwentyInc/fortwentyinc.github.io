@@ -11,7 +11,7 @@
       span.underline{text-decoration: underline;}
       div.column{display: inline-block; vertical-align: top; width: 50%;}
   </style>
-  <link rel="stylesheet" href="style/style.css" />
+  <link rel="stylesheet" href="style.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/katex.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/contrib/auto-render.min.js"></script><script>document.addEventListener("DOMContentLoaded", function() {
     renderMathInElement(document.body);
   });</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/katex.min.css" />
@@ -60,7 +60,7 @@
 <img src="img/Ricoprimento.png" title="Ricoprimento" alt="Esempio di ricoprimento di vertici" /><figcaption>Esempio di ricoprimento di vertici</figcaption>
 </figure>
 <p>Si noti che <span class="math inline">\(V\)</span> è un <em>caso degenere</em> di ricoprimento. Inoltre se <span class="math inline">\(R\)</span> è un ricoprimento, ogni suo <strong>soprainsieme</strong> lo è. Siamo interessati a trovare <strong>ricoprimenti minimi</strong>.</p></li>
-<li><p><span class="math inline">\(G\)</span> è <strong><span class="math inline">\(n\)</span>-colorabile</strong>, se esiste una funzione di colorazione <span class="math inline">\(col \colon V \rightarrow c_1 , \dots , c_n\)</span> tale che vertici <em>adiacenti</em> hanno <strong>colori diversi</strong>, ovvero:</p>
+<li><p><span class="math inline">\(G\)</span> è <strong><span class="math inline">\(n\)</span>-colorabile</strong>, se esiste una funzione di colorazione <span class="math inline">\(\text{col} \colon V \rightarrow c_1 , \dots , c_n\)</span> tale che vertici <em>adiacenti</em> hanno <strong>colori diversi</strong>, ovvero:</p>
 <p><span class="math display">\[(u, v) \in E \rightarrow col(u) \not = col(v )\]</span></p></li>
 <li><p><span class="math inline">\(G\)</span> è <strong>completo</strong> se ogni coppia di nodi distinti è <strong>connessa da un arco</strong>.</p></li>
 <li><p>una <strong>cricca</strong> (clique) di <span class="math inline">\(G\)</span> è un suo sottografo <em>completo</em> <span class="math inline">\(G&#39; = (V&#39;, E&#39;)\)</span>, ovvero <span class="math inline">\(V&#39; \subseteq V\)</span> ed <span class="math inline">\(E&#39; = V&#39; \times V&#39; \subseteq E\)</span>.</p>
@@ -87,9 +87,9 @@
 <p>Il problema consiste nel determinare il <strong>flusso massimo</strong> dalla sorgente al pozzo.</p>
 <h3 id="algoritmo">Algoritmo</h3>
 <ol type="1">
-<li>Si parte con un flusso <strong>maxf</strong> inizialmente nullo.</li>
-<li>Si cerca un cammino da <span class="math inline">\(s\)</span> a <span class="math inline">\(t\)</span> nella rete <span class="math inline">\(N\)</span> e si considera il flusso <span class="math inline">\(f\)</span> lungo tale cammino determinato dalla <strong>capacità massima</strong> dei sui archi; se tale cammino non esiste si restituisce <strong>maxf</strong>.</li>
-<li>Si pone <strong>maxf</strong> <span class="math inline">\(\coloneqq\)</span> <strong>maxf</strong> $ + f; N N f$ e si ripete dal passo 2.</li>
+<li>Si parte con un flusso <span class="math inline">\(\text{maxf}\)</span> inizialmente nullo.</li>
+<li>Si cerca un cammino da <span class="math inline">\(s\)</span> a <span class="math inline">\(t\)</span> nella rete <span class="math inline">\(N\)</span> e si considera il flusso <span class="math inline">\(f\)</span> lungo tale cammino determinato dalla <strong>capacità massima</strong> dei sui archi; se tale cammino non esiste si restituisce <span class="math inline">\(\text{maxf}\)</span>.</li>
+<li>Si pone <span class="math inline">\(\text{maxf} \coloneqq \text{maxf} + f; N \coloneqq N \setminus f\)</span> e si ripete dal passo 2.</li>
 </ol>
 <h3 id="complessità-mf">Complessità MF</h3>
 <p>Osserviamo innanzitutto che se <span class="math inline">\(C\)</span> è la <em>massima capacità</em> degli archi, il flusso massimo è <strong>sicuramente inferiore</strong> a <span class="math inline">\(nC\)</span> in quanto ci sono meno di <span class="math inline">\(n\)</span> archi che partono dalla sorgente.</p>
@@ -221,11 +221,11 @@
 </ul>
 <h2 id="configurazioni-istantanee">Configurazioni istantanee</h2>
 <p>Una <strong>configurazione</strong> è una descrizione dello <strong>stato</strong> della computazione ad un dato <strong>istante</strong> della computazione. Questa è definita come una tupla</p>
-<p><span class="math display">\[(q, (\sigma_1,\tau_1),\dots,(\sigma_k,\tau_k))\]</span></p>
+<p><span class="math display">\[( q, ( \sigma_1, \tau_1 ), \dots , ( \sigma_k, \tau_k ))\]</span></p>
 <p>dove <span class="math inline">\(q\)</span> è lo <strong>stato</strong> dell’automa e <span class="math inline">\(\sigma_i, \tau_i\)</span> sono due stringhe di caratteri che descrivono <strong>la porzione non bianca</strong> del nastro <span class="math inline">\(i\)</span> alla sinistra e alla destra della relativa testina. Il carattere in lettura è il primo carattere di <span class="math inline">\(\tau_i\)</span>.</p>
 <p>La computazione avviene per <strong>passi discreti</strong>: una transizione tra due configurazioni è una relazione <span class="math inline">\(\vdash\)</span> governata dalla funzione di transizione:</p>
-<p><span class="math display">\[(q,(\sigma_{1}b_{1},a_{1}\tau_{1}),\dots,(\sigma_{k}b_{k},a_{k}\tau_{k})) \vdash ((\sigma_{1}\beta_{1},\alpha_{1}\tau_{1}),\dots,(\sigma_{k}\beta_{k},\alpha_{k}\tau_{k}))\]</span></p>
-<p>se <span class="math inline">\(\delta(q,a_1,\dots,a_k) = (q&#39;,a&#39;_1,\dots,a&#39;_k,D_1,\dots,D_k)\)</span>, ovvero se il risultato della <em>funzione di transizione</em> chiamata sulla tupla contenente lo <strong>stato attuale</strong> (<span class="math inline">\(q\)</span>) e la <strong>stringa contenuta</strong> nell’<span class="math inline">\(i\)</span>-esimo nastro (<span class="math inline">\(a_1,\dots,a_k\)</span>) è pari alla tupla contenente il <strong>nuovo stato</strong> (<span class="math inline">\(q&#39;\)</span>), la <strong>stringa da scrivere</strong> sull’<span class="math inline">\(i\)</span>-esimo nastro (<span class="math inline">\(a&#39;_1,\dots,a&#39;_k)\)</span>.</p>
+<p><span class="math display">\[( q, ( \sigma_{1} b_{1}, a_{1} \tau_{1}), \dots ,( \sigma_{k} b_{k}, a_{k} \tau_{k})) \vdash (( \sigma_{1} \beta_{1}, \alpha_{1} \tau_{1}), \dots ,( \sigma_{k} \beta_{k}, \alpha_{k} \tau_{k}))\]</span></p>
+<p>se <span class="math inline">\(\delta( q, a_1, \dots , a_k) = ( q&#39; , a&#39;_1 , \dots , a&#39;_k , D_1 , \dots , D_k)\)</span>, ovvero se il risultato della <em>funzione di transizione</em> chiamata sulla tupla contenente lo <strong>stato attuale</strong> (<span class="math inline">\(q\)</span>) e la <strong>stringa contenuta</strong> nell’<span class="math inline">\(i\)</span>-esimo nastro (<span class="math inline">\(a_1, \dots ,a_k\)</span>) è pari alla tupla contenente il <strong>nuovo stato</strong> (<span class="math inline">\(q&#39;\)</span>), la <strong>stringa da scrivere</strong> sull’<span class="math inline">\(i\)</span>-esimo nastro (<span class="math inline">\(a&#39;_1, \dots , a&#39;_k)\)</span>.</p>
 <ul>
 <li>se <span class="math inline">\(D_i = R\)</span> allora <span class="math inline">\(\beta_i = b_{i}a&#39;_i\)</span> e <span class="math inline">\(\alpha_i = \epsilon\)</span>, ovvero se la direzione è <span class="math inline">\(R\)</span> allora la testina si muove verso <strong>destra</strong> scrivendo <span class="math inline">\(b_{i}a&#39;_i\)</span> sull’<span class="math inline">\(i\)</span>-esimo nastro.</li>
 <li>se <span class="math inline">\(D_i = L\)</span> allora <span class="math inline">\(\beta_i = \epsilon\)</span> e <span class="math inline">\(\gamma_i = b_{i}a&#39;_i\)</span>, ovvero se la direzione è <span class="math inline">\(L\)</span> allora la testina si muove verso <strong>sinistra</strong> scrivendo <span class="math inline">\(b_{i}a&#39;_i\)</span> sull’<span class="math inline">\(i\)</span>-esimo nastro.</li>
@@ -234,7 +234,7 @@
 <h2 id="computazioni">Computazioni</h2>
 <p>La relazione <span class="math inline">\(\vdash^*\)</span> denota la <strong>chiusura transitiva e riflessiva</strong> della relazione <span class="math inline">\(\vdash\)</span>.</p>
 <p>Una funzione <span class="math inline">\(f: \Sigma^* \rightarrow \Sigma^*\)</span> è calcolata da una macchina di Turing <span class="math inline">\(M\)</span> se per ogni <span class="math inline">\(\alpha\)</span> esiste <span class="math inline">\(q_f \in F\)</span> tale che</p>
-<p><span class="math display">\[( q_0, (\epsilon, \alpha), \dots, (\epsilon, \epsilon)) \vdash^* (q_f,(\gamma_1,\tau_1), \dots,(\gamma_k, \tau_k))\]</span></p>
+<p><span class="math display">\[( q_0, ( \epsilon, \alpha), \dots , ( \epsilon, \epsilon)) \vdash^* ( q_f ,( \gamma_1 , \tau_1 ), \dots ,( \gamma_k, \tau_k))\]</span></p>
 <p>e <span class="math inline">\(f(\alpha)\)</span> è il <strong>più lungo suffisso</strong> di <span class="math inline">\(\gamma_k\)</span> appartenente a <span class="math inline">\(\Sigma^*\)</span>.</p>
 <h2 id="classi-deterministiche-di-complessità-1">Classi deterministiche di Complessità</h2>
 <p>Una <em>classe di complessità</em> è un insieme di funzioni che possono essere calcolate con delle date risorse. Presteremo speciale attenzione alle funzioni Booleane, in particolare quelle che hanno <strong>un solo bit</strong> come output. Queste funzioni definiscono <strong>problemi di decisione</strong> o <strong>linguaggi</strong>. Diciamo che una macchina <em>decide</em> un linguaggio <span class="math inline">\(L \subseteq \{0, 1\}^*\)</span> se calcola la funzione <span class="math inline">\(f_L : \{0, 1\}^* \rightarrow \{0, 1\}\)</span>, dove <span class="math inline">\(f_{L}(x) = 1 \iff x \in L\)</span>.</p>
@@ -287,7 +287,7 @@
 <p>Piuttusto che far corrispondere ogni nastro parallelo di <span class="math inline">\(\mathcal{U}\)</span> esattamente ad un nastro di <span class="math inline">\(M\)</span>, aggiungiamo un simbolo bianco speciale <span class="math inline">\(\square\)</span> all’alfabeto dei nastri paralleli di <span class="math inline">\(\mathcal{U}\)</span> che viene <strong>ignorato</strong> durante la simulazione ( $101 = 1  1 =  0  $, etc.).</p>
 <p>Per semplicità possiamo pensare ai nastri di <span class="math inline">\(\mathcal{U}\)</span> come <em>infiniti</em> in entrambe le direzioni. Possiamo quindi indicizzarne le locazioni con <span class="math inline">\(0, \pm 1, \pm 2, \dots\)</span>. Di solito la testina sta nella locazione <span class="math inline">\(0\)</span> dei nastri paralleli. La muoveremo solo temporaneamente quando simuliamo un movimento a sinistra <strong>shift</strong>ando il nastro verso destra. Alla fine dello shift la testina ritorna alla posizione <span class="math inline">\(0\)</span>.</p>
 <h3 id="invarianti">Invarianti</h3>
-<p>Dividiamo ognuno dei nastri paralleli di <span class="math inline">\(\mathcal{U}\)</span> in <strong>slot</strong> che indichiamo con <span class="math inline">\(R_0,L_0,R_1,L_1, \dots\)</span>. Indichiamo la cella corrente con <span class="math inline">\(C\)</span>, inoltre la cella con locazione <span class="math inline">\(0\)</span> non sta in nessuno <em>slot</em>.</p>
+<p>Dividiamo ognuno dei nastri paralleli di <span class="math inline">\(\mathcal{U}\)</span> in <strong>slot</strong> che indichiamo con <span class="math inline">\(R_0 , L_0 , R_1 , L_1 , \dots\)</span>. Indichiamo la cella corrente con <span class="math inline">\(C\)</span>, inoltre la cella con locazione <span class="math inline">\(0\)</span> non sta in nessuno <em>slot</em>.</p>
 <p>In generale, per ogni <span class="math inline">\(i \ge 1\)</span>, lo Slot <span class="math inline">\(R_i\)</span> contiene le <span class="math inline">\(2^{i+1}\)</span> celle collocate a destra dello Slot <span class="math inline">\(R_{i-1}\)</span>(viceversa per <span class="math inline">\(L_i\)</span>).</p>
 <p>Durante l’esecuzione, vengono preservati i seguenti invarianti:</p>
 <ul>
@@ -303,11 +303,11 @@
 <p>L’operazione di <em>shift</em> verso sinistra opera nel modo seguente (simmetricamente verso destra):</p>
 <ol type="1">
 <li><p><span class="math inline">\(\mathcal{U}\)</span> trova il più piccolo <span class="math inline">\(i_0\)</span> tale per cui <span class="math inline">\(R_{i_{0}}\)</span> non sia vuoto. Notiamo che per il secondo invariante tutti gli <span class="math inline">\(L_i\)</span> per <span class="math inline">\(i &lt; i_0\)</span> saranno <strong>pieni</strong>, mentre <span class="math inline">\(L_{i_{0}}\)</span> sarà esattamente <strong>pieno a metà</strong>. Definiamo <span class="math inline">\(i_0\)</span> l’ <strong>indice</strong> di questo particolare shift.</p></li>
-<li><p><span class="math inline">\(\mathcal{U}\)</span> mette il simbolo più significativo diverso da <span class="math inline">\(\square\)</span> di <span class="math inline">\(R_{i_{0}}\)</span> in <span class="math inline">\(C\)</span> (locazione <span class="math inline">\(0\)</span>) e shifta i rimanenti <span class="math inline">\(2^{i_0}\)</span> simboli da <span class="math inline">\(R_{i_{0}}\)</span> negli slot <span class="math inline">\(R_0, \dots , R_{i_{0} - 1}\)</span> riempiendo <strong>esattamente metà</strong> dei simboli di ogni slot.</p></li>
-<li><p><span class="math inline">\(\mathcal{U}\)</span> effettua <strong>l’operazione simmetrica</strong> a sinistra di <span class="math inline">\(C\)</span>. svuotando a metà ciascuno degli slot pieni <span class="math inline">\(L_0, L_1, \dots, L_{i_{0} - 1}\)</span>, e mettendo tali caratteri in <span class="math inline">\(L_i\)</span> (che per <strong>l’invariante</strong> <span class="math inline">\(2\)</span> è sicuramente almeno <strong>vuoto a metà</strong>).</p></li>
+<li><p><span class="math inline">\(\mathcal{U}\)</span> mette il simbolo più significativo diverso da <span class="math inline">\(\square\)</span> di <span class="math inline">\(R_{i_{0}}\)</span> in <span class="math inline">\(C\)</span> (locazione <span class="math inline">\(0\)</span>) e shifta i rimanenti <span class="math inline">\(2^{i_0}\)</span> simboli da <span class="math inline">\(R_{i_{0}}\)</span> negli slot <span class="math inline">\(R_0 , \dots , R_{i_{0} - 1}\)</span> riempiendo <strong>esattamente metà</strong> dei simboli di ogni slot.</p></li>
+<li><p><span class="math inline">\(\mathcal{U}\)</span> effettua <strong>l’operazione simmetrica</strong> a sinistra di <span class="math inline">\(C\)</span>. svuotando a metà ciascuno degli slot pieni <span class="math inline">\(L_0 , L_1 , \dots , L_{i_{0} - 1}\)</span>, e mettendo tali caratteri in <span class="math inline">\(L_i\)</span> (che per <strong>l’invariante</strong> <span class="math inline">\(2\)</span> è sicuramente almeno <strong>vuoto a metà</strong>).</p></li>
 <li><p>Infine <span class="math inline">\(\mathcal{U}\)</span> sposta il vecchio simbolo in lettura, opportunamente modificato, e lo mette nello slot <span class="math inline">\(L_0\)</span>.</p></li>
 </ol>
-<p>Alla fine dello shift, tutti gli slot <span class="math inline">\(R_0, L_0, \dots, R_{i_{0} - 1}, L_{i_{0} - 1}\)</span> sono mezze piene, <span class="math inline">\(R_0\)</span> ha <span class="math inline">\(2^{i_{0}}\)</span> simboli non <span class="math inline">\(\square\)</span> <strong>in meno</strong>, e <span class="math inline">\(L_i\)</span> ha <span class="math inline">\(2^i\)</span> simboli non <span class="math inline">\(\square\)</span> <strong>in più</strong>. Dunque <strong>gli invarianti vengono mantenuti</strong>.</p>
+<p>Alla fine dello shift, tutti gli slot <span class="math inline">\(R_0 , L_0 , \dots , R_{i_{0} - 1} , L_{i_{0} - 1}\)</span> sono mezze piene, <span class="math inline">\(R_0\)</span> ha <span class="math inline">\(2^{i_{0}}\)</span> simboli non <span class="math inline">\(\square\)</span> <strong>in meno</strong>, e <span class="math inline">\(L_i\)</span> ha <span class="math inline">\(2^i\)</span> simboli non <span class="math inline">\(\square\)</span> <strong>in più</strong>. Dunque <strong>gli invarianti vengono mantenuti</strong>.</p>
 <h3 id="complessità-riduzione-nastri">Complessità riduzione nastri</h3>
 <p>Il <strong>costo</strong> totale di una singola operazione di shift è proporzionale alla dimensione degli slot <span class="math inline">\(R_0, L_0, \dots, R_{i_{0} - 1}, L_{i_{0} - 1}\)</span> coinvolti e dunque di <span class="math inline">\(O(2^{i_{0}})\)</span>.</p>
 <p>Dopo aver eseguito un operazione di shift relativa ad uno slot in posizione <span class="math inline">\(i\)</span>, tutti gli slot con <strong>indice inferiore a i</strong> (<span class="math inline">\(L_0, R_0, \dots, L_{i - 1}, R_{i - 1}\)</span>) sono <strong>mezzo pieni</strong>.</p>
@@ -452,8 +452,8 @@
 <li><span class="math inline">\(P \coloneqq \bigcup_{c \in N} DTIME(n^c)\)</span></li>
 <li><span class="math inline">\(EXP \coloneqq \bigcup_{c \in N} DTIME(2^{cn})\)</span></li>
 <li><span class="math inline">\(LOGSPACE \coloneqq DSPACE(log)\)</span></li>
-<li><span class="math inline">\(PSPACE \coloneqq \bigcup_{c \in N}(n^c)\)</span></li>
-<li><span class="math inline">\(EXPSPACE \coloneqq \bigcup_{c \in N}(2^{cn})\)</span></li>
+<li><span class="math inline">\(PSPACE \coloneqq \bigcup_{c \in N} DSPACE(n^c)\)</span></li>
+<li><span class="math inline">\(EXPSPACE \coloneqq \bigcup_{c \in N} DSPACE(2^{cn})\)</span></li>
 </ul>
 <p>Come corollario dei risultati precedenti abbiamo in particolare:</p>
 <ul>
@@ -1051,5 +1051,8 @@
 <li><p><span class="math inline">\(\Sigma_0^P = P \subseteq PSPACE\)</span></p></li>
 <li><p><span class="math inline">\(NP^{PSPACE} = PSPACE \implies \Sigma_{n+1}^P = NP^{\Sigma_n^P} \subseteq PSPACE\)</span></p></li>
 </ul>
+<figure>
+<img src="img/Polynomial_time_hierarchy.svg" title="Grafo con cricca" alt="Commutative diagram equivalent to the polynomial time hierarchy. The arrows denote inclusion." /><figcaption>Commutative diagram equivalent to the polynomial time hierarchy. The arrows denote inclusion.</figcaption>
+</figure>
 </body>
 </html>

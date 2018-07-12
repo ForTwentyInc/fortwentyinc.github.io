@@ -11,7 +11,7 @@
       span.underline{text-decoration: underline;}
       div.column{display: inline-block; vertical-align: top; width: 50%;}
   </style>
-  <link rel="stylesheet" href="style/style.css" />
+  <link rel="stylesheet" href="style.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/katex.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/contrib/auto-render.min.js"></script><script>document.addEventListener("DOMContentLoaded", function() {
     renderMathInElement(document.body);
   });</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/katex.min.css" />
@@ -44,9 +44,9 @@
 <p>Supponiamo di avere un grafo <span class="math inline">\(G = (V, E)\)</span>, con <span class="math inline">\(|V| = 2n\)</span>.</p>
 <ol type="1">
 <li><p>se <span class="math inline">\(k \lt n\)</span>: aggiungiamo <span class="math inline">\(x\)</span> nodi <strong>connessi a tutti gli altri</strong> nodi in <span class="math inline">\(G\)</span>, fino a soddisfare la relazione <span class="math inline">\(2n + x = 2(k + x) \rightarrow x = 2(n - k)\)</span></p>
-<p><img src="graphs/out/kltn.svg" title="Grafo con cricca" alt="Grafo non orientato con una cricca di dimensione inferiore alla metà dei nodi" /> <img src="graphs/out/kltn1.svg" title="Half-Clique" alt="Grafo con una mezza cricca" /></p></li>
+<p><img src="img/kltn.svg" title="Grafo con cricca" alt="Grafo non orientato con una cricca di dimensione inferiore alla metà dei nodi" /> <img src="img/kltn1.svg" title="Half-Clique" alt="Grafo con una mezza cricca" /></p></li>
 <li><p>se <span class="math inline">\(k \ge n\)</span> aggiungiamo <span class="math inline">\(x\)</span> nodi <strong>sparsi</strong> (ovvero che non sono connessi a <strong>nessun</strong> nodi), in modo che la dimensione della <span class="math inline">\(k\)</span>-Cricca fino a soddisfare la relazione <span class="math inline">\(2k = 2n + x \rightarrow x = 2(k - n)\)</span></p>
-<p><img src="graphs/out/kgen.svg" title="Grafo con cricca" alt="Grafo non orientato con una cricca di dimensione superiore alla metà dei nodi" /> <img src="graphs/out/kgen1.svg" title="Half-Clique" alt="Grafo non orientato con una mezza cricca" /></p></li>
+<p><img src="img/kgen.svg" title="Grafo con cricca" alt="Grafo non orientato con una cricca di dimensione superiore alla metà dei nodi" /> <img src="img/kgen1.svg" title="Half-Clique" alt="Grafo non orientato con una mezza cricca" /></p></li>
 </ol>
 <p>In ogni caso in <span class="math inline">\(H\)</span> c’è una mezza cricca <span class="math inline">\(\iff\)</span> in <span class="math inline">\(G\)</span> c’è una cricca.</p>
 <h1 id="sat-le_p-double-sat">SAT <span class="math inline">\(\le_P\)</span> DOUBLE-SAT</h1>
@@ -64,6 +64,6 @@
 <p>Il punto è realizzare che se un grafo ha una cricca di dimensione <span class="math inline">\(k\)</span>, il <strong>grafo inverso</strong> ha un <span class="math inline">\(IS\)</span> di dimensione <span class="math inline">\(k\)</span>.</p>
 <p>Una cricca di dimensione <span class="math inline">\(k\)</span> significa che <span class="math inline">\(k\)</span> nodi sono tutti connessi tra di loro. Nel grafo inverso questi <span class="math inline">\(k\)</span> nodi non hanno archi che li uniscono quindi sono per definizione un insieme indipendente.</p>
 <p>Dunque, l’algoritmo polinomiale cercato è semplicemente quello che inverte il grafo.</p>
-<p><img src="graphs/out/clique.svg" title="Cricca" alt="Grafo non orientato con una cricca" /> <img src="graphs/out/is.svg" title="IS" alt="Grafo inverso con un insieme indipendente" /></p>
+<p><img src="img/clique.svg" title="Cricca" alt="Grafo non orientato con una cricca" /> <img src="img/is.svg" title="IS" alt="Grafo inverso con un insieme indipendente" /></p>
 </body>
 </html>
