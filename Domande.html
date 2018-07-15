@@ -23,63 +23,6 @@
 <header>
 <h1 class="title">Domande Orale</h1>
 </header>
-<nav id="TOC">
-<ul>
-<li><a href="#domande-frequenti">Domande frequenti</a><ul>
-<li><a href="#teorema-della-gerarchia-spazio"><strong>Teorema della gerarchia (spazio)</strong></a><ul>
-<li><a href="#idee-principali">Idee Principali</a></li>
-<li><a href="#dimostrazione">Dimostrazione</a></li>
-</ul></li>
-<li><a href="#teorema-di-savitch"><strong>Teorema di Savitch</strong></a><ul>
-<li><a href="#pspace-e-npspace">PSPACE e NPSPACE</a></li>
-</ul></li>
-<li><a href="#problema-arduo-e-problema-completo"><strong>Problema arduo e problema completo</strong></a></li>
-<li><a href="#teorema-di-cook"><strong>Teorema di Cook</strong></a><ul>
-<li><a href="#analogie-tra-calcolabilità-e-complessità">Analogie tra Calcolabilità e Complessità</a></li>
-</ul></li>
-<li><a href="#padding"><strong>Padding</strong></a></li>
-<li><a href="#teorema-della-proiezione"><strong>Teorema della proiezione</strong></a><ul>
-<li><a href="#programmazione-per-tentativi-e-verifica">Programmazione per tentativi e verifica</a></li>
-</ul></li>
-<li><a href="#simulazione-non-determinismo"><strong>Simulazione non determinismo</strong></a><ul>
-<li><a href="#simulazione-del-nondeterminismo-spazio">Simulazione del nondeterminismo (spazio)</a></li>
-<li><a href="#simulazione-del-nondeterminismo-tempo">Simulazione del nondeterminismo (tempo)</a></li>
-</ul></li>
-<li><a href="#teorema-tempo-e-spazio"><strong>Teorema tempo e spazio</strong></a></li>
-<li><a href="#il-teorema-del-punto-fisso-di-kleene-primo-teorema-di-ricorsione"><strong>Il Teorema del punto fisso di Kleene (primo teorema di ricorsione)</strong></a></li>
-</ul></li>
-<li><a href="#complessità">Complessità</a><ul>
-<li><a href="#complessità-relativizzata">Complessità relativizzata</a><ul>
-<li><a href="#macchine-ad-oracolo">Macchine ad oracolo</a></li>
-<li><a href="#semantica-delle-mdtn-ad-oracolo">Semantica delle MdTN ad oracolo</a></li>
-<li><a href="#tempo-e-spazio-per-mdtn-ad-oracolo">Tempo e Spazio per MdTN ad oracolo</a></li>
-<li><a href="#classi-di-complessità-con-oracolo">Classi di complessità con oracolo</a></li>
-<li><a href="#alcune-classi-di-complessità-con-oracolo">Alcune Classi di Complessità con oracolo</a></li>
-</ul></li>
-<li><a href="#sat-le-vc"><span class="math inline">\(3SAT \le VC\)</span></a><ul>
-<li><a href="#np--completezza-di-3sat"><span class="math inline">\(NP\)</span> -completezza di 3SAT</a></li>
-<li><a href="#sat-vs.ricoprimento">3SAT vs. Ricoprimento</a></li>
-</ul></li>
-<li><a href="#gerarchia-polinomiale">Gerarchia Polinomiale</a><ul>
-<li><a href="#teorema-della-gerarchia-polinomiale">Teorema della gerarchia polinomiale</a></li>
-</ul></li>
-<li><a href="#il-problema-dellinsieme-indipendente">Il Problema dell’insieme indipendente</a></li>
-</ul></li>
-<li><a href="#calcolabilità">Calcolabilità</a><ul>
-<li><a href="#insiemi-ricorsivi">Insiemi ricorsivi</a></li>
-<li><a href="#insiemi-ricorsivamente-enumerabili">Insiemi ricorsivamente enumerabili</a></li>
-<li><a href="#teorema-di-rice">Teorema di Rice</a><ul>
-<li><a href="#uso-del-teorema-di-rice">Uso del teorema di Rice</a></li>
-</ul></li>
-<li><a href="#la-nozione-di-m-riducibilità">La nozione di <strong>m</strong>-riducibilità</a></li>
-<li><a href="#m-completezza"><strong>m</strong>-completezza</a></li>
-<li><a href="#insiemi-produttivi-e-creativi">Insiemi produttivi e creativi</a><ul>
-<li><a href="#caratterizzazione-della-produttività">Caratterizzazione della produttività</a></li>
-<li><a href="#caratterizzazione-della-creatività">Caratterizzazione della creatività</a></li>
-</ul></li>
-</ul></li>
-</ul>
-</nav>
 <h1 id="domande-frequenti">Domande frequenti</h1>
 <h2 id="teorema-della-gerarchia-spazio"><strong>Teorema della gerarchia (spazio)</strong></h2>
 <blockquote>
@@ -237,22 +180,6 @@
 <figure>
 <img src="img/Inclusione.png" title="Inclusione tra le classi di complessità" alt="Diagramma dell’inclusione tra classi di complessità" /><figcaption>Diagramma dell’inclusione tra classi di complessità</figcaption>
 </figure>
-<h2 id="teorema-della-proiezione"><strong>Teorema della proiezione</strong></h2>
-<blockquote>
-<p>Dato un linguaggio <span class="math inline">\(A \subseteq \Sigma^*\)</span> , <span class="math inline">\(A \in NP\)</span> se e solo se esiste un linguaggio <span class="math inline">\(B \in P\)</span> e un polinomio <span class="math inline">\(p\)</span> tale che per ogni <span class="math inline">\(x \in \Sigma^*\)</span> ,</p>
-<p><span class="math display">\[x \in A \iff \exists y \colon |y| \le p(|x|) \land \langle x, y \rangle \in B\]</span></p>
-</blockquote>
-<p>Sia <span class="math inline">\(A \in NP\)</span> . Per il teorema della riduzione dei nastri possiamo assumere che esista una MdTN ad un nastro che <strong>riconosce</strong> <span class="math inline">\(A\)</span> in tempo <span class="math inline">\(t_M \le p\)</span> per un qualche polinomio <span class="math inline">\(p\)</span> .</p>
-<p><strong>Eliminiamo</strong> il nondeterminismo utilizzando una tecnica simile a quella adottata nella prova di <span class="math inline">\(NTIME(f) \subseteq DSPACE(id + f)\)</span> . Sia <span class="math inline">\(\delta\)</span> la <em>funzione di transizione</em> nondeterministica di <span class="math inline">\(M\)</span> e sia <span class="math inline">\(m\)</span> il <strong>branching massimo</strong>. Costruiamo la macchina deterministica <span class="math inline">\(M&#39;\)</span> che <strong>accetta</strong> <span class="math inline">\(B\)</span> in tempo <span class="math inline">\(t_M \in O(p)\)</span> . <span class="math inline">\(M&#39;\)</span> lavora con un alfabeto arricchito <span class="math inline">\(\Sigma&#39;\)</span> con simboli <span class="math inline">\(b_1, \dots, b_m\)</span> utilizzati per decidere ad ogni passo il ramo della computazione da seguire.</p>
-<p>In particolare, <span class="math inline">\(M&#39;\)</span> su input <span class="math inline">\(\langle x, y \rangle\)</span> <strong>simula</strong> la macchina <span class="math inline">\(M\)</span> per al più <span class="math inline">\(|y|\)</span> passi, utilizzando ad ogni passo <span class="math inline">\(i\)</span> il carattere <span class="math inline">\(y_i\)</span> della stringa <span class="math inline">\(y\)</span> per decidere la mossa da seguire. È evidente che:</p>
-<p><span class="math display">\[x \in A = L_M \iff \exists y \colon |y| \le p(|x|) \land \langle x, y \rangle \in B = L_{M&#39;}\]</span></p>
-<p>Viceversa, sia dato <span class="math inline">\(B \in P\)</span> , un polinomio <span class="math inline">\(p\)</span> che soddisfa le ipotesi, e una MdT <span class="math inline">\(M\)</span> tale che <span class="math inline">\(B = L_M\)</span> e <span class="math inline">\(t_M \in O(q)\)</span> per un qualche polinomio <span class="math inline">\(q\)</span> .</p>
-<p>La MdTN <span class="math inline">\(M&#39;\)</span> che <strong>riconosce</strong> <span class="math inline">\(A\)</span> opera nel modo seguente: <strong>estende</strong> in modo non deterministico l’input <span class="math inline">\(x\)</span> con le <span class="math inline">\(p(|x|)\)</span> stringhe <span class="math inline">\(y\)</span> e quindi <strong>simula</strong> il comportamento di <span class="math inline">\(M\)</span> sull’input <span class="math inline">\(\langle x, y \rangle\)</span> . Chiaramente, <span class="math inline">\(M&#39;\)</span> opera in tempo <span class="math inline">\(t_M \in O(p +q)\)</span> .</p>
-<h3 id="programmazione-per-tentativi-e-verifica">Programmazione per tentativi e verifica</h3>
-<ul>
-<li><p>Il teorema della proiezione permette di pensare alle computazioni <strong>nondeterministiche</strong> in modo <strong>deterministico</strong>.</p></li>
-<li><p>L’input <span class="math inline">\(\langle x, y \rangle\)</span> consiste di due componenti: <strong>l’istanza</strong> del problema <span class="math inline">\(x\)</span> e un <strong>testimone</strong> (traccia, certificato, prova) che permette di verificare rapidamente l’appartenenza di <span class="math inline">\(x\)</span> al linguaggio.</p></li>
-</ul>
 <h2 id="simulazione-non-determinismo"><strong>Simulazione non determinismo</strong></h2>
 <h3 id="simulazione-del-nondeterminismo-spazio">Simulazione del nondeterminismo (spazio)</h3>
 <p>Per ogni <span class="math inline">\(f: N \rightarrow N\)</span>:</p>
@@ -291,10 +218,21 @@
 <p>Come corollari dei risultati precedenti abbiamo le inclusioni seguenti, per ogni funzione <span class="math inline">\(f\)</span> <strong>costruibile in spazio</strong>:</p>
 <p><span class="math display">\[NTIME(f) \subseteq \bigcup_{c \in N} DTIME(2^{c(id+f)})\]</span></p>
 <p><span class="math display">\[NSPACE(f) \subseteq \bigcup_{c \in N} DSPACE(2^{c(log+f)})\]</span></p>
+<h2 id="teorema-della-proiezione"><strong>Teorema della proiezione</strong></h2>
+<blockquote>
+<p>Dato un linguaggio <span class="math inline">\(A \subseteq \Sigma^*\)</span> , <span class="math inline">\(A \in NP\)</span> se e solo se esiste un linguaggio <span class="math inline">\(B \in P\)</span> e un polinomio <span class="math inline">\(p\)</span> tale che per ogni <span class="math inline">\(x \in \Sigma^*\)</span> ,</p>
+<p><span class="math display">\[x \in A \iff \exists y \colon |y| \le p(|x|) \land \langle x, y \rangle \in B\]</span></p>
+</blockquote>
+<p>Sia <span class="math inline">\(A \in NP\)</span> . Per il teorema della riduzione dei nastri possiamo assumere che esista una MdTN ad un nastro che <strong>riconosce</strong> <span class="math inline">\(A\)</span> in tempo <span class="math inline">\(t_M \le p\)</span> per un qualche polinomio <span class="math inline">\(p\)</span> .</p>
+<p><strong>Eliminiamo</strong> il nondeterminismo utilizzando una tecnica simile a quella adottata nella prova di <span class="math inline">\(NTIME(f) \subseteq DSPACE(id + f)\)</span> . Sia <span class="math inline">\(\delta\)</span> la <em>funzione di transizione</em> nondeterministica di <span class="math inline">\(M\)</span> e sia <span class="math inline">\(m\)</span> il <strong>branching massimo</strong>. Costruiamo la macchina deterministica <span class="math inline">\(M&#39;\)</span> che <strong>accetta</strong> <span class="math inline">\(B\)</span> in tempo <span class="math inline">\(t_M \in O(p)\)</span> . <span class="math inline">\(M&#39;\)</span> lavora con un alfabeto arricchito <span class="math inline">\(\Sigma&#39;\)</span> con simboli <span class="math inline">\(b_1, \dots, b_m\)</span> utilizzati per decidere ad ogni passo il ramo della computazione da seguire.</p>
+<p>In particolare, <span class="math inline">\(M&#39;\)</span> su input <span class="math inline">\(\langle x, y \rangle\)</span> <strong>simula</strong> la macchina <span class="math inline">\(M\)</span> per al più <span class="math inline">\(|y|\)</span> passi, utilizzando ad ogni passo <span class="math inline">\(i\)</span> il carattere <span class="math inline">\(y_i\)</span> della stringa <span class="math inline">\(y\)</span> per decidere la mossa da seguire. È evidente che:</p>
+<p><span class="math display">\[x \in A = L_M \iff \exists y \colon |y| \le p(|x|) \land \langle x, y \rangle \in B = L_{M&#39;}\]</span></p>
+<p>Viceversa, sia dato <span class="math inline">\(B \in P\)</span> , un polinomio <span class="math inline">\(p\)</span> che soddisfa le ipotesi, e una MdT <span class="math inline">\(M\)</span> tale che <span class="math inline">\(B = L_M\)</span> e <span class="math inline">\(t_M \in O(q)\)</span> per un qualche polinomio <span class="math inline">\(q\)</span> .</p>
+<p>La MdTN <span class="math inline">\(M&#39;\)</span> che <strong>riconosce</strong> <span class="math inline">\(A\)</span> opera nel modo seguente: <strong>estende</strong> in modo non deterministico l’input <span class="math inline">\(x\)</span> con le <span class="math inline">\(p(|x|)\)</span> stringhe <span class="math inline">\(y\)</span> e quindi <strong>simula</strong> il comportamento di <span class="math inline">\(M\)</span> sull’input <span class="math inline">\(\langle x, y \rangle\)</span> . Chiaramente, <span class="math inline">\(M&#39;\)</span> opera in tempo <span class="math inline">\(t_M \in O(p +q)\)</span> .</p>
+<h3 id="programmazione-per-tentativi-e-verifica">Programmazione per tentativi e verifica</h3>
 <ul>
-<li>Riducibilità polinomiale</li>
-<li>Modi per dimostrare la NP-completezza</li>
-<li><span class="math inline">\(A \in NP \cap coNP \land A \text{ è } NP \text{-completo} \implies NP = coNP\)</span></li>
+<li><p>Il teorema della proiezione permette di pensare alle computazioni <strong>nondeterministiche</strong> in modo <strong>deterministico</strong>.</p></li>
+<li><p>L’input <span class="math inline">\(\langle x, y \rangle\)</span> consiste di due componenti: <strong>l’istanza</strong> del problema <span class="math inline">\(x\)</span> e un <strong>testimone</strong> (traccia, certificato, prova) che permette di verificare rapidamente l’appartenenza di <span class="math inline">\(x\)</span> al linguaggio.</p></li>
 </ul>
 <h2 id="teorema-tempo-e-spazio"><strong>Teorema tempo e spazio</strong></h2>
 <p>Per ogni <span class="math inline">\(f: N \rightarrow N\)</span> si ha:</p>
