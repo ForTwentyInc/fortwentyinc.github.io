@@ -1,239 +1,93 @@
 <!DOCTYPE html>
-<html>
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>Riduzioni - NPcompletezza</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha2/katex.min.css" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha2/katex.min.js" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha2/contrib/auto-render.min.js" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script src="https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js"></script>
-  <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-  <div class="document">
-    <div class="header">
-      <h1 class="title">Riduzioni - NPcompletezza</h1>
-    </div>
-    <div class="inner">
-      <div class="toc_container">
-        <h2 class="toc_header">Table of Contents</h2>
-        <ul class="toc_list">
-          <li>
-            <a href="#toc_1">Dimostrare la NP-completezza</a>
-          </li>
-          <ul>
-          </ul>
-          <li>
-            <a href="#toc_2">CLIQUE $\le_P$ HALF-CLIQUE</a>
-          </li>
-          <ul>
-          </ul>
-          <li>
-            <a href="#toc_3">SAT $\le_P$ DOUBLE-SAT</a>
-          </li>
-          <ul>
-          </ul>
-          <li>
-            <a href="#toc_4">CLIQUE $\le_P$ INDIPENDENT SET</a>
-          </li>
-          <ul>
-          </ul>
-          <li>
-            <a href="#toc_5">Vertex Cover $\le$ Set Cover</a>
-          </li>
-          <ul>
-          </ul>
-          <li>
-            <a href="#toc_6">coNP $\not =$ NP $\implies$ NP $\not =$ P</a>
-          </li>
-          <ul>
-          </ul>
-      </div>
-
-      <h2 id="toc_1">Dimostrare la NP-completezza</h2>
-
-      <blockquote>
-        <p>Un problema è
-          <strong>\(NP\)-completo</strong> \(\iff\) è in \(NP\) e è
-          <strong>\(NP\)-arduo</strong>.</p>
-      </blockquote>
-
-      <p>Questo significa che ogni dimostrazione di
-        <strong>\(NP\)-completezza</strong> è divisa in due parti:</p>
-
-      <ol dir="auto">
-        <li>la prima che dimostra che il problema è in \(NP\)</li>
-        <li>l&#39;altra che dimostra che il problema è
-          <strong>\(NP\)-arduo</strong>
-        </li>
-      </ol>
-
-      <p>Per la prima parte, basta mostrare che le istanze VERE (ogni problema definisce un linguaggio che decide se la soluzione
-        data risolve il problema o meno) possono essere
-        <strong>verificate</strong> in tempo
-        <em>polinomiale</em> usando un
-        <strong>certificato</strong> appropriato.</p>
-
-      <p>Per la seconda parte, bisogna
-        <strong>dimostrare</strong> che il problema è
-        <strong>\(NP\)-arduo</strong>. Questo, nella maggior parte dei casi, è fatto dimostrando che il problema in questione è
-        <strong>almeno arduo</strong> quanto un altro problema
-        <strong>\(NP\)-arduo</strong>.</p>
-
-      <h2 id="toc_2">CLIQUE \(\le_P\) HALF-CLIQUE</h2>
-
-      <p>Sia dato un grafo \(G = (V, E)\), con \(|V| = 2n\). Il problema \(HALF-CLIQUE\) consiste nel decidere se esiste una
-        cricca di dimensione \(n\).</p>
-
-      <ul dir="auto">
-        <li>
-          <p>È facile vedere che il problema è \(\in NP\), in quanto data una sequenza di nodi è facile verificare in tempo
-            polinomiale che sia una cricca.</p>
-        </li>
-        <li>
-          <p>Dobbiamo dimostrare che \(Clique \le_P Half-Clique\), ovvero dobbiamo dimostrare che per ogni grafo con una \(\frac{n}{2}\)-Cricca,
-            si possono trovare delle prove (il
-            <strong>certificato</strong>) che dimostrino effettivamente che quella cricca esista, e che armati di tale certificato
-            è possibile
-            <strong>verificare</strong> in tempo polinomiale che tale cricca esista.</p>
-        </li>
-      </ul>
-
-      <p>Mostriamo che \(CLIQUE\) è riducibile a \(HALF-CLIQUE\), modificando in modo opportuno il grafo a seconda che la dimensione
-        della \(k\)-Cricca sia
-        <strong>minore</strong> di \(n\) oppure
-        <strong>maggiore o uguale</strong> ad \(n\).</p>
-
-      <p>Supponiamo di avere un grafo \(G = (V, E)\), con \(|V| = 2n\).</p>
-
-      <ol dir="auto">
-        <li>
-          <p>se \(k \lt n\): aggiungiamo \(x\) nodi
-            <strong>connessi a tutti gli altri</strong> nodi in \(G\), fino a soddisfare la relazione \(2n + x = 2(k + x) \rightarrow
-            x = 2(n - k)\)</p>
-
-          <p>
-            <img src="img/kltn.svg" alt="Grafo non orientato con una cricca di dimensione inferiore alla metà dei nodi" title="Grafo con cricca">
-            <img src="img/kltn1.svg" alt="Grafo con una mezza cricca" title="Half-Clique">
-          </p>
-        </li>
-        <li>
-          <p>se \(k \ge n\) aggiungiamo \(x\) nodi
-            <strong>sparsi</strong> (ovvero che non sono connessi a
-            <strong>nessun</strong> nodi), in modo che la dimensione della \(k\)-Cricca fino a soddisfare la relazione \(2k = 2n
-            + x \rightarrow x = 2(k - n)\)</p>
-
-          <p>
-            <img src="img/kgen.svg" alt="Grafo non orientato con una cricca di dimensione superiore alla metà dei nodi" title="Grafo con cricca">
-            <img src="img/kgen1.svg" alt="Grafo non orientato con una mezza cricca" title="Half-Clique">
-          </p>
-        </li>
-      </ol>
-
-      <p>In ogni caso in \(H\) c&#39;è una mezza cricca \(\iff\) in \(G\) c&#39;è una cricca.</p>
-
-      <h2 id="toc_3">SAT \(\le_P\) DOUBLE-SAT</h2>
-
-      <p>\(DOUBLE-SAT\) è l’insieme delle formule logiche che ammettono almeno due interpretazioni distinte che soddisfano la
-        formula.</p>
-
-      <ul dir="auto">
-        <li>
-          <p>È facile vedere che \(DOUBLE-SAT \in NP\): data la formula proposizionale \(\phi\) è sufficiente
-            <strong>generare</strong> in modo
-            <em>non deterministico</em> le due interpretazioni \(t_1\), \(t_2\) e
-            <strong>verificare</strong> che queste siano
-            <strong>distinte</strong> e che entrambe
-            <strong>soddisfino</strong> \(\phi\), cosa che richiede tempo polinomiale.</p>
-        </li>
-        <li>
-          <p>Per dimostrare che \(DOUBLE-SAT\) è
-            <strong>\(NP\)-arduo</strong> mostriamo una riduzione \(SAT \le DOUBLE-SAT\)</p>
-        </li>
-      </ul>
-
-      <p>Data la formula \(\phi = (x_1, \dots , x_n)\) introduciamo la nuova variabile \(y\) e creiamo la formula</p>
-
-      <p>\[\phi&#39; = \phi \land (y \lor \lnot y)\]</p>
-
-      <p>Se \(\phi\) appartiene a \(SAT\), allora \(\phi\) ha almeno
-        <strong>un assegnamento</strong> soddisfacibile, e dunque \(\phi&#39;\) ha sicuramente almeno
-        <strong>due assegnamenti</strong> soddisfacibili in quanto possiamo assegnare a \(y\) il valore \(1\) o il valore \(0\) senza
-        modificare la soddisfacibilità. Quindi \(\phi&#39; \in DOUBLE-SAT\).</p>
-
-      <p>D&#39;altra parte se \(\phi \not \in SAT\) allora chiaramente \(\phi&#39;\) non ha alcun assegnamento soddisfacibile,
-        e quindi \(\phi&#39; \not \in DOUBLE-SAT\).</p>
-
-      <p>In ogni caso \(\phi&#39; \in DOUBLE-SAT \iff \phi \in SAT\).</p>
-
-      <h2 id="toc_4">CLIQUE \(\le_P\) INDIPENDENT SET</h2>
-
-      <p>Il punto è realizzare che se un grafo ha una cricca di dimensione \(k\), il
-        <strong>grafo inverso</strong> ha un \(IS\) di dimensione \(k\).</p>
-
-      <p>Una cricca di dimensione \(k\) significa che \(k\) nodi sono tutti connessi tra di loro. Nel grafo inverso questi \(k\)
-        nodi non hanno archi che li uniscono quindi sono per definizione un insieme indipendente.</p>
-
-      <p>Dunque, l&#39;algoritmo polinomiale cercato è semplicemente quello che inverte il grafo.</p>
-
-      <p>
-        <img src="img/clique.svg" alt="Grafo non orientato con una cricca " title="Cricca">
-        <img src="img/is.svg" alt="Grafo inverso con un insieme indipendente" title="IS">
-      </p>
-
-      <h2 id="toc_5">Vertex Cover \(\le\) Set Cover</h2>
-
-      <p>
-        <strong>Set Cover:</strong> Dato un insieme \(U\), una collezione \(A\) di sottoinsiemi di \(U\) e un intero \(k\) determinare
-        se esiste un sottoinsieme di \(A\) che sia un ricoprimento per \(U\).</p>
-
-      <p>Considerando \(U\) come un insieme di
-        <strong>archi</strong> si costruisce il grafo \(G\) iterando sugli elementi di \(U\) in tempo lineare nel numero degli archi.</p>
-
-      <p>Infine si lancia la computazione di \(VC(k)\). \(VC\) ritorna vero se e solo se esiste in \(A\) un sottoinsieme che
-        ricopre \(U\) .</p>
-
-      <h2 id="toc_6">coNP \(\not =\) NP \(\implies\) NP \(\not =\) P</h2>
-
-      <p>È più semplice provare il contrario ovvero:</p>
-
-      <p>\[NP = P \implies coNP = NP\]</p>
-
-      <p>Assumiamo quindi che \(P = NP\) , dunque </p>
-
-      <ul dir="auto">
-        <li>
-          <p>per ogni \(L \in NP\) abbiamo che \(L \in P\) e dato che i linguaggi in \(P\) sono chisi per complementazione abbiamo
-            \(\overline{L} \in P\) e dunque \(L \in coNP\)</p>
-        </li>
-        <li>
-          <p>per ogni \(L \in coNP\) abbiamo che \(\overline{L} \in P\) e dato che \(P\) è chiuso per la complementazione \(L
-            \in P\) e quindi \(L \in NP\)</p>
-        </li>
-      </ul>
-
-      <p>
-        <strong>Remark:</strong> Inoltre se \(P = NP\) tutta la gerarchia polinomiale collasserebbe sull&#39;ultimo livello il che
-        implica \(P = NP = coNP = PH\) .</p>
-    </div>
-  </div>
-  <script>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.js"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/contrib/auto-render.min.js"></script><script>document.addEventListener("DOMContentLoaded", function() {
     renderMathInElement(document.body);
-  </script>
-  <script>
-    hljs.initHighlightingOnLoad();
-  </script>
-  <script>
-    mermaid.initialize({
-      startOnLoad: true
-    });
-  </script>
+  });</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header>
+<h1 class="title">Riduzioni - NPcompletezza</h1>
+</header>
+<nav id="TOC">
+<ul>
+<li><a href="#dimostrare-la-np-completezza">Dimostrare la NP-completezza</a></li>
+<li><a href="#clique-le_p-half-clique">CLIQUE <span class="math inline">\(\le_P\)</span> HALF-CLIQUE</a></li>
+<li><a href="#sat-le_p-double-sat">SAT <span class="math inline">\(\le_P\)</span> DOUBLE-SAT</a></li>
+<li><a href="#clique-le_p-indipendent-set">CLIQUE <span class="math inline">\(\le_P\)</span> INDIPENDENT SET</a></li>
+<li><a href="#vertex-cover-le-set-cover">Vertex Cover <span class="math inline">\(\le\)</span> Set Cover</a></li>
+<li><a href="#conp-not-np-implies-np-not-p">coNP <span class="math inline">\(\not =\)</span> NP <span class="math inline">\(\implies\)</span> NP <span class="math inline">\(\not =\)</span> P</a></li>
+</ul>
+</nav>
+<p><span class="citation" data-cites="toc">@toc</span></p>
+<h1 id="dimostrare-la-np-completezza">Dimostrare la NP-completezza</h1>
+<blockquote>
+<p>Un problema è <strong><span class="math inline">\(NP\)</span> -completo</strong> <span class="math inline">\(\iff\)</span> è in <span class="math inline">\(NP\)</span> e è <strong><span class="math inline">\(NP\)</span> -arduo</strong>.</p>
+</blockquote>
+<p>Questo significa che ogni dimostrazione di <strong><span class="math inline">\(NP\)</span> -completezza</strong> è divisa in due parti:</p>
+<ol type="1">
+<li>la prima che dimostra che il problema è in <span class="math inline">\(NP\)</span></li>
+<li>l’altra che dimostra che il problema è <strong><span class="math inline">\(NP\)</span> -arduo</strong></li>
+</ol>
+<p>Per la prima parte, basta mostrare che le istanze VERE (ogni problema definisce un linguaggio che decide se la soluzione data risolve il problema o meno) possono essere <strong>verificate</strong> in tempo <em>polinomiale</em> usando un <strong>certificato</strong> appropriato.</p>
+<p>Per la seconda parte, bisogna <strong>dimostrare</strong> che il problema è <strong><span class="math inline">\(NP\)</span> -arduo</strong>. Questo, nella maggior parte dei casi, è fatto dimostrando che il problema in questione è <strong>almeno arduo</strong> quanto un altro problema <strong><span class="math inline">\(NP\)</span> -arduo</strong>.</p>
+<h1 id="clique-le_p-half-clique">CLIQUE <span class="math inline">\(\le_P\)</span> HALF-CLIQUE</h1>
+<p>Sia dato un grafo <span class="math inline">\(G = (V, E)\)</span> , con <span class="math inline">\(|V| = 2n\)</span> . Il problema <span class="math inline">\(HALF-CLIQUE\)</span> consiste nel decidere se esiste una cricca di dimensione <span class="math inline">\(n\)</span> .</p>
+<ul>
+<li><p>È facile vedere che il problema è <span class="math inline">\(\in NP\)</span> , in quanto data una sequenza di nodi è facile verificare in tempo polinomiale che sia una cricca.</p></li>
+<li><p>Dobbiamo dimostrare che <span class="math inline">\(Clique \le_P Half-Clique\)</span> , ovvero dobbiamo dimostrare che per ogni grafo con una <span class="math inline">\(\frac{n}{2}\)</span> -Cricca, si possono trovare delle prove (il <strong>certificato</strong>) che dimostrino effettivamente che quella cricca esista, e che armati di tale certificato è possibile <strong>verificare</strong> in tempo polinomiale che tale cricca esista.</p></li>
+</ul>
+<p>Mostriamo che <span class="math inline">\(CLIQUE\)</span> è riducibile a <span class="math inline">\(HALF-CLIQUE\)</span> , modificando in modo opportuno il grafo a seconda che la dimensione della <span class="math inline">\(k\)</span> -Cricca sia <strong>minore</strong> di <span class="math inline">\(n\)</span> oppure <strong>maggiore o uguale</strong> ad <span class="math inline">\(n\)</span> .</p>
+<p>Supponiamo di avere un grafo <span class="math inline">\(G = (V, E)\)</span> , con <span class="math inline">\(|V| = 2n\)</span> .</p>
+<ol type="1">
+<li><p>se <span class="math inline">\(k &lt; n\)</span>: aggiungiamo <span class="math inline">\(x\)</span> nodi <strong>connessi a tutti gli altri</strong> nodi in <span class="math inline">\(G\)</span> , fino a soddisfare la relazione <span class="math inline">\(2n + x = 2(k + x) \rightarrow x = 2(n - k)\)</span></p>
+<p><img src="img/kltn.svg" title="Grafo con cricca" alt="Grafo non orientato con una cricca di dimensione inferiore alla metà dei nodi" /> <img src="img/kltn1.svg" title="Half-Clique" alt="Grafo con una mezza cricca" /></p></li>
+<li><p>se <span class="math inline">\(k \ge n\)</span> aggiungiamo <span class="math inline">\(x\)</span> nodi <strong>sparsi</strong> (ovvero che non sono connessi a <strong>nessun</strong> nodi), in modo che la dimensione della <span class="math inline">\(k\)</span> -Cricca fino a soddisfare la relazione <span class="math inline">\(2k = 2n + x \rightarrow x = 2(k - n)\)</span></p>
+<p><img src="img/kgen.svg" title="Grafo con cricca" alt="Grafo non orientato con una cricca di dimensione superiore alla metà dei nodi" /> <img src="img/kgen1.svg" title="Half-Clique" alt="Grafo non orientato con una mezza cricca" /></p></li>
+</ol>
+<p>In ogni caso in <span class="math inline">\(H\)</span> c’è una mezza cricca <span class="math inline">\(\iff\)</span> in <span class="math inline">\(G\)</span> c’è una cricca.</p>
+<h1 id="sat-le_p-double-sat">SAT <span class="math inline">\(\le_P\)</span> DOUBLE-SAT</h1>
+<p><span class="math inline">\(DOUBLE-SAT\)</span> è l’insieme delle formule logiche che ammettono almeno due interpretazioni distinte che soddisfano la formula.</p>
+<ul>
+<li><p>È facile vedere che <span class="math inline">\(DOUBLE-SAT \in NP\)</span>: data la formula proposizionale <span class="math inline">\(\phi\)</span> è sufficiente <strong>generare</strong> in modo <em>non deterministico</em> le due interpretazioni <span class="math inline">\(t_1\)</span> , <span class="math inline">\(t_2\)</span> e <strong>verificare</strong> che queste siano <strong>distinte</strong> e che entrambe <strong>soddisfino</strong> <span class="math inline">\(\phi\)</span> , cosa che richiede tempo polinomiale.</p></li>
+<li><p>Per dimostrare che <span class="math inline">\(DOUBLE-SAT\)</span> è <strong><span class="math inline">\(NP\)</span> -arduo</strong> mostriamo una riduzione <span class="math inline">\(SAT \le DOUBLE-SAT\)</span></p></li>
+</ul>
+<p>Data la formula <span class="math inline">\(\phi = (x_1, \dots , x_n)\)</span> introduciamo la nuova variabile <span class="math inline">\(y\)</span> e creiamo la formula</p>
+<p><span class="math display">\[\phi&#39; = \phi \land (y \lor \lnot y)\]</span></p>
+<p>Se <span class="math inline">\(\phi\)</span> appartiene a <span class="math inline">\(SAT\)</span> , allora <span class="math inline">\(\phi\)</span> ha almeno <strong>un assegnamento</strong> soddisfacibile, e dunque <span class="math inline">\(\phi&#39;\)</span> ha sicuramente almeno <strong>due assegnamenti</strong> soddisfacibili in quanto possiamo assegnare a <span class="math inline">\(y\)</span> il valore <span class="math inline">\(1\)</span> o il valore <span class="math inline">\(0\)</span> senza modificare la soddisfacibilità. Quindi <span class="math inline">\(\phi&#39; \in DOUBLE-SAT\)</span> .</p>
+<p>D’altra parte se <span class="math inline">\(\phi \not \in SAT\)</span> allora chiaramente <span class="math inline">\(\phi&#39;\)</span> non ha alcun assegnamento soddisfacibile, e quindi <span class="math inline">\(\phi&#39; \not \in DOUBLE-SAT\)</span> .</p>
+<p>In ogni caso <span class="math inline">\(\phi&#39; \in DOUBLE-SAT \iff \phi \in SAT\)</span> .</p>
+<h1 id="clique-le_p-indipendent-set">CLIQUE <span class="math inline">\(\le_P\)</span> INDIPENDENT SET</h1>
+<p>Il punto è realizzare che se un grafo ha una cricca di dimensione <span class="math inline">\(k\)</span> , il <strong>grafo inverso</strong> ha un <span class="math inline">\(IS\)</span> di dimensione <span class="math inline">\(k\)</span> .</p>
+<p>Una cricca di dimensione <span class="math inline">\(k\)</span> significa che <span class="math inline">\(k\)</span> nodi sono tutti connessi tra di loro. Nel grafo inverso questi <span class="math inline">\(k\)</span> nodi non hanno archi che li uniscono quindi sono per definizione un insieme indipendente.</p>
+<p>Dunque, l’algoritmo polinomiale cercato è semplicemente quello che inverte il grafo.</p>
+<p><img src="img/clique.svg" title="Cricca" alt="Grafo non orientato con una cricca" /> <img src="img/is.svg" title="IS" alt="Grafo inverso con un insieme indipendente" /></p>
+<h1 id="vertex-cover-le-set-cover">Vertex Cover <span class="math inline">\(\le\)</span> Set Cover</h1>
+<p><strong>Set Cover:</strong> Dato un insieme <span class="math inline">\(U\)</span> , una collezione <span class="math inline">\(A\)</span> di sottoinsiemi di <span class="math inline">\(U\)</span> e un intero <span class="math inline">\(k\)</span> determinare se esiste un sottoinsieme di <span class="math inline">\(A\)</span> che sia un ricoprimento per <span class="math inline">\(U\)</span> .</p>
+<p>Considerando <span class="math inline">\(U\)</span> come un insieme di <strong>archi</strong> si costruisce il grafo <span class="math inline">\(G\)</span> iterando sugli elementi di <span class="math inline">\(U\)</span> in tempo lineare nel numero degli archi.</p>
+<p>Infine si lancia la computazione di <span class="math inline">\(VC(k)\)</span> . <span class="math inline">\(VC\)</span> ritorna vero se e solo se esiste in <span class="math inline">\(A\)</span> un sottoinsieme che ricopre <span class="math inline">\(U\)</span> .</p>
+<h1 id="conp-not-np-implies-np-not-p">coNP <span class="math inline">\(\not =\)</span> NP <span class="math inline">\(\implies\)</span> NP <span class="math inline">\(\not =\)</span> P</h1>
+<p>È più semplice provare il contrario ovvero:</p>
+<p><span class="math display">\[NP = P \implies coNP = NP\]</span></p>
+<p>Assumiamo quindi che <span class="math inline">\(P = NP\)</span> , dunque</p>
+<ul>
+<li><p>per ogni <span class="math inline">\(L \in NP\)</span> abbiamo che <span class="math inline">\(L \in P\)</span> e dato che i linguaggi in <span class="math inline">\(P\)</span> sono chisi per complementazione abbiamo <span class="math inline">\(\overline{L} \in P\)</span> e dunque <span class="math inline">\(L \in coNP\)</span></p></li>
+<li><p>per ogni <span class="math inline">\(L \in coNP\)</span> abbiamo che <span class="math inline">\(\overline{L} \in P\)</span> e dato che <span class="math inline">\(P\)</span> è chiuso per la complementazione <span class="math inline">\(L \in P\)</span> e quindi <span class="math inline">\(L \in NP\)</span></p></li>
+</ul>
+<p><strong>Remark:</strong> Inoltre se <span class="math inline">\(P = NP\)</span> tutta la gerarchia polinomiale collasserebbe sull’ultimo livello il che implica <span class="math inline">\(P = NP = coNP = PH\)</span> .</p>
 </body>
-
 </html>
