@@ -25,6 +25,7 @@
 </header>
 <nav id="TOC">
 <ul>
+<li><a href="#domande-frequenti">Domande frequenti</a><ul>
 <li><a href="#teorema-della-gerarchia-spazio"><strong>Teorema della gerarchia (spazio)</strong></a><ul>
 <li><a href="#idee-principali">Idee Principali</a></li>
 <li><a href="#dimostrazione">Dimostrazione</a></li>
@@ -40,40 +41,51 @@
 <li><a href="#teorema-della-proiezione"><strong>Teorema della proiezione</strong></a><ul>
 <li><a href="#programmazione-per-tentativi-e-verifica">Programmazione per tentativi e verifica</a></li>
 </ul></li>
-<li><a href="#il-teorema-del-punto-fisso-di-kleene-primo-teorema-di-ricorsione"><strong>Il Teorema del punto fisso di Kleene (primo teorema di ricorsione)</strong></a></li>
 <li><a href="#simulazione-non-determinismo"><strong>Simulazione non determinismo</strong></a><ul>
 <li><a href="#simulazione-del-nondeterminismo-spazio">Simulazione del nondeterminismo (spazio)</a></li>
-<li><a href="#simulazione-del-nondeterminismo-tempo">Simulazione del nondeterminismo (tempo)</a><ul>
-<li><a href="#corollari">Corollari</a></li>
+<li><a href="#simulazione-del-nondeterminismo-tempo">Simulazione del nondeterminismo (tempo)</a></li>
 </ul></li>
+<li><a href="#teorema-tempo-e-spazio"><strong>Teorema tempo e spazio</strong></a></li>
+<li><a href="#il-teorema-del-punto-fisso-di-kleene-primo-teorema-di-ricorsione"><strong>Il Teorema del punto fisso di Kleene (primo teorema di ricorsione)</strong></a></li>
 </ul></li>
+<li><a href="#complessità">Complessità</a><ul>
 <li><a href="#complessità-relativizzata">Complessità relativizzata</a><ul>
 <li><a href="#macchine-ad-oracolo">Macchine ad oracolo</a></li>
 <li><a href="#semantica-delle-mdtn-ad-oracolo">Semantica delle MdTN ad oracolo</a></li>
 <li><a href="#tempo-e-spazio-per-mdtn-ad-oracolo">Tempo e Spazio per MdTN ad oracolo</a></li>
 <li><a href="#classi-di-complessità-con-oracolo">Classi di complessità con oracolo</a></li>
-<li><a href="#alcune-classi-di-complessità-con-oracolo">Alcune Classi di Complessità con oracolo</a><ul>
-<li><a href="#nppspace-subseteq-pspace"><span class="math inline">\(NP^{PSPACE} \subseteq PSPACE\)</span></a></li>
-<li><a href="#lemma-np-subseteq-pnp-subseteq-npnp">Lemma: <span class="math inline">\(NP \subseteq P^{NP} \subseteq NP^{NP}\)</span></a></li>
+<li><a href="#alcune-classi-di-complessità-con-oracolo">Alcune Classi di Complessità con oracolo</a></li>
 </ul></li>
-</ul></li>
-<li><a href="#teorema-tempo-spazio"><strong>Teorema tempo spazio</strong></a></li>
-<li><a href="#npspace-pspace"><span class="math inline">\(NPSPACE = PSPACE\)</span></a></li>
 <li><a href="#sat-le-vc"><span class="math inline">\(3SAT \le VC\)</span></a><ul>
-<li><a href="#np--completezza-di-3sat"><span class="math inline">\(NP\)</span> -completezza di 3SAT</a><ul>
-<li><a href="#il-problema-del-ricoprimento---vertex-cover">Il Problema del Ricoprimento - Vertex Cover</a></li>
+<li><a href="#np--completezza-di-3sat"><span class="math inline">\(NP\)</span> -completezza di 3SAT</a></li>
+<li><a href="#sat-vs.ricoprimento">3SAT vs. Ricoprimento</a></li>
 </ul></li>
-<li><a href="#sat-vs.ricoprimento">3SAT vs. Ricoprimento</a><ul>
-<li><a href="#esempi-di-interpretazioniricoprimenti">Esempi di interpretazioni/ricoprimenti</a></li>
+<li><a href="#gerarchia-polinomiale">Gerarchia Polinomiale</a><ul>
+<li><a href="#teorema-della-gerarchia-polinomiale">Teorema della gerarchia polinomiale</a></li>
+</ul></li>
+<li><a href="#il-problema-dellinsieme-indipendente">Il Problema dell’insieme indipendente</a></li>
+</ul></li>
+<li><a href="#calcolabilità">Calcolabilità</a><ul>
+<li><a href="#insiemi-ricorsivi">Insiemi ricorsivi</a></li>
+<li><a href="#insiemi-ricorsivamente-enumerabili">Insiemi ricorsivamente enumerabili</a></li>
+<li><a href="#teorema-di-rice">Teorema di Rice</a><ul>
+<li><a href="#uso-del-teorema-di-rice">Uso del teorema di Rice</a></li>
+</ul></li>
+<li><a href="#la-nozione-di-m-riducibilità">La nozione di <strong>m</strong>-riducibilità</a></li>
+<li><a href="#m-completezza"><strong>m</strong>-completezza</a></li>
+<li><a href="#insiemi-produttivi-e-creativi">Insiemi produttivi e creativi</a><ul>
+<li><a href="#caratterizzazione-della-produttività">Caratterizzazione della produttività</a></li>
+<li><a href="#caratterizzazione-della-creatività">Caratterizzazione della creatività</a></li>
 </ul></li>
 </ul></li>
 </ul>
 </nav>
-<h1 id="teorema-della-gerarchia-spazio"><strong>Teorema della gerarchia (spazio)</strong></h1>
+<h1 id="domande-frequenti">Domande frequenti</h1>
+<h2 id="teorema-della-gerarchia-spazio"><strong>Teorema della gerarchia (spazio)</strong></h2>
 <blockquote>
 <p>Per ogni funzione <strong>costruibile</strong> in spazio <span class="math inline">\(f \colon N \rightarrow N\)</span> , esiste un linguaggio <span class="math inline">\(A\)</span> che è decidibile in spazio <span class="math inline">\(O(n)\)</span> ma non in spazio <span class="math inline">\(o(n)\)</span> .</p>
 </blockquote>
-<h2 id="idee-principali">Idee Principali</h2>
+<h3 id="idee-principali">Idee Principali</h3>
 <p>Dobbiamo dimostrare che un linguaggio <span class="math inline">\(A\)</span> abbia due proprietà:</p>
 <ol type="1">
 <li><span class="math inline">\(A\)</span> è decidibile in spazio <span class="math inline">\(O(f(n))\)</span></li>
@@ -96,10 +108,10 @@
 <p>Per cui, se <span class="math inline">\(M\)</span> sta davvero eseguendo in spazio <span class="math inline">\(o(f(n))\)</span> , <span class="math inline">\(D\)</span> avrà abbastanza spazio per simularla fino all’arresto sull’input <span class="math inline">\(\langle M \rangle 10^k\)</span> , per qualche valore grande di <span class="math inline">\(k\)</span> così il comportamento asintotico sarà già cominciato.</p>
 <p>Resta da definire un’ultima questione tecnica. Quando <span class="math inline">\(D\)</span> simula <span class="math inline">\(M\)</span> su qualche stringa, <span class="math inline">\(M\)</span> può entrare in un loop infinito usando però solo una quantità limitata di spazio. Ma <span class="math inline">\(D\)</span> dovrebbe essere un decisore, per cui dobbiamo assicurarci che <span class="math inline">\(D\)</span> non loopi all’infinito mentre simula <span class="math inline">\(M\)</span> .</p>
 <p>Ogni macchina che esegue in spazio <span class="math inline">\(o(f(n))\)</span> usa solo <span class="math inline">\(2^{o(f(n))}\)</span> tempo. Modifichiamo così <span class="math inline">\(D\)</span> in modo che conti il numero di passi usati nella simulazione di <span class="math inline">\(M\)</span> . Se questo numero dovesse mai superare <span class="math inline">\(2^{f(n)}\)</span> , allora <span class="math inline">\(D\)</span> <strong>rifiuta</strong>.</p>
-<h2 id="dimostrazione">Dimostrazione</h2>
-<p>Il seguente algoritmo <span class="math inline">\(D\)</span> decide in spazio <span class="math inline">\(O(f(n))\)</span> un linguaggio <span class="math inline">\(A\)</span> che non è decidibile in spazio <span class="math inline">\(o(f(n))\)</span> .</p>
+<h3 id="dimostrazione">Dimostrazione</h3>
+<p>Il seguente algoritmo <span class="math inline">\(D(w)\)</span> decide in spazio <span class="math inline">\(O(f(n))\)</span> un linguaggio <span class="math inline">\(A\)</span> che non è decidibile in spazio <span class="math inline">\(o(f(n))\)</span> .</p>
 <ol type="1">
-<li>sia <span class="math inline">\(n\)</span> la lunghezza di <span class="math inline">\(w\)</span> .</li>
+<li>sia <span class="math inline">\(n = |w|\)</span> .</li>
 <li>Calcola <span class="math inline">\(f(n)\)</span> usando la sua spazio costruibilità e segna il nastro dove finisce <span class="math inline">\(f(n)\)</span> . Se i passi successivi cercano in qualsiasi occasione di superare questo limite, <em>rifiuta</em>.</li>
 <li>Se <span class="math inline">\(w\)</span> non è nella forma <span class="math inline">\(\langle M \rangle 10^k\)</span> per qualche <span class="math inline">\(MdT\)</span> <span class="math inline">\(M\)</span> , <em>rifiuta</em>.</li>
 <li>Simula <span class="math inline">\(M\)</span> su <span class="math inline">\(w\)</span> mentre conta il numero di passi usati nella simulazione. Se il conto eccede mai <span class="math inline">\(2^{f(n)}\)</span> , <em>rifiuta</em>.</li>
@@ -114,7 +126,7 @@
 <p>Consideriamo cosa succede cosa succede quando <span class="math inline">\(D\)</span> è eseguito su input <span class="math inline">\(\langle M \rangle 10^{n_0}\)</span> . Questo input è più lungo di <span class="math inline">\(n_0\)</span> , per cui la simulazione al passo <span class="math inline">\(4.\)</span> terminerà.</p>
 <p>Dunque, <span class="math inline">\(D\)</span> restituirà l’opposto di <span class="math inline">\(M\)</span> sullo stesso input. Quindi <span class="math inline">\(M\)</span> non decide <span class="math inline">\(A\)</span> , che contraddice la nostra ipotesi.</p>
 <p>Quindi <span class="math inline">\(A\)</span> non è decidibile in spazio <span class="math inline">\(o(f(n))\)</span> .</p>
-<h1 id="teorema-di-savitch"><strong>Teorema di Savitch</strong></h1>
+<h2 id="teorema-di-savitch"><strong>Teorema di Savitch</strong></h2>
 <p>Sia <span class="math inline">\(s: N \rightarrow N\)</span> una funzione <strong>costruibile in spazio</strong> e tale che <span class="math inline">\(log \in O(s)\)</span> . Allora</p>
 <p><span class="math display">\[NSPACE(s) \subseteq DSPACE(s^2)\]</span></p>
 <p>Sia <span class="math inline">\(L \in NSPACE(s)\)</span> . Poichè <span class="math inline">\(NSPACE(s) \subseteq NSPACE_1(s)\)</span> , possiamo assumere che esista una MdTN <span class="math inline">\(M\)</span> ad un nastro che riconosce <span class="math inline">\(L\)</span> in spazio <span class="math inline">\(s_M \le c s(n) + c\)</span> per qualche <span class="math inline">\(c \in N\)</span> .</p>
@@ -126,19 +138,19 @@
 <p>che permette una implementazione ricorsiva dell’algoritmo di ricerca. Quindi una MdT <span class="math inline">\(M&#39;\)</span> , dato l’input <span class="math inline">\(x\)</span> con <span class="math inline">\(|x| \le n\)</span> è in grado di determinare</p>
 <p><span class="math display">\[reach(\Xi_0, \Xi_f, 2^{cs(n) + c})\]</span></p>
 <p>con al più <span class="math inline">\(s(n)\)</span> chiamate attive innestate: l’intero stack dei record di attivazione richiede al più spazio <span class="math inline">\(O(s^2)\)</span> .</p>
-<h2 id="pspace-e-npspace">PSPACE e NPSPACE</h2>
+<h3 id="pspace-e-npspace">PSPACE e NPSPACE</h3>
 <p>Come ovvio corollario otteniamo:</p>
 <p><span class="math display">\[PSPACE = NPSPACE\]</span></p>
 <p>Poichè inoltre le classi deterministiche sono chiuse rispetto alla <strong>complementazione</strong> abbiamo anche:</p>
 <p><span class="math display">\[NPSPACE = coNPSPACE\]</span></p>
-<h1 id="problema-arduo-e-problema-completo"><strong>Problema arduo e problema completo</strong></h1>
+<h2 id="problema-arduo-e-problema-completo"><strong>Problema arduo e problema completo</strong></h2>
 <p>Sia <span class="math inline">\(C\)</span> una <em>classe</em> di linguaggi e <span class="math inline">\(\le\)</span> un <em>preordine</em> tra di essi. Sia <span class="math inline">\(B\)</span> un linguaggio:</p>
 <ul>
 <li><p><span class="math inline">\(B\)</span> è <strong><span class="math inline">\(C\)</span> -arduo</strong> rispetto a <span class="math inline">\(\le\)</span> , se ogni <span class="math inline">\(A \in C\)</span> è <strong>riducibile</strong> a B, ovvero <span class="math inline">\(A \le B\)</span> .</p></li>
 <li><p><span class="math inline">\(B\)</span> è <strong><span class="math inline">\(C\)</span> -completo</strong> rispetto a <span class="math inline">\(\le\)</span> , se <span class="math inline">\(B \in C\)</span> e <span class="math inline">\(B\)</span> è <strong><span class="math inline">\(C\)</span> -arduo</strong>.</p></li>
 </ul>
 <p>Nel caso in cui non sia esplicitato altrimenti, si assume che il preordine sia la <strong>riducibilità polinomiale</strong> <span class="math inline">\(\le_{P}\)</span> .</p>
-<h1 id="teorema-di-cook"><strong>Teorema di Cook</strong></h1>
+<h2 id="teorema-di-cook"><strong>Teorema di Cook</strong></h2>
 <blockquote>
 <p><span class="math inline">\(SAT\)</span> è <strong><span class="math inline">\(NP\)</span> -completo</strong></p>
 </blockquote>
@@ -178,7 +190,7 @@
 <p>È evidente che tutte la formule <span class="math inline">\(\Psi_i\)</span> possono essere <strong>costruite</strong> in tempo <span class="math inline">\(O(p)\)</span> e dunque</p>
 <p><span class="math display">\[f \in FP\]</span></p>
 <p><strong>Remark:</strong> È in effetti possibile dimostrare che <span class="math inline">\(f \in LOGSPACE\)</span></p>
-<h2 id="analogie-tra-calcolabilità-e-complessità">Analogie tra Calcolabilità e Complessità</h2>
+<h3 id="analogie-tra-calcolabilità-e-complessità">Analogie tra Calcolabilità e Complessità</h3>
 <table>
 <thead>
 <tr class="header">
@@ -205,7 +217,7 @@
 </tr>
 </tbody>
 </table>
-<h1 id="padding"><strong>Padding</strong></h1>
+<h2 id="padding"><strong>Padding</strong></h2>
 <blockquote>
 <p><span class="math inline">\(EXP \not = PSPACE\)</span> .</p>
 </blockquote>
@@ -225,7 +237,7 @@
 <figure>
 <img src="img/Inclusione.png" title="Inclusione tra le classi di complessità" alt="Diagramma dell’inclusione tra classi di complessità" /><figcaption>Diagramma dell’inclusione tra classi di complessità</figcaption>
 </figure>
-<h1 id="teorema-della-proiezione"><strong>Teorema della proiezione</strong></h1>
+<h2 id="teorema-della-proiezione"><strong>Teorema della proiezione</strong></h2>
 <blockquote>
 <p>Dato un linguaggio <span class="math inline">\(A \subseteq \Sigma^*\)</span> , <span class="math inline">\(A \in NP\)</span> se e solo se esiste un linguaggio <span class="math inline">\(B \in P\)</span> e un polinomio <span class="math inline">\(p\)</span> tale che per ogni <span class="math inline">\(x \in \Sigma^*\)</span> ,</p>
 <p><span class="math display">\[x \in A \iff \exists y \colon |y| \le p(|x|) \land \langle x, y \rangle \in B\]</span></p>
@@ -236,27 +248,13 @@
 <p><span class="math display">\[x \in A = L_M \iff \exists y \colon |y| \le p(|x|) \land \langle x, y \rangle \in B = L_{M&#39;}\]</span></p>
 <p>Viceversa, sia dato <span class="math inline">\(B \in P\)</span> , un polinomio <span class="math inline">\(p\)</span> che soddisfa le ipotesi, e una MdT <span class="math inline">\(M\)</span> tale che <span class="math inline">\(B = L_M\)</span> e <span class="math inline">\(t_M \in O(q)\)</span> per un qualche polinomio <span class="math inline">\(q\)</span> .</p>
 <p>La MdTN <span class="math inline">\(M&#39;\)</span> che <strong>riconosce</strong> <span class="math inline">\(A\)</span> opera nel modo seguente: <strong>estende</strong> in modo non deterministico l’input <span class="math inline">\(x\)</span> con le <span class="math inline">\(p(|x|)\)</span> stringhe <span class="math inline">\(y\)</span> e quindi <strong>simula</strong> il comportamento di <span class="math inline">\(M\)</span> sull’input <span class="math inline">\(\langle x, y \rangle\)</span> . Chiaramente, <span class="math inline">\(M&#39;\)</span> opera in tempo <span class="math inline">\(t_M \in O(p +q)\)</span> .</p>
-<h2 id="programmazione-per-tentativi-e-verifica">Programmazione per tentativi e verifica</h2>
+<h3 id="programmazione-per-tentativi-e-verifica">Programmazione per tentativi e verifica</h3>
 <ul>
 <li><p>Il teorema della proiezione permette di pensare alle computazioni <strong>nondeterministiche</strong> in modo <strong>deterministico</strong>.</p></li>
 <li><p>L’input <span class="math inline">\(\langle x, y \rangle\)</span> consiste di due componenti: <strong>l’istanza</strong> del problema <span class="math inline">\(x\)</span> e un <strong>testimone</strong> (traccia, certificato, prova) che permette di verificare rapidamente l’appartenenza di <span class="math inline">\(x\)</span> al linguaggio.</p></li>
 </ul>
-<h1 id="il-teorema-del-punto-fisso-di-kleene-primo-teorema-di-ricorsione"><strong>Il Teorema del punto fisso di Kleene (primo teorema di ricorsione)</strong></h1>
-<blockquote>
-<p>Per ogni funzione <em>totale calcolabile</em> <span class="math inline">\(f\)</span> esiste <span class="math inline">\(m\)</span> tale che <span class="math inline">\(\varphi_{f(m)} \approx \varphi_m\)</span></p>
-</blockquote>
-<p>Per <strong>smn</strong> esiste <span class="math inline">\(h\)</span> <em>totale e calcolabile</em> tale che</p>
-<p><span class="math inline">\(\varphi_{h(x)}(y) = g(x, y) = \varphi_{f(\varphi_x(x))}(y)\)</span></p>
-<p>Sia <span class="math inline">\(p\)</span> un <em>indice</em> per <span class="math inline">\(h\)</span> e poniamo <span class="math inline">\(m = \varphi_p(p) = h(p)\)</span> (che è <em>sicuramente definito</em> in quanto <span class="math inline">\(h\)</span> è <strong>totale</strong>). Allora, per ogni <span class="math inline">\(y\)</span></p>
-<p><span class="math display">\[\varphi_m(y) = \varphi_{h(p)}(y) = g(p, y) = \varphi_{f(\varphi_p (p))}(y) = \varphi_{f(m)}(y)\]</span></p>
-<blockquote>
-<p><strong><em>L’interprete permette di simulare la ricorsione!</em></strong></p>
-</blockquote>
-<p>Supponiamo di voler definire una funzione <em>ricorsiva</em> <span class="math inline">\(f\)</span> tale che <span class="math inline">\(f(x) = M[f, x]\)</span> .</p>
-<p>Per smn esiste <span class="math inline">\(g\)</span> **totale calcolabile* tale che <span class="math inline">\(\varphi_{g(i)}(x) = M[\varphi_i , x]\)</span> .</p>
-<p>Allora <span class="math inline">\(f = \varphi_m\)</span> dove <span class="math inline">\(m\)</span> é il <strong>punto fisso</strong> di <span class="math inline">\(g\)</span> .</p>
-<h1 id="simulazione-non-determinismo"><strong>Simulazione non determinismo</strong></h1>
-<h2 id="simulazione-del-nondeterminismo-spazio">Simulazione del nondeterminismo (spazio)</h2>
+<h2 id="simulazione-non-determinismo"><strong>Simulazione non determinismo</strong></h2>
+<h3 id="simulazione-del-nondeterminismo-spazio">Simulazione del nondeterminismo (spazio)</h3>
 <p>Per ogni <span class="math inline">\(f: N \rightarrow N\)</span>:</p>
 <p><span class="math display">\[NTIME(f) \subseteq DSPACE(id + f)\]</span></p>
 <p>Sia <span class="math inline">\(M\)</span> una MdTN che riconosce <span class="math inline">\(L\)</span> in tempo <span class="math inline">\(t_M \le cf + c\)</span> . L’idea è quella di <strong>simulare</strong> le varie computazioni una alla volta, <strong>ricordando</strong> su un nastro ausiliario le scelte effettuate.</p>
@@ -272,7 +270,7 @@
 </ol>
 <p>Si noti che l’arresto delle computazioni dopo al più <span class="math inline">\(cf(n) + c\)</span> passi è giustificato dal fatto che, se <span class="math inline">\(x\)</span> è riconosciuta da <span class="math inline">\(M\)</span> , <strong>esiste almeno una computazione</strong> che la riconosce entro tale tempo.</p>
 <p><strong>Complessità:</strong> Il punto <span class="math inline">\(1\)</span> richiede spazio <span class="math inline">\(O(n)\)</span> ; poichè <span class="math inline">\(f\)</span> è costruibile in spazio, il secondo passo richiede spazio <span class="math inline">\(O(f)\)</span> , così come i punti successivi.</p>
-<h2 id="simulazione-del-nondeterminismo-tempo">Simulazione del nondeterminismo (tempo)</h2>
+<h3 id="simulazione-del-nondeterminismo-tempo">Simulazione del nondeterminismo (tempo)</h3>
 <p>Per ogni <span class="math inline">\(f: N \rightarrow N\)</span>:</p>
 <p><span class="math display">\[NSPACE(f) \subseteq DTIME(2^{c(log+f)})\]</span></p>
 <p>Sia <span class="math inline">\(M\)</span> una MdTN che accetta <span class="math inline">\(L\)</span> in spazio <span class="math inline">\(s_M \le cf + c\)</span> .</p>
@@ -289,7 +287,7 @@
 <p>Il <strong>primo</strong> passo richiede tempo <span class="math inline">\(O(n) = O(2^{log(n)})\)</span> .</p>
 <p>Poichè <span class="math inline">\(f\)</span> è <strong>costruibile</strong> in spazio, il <strong>secondo</strong> passo richiede un tempo <span class="math inline">\(O(2^{c&#39;&#39;(log+f)})\)</span> per qualche <span class="math inline">\(c&#39;&#39; \in N\)</span> .</p>
 <p>Come già osservato, il numero massimo <span class="math inline">\(maxc\)</span> di configurazioni differenti di lunghezza <strong>minore o uguale</strong> a <span class="math inline">\(cf(n) + c\)</span> da analizzare è <span class="math inline">\(2^{c&#39;(log(n)+f(n))+c&#39;}\)</span> e l’intera simulazione richiede <strong>al più</strong> tempo <span class="math inline">\(O(maxc^2) = O(2^{c&#39;&#39;&#39; (log (n)+f (n))})\)</span> per un opportuno <span class="math inline">\(c&#39;&#39;&#39; \in N\)</span> .</p>
-<h3 id="corollari">Corollari</h3>
+<h4 id="corollari">Corollari</h4>
 <p>Come corollari dei risultati precedenti abbiamo le inclusioni seguenti, per ogni funzione <span class="math inline">\(f\)</span> <strong>costruibile in spazio</strong>:</p>
 <p><span class="math display">\[NTIME(f) \subseteq \bigcup_{c \in N} DTIME(2^{c(id+f)})\]</span></p>
 <p><span class="math display">\[NSPACE(f) \subseteq \bigcup_{c \in N} DSPACE(2^{c(log+f)})\]</span></p>
@@ -298,8 +296,43 @@
 <li>Modi per dimostrare la NP-completezza</li>
 <li><span class="math inline">\(A \in NP \cap coNP \land A \text{ è } NP \text{-completo} \implies NP = coNP\)</span></li>
 </ul>
-<h1 id="complessità-relativizzata">Complessità relativizzata</h1>
-<h2 id="macchine-ad-oracolo">Macchine ad oracolo</h2>
+<h2 id="teorema-tempo-e-spazio"><strong>Teorema tempo e spazio</strong></h2>
+<p>Per ogni <span class="math inline">\(f: N \rightarrow N\)</span> si ha:</p>
+<p><span class="math display">\[ DTIME(f) \subseteq DSPACE(f) \subseteq \sum\limits_{c \in N} DTIME( 2^{c(log + f)} )\]</span></p>
+<p>La prima inclusione vale in quanto la Macchina di Turing ha bisogno di almeno un passo per visitare una nuova cella.</p>
+<p>La seconda inclusione vale in quanto il <strong>numero e la dimensione</strong> delle configurazioni di una macchina con spazio fissato è <strong>finito</strong> ( in questo caso ), ed essendo la macchina <em>deterministica</em> non può attraversare due volte la stessa configurazione e la computazione deve arrestarsi entro un numero di passi pari <strong>al più</strong> a queste configurazioni, altrimenti si avrebbe un ciclo.</p>
+<p>Quindi <span class="math inline">\(M\)</span> termina in al più a <span class="math inline">\(2^{cf}\)</span> passi. Il <span class="math inline">\(log\)</span> è un overhead introdotto dalla lettura dell’input.</p>
+<p>Calcoliamo il numero di configurazioni. Sia <span class="math inline">\(M = \langle Q, \Gamma, b, \Sigma, k, \delta, q_{0}, F\rangle\)</span> e <span class="math inline">\(L_M \subseteq DSPACE(f)\)</span> . Ricordiamo che una <em>configurazione</em> è una tupla</p>
+<p><span class="math display">\[( q, (\sigma_1, \tau_1), \dots , (\sigma_k, \tau_k))\]</span></p>
+<p>Abbiamo allora</p>
+<ul>
+<li><span class="math inline">\(|Q| =\)</span> numero di stati finiti interni</li>
+<li><span class="math inline">\(s_M(n) =\)</span> lunghezza dei nastri</li>
+<li><span class="math inline">\(k =\)</span> posizione della testina</li>
+<li><span class="math inline">\(|\Gamma|^{s_m(n)} =\)</span> cardinalità dell’alfabeto elevata al numero dei nastri, ovvero il <strong>numero massimo</strong> delle configurazioni che può <em>attraversare</em> la macchina con questa comlessità in spazio</li>
+</ul>
+<p><span class="math display">\[t_M \le |Q| \cdot k \cdot |\Gamma|^{s_{M}(n)} \le 2^{c(log(n) + f(n)) + c}\]</span></p>
+<p>per un <span class="math inline">\(c \in N\)</span> opportuno.</p>
+<blockquote>
+<p><strong>N.B.</strong> Grazie a questo teorema so che un programma che esegue in <strong>spazio</strong> <span class="math inline">\(log(n)\)</span> ha complessità <strong>polinomiale</strong>.</p>
+</blockquote>
+<h2 id="il-teorema-del-punto-fisso-di-kleene-primo-teorema-di-ricorsione"><strong>Il Teorema del punto fisso di Kleene (primo teorema di ricorsione)</strong></h2>
+<blockquote>
+<p>Per ogni funzione <em>totale calcolabile</em> <span class="math inline">\(f\)</span> esiste <span class="math inline">\(m\)</span> tale che <span class="math inline">\(\varphi_{f(m)} \approx \varphi_m\)</span></p>
+</blockquote>
+<p>Per <strong>smn</strong> esiste <span class="math inline">\(h\)</span> <em>totale e calcolabile</em> tale che</p>
+<p><span class="math inline">\(\varphi_{h(x)}(y) = g(x, y) = \varphi_{f(\varphi_x(x))}(y)\)</span></p>
+<p>Sia <span class="math inline">\(p\)</span> un <em>indice</em> per <span class="math inline">\(h\)</span> e poniamo <span class="math inline">\(m = \varphi_p(p) = h(p)\)</span> (che è <em>sicuramente definito</em> in quanto <span class="math inline">\(h\)</span> è <strong>totale</strong>). Allora, per ogni <span class="math inline">\(y\)</span></p>
+<p><span class="math display">\[\varphi_m(y) = \varphi_{h(p)}(y) = g(p, y) = \varphi_{f(\varphi_p (p))}(y) = \varphi_{f(m)}(y)\]</span></p>
+<blockquote>
+<p><strong><em>L’interprete permette di simulare la ricorsione!</em></strong></p>
+</blockquote>
+<p>Supponiamo di voler definire una funzione <em>ricorsiva</em> <span class="math inline">\(f\)</span> tale che <span class="math inline">\(f(x) = M[f, x]\)</span> .</p>
+<p>Per smn esiste <span class="math inline">\(g\)</span> **totale calcolabile* tale che <span class="math inline">\(\varphi_{g(i)}(x) = M[\varphi_i , x]\)</span> .</p>
+<p>Allora <span class="math inline">\(f = \varphi_m\)</span> dove <span class="math inline">\(m\)</span> é il <strong>punto fisso</strong> di <span class="math inline">\(g\)</span> .</p>
+<h1 id="complessità">Complessità</h1>
+<h2 id="complessità-relativizzata">Complessità relativizzata</h2>
+<h3 id="macchine-ad-oracolo">Macchine ad oracolo</h3>
 <p>Una Macchina di Turing non deterministica <strong>con oracolo</strong> è definita da un ennupla</p>
 <p><span class="math display">\[M = (Q, q_0, q?, q+, q-, F, \Sigma, \Gamma, B, k, \delta)\]</span></p>
 <p>con il significato inteso per le MdTN, <em>a parte le seguenti caratterisitche</em>:</p>
@@ -308,7 +341,7 @@
 <li><p><span class="math inline">\(M\)</span> ha tre stati <strong>speciali</strong> <span class="math inline">\(q?, q+, q- \in Q \setminus F\)</span> , dove <span class="math inline">\(q?\)</span> è lo stato di <strong>interrogazione</strong>, e <span class="math inline">\(q+\)</span> , <span class="math inline">\(q-\)</span> sono gli stati di <strong>risposta</strong>.</p></li>
 <li><p>la funzione di <em>transizione</em> <span class="math inline">\(\delta\)</span> <strong>non è definita</strong> sullo stato di <strong>interrogazione</strong>.</p></li>
 </ul>
-<h2 id="semantica-delle-mdtn-ad-oracolo">Semantica delle MdTN ad oracolo</h2>
+<h3 id="semantica-delle-mdtn-ad-oracolo">Semantica delle MdTN ad oracolo</h3>
 <p>La nozione di <strong>computazione</strong> è definita nel modo abituale, ad eccezione delle regole seguenti:</p>
 <ul>
 <li><p>la macchina può <strong>scrivere</strong> sul nastro di <em>interrogazione</em> come su di un nastro <strong>abituale</strong>,</p></li>
@@ -316,7 +349,7 @@
 <li><p>Il <strong>contenuto</strong> del nastro di interrogazione è <strong>cancellato</strong> automaticamente non appena la macchina <strong>rientra</strong> nello stato <span class="math inline">\(q+\)</span> o <span class="math inline">\(q-\)</span> .</p></li>
 </ul>
 <p>Denotiamo con <span class="math inline">\(L_O(f_M)\)</span> il linguaggio <strong>accettato</strong> (<em>la funzione calcolata</em>) dalla macchina <span class="math inline">\(M\)</span> con oracolo <span class="math inline">\(O\)</span> .</p>
-<h2 id="tempo-e-spazio-per-mdtn-ad-oracolo">Tempo e Spazio per MdTN ad oracolo</h2>
+<h3 id="tempo-e-spazio-per-mdtn-ad-oracolo">Tempo e Spazio per MdTN ad oracolo</h3>
 <p>Sia <span class="math inline">\(M\)</span> una MdTN con oracolo <span class="math inline">\(A\)</span>:</p>
 <ul>
 <li><p><span class="math inline">\(time_M^A(x)\)</span> è definito come nel caso deterministico, dove la transizione dallo stato di <em>interrogazione</em> a quello di <em>risposta</em> ha costo <strong>unitario</strong>,</p></li>
@@ -324,7 +357,7 @@
 <li><p><span class="math inline">\(t_M(n)\)</span> è massimo <span class="math inline">\(t_M^A(n)\)</span> per <span class="math inline">\(A \subseteq \Sigma^*\)</span> .</p></li>
 </ul>
 <p><span class="math inline">\(space_M^A(n)\)</span> , <span class="math inline">\(s_M^A(n)\)</span> e <span class="math inline">\(s_M(n)\)</span> sono definite in modo <strong>analogo</strong> (lo spazio richiesto per la scrittura sul nastro di interrogazione è <strong>rilevante</strong>).</p>
-<h2 id="classi-di-complessità-con-oracolo">Classi di complessità con oracolo</h2>
+<h3 id="classi-di-complessità-con-oracolo">Classi di complessità con oracolo</h3>
 <p>Sia <span class="math inline">\(C\)</span> una <strong>classe</strong> di complessità e sia <span class="math inline">\(O \subset \Sigma^*\)</span> un <strong>oracolo</strong>.</p>
 <p>La classe <span class="math inline">\(C^O\)</span> è definita in modo analogo a <span class="math inline">\(C\)</span> con la differenza che si considerano macchine con oracolo <span class="math inline">\(O\)</span> invece delle macchine abituali.</p>
 <p>Ad esempio <span class="math inline">\(P^{SAT}\)</span> è l’insieme dei <strong>linguaggi</strong> che ammettono un algoritmo di <strong>decisione polinomiale</strong>, <strong>ammesso</strong> di avere un oracolo per <span class="math inline">\(SAT\)</span> .</p>
@@ -343,7 +376,7 @@
 <blockquote>
 <p><strong>N.B</strong> <span class="math inline">\(A \in NP^B, B \in NP^C \nRightarrow A \in NP^C\)</span></p>
 </blockquote>
-<h2 id="alcune-classi-di-complessità-con-oracolo">Alcune Classi di Complessità con oracolo</h2>
+<h3 id="alcune-classi-di-complessità-con-oracolo">Alcune Classi di Complessità con oracolo</h3>
 <ol type="1">
 <li><p><span class="math inline">\(P^P = P\)</span></p>
 <p><span class="math inline">\(P \subseteq P^P\)</span> poichè <span class="math inline">\(A \in P^P\)</span> ; <span class="math inline">\(P^P \subseteq P\)</span> segue da</p>
@@ -354,14 +387,14 @@
 <p><span class="math inline">\(PSPACE \subseteq NP^{PSPACE}\)</span> poichè <span class="math inline">\(A \in NP^A\)</span> .</p></li>
 </ol>
 <p><span class="math inline">\(NP^{PSPACE} \subseteq PSPACE\)</span> si ottiene modificando al caso <strong>con oracolo</strong> la dimostrazione che <span class="math inline">\(NTIME(f) \subseteq DSPACE(f)\)</span> .</p>
-<h3 id="nppspace-subseteq-pspace"><span class="math inline">\(NP^{PSPACE} \subseteq PSPACE\)</span></h3>
+<h4 id="nppspace-subseteq-pspace"><span class="math inline">\(NP^{PSPACE} \subseteq PSPACE\)</span></h4>
 <p>Supponiamo che <span class="math inline">\(M\)</span> sia un MdTN con <strong>oracolo</strong> <span class="math inline">\(A \in PSPACE\)</span> e che <span class="math inline">\(t_M \le p\)</span> per qualche <strong>polinomio</strong> <span class="math inline">\(p\)</span> .</p>
 <p>Otteniamo una macchina deterministica <span class="math inline">\(M&#39;\)</span> <strong>eliminando il nondeterminismo</strong> con la tecnica utilizzata nella dimostrazione che <span class="math inline">\(NTIME (f) \le DSPACE (f)\)</span> (ovvero <strong>esplorando esaustivamente</strong> l’albero delle computazioni di <span class="math inline">\(M\)</span>).</p>
 <p>Abbiamo che <span class="math inline">\(L_{M&#39;}^A = L_M^A\)</span> e <span class="math inline">\(s_{M&#39;}^A \in O(p)\)</span> .</p>
 <p>Poichè <strong>ogni interrogazione</strong> <span class="math inline">\(y \in A\)</span> posta dalla macchina <span class="math inline">\(M(M&#39;)\)</span> su input <span class="math inline">\(x\)</span> ha lunghezza <span class="math inline">\(|y| \le p(|x|)\)</span> e <span class="math inline">\(A \in PSPACE\)</span> , possiamo <strong>rimpiazzare</strong> l’oracolo con un <em>sottoprogramma</em> per <span class="math inline">\(A\)</span> utilizzando una qualche MdT <span class="math inline">\(M&#39;&#39;\)</span> tale che <span class="math inline">\(L_{M&#39;&#39;} = A\)</span> e <span class="math inline">\(s_{M&#39;&#39;} \le q\)</span> per un qualche polinomio <span class="math inline">\(q\)</span> .</p>
 <p>La macchina risultante <span class="math inline">\(M&#39;&#39;&#39;\)</span> è <strong>deterministica</strong>, <span class="math inline">\(L_{M&#39;&#39;&#39;} = L_{M&#39;}^A = L_{M}^A\)</span> e <span class="math inline">\(s_{M&#39;&#39;&#39;} \in O(pq)\)</span> .</p>
 <p>Dunque, <span class="math inline">\(L_{M}^A \in PSPACE\)</span> .</p>
-<h3 id="lemma-np-subseteq-pnp-subseteq-npnp">Lemma: <span class="math inline">\(NP \subseteq P^{NP} \subseteq NP^{NP}\)</span></h3>
+<h4 id="lemma-np-subseteq-pnp-subseteq-npnp">Lemma: <span class="math inline">\(NP \subseteq P^{NP} \subseteq NP^{NP}\)</span></h4>
 <blockquote>
 <p><span class="math display">\[NP^P = NP \subseteq P^{NP} \subseteq NP^{NP}\]</span></p>
 </blockquote>
@@ -370,11 +403,8 @@
 <li><span class="math inline">\(NP \subseteq P^{NP}\)</span> segue dal fatto che <span class="math inline">\(A \in P^{A}\)</span> .</li>
 <li><span class="math inline">\(P^{NP} \subseteq NP^{NP}\)</span> segue dal fatto che <span class="math inline">\(A \in P^B \implies A \in NP^B\)</span> .</li>
 </ul>
-<h1 id="teorema-tempo-spazio"><strong>Teorema tempo spazio</strong></h1>
-<h1 id="npspace-pspace"><span class="math inline">\(NPSPACE = PSPACE\)</span></h1>
-<p>vedi teorema di Savitch</p>
-<h1 id="sat-le-vc"><span class="math inline">\(3SAT \le VC\)</span></h1>
-<h2 id="np--completezza-di-3sat"><span class="math inline">\(NP\)</span> -completezza di 3SAT</h2>
+<h2 id="sat-le-vc"><span class="math inline">\(3SAT \le VC\)</span></h2>
+<h3 id="np--completezza-di-3sat"><span class="math inline">\(NP\)</span> -completezza di 3SAT</h3>
 <blockquote>
 <p><span class="math inline">\(3SAT\)</span> è <strong><span class="math inline">\(NP\)</span> -completo</strong>.</p>
 </blockquote>
@@ -394,14 +424,14 @@
 <p>In questo caso, possiamo trasformare <span class="math inline">\((*)\)</span> nel modo seguente:</p>
 <p><span class="math display">\[\{z_1, \dots, z_n\},\{\lnot z_1, x_1\},\{\lnot z_1, y_1\}, \dots, \{\lnot z_n, x_n\}, \{\lnot z_n, y_n\}\]</span></p>
 <p>Adottando la tecnica precedente è possibile dimostrare che <strong>ogni formula</strong> logica può essere trasformata in forma normale congiuntiva (<span class="math inline">\(3\)</span> -letterale) <em>preservando la soddisfacibilità</em> con una crescita al più <strong>polinomiale</strong>.</p>
-<h3 id="il-problema-del-ricoprimento---vertex-cover">Il Problema del Ricoprimento - Vertex Cover</h3>
+<h4 id="il-problema-del-ricoprimento---vertex-cover">Il Problema del Ricoprimento - Vertex Cover</h4>
 <p>Ricordiamo che, dato un grafo <span class="math inline">\(G = (V , E )\)</span> , un ricoprimento è un sottoinsieme <span class="math inline">\(V&#39; \subseteq V\)</span> tale che</p>
 <p><span class="math display">\[\forall (u, v) \in E, u \in V&#39; \lor v \in V&#39;\]</span></p>
 <blockquote>
 <p>Il problema <span class="math inline">\(VC\)</span> di decidere se un grafo ha un <strong>ricoprimento</strong> <span class="math inline">\(V&#39;\)</span> di dimensione <span class="math inline">\(|V&#39;| \le k\)</span> è <strong><span class="math inline">\(NP\)</span> -completo</strong>.</p>
 </blockquote>
 <p>Abbiamo già dimostrato che il problema del ricoprimento è di facile <strong>verifica</strong> e dunque appartiene a <span class="math inline">\(NP\)</span> . Per dimostrarne la <strong>completezza</strong> facciamo vedere che <span class="math inline">\(3SAT \le_P VC\)</span> .</p>
-<h2 id="sat-vs.ricoprimento">3SAT vs. Ricoprimento</h2>
+<h3 id="sat-vs.ricoprimento">3SAT vs. Ricoprimento</h3>
 <p>Sia data una formula <span class="math inline">\(F\)</span> in <span class="math inline">\(3SAT\)</span> , siano <span class="math inline">\(C_1, C_2, \dots, C_m\)</span> le sue <strong>clausole</strong>, con <strong>variabili proposizionali</strong> in <span class="math inline">\(X_1, \dots, X_n\)</span> (possiamo supporre che <span class="math inline">\(n \le 3m\)</span>).</p>
 <p>Costruiamo un grafo <span class="math inline">\(GF\)</span> con <span class="math inline">\(2n + 3m\)</span> <strong>nodi</strong> nel modo seguente.</p>
 <p>Abbiamo <span class="math inline">\(2n\)</span> vertici <span class="math inline">\(x_i\)</span> e <span class="math inline">\(\overline{x}_i\)</span> , e <span class="math inline">\(3m\)</span> vertici <span class="math inline">\(c_{j,k}\)</span> per <span class="math inline">\(k = 1, 2, 3\)</span> <strong>connessi tra di loro</strong> nel modo seguente:</p>
@@ -426,7 +456,7 @@
 <p><span class="math display">\[v(X_i) = true \iff x_i \in S\]</span></p>
 <p><span class="math inline">\(v\)</span> verifica ogni clausola <span class="math inline">\(C_j\)</span> , in quanto <strong>rende vero</strong> il letterale adiacente al vertice <span class="math inline">\(c_{j,k} \not \in S\)</span> .</p>
 <p>Dunque, <span class="math inline">\(F \in 3SAT\)</span> .</p>
-<h3 id="esempi-di-interpretazioniricoprimenti">Esempi di interpretazioni/ricoprimenti</h3>
+<h4 id="esempi-di-interpretazioniricoprimenti">Esempi di interpretazioni/ricoprimenti</h4>
 <p><span class="math display">\[F = (X_1 \lor \lnot X_2 \lor X_3) \land (\lnot X_1 \lor X_3 \lor \lnot X_4) \land (\lnot X_4) \land (\lnot X_2 \lor \lnot X_3 \lor X_4)\]</span></p>
 <ul>
 <li><span class="math inline">\(v(X_1) = 1, v(X_2) = 1, v(X_3) = 1, v(X_4) = 1\)</span></li>
@@ -440,22 +470,162 @@
 <figure>
 <img src="img/3SAT_VC_es2.png" title="3SAT vs. VC" alt="Riduzione della formula ad un ricoprimento" /><figcaption>Riduzione della formula ad un ricoprimento</figcaption>
 </figure>
+<h2 id="gerarchia-polinomiale">Gerarchia Polinomiale</h2>
+<p>Per <span class="math inline">\(n \in N\)</span> si definiscono le seguenti classi:</p>
 <ul>
-<li><span class="math inline">\(VC \le SAT\)</span></li>
-<li>Gerarchia Polinomiale</li>
-<li>HamPath HamCycle</li>
-<li>Insieme indipendente (definizione e riduzione)</li>
-<li>posso testare il costo di una funzione?</li>
-<li>insieme dominante (definizione e riduzione)</li>
-<li>definizione insieme ricorsivamente enumerabile</li>
-<li>definizione di insieme produttivo</li>
-<li>teorema di Rice</li>
-<li>definizione insieme creativo</li>
-<li>definizione di riduzione</li>
-<li>dimostrazione tutti gli insiemi completi sono creativi</li>
-<li>gerarchia polinomiale relativizzata</li>
-<li>relazione tempo spazio</li>
-<li>definizione VC</li>
+<li><span class="math inline">\(\Sigma_0^P \coloneqq \Pi_0^P \coloneqq \Delta_0^P \coloneqq P\)</span></li>
+<li><span class="math inline">\(\Sigma_{n+1}^P \coloneqq NP^{\Sigma_n^P}\)</span></li>
+<li><span class="math inline">\(\Pi_{n+1}^P \coloneqq co\Sigma_{n+1}^P\)</span></li>
+<li><span class="math inline">\(\Delta_{n+1}^P \coloneqq P^{\Sigma_n^P}\)</span></li>
 </ul>
+<p>La classe</p>
+<p><span class="math display">\[PH \coloneqq \bigcup_{n \in N} \Sigma_n^P\]</span></p>
+<p>è detta <strong>gerarchia polinomiale</strong>.</p>
+<p>Osservazioni:</p>
+<ul>
+<li><span class="math inline">\(\Sigma_1^P = NP^P = NP\)</span> , <span class="math inline">\(\Sigma_2^P = NP^{NP}\)</span> , <span class="math inline">\(\Sigma_3^P = NP^{NP^{NP}}\)</span> , <span class="math inline">\(\dots\)</span></li>
+<li><span class="math inline">\(\Delta_1^P = P^P = P\)</span> , <span class="math inline">\(\Delta_2^P = P^{NP}\)</span> , <span class="math inline">\(\Delta_3^P = P^{NP^{NP}}\)</span> , <span class="math inline">\(\dots\)</span></li>
+<li>se <span class="math inline">\(P = NP\)</span> , allora <span class="math inline">\(PH = P\)</span> ,</li>
+<li>se <span class="math inline">\(coNP = NP\)</span> , allora <span class="math inline">\(PH = NP\)</span> .</li>
+</ul>
+<h3 id="teorema-della-gerarchia-polinomiale">Teorema della gerarchia polinomiale</h3>
+<blockquote>
+<p>Per ogni <span class="math inline">\(n \in N\)</span> valgono le seguenti inclusioni:</p>
+<p><span class="math display">\[\Sigma_n^P \cup \Pi_n^P \subseteq \Delta_{n+1}^P \subseteq \Sigma_{n+1}^P \cap \Pi_{n+1}^P \subseteq PSPACE\]</span></p>
+</blockquote>
+<p>La dimostrazione è una conseguenza delle seguenti osservazioni:</p>
+<ul>
+<li><p><span class="math inline">\(A \in P^A \implies \Sigma_n^P \subseteq P^{\Sigma_n^P} = \Delta_{n+1}^P\)</span></p></li>
+<li><p><span class="math inline">\(A \in P^A = P^{\overline{P}} \implies \Pi_n^P \subseteq P^{\Pi_n^P} = P^{\Sigma_n^P} = \Delta_{n+1}^P\)</span></p></li>
+<li><p><span class="math inline">\(P^A \subseteq NP^A \implies \Delta_{n+1}^P = P^{\Sigma_n^P} \subseteq NP^{\Sigma_n^P} = \Sigma_{n+1}^P\)</span></p></li>
+<li><p><span class="math inline">\(\Delta_{n+1}^P = P^{\Sigma_n^P} = coP^{\Sigma_n^P} \subseteq coNP^{\Sigma_n^P} = \Pi_{n+1}^P\)</span></p></li>
+<li><p><span class="math inline">\(\Sigma_0^P = P \subseteq PSPACE\)</span></p></li>
+<li><p><span class="math inline">\(NP^{PSPACE} = PSPACE \implies \Sigma_{n+1}^P = NP^{\Sigma_n^P} \subseteq PSPACE\)</span></p></li>
+</ul>
+<figure>
+<img src="img/Polynomial_time_hierarchy.svg" title="Gerarchia polinomiale" alt="Diagramma commutativo equivalente alla gerarchia in tempo polinomiale. Le freccie denotano inclusione." /><figcaption>Diagramma commutativo equivalente alla gerarchia in tempo polinomiale. Le freccie denotano inclusione.</figcaption>
+</figure>
+<h4 id="alcune-proprietà-di-chiusura">Alcune proprietà di chiusura</h4>
+<p>Per ogni <span class="math inline">\(n \ge 0\)</span>:</p>
+<ul>
+<li><p>se <span class="math inline">\(A, B \in \Sigma_{n}^P\)</span>, allora</p>
+<p><span class="math display">\[A \cup B, A \cap B \in \Sigma_{n}^P \text{, e } \overline{A} \in \Pi_{n}^P\]</span></p></li>
+<li><p>se <span class="math inline">\(A, B \in \Pi_{n}^P\)</span>, allora</p>
+<p><span class="math display">\[A \cup B, A \cap B \in \Pi_{n}^P \text{, e } \overline{A} \in \Sigma_{n}^P\]</span></p></li>
+<li><p>se <span class="math inline">\(A, B \in \Delta_{n}^P\)</span>, allora</p>
+<p><span class="math display">\[A \cup B, A \cap B \text{ e } \overline{A} \in \Delta_{n}^P\]</span></p></li>
+</ul>
+<h2 id="il-problema-dellinsieme-indipendente">Il Problema dell’insieme indipendente</h2>
+<p>Ricordiamo che, dato un grafo <span class="math inline">\(G = (V , E)\)</span> , un insieme <span class="math inline">\(I \subseteq V\)</span> si dice <strong>indipendente</strong> se</p>
+<p><span class="math display">\[∀u, v ∈ I \implies (u, v) \not \in E\]</span></p>
+<blockquote>
+<p>Il problema <span class="math inline">\(IS\)</span> di determinare se un grafo ammette un <strong>insieme indipendente</strong> <span class="math inline">\(I\)</span> di cardinalità <span class="math inline">\(|I| \ge k\)</span> è <strong><span class="math inline">\(NP\)</span> -completo</strong>.</p>
+</blockquote>
+<p>Basta ricordare che <span class="math inline">\(I\)</span> è <strong>indipendente</strong> se e solo se <span class="math inline">\(V \setminus I\)</span> è un <strong>ricoprimento</strong>; poichè <span class="math inline">\(|I| \ge k\)</span> se e solo se <span class="math inline">\(|V \setminus I| \le |V| - k\)</span> , questo permette di ridurre <span class="math inline">\(IS\)</span> a <span class="math inline">\(VC\)</span> .</p>
+<h1 id="calcolabilità">Calcolabilità</h1>
+<h2 id="insiemi-ricorsivi">Insiemi ricorsivi</h2>
+<blockquote>
+<p>Un insieme si dice <strong>ricorsivo</strong> (o decidibile) se la sua funzione caratteristica è calcolabile.</p>
+</blockquote>
+<p><strong>Esempi:</strong></p>
+<ol type="1">
+<li>l’insieme <strong>vuoto</strong> e l’insieme <span class="math inline">\(N\)</span> di tutti i numeri naturali</li>
+<li>ogni insieme <strong>finito</strong></li>
+<li>l’insieme dei numeri <strong>pari</strong></li>
+<li>l’insieme dei numeri <strong>primi</strong></li>
+<li>tutti gli insiemi definiti da predicati <strong>primitivi ricorsivi</strong></li>
+</ol>
+<h2 id="insiemi-ricorsivamente-enumerabili">Insiemi ricorsivamente enumerabili</h2>
+<blockquote>
+<p>Un insieme si dice <strong>ricorsivamente enumerabile</strong> (r.e.) se è <strong>vuoto</strong> oppure è il <strong>codominio</strong> di una funzione <em>totale calcolabile</em> (detta funzione di enumerazione).</p>
+</blockquote>
+<p>Ogni insieme ricorsivo è anche r.e.</p>
+<p>Sia <span class="math inline">\(A\)</span> ricorsivo e sia <span class="math inline">\(c_A\)</span> la sua funzione caratteristica.</p>
+<ul>
+<li>Il caso in cui <span class="math inline">\(A\)</span> è <strong>finito</strong> è banale.</li>
+<li><p>Supponiamo <span class="math inline">\(A\)</span> <strong>infinito</strong>:</p>
+<p><span class="math display">\[
+  \begin{cases}
+      f(0) = \mu y, c_A(y) = 1\\
+      f(x + 1) = \mu y, c_A(y) = 1 \land y &gt; f(x)
+  \end{cases}
+ \]</span></p></li>
+</ul>
+<h2 id="teorema-di-rice">Teorema di Rice</h2>
+<blockquote>
+<p>Una proprietà <strong>estensionale</strong> di programmi è <strong>decidibile</strong> se e solo se è <strong>banale</strong>.</p>
+</blockquote>
+<p>Sia <span class="math inline">\(c\)</span> la funzione <em>caratteristica</em> della proprietà. Sia <span class="math inline">\(m\)</span> un <em>indice</em> per la funzione <strong>ovunque divergente</strong>, e sia <span class="math inline">\(a\)</span> tale <span class="math inline">\(c(a) \not = c(m)\)</span> .</p>
+<p>Cerco <span class="math inline">\(h\)</span> <strong>calcolabile</strong> tale che <span class="math inline">\(\varphi_{h(x)} = \begin{cases} \varphi_a &amp;\text{se } x \in K \\ \varphi_m &amp;\text{se } x \not \in K \end{cases}\)</span></p>
+<figure>
+<img src="img/Rice.png" title="Rice" alt="Funzione h" /><figcaption>Funzione h</figcaption>
+</figure>
+<p>Consideriamo la funzione</p>
+<p><span class="math display">\[\varphi_{h(x)}(y) = \varphi_x(x); \varphi_a(y)\]</span></p>
+<p>dove “$ ;$” denota la <strong>composizione sequenziale</strong>.</p>
+<p>Per la proprietà <em>smn</em> <span class="math inline">\(h\)</span> è <strong>totale</strong> e <strong>calcolabile</strong>.</p>
+<p>È banale verificare che</p>
+<p><span class="math display">\[\varphi_{h(x)} = \begin{cases} \varphi_a &amp;\text{se } x \in K \\ \varphi_m &amp;\text{se } x \not \in K \end{cases}\]</span></p>
+<p>Dunque, utilizzando l’<strong>ipotesi di estensionalitá</strong>, avremmo</p>
+<p><span class="math display">\[c(h(x)) = \begin{cases} c(a) &amp;\text{se } x \in K \\ c(m) &amp;\text{se } x \not \in K \end{cases}\]</span></p>
+<p>che permetterebbe di decidere l’appartenenza a <span class="math inline">\(K\)</span> (e quindi di risolvere <strong>l’halting problem</strong>).</p>
+<h3 id="uso-del-teorema-di-rice">Uso del teorema di Rice</h3>
+<ul>
+<li>Uso <strong>diretto</strong>, per dimostrare che determinate proprietà (essendo estensionali) <strong>non sono decidibili</strong>.</li>
+<li>Uso <strong>indiretto</strong>, per dimostrare che determinate proprietà estensionali <strong>non sono neppure semidecidibili</strong> (basta dimostrare che il <strong>complementare è r.e.</strong>)</li>
+</ul>
+<h4 id="esempio">Esempio</h4>
+<p><span class="math display">\[A = \{i | \varphi_i(0) \downarrow \}\]</span></p>
+<p><span class="math inline">\(A\)</span> <strong>non è banale</strong>, e dunque, per Rice, <strong>non può</strong> essere ricorsivo (uso <strong>diretto</strong>); d’altra parte <span class="math inline">\(A\)</span> è <em>r.e.</em>, dunque</p>
+<p><span class="math display">\[\overline{A} = \{ i | \varphi_i (0) \uparrow \}\]</span></p>
+<p><strong>non è neppure r.e.</strong> altrimenti sia <span class="math inline">\(A\)</span> che <span class="math inline">\(\overline{A}\)</span> <strong>sarebbero ricorsivi</strong>, contraddicendo il risultato di Rice (uso <strong>indiretto</strong>).</p>
+<ul>
+<li>definizione insieme ricorsivamente enumerabile</li>
+<li>dimostrazione tutti gli insiemi completi sono creativi</li>
+</ul>
+<h2 id="la-nozione-di-m-riducibilità">La nozione di <strong>m</strong>-riducibilità</h2>
+<p>Siano <span class="math inline">\(A, B \subseteq N\)</span> ; <span class="math inline">\(A\)</span> si dice <strong>riducibile</strong> (<em>m-riducibile</em>) a <span class="math inline">\(B\)</span> (in simboli <span class="math inline">\(A \le_m B\)</span>), se esiste una funzione <strong>totale e calcolabile</strong> <span class="math inline">\(f\)</span> tale che</p>
+<p><span class="math display">\[x \in A \iff f(x) \in B\]</span></p>
+<p>Due insiemi si dicono <strong>equivalenti</strong> (m-equivalenti) (in simboli <span class="math inline">\(A =_m B\)</span>), se <span class="math inline">\(A \le_m B\)</span> e <span class="math inline">\(B \le_m A\)</span> ;</p>
+<p><strong>Osservazioni:</strong></p>
+<ul>
+<li>la relazione <span class="math inline">\(\le_m\)</span> é un <strong>preordine</strong> (i.e. é riflessiva e transitiva)</li>
+<li>la relazione <span class="math inline">\(=_m\)</span> é una relazione di <strong>equivalenza</strong></li>
+<li><span class="math inline">\(A \le_m B\)</span> se e solo se <span class="math inline">\(\overline{A} \le_m \overline{B}\)</span></li>
+<li>se <span class="math inline">\(A \le_m B\)</span> e <span class="math inline">\(B\)</span> è <strong>ricorsivo</strong> (o r.e.) allora <span class="math inline">\(A\)</span> è <strong>ricorsivo</strong> (o r.e.)</li>
+</ul>
+<h2 id="m-completezza"><strong>m</strong>-completezza</h2>
+<p>Un insieme si dice <em>m-completo</em> se è r.e. ed <strong>ogni</strong> insieme r.e. è riducibile ad esso.</p>
+<blockquote>
+<p><span class="math inline">\(K_0\)</span> e <span class="math inline">\(K\)</span> sono insiemi <strong>completi</strong>.</p>
+</blockquote>
+<p>Dato che <span class="math inline">\(K_0 =_m K\)</span> è sufficiente dimostrare la proprietà per <span class="math inline">\(K_0\)</span> .</p>
+<p>Abbiamo già dimostrato che se <span class="math inline">\(A \le_m K_0\)</span> allora <span class="math inline">\(A\)</span> è <strong>r.e.</strong> e dunque esiste <span class="math inline">\(i\)</span> tale che <span class="math inline">\(A = W_i\)</span> . Allora, per ogni <span class="math inline">\(n\)</span></p>
+<p><span class="math display">\[n \in A \iff n \in W_i \iff \langle i, n \rangle \in K_0\]</span></p>
+<blockquote>
+<p><span class="math inline">\(A\)</span> é <strong>completo</strong> se e solo se <span class="math inline">\(A =_m K\)</span> .</p>
+</blockquote>
+<p>Se <span class="math inline">\(A =_m K\)</span> allora <span class="math inline">\(A\)</span> é <strong>r.e.</strong> e <strong>m-completo</strong> perché lo é <span class="math inline">\(K\)</span> .</p>
+<p>Viceversa se <span class="math inline">\(A\)</span> é <strong>m-completo</strong>, allora é <strong>r.e.</strong> e per la completezza di <span class="math inline">\(K\)</span> , <span class="math inline">\(A \le_m K\)</span> ; inoltre, siccome <span class="math inline">\(K\)</span> é r.e., <span class="math inline">\(K \le_m A\)</span> per la <strong>m-completezza</strong> di <span class="math inline">\(A\)</span> .</p>
+<h2 id="insiemi-produttivi-e-creativi">Insiemi produttivi e creativi</h2>
+<p>Sia <span class="math inline">\(A \subseteq N\)</span> .</p>
+<ol type="1">
+<li><p><span class="math inline">\(A\)</span> si dice <strong>produttivo</strong> se esiste <span class="math inline">\(f\)</span> <strong>totale e calcolabile</strong> tale che per ogni <span class="math inline">\(i\)</span></p>
+<p><span class="math display">\[W_i \subseteq A \implies f(i) \in A \setminus W_i\]</span></p></li>
+<li><p><span class="math inline">\(A\)</span> si dice <strong>creativo</strong> se è <strong>r.e.</strong> ed il suo complemento <span class="math inline">\(\overline{A}\)</span> è <strong>produttivo</strong>.</p></li>
+</ol>
+<p>Si osservi che un insieme produttivo <strong>non puó essere</strong> r.e.</p>
+<p>Infatti, se <span class="math inline">\(A = W_i\)</span> allora preso <span class="math inline">\(W_i \subseteq A\)</span> avremmo che <span class="math inline">\(A \setminus W_i = \emptyset\)</span> e quindi <span class="math inline">\(f(i) \not \in A \setminus W_i\)</span> .</p>
+<blockquote>
+<p><span class="math inline">\(K\)</span> é <strong>creativo</strong> (e la funzione di produzione è <strong>l’identità</strong>).</p>
+</blockquote>
+<h3 id="caratterizzazione-della-produttività">Caratterizzazione della produttività</h3>
+<blockquote>
+<p>Sia <span class="math inline">\(A \in N\)</span>. <span class="math inline">\(A\)</span> é produttivo se e solo se <span class="math inline">\(\overline{K} \le_m A\)</span>.</p>
+</blockquote>
+<h3 id="caratterizzazione-della-creatività">Caratterizzazione della creatività</h3>
+<blockquote>
+<p>Sia <span class="math inline">\(A \in N\)</span>. <span class="math inline">\(A\)</span> é creativo se e solo se <span class="math inline">\(A =_m K\)</span>.</p>
+</blockquote>
 </body>
 </html>

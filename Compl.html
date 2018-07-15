@@ -135,7 +135,9 @@
 <li><a href="#np-e-conp"><span class="math inline">\(NP\)</span> e <strong>co<span class="math inline">\(NP\)</span></strong></a></li>
 </ul></li>
 <li><a href="#la-gerarchia-polinomiale">La gerarchia polinomiale</a><ul>
-<li><a href="#teorema-della-gerarchia-polinomiale">Teorema della gerarchia polinomiale</a></li>
+<li><a href="#teorema-della-gerarchia-polinomiale">Teorema della gerarchia polinomiale</a><ul>
+<li><a href="#alcune-proprietà-di-chiusura">Alcune proprietà di chiusura</a></li>
+</ul></li>
 </ul></li>
 </ul>
 </nav>
@@ -372,12 +374,21 @@
 <p>Per ogni <span class="math inline">\(f: N \rightarrow N\)</span> si ha:</p>
 <p><span class="math display">\[ DTIME(f) \subseteq DSPACE(f) \subseteq \sum\limits_{c \in N} DTIME( 2^{c(log + f)} )\]</span></p>
 <p>La prima inclusione vale in quanto la Macchina di Turing ha bisogno di almeno un passo per visitare una nuova cella.</p>
-<p>La seconda inclusione vale in quanto il <strong>numero di configurazioni</strong> della macchina con spazio fissato è <strong>finito</strong>, e la computazione deve arrestarsi entro un numero di passi <strong>pari al più</strong> a queste configurazioni (altrimenti si avrebbe un ciclo).</p>
+<p>La seconda inclusione vale in quanto il <strong>numero e la dimensione</strong> delle configurazioni di una macchina con spazio fissato è <strong>finito</strong> ( in questo caso ), ed essendo la macchina <em>deterministica</em> non può attraversare due volte la stessa configurazione e la computazione deve arrestarsi entro un numero di passi pari <strong>al più</strong> a queste configurazioni, altrimenti si avrebbe un ciclo. Quindi <span class="math inline">\(M\)</span> termina in al più a <span class="math inline">\(2^{cf}\)</span> passi.</p>
 <p>Calcoliamo il numero di configurazioni. Sia <span class="math inline">\(M = \langle Q, \Gamma, b, \Sigma, k, \delta, q_{0}, F\rangle\)</span> e <span class="math inline">\(L_M \subseteq DSPACE(f)\)</span> . Ricordiamo che una <em>configurazione</em> è una tupla</p>
 <p><span class="math display">\[( q, (\sigma_1, \tau_1), \dots , (\sigma_k, \tau_k))\]</span></p>
 <p>Abbiamo allora</p>
+<ul>
+<li><span class="math inline">\(|Q| =\)</span> numero di stati finiti interni</li>
+<li><span class="math inline">\(s_M(n) =\)</span> lunghezza dei nastri</li>
+<li><span class="math inline">\(k =\)</span> posizione della testina</li>
+<li><span class="math inline">\(|\Gamma|^{s_m(n)} =\)</span> cardinalità dell’alfabeto elevata al numero dei nastri, ovvero il <strong>numero massimo</strong> delle configurazioni che può <em>attraversare</em> la macchina con questa comlessità in spazio</li>
+</ul>
 <p><span class="math display">\[t_M \le |Q| \cdot k \cdot |\Gamma|^{s_{M}(n)} \le 2^{c(log(n) + f(n)) + c}\]</span></p>
 <p>per un <span class="math inline">\(c \in N\)</span> opportuno.</p>
+<blockquote>
+<p><strong>N.B.</strong> Grazie a questo teorema so che un programma che esegue in <strong>spazio</strong> <span class="math inline">\(log(n)\)</span> ha complessità <strong>polinomiale</strong>.</p>
+</blockquote>
 <h2 id="riduzione-ad-un-nastro">Riduzione ad un nastro</h2>
 <p>Per ogni <span class="math inline">\(f: N \rightarrow N\)</span> si ha:</p>
 <p><span class="math display">\[DSPACE(f) \subseteq DSPACE_{1}(f) \land DTIME(f) \subseteq DTIME_{1}(f^2)\]</span></p>
@@ -1193,7 +1204,17 @@
 <li><p><span class="math inline">\(NP^{PSPACE} = PSPACE \implies \Sigma_{n+1}^P = NP^{\Sigma_n^P} \subseteq PSPACE\)</span></p></li>
 </ul>
 <figure>
-<img src="img/Polynomial_time_hierarchy.svg" title="Grafo con cricca" alt="Commutative diagram equivalent to the polynomial time hierarchy. The arrows denote inclusion." /><figcaption>Commutative diagram equivalent to the polynomial time hierarchy. The arrows denote inclusion.</figcaption>
+<img src="img/Polynomial_time_hierarchy.svg" title="Gerarchia polinomiale" alt="Diagramma commutativo equivalente alla gerarchia in tempo polinomiale. Le freccie denotano inclusione." /><figcaption>Diagramma commutativo equivalente alla gerarchia in tempo polinomiale. Le freccie denotano inclusione.</figcaption>
 </figure>
+<h3 id="alcune-proprietà-di-chiusura">Alcune proprietà di chiusura</h3>
+<p>Per ogni <span class="math inline">\(n \ge 0\)</span>:</p>
+<ul>
+<li><p>se <span class="math inline">\(A, B \in \Sigma_{n}^P\)</span>, allora</p>
+<p><span class="math display">\[A \cup B, A \cap B \in \Sigma_{n}^P \text{, e } \overline{A} \in \Pi_{n}^P\]</span></p></li>
+<li><p>se <span class="math inline">\(A, B \in \Pi_{n}^P\)</span>, allora</p>
+<p><span class="math display">\[A \cup B, A \cap B \in \Pi_{n}^P \text{, e } \overline{A} \in \Sigma_{n}^P\]</span></p></li>
+<li><p>se <span class="math inline">\(A, B \in \Delta_{n}^P\)</span>, allora</p>
+<p><span class="math display">\[A \cup B, A \cap B \text{ e } \overline{A} \in \Delta_{n}^P\]</span></p></li>
+</ul>
 </body>
 </html>
