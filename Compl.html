@@ -23,6 +23,123 @@
 <header>
 <h1 class="title">Teoria della Complessità</h1>
 </header>
+<nav id="TOC">
+<ul>
+<li><a href="#introduzione">Introduzione</a><ul>
+<li><a href="#notazioni-utilizzate">Notazioni Utilizzate</a></li>
+<li><a href="#grafi---definizioni">Grafi - Definizioni</a></li>
+<li><a href="#flusso-massimo">Flusso massimo</a><ul>
+<li><a href="#algoritmo">Algoritmo</a></li>
+<li><a href="#complessità-mf">Complessità MF</a></li>
+</ul></li>
+<li><a href="#problemi-decisionali">Problemi decisionali</a></li>
+<li><a href="#matching-bipartito">Matching bipartito</a><ul>
+<li><a href="#riduzione-ad-un-problema-noto">Riduzione ad un problema noto</a></li>
+</ul></li>
+<li><a href="#insieme-indipendente-ricoprimento-e-cricca">Insieme indipendente, ricoprimento e cricca</a></li>
+<li><a href="#ricerca-vs.verifica">Ricerca vs. Verifica</a><ul>
+<li><a href="#soddisfacibilità">Soddisfacibilità</a></li>
+<li><a href="#commesso-viaggiatore">Commesso viaggiatore</a></li>
+<li><a href="#knapsak">Knapsak</a></li>
+</ul></li>
+<li><a href="#riassumendo">Riassumendo</a></li>
+</ul></li>
+<li><a href="#classi-deterministiche-di-complessità">Classi deterministiche di complessità</a><ul>
+<li><a href="#la-macchina-di-turing">La Macchina di Turing</a><ul>
+<li><a href="#hardware">Hardware</a></li>
+<li><a href="#operazioni-elementari">Operazioni elementari</a></li>
+</ul></li>
+<li><a href="#definizione-formale">Definizione formale</a></li>
+<li><a href="#convenzioni-di-inputoutput">Convenzioni di input/output</a></li>
+<li><a href="#configurazioni-istantanee">Configurazioni istantanee</a></li>
+<li><a href="#computazioni">Computazioni</a></li>
+<li><a href="#classi-deterministiche-di-complessità-1">Classi deterministiche di Complessità</a></li>
+<li><a href="#dtime-e-dspace">DTIME e DSPACE</a></li>
+<li><a href="#tempo-e-spazio">Tempo e Spazio</a></li>
+<li><a href="#riduzione-ad-un-nastro">Riduzione ad un nastro</a></li>
+<li><a href="#riduzione-da-k-nastri-a-2">Riduzione da k nastri a 2</a><ul>
+<li><a href="#codifica-dei-nastri-di-m-sul-nastro-di-u">Codifica dei nastri di M sul nastro di U</a></li>
+<li><a href="#invarianti">Invarianti</a></li>
+<li><a href="#effettuare-lo-shift">Effettuare lo shift</a></li>
+<li><a href="#complessità-riduzione-nastri">Complessità riduzione nastri</a></li>
+</ul></li>
+<li><a href="#sequenza-di-attraversamento">Sequenza di attraversamento</a></li>
+<li><a href="#lemma-di-attraversamento">Lemma di attraversamento</a></li>
+<li><a href="#un-limite-inferiore-per-la-riduzione-dei-nastri">Un limite inferiore per la riduzione dei nastri</a></li>
+<li><a href="#macchine-ad-accesso-casuale---random-access-machine">Macchine ad accesso casuale - Random Access Machine</a></li>
+<li><a href="#simulazione-di-una-ram-mediante-mdt-a-7-nastri">Simulazione di una RAM mediante MdT a 7 nastri</a></li>
+<li><a href="#lemma-crescita-del-contenuto-dei-registri">Lemma crescita del contenuto dei registri</a></li>
+<li><a href="#costo-della-simulazione">Costo della simulazione</a></li>
+<li><a href="#conclusioni">Conclusioni</a></li>
+</ul></li>
+<li><a href="#gerarchie-in-tempo-e-spazio">Gerarchie in tempo e spazio</a><ul>
+<li><a href="#macchine-di-turing-normalizzate">Macchine di Turing normalizzate</a></li>
+<li><a href="#macchina-di-turing-universale">Macchina di Turing universale</a></li>
+<li><a href="#funzioni-costruibili">Funzioni costruibili</a></li>
+<li><a href="#il-teorema-della-gerarchia-spazio">Il Teorema della Gerarchia (spazio)</a></li>
+<li><a href="#alcune-classi-di-complessità-deterministica">Alcune Classi di Complessità deterministica</a></li>
+<li><a href="#padding">Padding</a></li>
+</ul></li>
+<li><a href="#complessità-non-deterministica">Complessità non deterministica</a><ul>
+<li><a href="#macchina-di-turing-non-deterministica">Macchina di Turing non deterministica</a></li>
+<li><a href="#classi-di-complessità-non-deterministica">Classi di Complessità Non Deterministica</a></li>
+<li><a href="#riduzione-nastri-per-mdtn">Riduzione nastri per MdTN</a></li>
+<li><a href="#simulazione-del-nondeterminismo-spazio">Simulazione del nondeterminismo (spazio)</a></li>
+<li><a href="#simulazione-del-nondeterminismo-tempo">Simulazione del nondeterminismo (tempo)</a><ul>
+<li><a href="#corollari">Corollari</a></li>
+</ul></li>
+<li><a href="#raggiungibilità">Raggiungibilità</a></li>
+<li><a href="#teorema-di-savitch">Teorema di Savitch</a></li>
+<li><a href="#pspace-e-npspace">PSPACE e NPSPACE</a></li>
+<li><a href="#il-teorema-di-immerman-e-szelepscènyi">Il Teorema di Immerman e Szelepscènyi</a></li>
+</ul></li>
+<li><a href="#nondeterminismo-e-verifica">Nondeterminismo e Verifica</a><ul>
+<li><a href="#il-teorema-della-proiezione">Il Teorema della Proiezione</a><ul>
+<li><a href="#programmazione-per-tentativi-e-verifica">Programmazione per tentativi e verifica</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#riducibilità-e-completezza">Riducibilità e Completezza</a><ul>
+<li><a href="#classi-di-complessità-per-funzioni">Classi di Complessità per funzioni</a></li>
+<li><a href="#chiusura-per-composizione">Chiusura per composizione</a></li>
+<li><a href="#riducibilità">Riducibilità</a></li>
+<li><a href="#chiusura-per-riducibilità">Chiusura per riducibilità</a></li>
+<li><a href="#problemi-ardui-e-completi">Problemi ardui e completi</a></li>
+<li><a href="#mdtn-universale">MdTN Universale</a></li>
+<li><a href="#problema-limitato-della-fermata">Problema limitato della fermata</a></li>
+<li><a href="#p-vs.np">P vs. NP</a></li>
+</ul></li>
+<li><a href="#il-problema-della-soddisfacibilità">Il Problema della Soddisfacibilità</a><ul>
+<li><a href="#teorema-di-cook">Teorema di Cook</a></li>
+<li><a href="#analogie-tra-calcolabilità-e-complessità">Analogie tra Calcolabilità e Complessità</a></li>
+<li><a href="#np--completezza-di-3sat"><span class="math inline">\(NP\)</span> -completezza di 3SAT</a><ul>
+<li><a href="#il-problema-del-ricoprimento---vertex-cover">Il Problema del Ricoprimento - Vertex Cover</a></li>
+</ul></li>
+<li><a href="#sat-vs.ricoprimento">3SAT vs. Ricoprimento</a><ul>
+<li><a href="#esempi-di-interpretazioniricoprimenti">Esempi di interpretazioni/ricoprimenti</a></li>
+</ul></li>
+<li><a href="#il-problema-dellinsieme-indipendente">Il Problema dell’insieme indipendente</a></li>
+<li><a href="#il-problema-della-cricca">Il problema della Cricca</a></li>
+<li><a href="#riduzione-da-sat-a-cammino-hamiltoniano-diretto">Riduzione da SAT a cammino Hamiltoniano diretto</a></li>
+<li><a href="#altri-esempi-di-problemi-np-completi">Altri esempi di problemi NP-completi</a></li>
+</ul></li>
+<li><a href="#complessità-relativizzata">Complessità relativizzata</a><ul>
+<li><a href="#macchine-ad-oracolo">Macchine ad oracolo</a></li>
+<li><a href="#semantica-delle-mdtn-ad-oracolo">Semantica delle MdTN ad oracolo</a></li>
+<li><a href="#tempo-e-spazio-per-mdtn-ad-oracolo">Tempo e Spazio per MdTN ad oracolo</a></li>
+<li><a href="#classi-di-complessità-con-oracolo">Classi di complessità con oracolo</a></li>
+<li><a href="#alcune-classi-di-complessità-con-oracolo">Alcune Classi di Complessità con oracolo</a><ul>
+<li><a href="#nppspace-subseteq-pspace"><span class="math inline">\(NP^{PSPACE} \subseteq PSPACE\)</span></a></li>
+<li><a href="#lemma-np-subseteq-pnp-subseteq-npnp">Lemma: <span class="math inline">\(NP \subseteq P^{NP} \subseteq NP^{NP}\)</span></a></li>
+</ul></li>
+<li><a href="#np-e-conp"><span class="math inline">\(NP\)</span> e <strong>co<span class="math inline">\(NP\)</span></strong></a></li>
+</ul></li>
+<li><a href="#la-gerarchia-polinomiale">La gerarchia polinomiale</a><ul>
+<li><a href="#teorema-della-gerarchia-polinomiale">Teorema della gerarchia polinomiale</a><ul>
+<li><a href="#alcune-proprietà-di-chiusura">Alcune proprietà di chiusura</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
 <h1 id="introduzione">Introduzione</h1>
 <p>Ramo dell’Informatica Teorica focalizzato sulla <strong>classificazione</strong> dei problemi computazionali in funzione della loro inerente difficoltà, ovvero delle <em>risorse necessarie alla loro risoluzione</em>.</p>
 <p>Richiede una definizione precisa di un modello di calcolo che permetta la quantificazione delle risorse (ad esempio tempo e spazio) necessarie alla computazione.</p>
