@@ -456,6 +456,27 @@
 <blockquote>
 <p>Sia <span class="math inline">\(A \in N\)</span>. <span class="math inline">\(A\)</span> é produttivo se e solo se <span class="math inline">\(\overline{K} \le_m A\)</span>.</p>
 </blockquote>
+<p>(<span class="math inline">\(\impliedby\)</span>) Supponiamo che <span class="math inline">\(\overline{K} \le_m A\)</span>, e sia <span class="math inline">\(g\)</span> la corrispondente funzione di <em>riduzione</em>.</p>
+<p>Per <em>smn</em> esiste <span class="math inline">\(h\)</span> totale e calcolabile tale che <span class="math inline">\(\varphi_{h(i)}(x) = \varphi_i(g (x))\)</span>. Dunque</p>
+<p><span class="math display">\[W_{h(i)} = g^{-1}(W_i)\]</span></p>
+<p>Posto <span class="math inline">\(f(i) = g(h(i))\)</span> vogliamo dimostrare che <span class="math inline">\(f\)</span> è una funzione di <strong>produzione</strong> per <span class="math inline">\(A\)</span>, ovvero che per ogni <span class="math inline">\(i\)</span></p>
+<p><span class="math display">\[W_i \subseteq A \implies f(i) \in A \setminus W_i\]</span></p>
+<p>Se <span class="math inline">\(W_i \subseteq A\)</span>, allora <span class="math inline">\(W_{h(i)} = g^{-1}(W_i) \subseteq \overline{K}\)</span> e per la produttività di <span class="math inline">\(\overline{K}\)</span>, <span class="math inline">\(h(i) \in \overline{K} \setminus W_{h(i)}\)</span>.</p>
+<p>Ma allora <span class="math inline">\(f(i) = g(h(i)) \in A \setminus W_i\)</span>.</p>
+<p>(<span class="math inline">\(\implies\)</span>) Sia <span class="math inline">\(A\)</span> <strong>produttivo</strong>, e sia <span class="math inline">\(f\)</span> la funzione di produzione.</p>
+<p>Consideriamo <span class="math inline">\(h\)</span> tot. calc.</p>
+<p><span class="math display">\[\varphi_{h(z,y)}(n) = \begin{cases}0 &amp;\text{se } f(z) = n \land \varphi_y(y) \downarrow \\ \uparrow &amp;\text{altrimenti} \end{cases}\]</span></p>
+<p>Per il <em>secondo teorema di ricorsione</em> esiste <span class="math inline">\(s\)</span> totale e calcolabile tale che</p>
+<p><span class="math display">\[\varphi_{s(y)}(n) = \varphi_{h(s(y), y)}(n) = \begin{cases}0 &amp;\text{se } f(s(y)) = n \land \varphi_y(y) \downarrow \\ \uparrow &amp;\text{altrimenti}\end{cases}\]</span></p>
+<p>e dunque</p>
+<p><span class="math display">\[W_{s(y)} = \begin{cases}\{f(s(y))\} &amp;\text{se } \varphi_y(y) \downarrow \\ \emptyset &amp;\text{altrimenti}\end{cases}\]</span></p>
+<p>Vogliamo dimostrare che <span class="math inline">\(f \circ s\)</span> è una funzione di riduzione da <span class="math inline">\(K\)</span> a <span class="math inline">\(\overline{A}\)</span>:</p>
+<ul>
+<li><p>Se <span class="math inline">\(\varphi_y(y) \downarrow\)</span> allora <span class="math inline">\(W_{s(y)} = \{ f(s(y))\}\)</span>.</p>
+<p>Se <span class="math inline">\(f(s(y)) \in A\)</span> allora <span class="math inline">\(W_{s(y)} \subseteq A\)</span> e quindi per la produttivià di <span class="math inline">\(A\)</span>, <span class="math inline">\(f(s(y)) \in A \setminus W_{s(y)}\)</span>, ed in particolare <span class="math inline">\(f(s(y)) \not \in W_{s(y)} = \{f(s(y))\}\)</span> che è <strong>assurdo</strong>.</p>
+<p>Dunque <span class="math inline">\(f(s(y)) \in \overline{A}\)</span>.</p></li>
+<li><p>Se <span class="math inline">\(\varphi_y(y) \uparrow\)</span>, allora <span class="math inline">\(W_{s(y)} = \emptyset \subseteq A\)</span> e dunque, per la produttivitá di <span class="math inline">\(A\)</span>, <span class="math inline">\(f (s(y )) \in A \setminus W_{s(y)}\)</span> , ed in particolare <span class="math inline">\(f(s(y)) \in A\)</span>.</p></li>
+</ul>
 <h2 id="caratterizzazione-della-creatività">Caratterizzazione della creatività</h2>
 <blockquote>
 <p>Sia <span class="math inline">\(A \in N\)</span>. <span class="math inline">\(A\)</span> é creativo se e solo se <span class="math inline">\(A =_m K\)</span>.</p>

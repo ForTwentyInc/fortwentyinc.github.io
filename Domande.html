@@ -24,51 +24,67 @@
 <h1 class="title">Domande Orale</h1>
 </header>
 <h1 id="domande-frequenti">Domande frequenti</h1>
-<h2 id="teorema-della-gerarchia-spazio"><strong>Teorema della gerarchia (spazio)</strong></h2>
+<h2 id="il-teorema-della-gerarchia-spazio">Il Teorema della Gerarchia (spazio)</h2>
+<p>I teoremi della gerarchia riflettono l’idea intuitiva che disponendo di una maggiore quantità di risorse è effettivamente possibile affrontare problemi più complessi (ad esempio, che esistono funzioni calcolabili in tempo quadratico, ma non in tempo linerare).</p>
+<p>Questi risultati forniscono <strong>una delle poche</strong> tecniche di separabilità tra classi di complessità attualmente conosciute.</p>
 <blockquote>
-<p>Per ogni funzione <strong>costruibile</strong> in spazio <span class="math inline">\(f \colon N \rightarrow N\)</span> , esiste un linguaggio <span class="math inline">\(A\)</span> che è decidibile in spazio <span class="math inline">\(O(n)\)</span> ma non in spazio <span class="math inline">\(o(n)\)</span> .</p>
+<p>Sia <span class="math inline">\(f\)</span> una funzione costruibile in spazio e <span class="math inline">\(log \in O(f)\)</span> . Allora: <span class="math inline">\(O(f) \subseteq O(f&#39;) \iff DSPACE(f) \subseteq DSPACE(f&#39;)\)</span> .</p>
 </blockquote>
-<h3 id="idee-principali">Idee Principali</h3>
-<p>Dobbiamo dimostrare che un linguaggio <span class="math inline">\(A\)</span> abbia due proprietà:</p>
-<ol type="1">
-<li><span class="math inline">\(A\)</span> è decidibile in spazio <span class="math inline">\(O(f(n))\)</span></li>
-<li><span class="math inline">\(A\)</span> non è decidibile in spazio <span class="math inline">\(o(f(n))\)</span></li>
-</ol>
-<p>Descriviamo <span class="math inline">\(A\)</span> definendo un algoritmo <span class="math inline">\(D\)</span> che lo decide.</p>
-<p>L’algoritmo <span class="math inline">\(D\)</span> deve eseguire in spazio <span class="math inline">\(O(f(n))\)</span> , verificando la prima proprietà. Inoltre <span class="math inline">\(D\)</span> deve garantire che <span class="math inline">\(A\)</span> sia differente da qualsiasi linguaggio che sia decidibile in <span class="math inline">\(o(f(n))\)</span> , garantendo così la seconda proprietà.</p>
-<p>Il linguaggio <span class="math inline">\(A\)</span> è differente da quelli presi in esaminazione finora per il fatto che manca di una descrizione nonalgoritmica. Per questo motivo non possiamo offrire un’immagine mentale intuitiva di <span class="math inline">\(A\)</span> .</p>
-<p>Per assicurarci che <span class="math inline">\(A\)</span> non sia decidibile in <span class="math inline">\(o(f(n))\)</span> costruiamo <span class="math inline">\(D\)</span> in modo che implementi una tecnica di <em>diagonalizzazione</em>.</p>
-<p>Se <span class="math inline">\(M\)</span> è una <span class="math inline">\(MdT\)</span> che decide un linguaggio in spazio <span class="math inline">\(o(f(n))\)</span> , <span class="math inline">\(D\)</span> garantisce che <span class="math inline">\(A\)</span> differisce da <span class="math inline">\(M\)</span> in almeno un posto. Quale? Quello corrispondente alla descrizione di <span class="math inline">\(M\)</span> .</p>
-<p>Diamo un’occhiata a come <span class="math inline">\(D\)</span> opera. In parole povere, <span class="math inline">\(D\)</span> prende in input una descrizione di una <span class="math inline">\(MdT\)</span> <span class="math inline">\(M\)</span> . (Se l’input non corrisponde alla descrizione di nessuna <span class="math inline">\(MdT\)</span> , allora le azioni di <span class="math inline">\(D\)</span> non hanno senso su questo input che viene <strong>arbitrariamente</strong> rifiutato).</p>
-<p>Quindi <span class="math inline">\(D\)</span> simula <span class="math inline">\(M\)</span> sullo stesso input, <span class="math inline">\(\langle M \rangle\)</span> (la rappresentazione binaria di <span class="math inline">\(M\)</span>) all’interno del limite di spazio <span class="math inline">\(f(n)\)</span> . Se <span class="math inline">\(M\)</span> si arresta all’interno del limite di spazio, <span class="math inline">\(D\)</span> accetta se <span class="math inline">\(M\)</span> rifiuta.</p>
-<p>Per cui se <span class="math inline">\(M\)</span> esegue in spazio <span class="math inline">\(f(n)\)</span> , sicuramente <span class="math inline">\(D\)</span> ha abbastanza spazio per assicurarsi che il suo linguaggio è diverso da quello di <span class="math inline">\(M\)</span> . Altrimenti <span class="math inline">\(D\)</span> non ha abbastanza spazio per capire cosa fa <span class="math inline">\(M\)</span> .</p>
-<p>Ma fortunatamente <span class="math inline">\(D\)</span> non ha alcuna restrizione sull’agire in modo differente dalle macchine che <strong>non</strong> eseguono in spazio <span class="math inline">\(o(f(n))\)</span> , per cui le azioni di <span class="math inline">\(D\)</span> su questo input sono inconseguenti.</p>
-<p>Questa descrizione cattura l’essenza della dimostrazione ma omette molti dettagli importanti.</p>
-<p>Se <span class="math inline">\(M\)</span> esegue in spazio <span class="math inline">\(o(f(n))\)</span> , <span class="math inline">\(D\)</span> deve garantire che il suo linguaggio sia differente da quello di <span class="math inline">\(M\)</span> . Ma anche quando <span class="math inline">\(M\)</span> esegue in spazio <span class="math inline">\(o(f(n))\)</span> , può usare più di <span class="math inline">\(f(n)\)</span> spazio per un piccolo <span class="math inline">\(n\)</span> , quando il comportamento asintotico non è <em>“ancora partito”</em> .</p>
-<p>Possibilmente, <span class="math inline">\(D\)</span> potrebbe non avere abbastanza spazio per simulare <span class="math inline">\(M\)</span> fino all’arresto sull’input <span class="math inline">\(\langle M \rangle\)</span> , e dunque <span class="math inline">\(D\)</span> perderebbe la sua unica possibilità di evitare il linguaggio di <span class="math inline">\(M\)</span> .</p>
-<p>Quindi se non stiamo attenti, <span class="math inline">\(D\)</span> potrebbe finire per decidere qualche linguaggio che <span class="math inline">\(M\)</span> decide, e il teorema non sarebbe dimostrato.</p>
-<p>Possiamo ovviare a questo problema modificando <span class="math inline">\(D\)</span> per dargli ulteriori opportunità per evitare il linguaggio di <span class="math inline">\(M\)</span> . <span class="math inline">\(D\)</span> invece che semplicemente simulare <span class="math inline">\(M\)</span> quando riceve in input <span class="math inline">\(\langle M \rangle\)</span> , simula <span class="math inline">\(M\)</span> quando riceve in input <span class="math inline">\(\langle M \rangle 10^k\)</span> ; ovvero un input nella forma <span class="math inline">\(bin(M)\)</span> seguito da un <span class="math inline">\(1\)</span> e un certo numero di <span class="math inline">\(0\)</span> .</p>
-<p>Per cui, se <span class="math inline">\(M\)</span> sta davvero eseguendo in spazio <span class="math inline">\(o(f(n))\)</span> , <span class="math inline">\(D\)</span> avrà abbastanza spazio per simularla fino all’arresto sull’input <span class="math inline">\(\langle M \rangle 10^k\)</span> , per qualche valore grande di <span class="math inline">\(k\)</span> così il comportamento asintotico sarà già cominciato.</p>
-<p>Resta da definire un’ultima questione tecnica. Quando <span class="math inline">\(D\)</span> simula <span class="math inline">\(M\)</span> su qualche stringa, <span class="math inline">\(M\)</span> può entrare in un loop infinito usando però solo una quantità limitata di spazio. Ma <span class="math inline">\(D\)</span> dovrebbe essere un decisore, per cui dobbiamo assicurarci che <span class="math inline">\(D\)</span> non loopi all’infinito mentre simula <span class="math inline">\(M\)</span> .</p>
-<p>Ogni macchina che esegue in spazio <span class="math inline">\(o(f(n))\)</span> usa solo <span class="math inline">\(2^{o(f(n))}\)</span> tempo. Modifichiamo così <span class="math inline">\(D\)</span> in modo che conti il numero di passi usati nella simulazione di <span class="math inline">\(M\)</span> . Se questo numero dovesse mai superare <span class="math inline">\(2^{f(n)}\)</span> , allora <span class="math inline">\(D\)</span> <strong>rifiuta</strong>.</p>
 <h3 id="dimostrazione">Dimostrazione</h3>
-<p>Il seguente algoritmo <span class="math inline">\(D(w)\)</span> decide in spazio <span class="math inline">\(O(f(n))\)</span> un linguaggio <span class="math inline">\(A\)</span> che non è decidibile in spazio <span class="math inline">\(o(f(n))\)</span> .</p>
+<p><span class="math inline">\(\implies\)</span> vale banalmente poichè aumentando le risorse disponibili sicuramente non diminuiscono le funzioni calcolabili.</p>
+<p><span class="math inline">\(\impliedby\)</span> dobbiamo dimostrare che <span class="math inline">\(O(f) \subseteq O(f&#39;) \impliedby DSPACE(f) \subseteq DSPACE(f&#39;)\)</span> .</p>
+<p>Per semplicità si passa alla negazione:</p>
+<p><span class="math display">\[O(f) \not \subseteq O(f&#39;) \implies DSPACE(f) \not \subseteq DSPACE(f&#39;)\]</span></p>
+<p>ovvero se <span class="math inline">\(O(f) \not \subseteq O(f&#39;)\)</span> allora esiste almeno un linguaggio <span class="math inline">\(L\)</span> tale che <span class="math inline">\(L \not \in DSPACE(f&#39;)\)</span> e quindi <span class="math inline">\(f&#39; \in o(f)\)</span> .</p>
+<h4 id="definizione-diagonale-di-l">Definizione Diagonale di <span class="math inline">\(L\)</span></h4>
+<p>Sia <span class="math inline">\(L\)</span> il seguente linguaggio:</p>
+<p><span class="math display">\[L \coloneqq \{ 0^k1x | 0^k1x \not \in L_{M_{bin(k)}} \land space_{M_{bin(k)}}( 0^k1x ) \le f(|0^k1x|) \} \]</span></p>
+<p>ovvero il linguaggio delle stringhe <strong>rifiutate da</strong> <span class="math inline">\(M_{bin(k)}\)</span> usando <span class="math inline">\(\le f(|0^k1x|)\)</span> spazio.</p>
+<p>Il linguaggio è un insieme di coppie <span class="math inline">\((k, x)\)</span>, con <span class="math inline">\(k\)</span> zeri terminati da <span class="math inline">\(1\)</span> e <span class="math inline">\(x\)</span> che è la codifica di una macchina.</p>
+<p>Per costruzione del linguaggio vogliamo che lo spazio richiesto dalla macchina <span class="math inline">\(bin(k)\)</span> su input <span class="math inline">\((k, x)\)</span> sia <span class="math inline">\(\le\)</span> di <span class="math inline">\(f\)</span> calcolata sulla dimensione dell’input <span class="math inline">\((k, x)\)</span>.</p>
+<h4 id="l-not-in-dspacef"><span class="math inline">\(L \not \in DSPACE(f&#39;)\)</span></h4>
+<p>Supponiamo che <span class="math inline">\(L \in DSPACE(f&#39;)\)</span>. Allora <strong>decidere</strong> <span class="math inline">\(L\)</span> si riduce alla <strong>simulazione</strong> di una macchina normalizzata <span class="math inline">\(M\)</span> (a due nastri) tale che <span class="math inline">\(L = L_M\)</span> e <span class="math inline">\(s_M \in O(f&#39;)\)</span>, ovvero una macchina in grado di riconoscere <span class="math inline">\(L\)</span> lavorando con complessità <span class="math inline">\(f&#39;\)</span>. Inoltre, esiste un qualche intero <span class="math inline">\(k\)</span> tale che <span class="math inline">\(M_{bin(k)} = M\)</span>.</p>
+<p>Ricordiamo che essendo <span class="math inline">\(f&#39; \in o(f) \implies f \not \in O(f&#39;)\)</span>. Questo significa che il grafico di <span class="math inline">\(f&#39;\)</span> sta definitivamente sotto <span class="math inline">\(f\)</span>.</p>
+<p>Siccome <span class="math inline">\(f&#39; \in o(f)\)</span> esistono <strong>infiniti</strong> <span class="math inline">\(n\)</span> tali per cui <span class="math inline">\(s_{M_{bin(k)}}(n) \le f(n)\)</span> , ovvero lo spazio <strong>massimo</strong> utilizzato da <span class="math inline">\(M_{bin(k)}\)</span> per decidere <span class="math inline">\(n\)</span> è minore o uguale a quello usato da <span class="math inline">\(f(n)\)</span> , e dunque sicuramente esiste un <span class="math inline">\(n\)</span> <strong>maggiore</strong> di <span class="math inline">\(k\)</span>.</p>
+<p>Presa una qualunque stringa <span class="math inline">\(x\)</span> di lunghezza <span class="math inline">\(|x| = n - k - 1\)</span> otteniamo la seguente contraddizione:</p>
+<p><span class="math display">\[0^k1x \in L \iff space_{M_{bin(k)}}( 0^k1x ) \le f(|0^k1x|) \land 0^k1x \not \in L_{M_{bin(k)}}\]</span></p>
+<p>che genera un assurdo in quanto <span class="math inline">\(L = L_{M_{bin(k)}}\)</span>.</p>
+<p>Quindi <span class="math inline">\(L \not \in DSPACE(f&#39;)\)</span> .</p>
+<h4 id="l-in-dspacef"><span class="math inline">\(L \in DSPACE(f)\)</span></h4>
+<p>Dobbiamo ancora dimostrare che <span class="math inline">\(L \in DSPACE(f)\)</span>. L’obiettivo è fare una simulazione che non introduca overhead in spazio.</p>
+<p>Consideriamo una macchina multi-tape <span class="math inline">\(M\)</span> che opera nel modo seguente su input <span class="math inline">\(y\)</span>:</p>
 <ol type="1">
-<li>sia <span class="math inline">\(n = |w|\)</span> .</li>
-<li>Calcola <span class="math inline">\(f(n)\)</span> usando la sua spazio costruibilità e segna il nastro dove finisce <span class="math inline">\(f(n)\)</span> . Se i passi successivi cercano in qualsiasi occasione di superare questo limite, <em>rifiuta</em>.</li>
-<li>Se <span class="math inline">\(w\)</span> non è nella forma <span class="math inline">\(\langle M \rangle 10^k\)</span> per qualche <span class="math inline">\(MdT\)</span> <span class="math inline">\(M\)</span> , <em>rifiuta</em>.</li>
-<li>Simula <span class="math inline">\(M\)</span> su <span class="math inline">\(w\)</span> mentre conta il numero di passi usati nella simulazione. Se il conto eccede mai <span class="math inline">\(2^{f(n)}\)</span> , <em>rifiuta</em>.</li>
-<li>Se <span class="math inline">\(M\)</span> accetta, <em>rifiuta</em>. Se <span class="math inline">\(M\)</span> rifiuta, <em>accetta</em>.</li>
+<li><p>se <span class="math inline">\(y\)</span> è della forma <span class="math inline">\(0^k1x\)</span> allora calcola <span class="math inline">\(0^{f(n)}\)</span> per <span class="math inline">\(n = | 0^k1x |\)</span> , e fallisce altrimenti</p></li>
+<li><p>calcola <span class="math inline">\(bin(t)\)</span> (ovvero il numero massimo di configurazioni della macchina a due nastri normalizzata <span class="math inline">\(M_{bin(k)}\)</span>) per <span class="math inline">\(t \coloneqq |Q| \cdot 2 \cdot 3^{s(n)} \cdot |y|\)</span> dove <span class="math inline">\(Q\)</span> è l’insieme degli stati di <span class="math inline">\(M_{bin(k)}\)</span> .</p></li>
+<li><p>simula passo passo il comportamento di <span class="math inline">\(M_{bin(k)}\)</span> su input <span class="math inline">\(y\)</span> fino a <strong>terminazione</strong> oppure finchè ha utilizzato <strong>più di</strong> <span class="math inline">\(f(n)\)</span> spazio o un tempo <strong>superiore</strong> a <span class="math inline">\(t\)</span> .</p></li>
+<li><p><span class="math inline">\(M\)</span> accetta l’input <span class="math inline">\(y\)</span> se la simulazione di <span class="math inline">\(M_{bin(k)}\)</span> termina <strong>rifiutandolo</strong>, oppure se si <strong>è esaurito</strong> il tempo, ma non lo spazio.</p></li>
 </ol>
-<p>Al passo <span class="math inline">\(4.\)</span> , dobbiamo dare dettagli addizionali della simulazione per poter determinare la quantità di spazio usato.</p>
-<p>La <span class="math inline">\(MdT\)</span> simulata <span class="math inline">\(M\)</span> ha un nastro ad alfabeto <strong>arbitrario</strong> , mentre <span class="math inline">\(D\)</span> ha un nastro ad alfabeto fissato, quindi rappresentiamo ogni cella di <span class="math inline">\(M\)</span> con alcune celle sul nastro di <span class="math inline">\(D\)</span> . Dunque la simulazione introduce un overhead a fattore costante nello spazio usato. In altri parole, se <span class="math inline">\(M\)</span> esegue in spazio <span class="math inline">\(g(n)\)</span> , allora <span class="math inline">\(D\)</span> usa <span class="math inline">\(d \cdot g(n)\)</span> per simulare <span class="math inline">\(M\)</span> per una qualche costante <span class="math inline">\(d\)</span> che dipende da <span class="math inline">\(M\)</span> .</p>
-<p>La macchina <span class="math inline">\(D\)</span> è un <strong>decisore</strong> perchè ognuno dei suoi passi può eseguire per un tempo <strong>limitato</strong> .</p>
-<p>Sia <span class="math inline">\(A\)</span> il linguaggio che <span class="math inline">\(D\)</span> decide. Chiaramente, <span class="math inline">\(A\)</span> è decidibile in spazio <span class="math inline">\(O(f(n))\)</span> perchè <span class="math inline">\(D\)</span> lo può decidere. Ora mostriamo che <span class="math inline">\(A\)</span> non è decidibile in spazio <span class="math inline">\(o(f(n))\)</span></p>
-<p>Assumiamo per assurdo che qualche macchina di Turing <span class="math inline">\(M\)</span> decida <span class="math inline">\(A\)</span> in spazio <span class="math inline">\(g(n)\)</span> dove <span class="math inline">\(g(n) \in o(f(n))\)</span> .</p>
-<p>Come menzionato sopra <span class="math inline">\(D\)</span> può simulare <span class="math inline">\(M\)</span> usando spazio <span class="math inline">\(d \cdot g(n)\)</span> per qualche costante <span class="math inline">\(d\)</span> . Poichè <span class="math inline">\(g(n) \in o(f(n))\)</span> , esiste una costante <span class="math inline">\(n_0\)</span> , dove <span class="math inline">\(d \cdot g(n) \lt f(n)\)</span> per ogni <span class="math inline">\(n \ge n_0\)</span> . Dunque la simulazione di <span class="math inline">\(M\)</span> eseguirà fino all’arresto finchè l’input ha lunghezza <strong>almeno</strong> <span class="math inline">\(n_0\)</span> .</p>
-<p>Consideriamo cosa succede cosa succede quando <span class="math inline">\(D\)</span> è eseguito su input <span class="math inline">\(\langle M \rangle 10^{n_0}\)</span> . Questo input è più lungo di <span class="math inline">\(n_0\)</span> , per cui la simulazione al passo <span class="math inline">\(4.\)</span> terminerà.</p>
-<p>Dunque, <span class="math inline">\(D\)</span> restituirà l’opposto di <span class="math inline">\(M\)</span> sullo stesso input. Quindi <span class="math inline">\(M\)</span> non decide <span class="math inline">\(A\)</span> , che contraddice la nostra ipotesi.</p>
-<p>Quindi <span class="math inline">\(A\)</span> non è decidibile in spazio <span class="math inline">\(o(f(n))\)</span> .</p>
+<p>Osserviamo che se <span class="math inline">\(M_{bin(k)}\)</span> richiede più di <span class="math inline">\(t\)</span> passi su input <span class="math inline">\(y\)</span> allora è in un <strong>ciclo infinito</strong>.</p>
+<ul>
+<li><p>Siccome <span class="math inline">\(f\)</span> è costruibile in spazio, allora il punto <span class="math inline">\(1\)</span> richiede spazio <span class="math inline">\(O(f)\)</span> .</p></li>
+<li><p>Il calcolo di <span class="math inline">\(t\)</span> al punto <span class="math inline">\(2\)</span> richiede spazio <span class="math inline">\(O(log(|y|) + f(n))\)</span> .</p></li>
+</ul>
+<p>La simulazione di <span class="math inline">\(M_{bin(k)}\)</span> al punto <span class="math inline">\(3\)</span> richiede spazio aggiuntivo rispetto a <span class="math inline">\(f(n)\)</span> solo per memorizzare il codice (costante) di <span class="math inline">\(M_{bin(k)}\)</span> .</p>
+<p>Poichè <span class="math inline">\(log(n) \in O(f)\)</span> , e <span class="math inline">\(|y| + k \le n\)</span> tutti i passi richiedono spazio <span class="math inline">\(O(f)\)</span> , il che dimostra che <span class="math inline">\(L \in DSPACE(f)\)</span> .</p>
+<h4 id="osservazione">Osservazione</h4>
+<p>Il Teorema della Gerarchia <strong>non vale senza l’assunzione di costruibilità</strong>. È possibile dimostrare che per ogni funzione <span class="math inline">\(g\)</span> ricorsiva non decrescente esiste una funzione totale calcolabile <span class="math inline">\(f \colon N \rightarrow N\)</span> tale che</p>
+<p><span class="math display">\[DSPACE(f) = DSPACE(g \circ f)\]</span></p>
+<p>Questo risultato, noto come <strong>Gap Theorem</strong> vale anche per <span class="math inline">\(DTIME\)</span>.</p>
+<h3 id="alcune-classi-di-complessità-deterministica">Alcune Classi di Complessità deterministica</h3>
+<ul>
+<li><span class="math inline">\(P \coloneqq \bigcup_{c \in N} DTIME(n^c)\)</span></li>
+<li><span class="math inline">\(EXP \coloneqq \bigcup_{c \in N} DTIME(2^{cn})\)</span></li>
+<li><span class="math inline">\(LOGSPACE \coloneqq DSPACE(log)\)</span></li>
+<li><span class="math inline">\(PSPACE \coloneqq \bigcup_{c \in N} DSPACE(n^c)\)</span></li>
+<li><span class="math inline">\(EXPSPACE \coloneqq \bigcup_{c \in N} DSPACE(2^{cn})\)</span></li>
+</ul>
+<p>Come corollario dei risultati precedenti abbiamo in particolare:</p>
+<ul>
+<li><span class="math inline">\(LOGSPACE \subseteq P \subseteq PSPACE \subset EXPSPACE\)</span></li>
+<li><span class="math inline">\(LOGSPACE \subset PSPACE\)</span></li>
+<li><span class="math inline">\(P \subset EXP \subseteq EXPSPACE\)</span></li>
+</ul>
+<p>Per nessuna inclusione <span class="math inline">\(\subseteq\)</span> si conosce se sia stretta.</p>
 <h2 id="teorema-di-savitch"><strong>Teorema di Savitch</strong></h2>
 <p>Sia <span class="math inline">\(s: N \rightarrow N\)</span> una funzione <strong>costruibile in spazio</strong> e tale che <span class="math inline">\(log \in O(s)\)</span> . Allora</p>
 <p><span class="math display">\[NSPACE(s) \subseteq DSPACE(s^2)\]</span></p>
@@ -561,6 +577,27 @@
 <blockquote>
 <p>Sia <span class="math inline">\(A \in N\)</span>. <span class="math inline">\(A\)</span> é produttivo se e solo se <span class="math inline">\(\overline{K} \le_m A\)</span>.</p>
 </blockquote>
+<p>(<span class="math inline">\(\impliedby\)</span>) Supponiamo che <span class="math inline">\(\overline{K} \le_m A\)</span>, e sia <span class="math inline">\(g\)</span> la corrispondente funzione di <em>riduzione</em>.</p>
+<p>Per <em>smn</em> esiste <span class="math inline">\(h\)</span> totale e calcolabile tale che <span class="math inline">\(\varphi_{h(i)}(x) = \varphi_i(g (x))\)</span>. Dunque</p>
+<p><span class="math display">\[W_{h(i)} = g^{-1}(W_i)\]</span></p>
+<p>Posto <span class="math inline">\(f(i) = g(h(i))\)</span> vogliamo dimostrare che <span class="math inline">\(f\)</span> è una funzione di <strong>produzione</strong> per <span class="math inline">\(A\)</span>, ovvero che per ogni <span class="math inline">\(i\)</span></p>
+<p><span class="math display">\[W_i \subseteq A \implies f(i) \in A \setminus W_i\]</span></p>
+<p>Se <span class="math inline">\(W_i \subseteq A\)</span>, allora <span class="math inline">\(W_{h(i)} = g^{-1}(W_i) \subseteq \overline{K}\)</span> e per la produttività di <span class="math inline">\(\overline{K}\)</span>, <span class="math inline">\(h(i) \in \overline{K} \setminus W_{h(i)}\)</span>.</p>
+<p>Ma allora <span class="math inline">\(f(i) = g(h(i)) \in A \setminus W_i\)</span>.</p>
+<p>(<span class="math inline">\(\implies\)</span>) Sia <span class="math inline">\(A\)</span> <strong>produttivo</strong>, e sia <span class="math inline">\(f\)</span> la funzione di produzione.</p>
+<p>Consideriamo <span class="math inline">\(h\)</span> tot. calc.</p>
+<p><span class="math display">\[\varphi_{h(z,y)}(n) = \begin{cases}0 &amp;\text{se } f(z) = n \land \varphi_y(y) \downarrow \\ \uparrow &amp;\text{altrimenti} \end{cases}\]</span></p>
+<p>Per il <em>secondo teorema di ricorsione</em> esiste <span class="math inline">\(s\)</span> totale e calcolabile tale che</p>
+<p><span class="math display">\[\varphi_{s(y)}(n) = \varphi_{h(s(y), y)}(n) = \begin{cases}0 &amp;\text{se } f(s(y)) = n \land \varphi_y(y) \downarrow \\ \uparrow &amp;\text{altrimenti}\end{cases}\]</span></p>
+<p>e dunque</p>
+<p><span class="math display">\[W_{s(y)} = \begin{cases}\{f(s(y))\} &amp;\text{se } \varphi_y(y) \downarrow \\ \emptyset &amp;\text{altrimenti}\end{cases}\]</span></p>
+<p>Vogliamo dimostrare che <span class="math inline">\(f \circ s\)</span> è una funzione di riduzione da <span class="math inline">\(K\)</span> a <span class="math inline">\(\overline{A}\)</span>:</p>
+<ul>
+<li><p>Se <span class="math inline">\(\varphi_y(y) \downarrow\)</span> allora <span class="math inline">\(W_{s(y)} = \{ f(s(y))\}\)</span>.</p>
+<p>Se <span class="math inline">\(f(s(y)) \in A\)</span> allora <span class="math inline">\(W_{s(y)} \subseteq A\)</span> e quindi per la produttivià di <span class="math inline">\(A\)</span>, <span class="math inline">\(f(s(y)) \in A \setminus W_{s(y)}\)</span>, ed in particolare <span class="math inline">\(f(s(y)) \not \in W_{s(y)} = \{f(s(y))\}\)</span> che è <strong>assurdo</strong>.</p>
+<p>Dunque <span class="math inline">\(f(s(y)) \in \overline{A}\)</span>.</p></li>
+<li><p>Se <span class="math inline">\(\varphi_y(y) \uparrow\)</span>, allora <span class="math inline">\(W_{s(y)} = \emptyset \subseteq A\)</span> e dunque, per la produttivitá di <span class="math inline">\(A\)</span>, <span class="math inline">\(f (s(y )) \in A \setminus W_{s(y)}\)</span> , ed in particolare <span class="math inline">\(f(s(y)) \in A\)</span>.</p></li>
+</ul>
 <h3 id="caratterizzazione-della-creatività">Caratterizzazione della creatività</h3>
 <blockquote>
 <p>Sia <span class="math inline">\(A \in N\)</span>. <span class="math inline">\(A\)</span> é creativo se e solo se <span class="math inline">\(A =_m K\)</span>.</p>
